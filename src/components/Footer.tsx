@@ -13,29 +13,12 @@ export default function Footer({ onOpenTab }: FooterProps) {
         
         {/* Core Quick Trust Bar - high density, lightweight, visually polished */}
         <div className="flex flex-col md:flex-row items-center justify-between pb-8 border-b border-[#DCEBFA] text-xs font-bold text-slate-400 tracking-wider">
-          <div className="flex flex-wrap gap-4 justify-center md:justify-start items-center mb-4 md:mb-0">
+          <div className="flex flex-wrap gap-4 justify-center md:justify-start items-center">
             <span className="text-sky-600 font-bold">NO PAYMENT REQUIRED</span>
             <span className="text-slate-300">•</span>
             <span className="text-sky-600 font-bold">PRIVACY-FIRST INTEL</span>
             <span className="text-slate-300">•</span>
             <span className="text-sky-600 font-bold">ONTARIO & GTA FOCUS</span>
-          </div>
-          <div className="flex gap-5">
-            <button 
-              onClick={() => onOpenTab('privacy')} 
-              className="text-sky-700 hover:text-sky-800 cursor-pointer transition-colors font-extrabold uppercase text-[11px] tracking-widest"
-              id="footer_quick_privacy_btn"
-            >
-              Privacy Promise
-            </button>
-            <span className="text-slate-300">•</span>
-            <button 
-              onClick={() => onOpenTab('faq')} 
-              className="text-sky-700 hover:text-sky-800 cursor-pointer transition-colors font-extrabold uppercase text-[11px] tracking-widest"
-              id="footer_quick_faq_btn"
-            >
-              Pre-launch FAQ
-            </button>
           </div>
         </div>
 
@@ -48,7 +31,7 @@ export default function Footer({ onOpenTab }: FooterProps) {
               <div className="h-9 w-auto flex items-center justify-start overflow-hidden">
                 <img 
                   src="https://i.ibb.co/rfHxnJNM/Astrateq.png" 
-                  alt="Astrateq Logo" 
+                  alt="Astrateq Gadgets Logo" 
                   className="h-9 w-auto object-contain"
                   referrerPolicy="no-referrer"
                 />
@@ -133,7 +116,7 @@ export default function Footer({ onOpenTab }: FooterProps) {
           {/* Column 3: Footer Navigation (span 3) */}
           <div className="md:col-span-3 space-y-4">
             <h4 className="text-xs font-mono uppercase tracking-widest text-[#102A43] font-black border-b border-[#DCEBFA] pb-2">
-              Astrateq Resources
+              Astrateq Gadgets Resources
             </h4>
             
             <div className="flex flex-col gap-2.5">
@@ -142,7 +125,7 @@ export default function Footer({ onOpenTab }: FooterProps) {
                 className="text-left font-bold text-xs sm:text-sm text-slate-600 hover:text-sky-600 cursor-pointer transition-colors py-0.5 hover:translate-x-0.5 transform transition-transform"
                 id="footer_nav_about"
               >
-                About Astrateq
+                About Astrateq Gadgets
               </button>
               <button 
                 onClick={() => onOpenTab('howItWorks')} 

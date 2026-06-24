@@ -169,7 +169,7 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
                     <span className="w-2 h-2 rounded-full bg-blue-500"></span>
                     <div className="font-bold text-slate-900 text-sm">{result.privacyAlignment}</div>
                   </div>
-                  <div className="text-xs text-slate-500 leading-snug">Matches Astrateq's zero-surveillance design values.</div>
+                  <div className="text-xs text-slate-500 leading-snug">Matches Astrateq Gadgets' zero-surveillance design values.</div>
                 </div>
 
               </div>
@@ -297,7 +297,7 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
 
         <div className="relative max-w-3xl mx-auto text-center space-y-6 z-10">
           <span className="text-[10px] font-mono font-bold bg-brand-primary/20 text-brand-secondary border border-brand-primary/30 px-3 py-1.5 rounded-full uppercase tracking-widest">
-            Astrateq founding cohort
+            Astrateq Gadgets founding cohort
           </span>
           <h2 className="font-display font-bold text-2xl sm:text-3xl md:text-4xl tracking-tight max-w-2xl mx-auto">
             Ready to shape the future of driver intelligence?

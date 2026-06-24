@@ -288,7 +288,7 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
             <div className="flex items-center justify-between border-b border-slate-800 pb-3">
               <div className="flex items-center gap-2">
                 <div className="w-2.5 h-2.5 bg-emerald-500 rounded-full"></div>
-                <span className="text-xs font-mono text-slate-400 font-semibold uppercase tracking-wider">Astrateq Diagnostic CA-01</span>
+                <span className="text-xs font-mono text-slate-400 font-semibold uppercase tracking-wider">Astrateq Gadgets Diagnostic CA-01</span>
               </div>
               <span className="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded font-mono">EST: 60S</span>
             </div>

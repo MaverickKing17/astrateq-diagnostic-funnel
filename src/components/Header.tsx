@@ -18,7 +18,7 @@ export default function Header({ onReset, onOpenAbout }: HeaderProps) {
           <div className="h-12 w-auto max-w-[140px] flex items-center justify-start overflow-hidden">
             <img 
               src="https://i.ibb.co/rfHxnJNM/Astrateq.png" 
-              alt="Astrateq Logo" 
+              alt="Astrateq Gadgets Logo" 
               className="h-12 w-auto object-contain group-hover:scale-102 transition-transform"
               referrerPolicy="no-referrer"
             />

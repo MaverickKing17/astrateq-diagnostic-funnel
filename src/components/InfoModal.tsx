@@ -16,7 +16,7 @@ export default function InfoModal({ isOpen, activeTab, onTabChange, onClose, onS
   
   // Tab metadata for navigation inside the modal
   const tabs = [
-    { id: 'about' as InfoTabType, label: 'About Astrateq', icon: Sparkles },
+    { id: 'about' as InfoTabType, label: 'About Astrateq Gadgets', icon: Sparkles },
     { id: 'howItWorks' as InfoTabType, label: 'How It Works', icon: Cpu },
     { id: 'privacy' as InfoTabType, label: 'Privacy Approach', icon: ShieldCheck },
     { id: 'faq' as InfoTabType, label: 'Pre-Launch FAQ', icon: HelpCircle },
@@ -152,7 +152,7 @@ export default function InfoModal({ isOpen, activeTab, onTabChange, onClose, onS
                       </div>
 
                       <p className="text-sm text-slate-600 leading-relaxed">
-                        The Astrateq readiness check helps drivers understand how their vehicle profile, driving context, and privacy preferences align with the pre-launch validation program.
+                        The Astrateq Gadgets readiness check helps drivers understand how their vehicle profile, driving context, and privacy preferences align with the pre-launch validation program.
                       </p>
 
                       {/* Step-by-step layout */}
@@ -205,7 +205,7 @@ export default function InfoModal({ isOpen, activeTab, onTabChange, onClose, onS
                       <div className="flex items-center gap-2.5">
                         <ShieldCheck className="w-5 h-5 text-sky-500" />
                         <h3 className="font-sans font-bold text-xl text-[#102A43]">
-                          Astrateq Privacy Approach
+                          Astrateq Gadgets Privacy Approach
                         </h3>
                       </div>
 
@@ -243,7 +243,7 @@ export default function InfoModal({ isOpen, activeTab, onTabChange, onClose, onS
                           <div className="p-4 bg-white space-y-2">
                             <div className="flex items-start gap-2.5 text-xs text-slate-600">
                               <X className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
-                              <span><strong>No insurance tracking:</strong> We do not position Astrateq as an insurance tracking app.</span>
+                              <span><strong>No insurance tracking:</strong> We do not position Astrateq Gadgets as an insurance tracking app.</span>
                             </div>
                             <div className="flex items-start gap-2.5 text-xs text-slate-600">
                               <X className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
@@ -270,7 +270,7 @@ export default function InfoModal({ isOpen, activeTab, onTabChange, onClose, onS
                       </div>
 
                       <p className="text-xs text-slate-500 italic mt-2">
-                        Astrateq’s goal is to explore useful vehicle intelligence without turning drivers into data products.
+                        Astrateq Gadgets' goal is to explore useful vehicle intelligence without turning drivers into data products.
                       </p>
                     </div>
                   )}
