@@ -305,44 +305,46 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
       </section>
 
       {/* 5. BOTTOM SCENIC HERO CALL TO ACTION */}
-      <section className="relative overflow-hidden bg-slate-950 text-white px-6 py-12 animate-fade-in">
-        {/* Background image backdrop */}
-        <div className="absolute inset-0 z-0 opacity-45 mix-blend-luminosity">
+      <section className="relative overflow-hidden bg-slate-950 text-white px-4 py-16 sm:py-20 animate-fade-in flex items-center justify-center">
+        {/* Background image backdrop - highly clear and vibrant */}
+        <div className="absolute inset-0 z-0 opacity-85">
           <img
             src={ctaImage}
             alt="Sleek premium car on mountain pass road"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-center"
             referrerPolicy="no-referrer"
           />
         </div>
         
-        {/* Gradient backdrop */}
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-slate-950/20 z-0"></div>
+        {/* Dark overlay for rich depth blend and high clarity */}
+        <div className="absolute inset-0 bg-slate-950/50 z-0" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-transparent to-slate-950/95 z-0" />
 
-        <div className="relative max-w-3xl mx-auto text-center space-y-6 z-10">
-          <span className="text-[10px] font-mono font-bold bg-brand-primary/20 text-brand-secondary border border-brand-primary/30 px-3 py-1.5 rounded-full uppercase tracking-widest">
+        {/* Content floats directly over the background image with drop-shadows */}
+        <div className="relative max-w-2xl w-full mx-auto z-10 text-center space-y-6 px-4">
+          <span className="text-[10px] font-mono font-bold bg-brand-primary/20 text-brand-secondary border border-brand-primary/30 px-3 py-1.5 rounded-full uppercase tracking-widest inline-block backdrop-blur-xs">
             Astrateq Gadgets founding cohort
           </span>
-          <h2 className="font-display font-bold text-2xl sm:text-3xl md:text-4xl tracking-tight max-w-2xl mx-auto">
+          <h2 className="font-display font-bold text-2xl sm:text-3xl md:text-4xl tracking-tight max-w-2xl mx-auto text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.85)]">
             Your founding cohort next step is ready.
           </h2>
-          <p className="text-slate-300 text-sm max-w-md mx-auto leading-relaxed">
+          <p className="text-slate-200 text-sm max-w-md mx-auto leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] font-medium">
             Continue from your readiness result to record your early-access interest. No payment is required during validation.
           </p>
 
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               onClick={() => handleCtaClick('bottom_scenic_cta')}
-              className="px-7 py-3.5 bg-gradient-to-r from-brand-primary to-brand-secondary text-white font-bold text-sm sm:text-base rounded-xl shadow-lg hover:opacity-95 transition-all flex items-center gap-2 cursor-pointer w-full sm:w-auto justify-center"
+              className="px-7 py-3.5 bg-gradient-to-r from-brand-primary to-brand-secondary text-white font-bold text-sm sm:text-base rounded-xl shadow-lg hover:opacity-95 transition-all flex items-center gap-2 cursor-pointer w-full sm:w-auto justify-center group"
               id="reserve_access_bottom_btn"
             >
               <span>Continue to Founding Cohort Reservation</span>
-              <ArrowRight className="w-5 h-5" />
+              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-0.5" />
             </button>
 
             <button
               onClick={onReset}
-              className="px-4 py-2.5 bg-slate-900/60 hover:bg-slate-800/80 text-slate-400 hover:text-slate-200 border border-slate-800/80 hover:border-slate-700/80 font-medium text-xs sm:text-sm rounded-xl transition-all flex items-center gap-2 cursor-pointer w-full sm:w-auto justify-center"
+              className="px-4 py-2.5 bg-slate-950/75 hover:bg-slate-900/95 text-slate-300 hover:text-white border border-slate-800/80 hover:border-slate-700/80 font-medium text-xs sm:text-sm rounded-xl transition-all flex items-center gap-2 cursor-pointer w-full sm:w-auto justify-center shadow-md"
               id="retake_diagnostic_bottom_btn"
             >
               <RefreshCw className="w-3.5 h-3.5" />

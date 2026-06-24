@@ -32,9 +32,9 @@ export default function App() {
   const [infoModalTab, setInfoModalTab] = useState<InfoTabType | null>(null);
 
   // Asset paths from generated images
-  const heroImage = "/src/assets/images/canadian_road_hero_1782319723620.jpg";
+  const heroImage = "https://i.ibb.co/yFr9sMwv/Jun-24-2026-03-12-49-PM.png";
   const commuteImage = "/src/assets/images/toronto_gta_commute_1782319738788.jpg";
-  const ctaImage = "/src/assets/images/scenic_car_future_1782319753517.jpg";
+  const ctaImage = "https://i.ibb.co/yFr9sMwv/Jun-24-2026-03-12-49-PM.png";
 
   // Track simulated marketing analytics events
   const trackEvent = (name: string, data?: Record<string, any>) => {

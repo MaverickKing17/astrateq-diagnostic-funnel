@@ -14,55 +14,56 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
     <div className="font-sans text-slate-800" id="landing_view_container">
       
       {/* 1. HERO SECTION */}
-      <section className="relative overflow-hidden bg-[#0A192F] text-white min-h-[95vh] flex items-center">
-        {/* Background image overlay - slightly brightened and more visible */}
-        <div className="absolute inset-0 z-0 opacity-75">
+      <section className="relative overflow-hidden bg-slate-950 text-white min-h-[95vh] flex items-center justify-center px-4 sm:px-6 py-12 md:py-20">
+        {/* Background image overlay - highly clear and premium */}
+        <div className="absolute inset-0 z-0 opacity-85">
           <img
             src={heroImage}
             alt="Canadian mountain wilderness highway"
-            className="w-full h-full object-cover object-center filter brightness-[0.9] contrast-[1.05]"
+            className="w-full h-full object-cover object-center filter contrast-[1.05]"
             referrerPolicy="no-referrer"
           />
         </div>
         
-        {/* Refined gradient overlays to keep excellent text contrast while making road context clearly visible */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0A192F]/85 via-[#0A192F]/50 to-[#0A192F] z-0" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0A192F]/85 via-transparent to-[#0A192F]/85 z-0" />
-        <div className="absolute inset-0 bg-radial-[circle_at_50%_40%] from-transparent via-[#0A192F]/65 to-[#0A192F] z-0" />
+        {/* Balanced dark overlay to preserve depth while making image highly clear */}
+        <div className="absolute inset-0 bg-slate-950/50 z-0" />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/90 via-slate-950/50 to-slate-950 z-0" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-transparent to-slate-950/90 z-0" />
 
-        <div className="relative max-w-4xl mx-auto px-6 py-20 z-10 text-center space-y-8">
+        {/* Content floats directly over the background image with strong text drop-shadows */}
+        <div className="relative max-w-4xl w-full mx-auto z-10 text-center space-y-6 sm:space-y-8 px-4">
           
           {/* Privacy-First Badge Above Title */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-400/30 text-cyan-300 text-xs font-semibold uppercase tracking-wider mx-auto">
-            <Shield className="w-3.5 h-3.5 text-cyan-400" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/15 border border-cyan-400/45 text-cyan-200 text-xs font-semibold uppercase tracking-wider mx-auto shadow-md backdrop-blur-xs">
+            <Shield className="w-3.5 h-3.5 text-cyan-300" />
             <span>Privacy-first driver intelligence</span>
           </div>
 
-          <h1 className="font-sans font-extrabold text-4xl sm:text-5xl md:text-6xl text-white tracking-tight leading-[1.15] max-w-[820px] mx-auto drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]">
+          <h1 className="font-sans font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white tracking-tight leading-[1.15] max-w-[820px] mx-auto drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)]">
             Get your free Canadian <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38bdf8] via-[#0ea5e9] to-cyan-300 font-black">Vehicle Readiness Score</span> in 60 seconds.
           </h1>
 
-          <div className="space-y-4 max-w-2xl mx-auto">
-            <p className="text-cyan-400 font-sans font-black text-sm sm:text-base md:text-lg uppercase tracking-widest drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]">
+          <div className="space-y-3 max-w-2xl mx-auto">
+            <p className="text-cyan-400 font-sans font-black text-sm sm:text-base uppercase tracking-widest drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
               Drive Safer. Drive Smarter.
             </p>
-            <p className="text-sm sm:text-base md:text-lg text-slate-200 leading-relaxed drop-shadow-[0_1px_4px_rgba(0,0,0,0.3)]">
+            <p className="text-sm sm:text-base md:text-lg text-slate-100 leading-relaxed font-medium drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
               See how your vehicle and driving profile stack up for Canadian road conditions — without turning your driving data into a surveillance product.
             </p>
           </div>
 
           {/* Compact Horizontal Trust Badge Group */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-xs sm:text-sm text-slate-200 bg-[#0F2942]/65 backdrop-blur-md border border-[#204468]/50 px-5 py-3 rounded-2xl max-w-2xl mx-auto font-semibold shadow-lg">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-xs sm:text-sm text-white bg-slate-950/75 border border-slate-800/80 px-5 py-3.5 rounded-2xl max-w-2xl mx-auto font-semibold shadow-xl">
             <div className="flex items-center gap-2">
               <Lock className="w-4 h-4 text-cyan-400" />
               <span>No payment required</span>
             </div>
-            <div className="hidden sm:block text-slate-600 font-light">|</div>
+            <div className="hidden sm:block text-slate-700 font-light">|</div>
             <div className="flex items-center gap-2">
               <Clock className="w-4 h-4 text-cyan-400" />
               <span>60 seconds or less</span>
             </div>
-            <div className="hidden sm:block text-slate-600 font-light">|</div>
+            <div className="hidden sm:block text-slate-700 font-light">|</div>
             <div className="flex items-center gap-2">
               <MapPin className="w-4 h-4 text-cyan-400 animate-pulse" />
               <span>Built for Canadian roads</span>
@@ -73,13 +74,13 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
           <div className="space-y-4 pt-2">
             <button
               onClick={onStartDiagnostic}
-              className="w-full sm:w-auto inline-flex items-center justify-center px-10 py-5 bg-gradient-to-r from-[#0ea5e9] via-[#0284c7] to-cyan-500 hover:from-[#38bdf8] hover:to-[#0284c7] text-white font-extrabold text-lg sm:text-xl rounded-2xl shadow-2xl shadow-cyan-500/20 hover:shadow-cyan-400/30 hover:-translate-y-0.5 active:translate-y-0 active:scale-98 transition-all duration-200 cursor-pointer border border-cyan-400/20 group"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-10 py-5 bg-gradient-to-r from-[#0ea5e9] via-[#0284c7] to-cyan-500 hover:from-[#38bdf8] hover:to-[#0284c7] text-white font-extrabold text-lg sm:text-xl rounded-2xl shadow-2xl shadow-cyan-500/30 hover:shadow-cyan-400/40 hover:-translate-y-0.5 active:translate-y-0 active:scale-98 transition-all duration-200 cursor-pointer border border-cyan-400/25 group"
               id="hero_diagnostic_cta"
             >
               <span>Get My Free Readiness Score</span>
               <ChevronRight className="w-5.5 h-5.5 ml-2 transition-transform duration-200 group-hover:translate-x-1" />
             </button>
-            <p className="text-[11px] sm:text-xs text-slate-400 max-w-md mx-auto leading-relaxed">
+            <p className="text-[11px] sm:text-xs text-slate-300 max-w-md mx-auto leading-relaxed drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)] font-medium">
               Takes about 60 seconds. No payment required. Your result helps shape Astrateq Gadgets’ pre-launch validation program.
             </p>
           </div>
