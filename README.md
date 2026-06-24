@@ -1,20 +1,29 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# Astrateq Gadgets
 
-# Run and deploy your AI Studio app
+Astrateq Gadgets is a **privacy-first vehicle intelligence and diagnostic framework** custom-built for Canadian road conditions, with a specific focus on Ontario & GTA freeway commuters. 
 
-This contains everything you need to run your app locally.
+This application provides a highly polished, interactive pre-launch diagnostic tool that calculates vehicle summer and winter readiness scores without tracking your physical locations, speed logs, or reselling driver records.
 
-View your app in AI Studio: https://ai.studio/apps/caebfe59-7eb4-4318-8f4e-663da1d0665e
+## 🚀 Key Features
 
-## Run Locally
+- **Canadian Road Readiness Analyzer**: Detailed questionnaire assessing driving behavior, vehicle types, road condition adaptation, and route exposure.
+- **Dynamic Score Gauge**: Interactive visual gauge component tracking your real-time vehicle compatibility index (0 to 100).
+- **Comprehensive Segment Recommendations**: Tailored summer and winter road advisories depending on vehicle specifications (e.g., FWD, AWD, SUV, Sedan, electric models).
+- **The Astrateq Privacy Promise**: Active client-side sandboxed calculation ensures no automated telemetry profiles are shared with commercial auto insurers or tracking brokers.
 
-**Prerequisites:**  Node.js
+## 🛠️ Technology Stack
 
+- **Frontend**: React 18 with TypeScript, Vite
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion (`motion/react`)
+- **Icons**: Lucide React
+- **Theme**: *Professional Polish* (Cool slate backgrounds, deep navy branding, high-contrast sky accents)
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+---
+
+## 🔒 Privacy & Safety Charter
+
+Unlike corporate telematics OBD-II devices that constantly log lane changes, speed deltas, and absolute GPS positions, **Astrateq** evaluates readiness profile structures safely:
+1. **Local-First Sandboxing**: Math execution resides locally inside secure browser scopes.
+2. **Zero Commercial Data Trafficking**: No speed profiles, route coordinates, or license plates are shared or sold.
+3. **Optimized for Canadians**: Custom parameters are specifically weighted for highway winter ice conditions and general GTA commute factors.

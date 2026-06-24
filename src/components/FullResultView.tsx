@@ -199,7 +199,7 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
               <div className="pt-2 flex flex-col gap-3">
                 <button
                   onClick={() => handleCtaClick('reservation_bridge_cta')}
-                  className="w-full py-4 bg-brand-primary hover:bg-blue-700 text-white font-bold text-base rounded-xl shadow-lg shadow-blue-900/10 active:scale-98 transition-all flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full py-4 bg-brand-primary hover:bg-sky-600 text-white font-bold text-base rounded-xl shadow-lg shadow-blue-900/10 active:scale-98 transition-all flex items-center justify-center gap-2 cursor-pointer"
                   id="reservation_bridge_cta"
                 >
                   <span>Continue to Founding Cohort Reservation</span>

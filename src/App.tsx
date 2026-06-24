@@ -20,6 +20,7 @@ import QuizView from './components/QuizView';
 import PreliminaryView from './components/PreliminaryView';
 import FullResultView from './components/FullResultView';
 import EventLogger from './components/EventLogger';
+import InfoModal, { InfoTabType } from './components/InfoModal';
 
 export default function App() {
   const [currentStep, setCurrentStep] = useState<'landing' | 'quiz' | 'preliminary' | 'full'>('landing');
@@ -28,6 +29,7 @@ export default function App() {
   const [email, setEmail] = useState('');
   const [firstName, setFirstName] = useState('');
   const [events, setEvents] = useState<AnalyticsEvent[]>([]);
+  const [infoModalTab, setInfoModalTab] = useState<InfoTabType | null>(null);
 
   // Asset paths from generated images
   const heroImage = "/src/assets/images/canadian_road_hero_1782319723620.jpg";
@@ -95,9 +97,9 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 font-sans selection:bg-blue-500/20 selection:text-slate-900" id="app_root_layout">
+    <div className="min-h-screen flex flex-col bg-[#F0F4F8] font-sans selection:bg-blue-500/20 selection:text-slate-900" id="app_root_layout">
       {/* Global Brand Header */}
-      <Header onReset={handleReset} />
+      <Header onReset={handleReset} onOpenAbout={() => setInfoModalTab('about')} />
 
       {/* Main Dynamic Conversational Funnel Container */}
       <main className="flex-grow">
@@ -138,10 +140,19 @@ export default function App() {
       </main>
 
       {/* Marketing Conversion Footer - hidden during active quiz to maximize focus */}
-      {currentStep !== 'quiz' && <Footer />}
+      {currentStep !== 'quiz' && <Footer onOpenTab={(tab) => setInfoModalTab(tab)} />}
 
       {/* Floating Interactive Analytics Console */}
       <EventLogger events={events} onClear={clearEvents} />
+
+      {/* Interactive Documentation README Modal */}
+      <InfoModal 
+        isOpen={infoModalTab !== null} 
+        activeTab={infoModalTab || 'about'} 
+        onTabChange={(tab) => setInfoModalTab(tab)}
+        onClose={() => setInfoModalTab(null)} 
+        onStartDiagnostic={handleStartDiagnostic}
+      />
     </div>
   );
 }

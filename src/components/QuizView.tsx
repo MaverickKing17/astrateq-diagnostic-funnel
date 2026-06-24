@@ -164,7 +164,7 @@ export default function QuizView({ onComplete, onBackToLanding, onTrackEvent }: 
                   onClick={() => handleSelectOption(option.id)}
                   className={`group p-4 rounded-xl border text-left flex items-start gap-3.5 cursor-pointer transition-all ${
                     isSelected 
-                      ? 'bg-blue-50/55 border-brand-primary/40 ring-1 ring-brand-primary/20 shadow-sm' 
+                      ? 'bg-sky-50/55 border-brand-primary/40 ring-1 ring-brand-primary/20 shadow-sm' 
                       : 'bg-slate-50/40 hover:bg-slate-50/90 border-slate-200'
                   }`}
                   id={`q${currentQuestion.id}_opt_${option.id}`}
@@ -220,7 +220,7 @@ export default function QuizView({ onComplete, onBackToLanding, onTrackEvent }: 
             disabled={!selectedOptionId}
             className={`flex-1 py-3 px-6 rounded-xl font-semibold text-sm cursor-pointer transition-all flex items-center justify-center gap-2 ${
               selectedOptionId
-                ? 'bg-brand-primary hover:bg-blue-700 text-white shadow-md'
+                ? 'bg-brand-primary hover:bg-sky-600 text-white shadow-md'
                 : 'bg-slate-100 text-slate-400 cursor-not-allowed'
             }`}
             id="quiz_next_btn"

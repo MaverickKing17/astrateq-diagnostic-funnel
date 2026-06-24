@@ -293,7 +293,7 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
           <div className="pt-4">
             <button
               onClick={onStartDiagnostic}
-              className="px-8 py-4 bg-brand-primary hover:bg-blue-700 text-white font-semibold text-base rounded-2xl shadow-lg hover:shadow-blue-500/10 active:scale-98 transition-all flex items-center gap-2 mx-auto cursor-pointer"
+              className="px-8 py-4 bg-brand-primary hover:bg-sky-600 text-white font-semibold text-base rounded-2xl shadow-lg hover:shadow-sky-500/10 active:scale-98 transition-all flex items-center gap-2 mx-auto cursor-pointer"
               id="final_landing_diagnostic_cta"
             >
               <span>Get My Free Readiness Score</span>
