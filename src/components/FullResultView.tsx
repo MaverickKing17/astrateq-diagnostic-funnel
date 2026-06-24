@@ -186,13 +186,16 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
 
             {/* 3. RESERVATION BRIDGE */}
             <div className="dashboard-card bg-gradient-to-r from-blue-50 via-sky-50/30 to-white p-6 sm:p-8 rounded-2xl border-2 border-blue-500/30 shadow-md space-y-5">
-              <div className="space-y-2">
-                <span className="text-[10px] font-mono font-bold uppercase text-brand-primary tracking-widest">Pre-Launch Funding Cohort Reservation</span>
-                <h3 className="font-display font-bold text-xl sm:text-2xl text-slate-900">
-                  See If You Qualify for Founding Access
+              <div className="space-y-3">
+                <span className="text-[10px] font-mono font-bold uppercase text-brand-primary tracking-widest block">Pre-Launch Funding Cohort Reservation</span>
+                <h3 className="font-display font-extrabold text-xl sm:text-2xl text-slate-900 leading-tight">
+                  Your Vehicle Readiness Score: <span className="text-brand-primary">{result.score} / 100</span>
                 </h3>
-                <p className="text-sm text-slate-500 leading-relaxed">
-                  Your readiness score of <strong>{result.score}/100</strong> qualifies you for founding cohort review. The reservation page records your pre-launch interest and helps Astrateq Gadgets validate production demand before hardware allocation decisions are made.
+                <p className="text-sm font-bold text-[#102A43]">
+                  Classification: {result.tierName}
+                </p>
+                <p className="text-sm text-slate-600 leading-relaxed bg-white border border-slate-100 p-4 rounded-xl shadow-xs">
+                  <strong>Explanation:</strong> Your profile shows strong alignment with Astrateq Gadgets’ Canadian readiness validation priorities. You may be eligible to continue toward founding cohort review.
                 </p>
               </div>
 
@@ -205,13 +208,10 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
                   <span>Continue to Founding Cohort Reservation</span>
                   <ArrowRight className="w-5 h-5" />
                 </button>
-                <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 text-[11px] text-slate-500 font-medium">
-                  <div className="flex items-center gap-1">
-                    <Lock className="w-3.5 h-3.5 text-slate-400" />
-                    <span>No payment required during validation</span>
-                  </div>
+                <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 text-[11px] text-slate-500 font-semibold text-center">
+                  <span>No payment required during validation</span>
                   <span className="text-slate-300 hidden sm:inline">•</span>
-                  <span>Pre-launch program</span>
+                  <span>Early access interest only</span>
                   <span className="text-slate-300 hidden sm:inline">•</span>
                   <span>Canadian driver cohort</span>
                 </div>

@@ -119,31 +119,31 @@ export default function Footer({ onOpenTab }: FooterProps) {
               Astrateq Gadgets Resources
             </h4>
             
-            <div className="flex flex-col gap-2.5">
+            <div className="flex flex-col gap-1.5">
               <button 
                 onClick={() => onOpenTab('about')} 
-                className="text-left font-bold text-xs sm:text-sm text-slate-600 hover:text-sky-600 cursor-pointer transition-colors py-0.5 hover:translate-x-0.5 transform transition-transform"
+                className="text-left font-bold text-xs sm:text-sm text-slate-700 hover:text-sky-600 hover:underline cursor-pointer transition-all py-1.5 px-2.5 rounded-lg hover:bg-sky-50/50 -ml-2.5 w-fit"
                 id="footer_nav_about"
               >
                 About Astrateq Gadgets
               </button>
               <button 
                 onClick={() => onOpenTab('howItWorks')} 
-                className="text-left font-bold text-xs sm:text-sm text-slate-600 hover:text-sky-600 cursor-pointer transition-colors py-0.5 hover:translate-x-0.5 transform transition-transform"
+                className="text-left font-bold text-xs sm:text-sm text-slate-700 hover:text-sky-600 hover:underline cursor-pointer transition-all py-1.5 px-2.5 rounded-lg hover:bg-sky-50/50 -ml-2.5 w-fit"
                 id="footer_nav_how"
               >
                 How It Works
               </button>
               <button 
                 onClick={() => onOpenTab('privacy')} 
-                className="text-left font-bold text-xs sm:text-sm text-slate-600 hover:text-sky-600 cursor-pointer transition-colors py-0.5 hover:translate-x-0.5 transform transition-transform"
+                className="text-left font-bold text-xs sm:text-sm text-slate-700 hover:text-sky-600 hover:underline cursor-pointer transition-all py-1.5 px-2.5 rounded-lg hover:bg-sky-50/50 -ml-2.5 w-fit"
                 id="footer_nav_privacy"
               >
                 Privacy Approach
               </button>
               <button 
                 onClick={() => onOpenTab('faq')} 
-                className="text-left font-bold text-xs sm:text-sm text-slate-600 hover:text-sky-600 cursor-pointer transition-colors py-0.5 hover:translate-x-0.5 transform transition-transform"
+                className="text-left font-bold text-xs sm:text-sm text-slate-700 hover:text-sky-600 hover:underline cursor-pointer transition-all py-1.5 px-2.5 rounded-lg hover:bg-sky-50/50 -ml-2.5 w-fit"
                 id="footer_nav_faq"
               >
                 Pre-Launch FAQ
@@ -159,12 +159,12 @@ export default function Footer({ onOpenTab }: FooterProps) {
         </div>
 
         {/* Legal / Disclosure Copy */}
-        <div className="pt-8 border-t border-[#DCEBFA] flex flex-col md:flex-row items-start justify-between gap-6 text-[11px] text-slate-400 leading-relaxed">
+        <div className="pt-8 border-t border-[#DCEBFA] flex flex-col md:flex-row items-start justify-between gap-6 text-[11px] text-slate-500 leading-relaxed">
           <div className="space-y-2">
             <p className="font-extrabold text-[#102A43]">
               © 2026 Astrateq Gadgets. Toronto, ON, Canada.
             </p>
-            <p className="leading-relaxed text-slate-400 max-w-4xl font-medium">
+            <p className="leading-relaxed text-slate-500 max-w-4xl font-medium">
               Astrateq Gadgets is currently in pre-launch market validation. This diagnostic is informational and does not replace official mechanical inspections, certified safety assessments, or manufacturer diagnostics. Hardware availability, compatibility, pricing, and rollout timing are subject to validation results and future manufacturing decisions.
             </p>
           </div>

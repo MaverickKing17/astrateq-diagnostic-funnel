@@ -15,27 +15,28 @@ export default function Header({ onReset, onOpenAbout }: HeaderProps) {
           className="flex items-center text-left group hover:opacity-90 transition-opacity"
           id="brand_logo_btn"
         >
-          <div className="h-12 w-auto max-w-[140px] flex items-center justify-start overflow-hidden">
+          <div className="h-14 w-auto max-w-[175px] flex items-center justify-start overflow-hidden">
             <img 
               src="https://i.ibb.co/rfHxnJNM/Astrateq.png" 
               alt="Astrateq Gadgets Logo" 
-              className="h-12 w-auto object-contain group-hover:scale-102 transition-transform"
+              className="h-14 w-auto object-contain group-hover:scale-102 transition-transform"
               referrerPolicy="no-referrer"
             />
           </div>
         </button>
 
         {/* Privacy-First Badge */}
-        <div className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-sky-50 border border-sky-100/80 text-sky-800 text-xs font-medium font-sans">
+        <div className="hidden md:flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-sky-50 border border-sky-100/80 text-sky-800 text-xs font-semibold font-sans">
           <ShieldCheck className="w-3.5 h-3.5 text-sky-600" />
           <span>Privacy-First Driver Intelligence</span>
         </div>
 
         {/* Menu indicator / README link */}
         <div className="flex items-center gap-3">
-          <div className="text-right hidden md:block">
-            <span className="text-[10px] text-slate-400 block font-mono">VAL-ID</span>
-            <span className="text-xs font-semibold text-sky-600 uppercase tracking-wider">PRE-LAUNCH COHORT</span>
+          <div className="hidden sm:block">
+            <span className="text-[10px] font-mono font-bold bg-sky-50 text-sky-700 border border-sky-150 px-3 py-1.5 rounded-full uppercase tracking-wider">
+              Pre-Launch Cohort
+            </span>
           </div>
           <button 
             onClick={onOpenAbout}

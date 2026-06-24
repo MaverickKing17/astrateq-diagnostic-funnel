@@ -212,7 +212,7 @@ export default function QuizView({ onComplete, onBackToLanding, onTrackEvent }: 
             id="quiz_back_btn"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span>{currentQuestionIdx === 0 ? "Landing" : "Back"}</span>
+            <span>{currentQuestionIdx === 0 ? "Back to intro" : "Back"}</span>
           </button>
 
           <button

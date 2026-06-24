@@ -15,20 +15,20 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
       
       {/* 1. HERO SECTION */}
       <section className="relative overflow-hidden bg-[#0A192F] text-white min-h-[95vh] flex items-center">
-        {/* Background image overlay */}
-        <div className="absolute inset-0 z-0 opacity-60">
+        {/* Background image overlay - slightly brightened and more visible */}
+        <div className="absolute inset-0 z-0 opacity-75">
           <img
             src={heroImage}
             alt="Canadian mountain wilderness highway"
-            className="w-full h-full object-cover object-center filter brightness-[0.85] contrast-[1.05]"
+            className="w-full h-full object-cover object-center filter brightness-[0.9] contrast-[1.05]"
             referrerPolicy="no-referrer"
           />
         </div>
         
-        {/* Linear & Radial Overlay Gradients for readability and subtle blue-navy tint */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0A192F]/90 via-[#0A192F]/65 to-[#0A192F] z-0" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0A192F]/90 via-transparent to-[#0A192F]/90 z-0" />
-        <div className="absolute inset-0 bg-radial-[circle_at_50%_35%] from-transparent via-[#0A192F]/75 to-[#0A192F] z-0" />
+        {/* Refined gradient overlays to keep excellent text contrast while making road context clearly visible */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0A192F]/85 via-[#0A192F]/50 to-[#0A192F] z-0" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0A192F]/85 via-transparent to-[#0A192F]/85 z-0" />
+        <div className="absolute inset-0 bg-radial-[circle_at_50%_40%] from-transparent via-[#0A192F]/65 to-[#0A192F] z-0" />
 
         <div className="relative max-w-4xl mx-auto px-6 py-20 z-10 text-center space-y-8">
           
@@ -93,68 +93,68 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
           
           <div className="text-center space-y-3">
             <h2 className="text-xs font-mono font-bold tracking-widest text-brand-primary uppercase">What You'll Receive</h2>
-            <p className="font-display font-bold text-3xl text-slate-900 tracking-tight">Your Custom Readiness Breakdown</p>
+            <p className="font-display font-bold text-3xl text-slate-900 tracking-tight">What You’ll Unlock in 60 Seconds</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             
             {/* Card 1 */}
-            <div className="dashboard-card bg-white p-7 rounded-2xl border border-slate-100 relative overflow-hidden flex flex-col justify-between min-h-[220px]">
-              <div className="space-y-4">
-                <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-brand-primary">
-                  <Gauge className="w-6 h-6" />
+            <div className="dashboard-card bg-white p-8 rounded-2xl border border-slate-100 border-t-4 border-t-sky-500 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden flex flex-col justify-between min-h-[240px]">
+              <div className="space-y-5">
+                <div className="flex items-center justify-between">
+                  <div className="w-14 h-14 rounded-2xl bg-sky-50 flex items-center justify-center text-brand-primary">
+                    <Gauge className="w-7 h-7" />
+                  </div>
+                  <span className="text-[10px] font-mono font-bold bg-sky-50 text-sky-800 px-2.5 py-1 rounded-full uppercase tracking-wider">
+                    Instant preview
+                  </span>
                 </div>
                 <div>
-                  <h3 className="font-display font-bold text-lg text-slate-900">Vehicle Readiness Score</h3>
-                  <p className="text-sm text-slate-500 mt-2 leading-relaxed">
+                  <h3 className="font-display font-extrabold text-lg sm:text-xl text-slate-900">Vehicle Readiness Score</h3>
+                  <p className="text-sm text-slate-600 mt-2 leading-relaxed">
                     A simple 0–100 readiness score based on your vehicle profile, driving pattern, and readiness inputs.
                   </p>
                 </div>
               </div>
-              <div className="mt-6 pt-4 border-t border-slate-50">
-                <span className="text-[10px] font-mono font-bold bg-slate-100 text-slate-600 px-2.5 py-1 rounded-full uppercase tracking-wider">
-                  Instant preview
-                </span>
-              </div>
             </div>
 
             {/* Card 2 */}
-            <div className="dashboard-card bg-white p-7 rounded-2xl border border-slate-100 relative overflow-hidden flex flex-col justify-between min-h-[220px]">
-              <div className="space-y-4">
-                <div className="w-12 h-12 rounded-xl bg-orange-50 flex items-center justify-center text-orange-600">
-                  <AlertTriangle className="w-6 h-6" />
+            <div className="dashboard-card bg-white p-8 rounded-2xl border border-slate-100 border-t-4 border-t-amber-500 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden flex flex-col justify-between min-h-[240px]">
+              <div className="space-y-5">
+                <div className="flex items-center justify-between">
+                  <div className="w-14 h-14 rounded-2xl bg-amber-50 flex items-center justify-center text-amber-600">
+                    <AlertTriangle className="w-7 h-7" />
+                  </div>
+                  <span className="text-[10px] font-mono font-bold bg-amber-50 text-amber-800 px-2.5 py-1 rounded-full uppercase tracking-wider">
+                    Canadian context
+                  </span>
                 </div>
                 <div>
-                  <h3 className="font-display font-bold text-lg text-slate-900">Canadian Driving Risk Profile</h3>
-                  <p className="text-sm text-slate-500 mt-2 leading-relaxed">
+                  <h3 className="font-display font-extrabold text-lg sm:text-xl text-slate-900">Canadian Driving Risk Profile</h3>
+                  <p className="text-sm text-slate-600 mt-2 leading-relaxed">
                     Understand how commute type, highway use, seasonal conditions, and long-distance travel may affect your driving context.
                   </p>
                 </div>
               </div>
-              <div className="mt-6 pt-4 border-t border-slate-50">
-                <span className="text-[10px] font-mono font-bold bg-blue-50 text-brand-primary px-2.5 py-1 rounded-full uppercase tracking-wider font-semibold">
-                  Shown after completion
-                </span>
-              </div>
             </div>
 
             {/* Card 3 */}
-            <div className="dashboard-card bg-white p-7 rounded-2xl border border-slate-100 relative overflow-hidden flex flex-col justify-between min-h-[220px]">
-              <div className="space-y-4">
-                <div className="w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-600">
-                  <Users className="w-6 h-6" />
+            <div className="dashboard-card bg-white p-8 rounded-2xl border border-slate-100 border-t-4 border-t-emerald-500 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden flex flex-col justify-between min-h-[240px]">
+              <div className="space-y-5">
+                <div className="flex items-center justify-between">
+                  <div className="w-14 h-14 rounded-2xl bg-emerald-50 flex items-center justify-center text-emerald-600">
+                    <Users className="w-7 h-7" />
+                  </div>
+                  <span className="text-[10px] font-mono font-bold bg-emerald-50 text-emerald-850 px-2.5 py-1 rounded-full uppercase tracking-wider">
+                    Eligibility signal
+                  </span>
                 </div>
                 <div>
-                  <h3 className="font-display font-bold text-lg text-slate-900">Founding Cohort Classification</h3>
-                  <p className="text-sm text-slate-500 mt-2 leading-relaxed">
+                  <h3 className="font-display font-extrabold text-lg sm:text-xl text-slate-900">Founding Cohort Classification</h3>
+                  <p className="text-sm text-slate-600 mt-2 leading-relaxed">
                     See whether your profile may qualify for early access consideration in the Astrateq Gadgets founding cohort.
                   </p>
                 </div>
-              </div>
-              <div className="mt-6 pt-4 border-t border-slate-50">
-                <span className="text-[10px] font-mono font-bold bg-emerald-50 text-emerald-700 px-2.5 py-1 rounded-full uppercase tracking-wider font-semibold">
-                  Eligibility signal
-                </span>
               </div>
             </div>
 
@@ -168,45 +168,50 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
         <div className="max-w-4xl mx-auto space-y-12">
           
           <div className="text-center space-y-3">
-            <h2 className="text-xs font-mono font-bold tracking-widest text-brand-primary uppercase">Step-by-Step</h2>
-            <p className="font-display font-bold text-3xl text-slate-900 tracking-tight font-display">How It Works</p>
+            <h2 className="text-xs font-mono font-bold tracking-widest text-brand-primary uppercase">60-Second Flow</h2>
+            <p className="font-display font-bold text-3xl text-slate-900 tracking-tight">How It Works</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-            
-            {/* Step 1 */}
-            <div className="text-center space-y-4 relative z-10 group">
-              <div className="w-12 h-12 rounded-full bg-brand-primary text-white flex items-center justify-center font-bold text-lg mx-auto shadow-md">
-                1
-              </div>
-              <h3 className="font-display font-bold text-slate-900 text-lg">Answer quick questions</h3>
-              <p className="text-sm text-slate-500 max-w-xs mx-auto leading-relaxed">
-                Tell us about your vehicle, driving pattern, and privacy preference.
-              </p>
-            </div>
+          <div className="bg-slate-50/55 rounded-3xl p-8 sm:p-12 border border-slate-100/85 relative shadow-sm">
+            {/* Desktop Connector dashed lines */}
+            <div className="hidden md:block absolute top-[54px] left-[18%] right-[18%] h-[2px] border-t border-dashed border-slate-200 z-0"></div>
 
-            {/* Step 2 */}
-            <div className="text-center space-y-4 relative z-10 group">
-              <div className="w-12 h-12 rounded-full bg-brand-primary text-white flex items-center justify-center font-bold text-lg mx-auto shadow-md">
-                2
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+              
+              {/* Step 1 */}
+              <div className="text-center space-y-4 group">
+                <div className="w-12 h-12 rounded-full bg-brand-primary text-white flex items-center justify-center font-bold text-lg mx-auto shadow-md ring-4 ring-white transition-transform group-hover:scale-105 duration-250">
+                  1
+                </div>
+                <h3 className="font-display font-bold text-slate-900 text-lg">Answer quick questions</h3>
+                <p className="text-sm text-slate-500 max-w-xs mx-auto leading-relaxed">
+                  Tell us about your vehicle, driving pattern, and privacy preference.
+                </p>
               </div>
-              <h3 className="font-display font-bold text-slate-900 text-lg">Preview your readiness score</h3>
-              <p className="text-sm text-slate-500 max-w-xs mx-auto leading-relaxed">
-                See a personalized readiness signal before deeper commitment.
-              </p>
-            </div>
 
-            {/* Step 3 */}
-            <div className="text-center space-y-4 relative z-10 group">
-              <div className="w-12 h-12 rounded-full bg-brand-primary text-white flex items-center justify-center font-bold text-lg mx-auto shadow-md">
-                3
+              {/* Step 2 */}
+              <div className="text-center space-y-4 group">
+                <div className="w-12 h-12 rounded-full bg-brand-primary text-white flex items-center justify-center font-bold text-lg mx-auto shadow-md ring-4 ring-white transition-transform group-hover:scale-105 duration-250">
+                  2
+                </div>
+                <h3 className="font-display font-bold text-slate-900 text-lg">Preview your readiness score</h3>
+                <p className="text-sm text-slate-500 max-w-xs mx-auto leading-relaxed">
+                  See a personalized readiness signal before deeper commitment.
+                </p>
               </div>
-              <h3 className="font-display font-bold text-slate-900 text-lg">See if you qualify for founding access</h3>
-              <p className="text-sm text-slate-500 max-w-xs mx-auto leading-relaxed">
-                High-intent profiles are routed toward the founding cohort reservation page.
-              </p>
-            </div>
 
+              {/* Step 3 */}
+              <div className="text-center space-y-4 group">
+                <div className="w-12 h-12 rounded-full bg-brand-primary text-white flex items-center justify-center font-bold text-lg mx-auto shadow-md ring-4 ring-white transition-transform group-hover:scale-105 duration-250">
+                  3
+                </div>
+                <h3 className="font-display font-bold text-slate-900 text-lg">See if you qualify for founding access</h3>
+                <p className="text-sm text-slate-500 max-w-xs mx-auto leading-relaxed">
+                  High-intent profiles are routed toward the founding cohort reservation page.
+                </p>
+              </div>
+
+            </div>
           </div>
 
         </div>
@@ -225,6 +230,9 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
             </h2>
             <p className="text-sm sm:text-base text-slate-500 max-w-xl mx-auto leading-relaxed font-medium">
               Complete this brief 60-second assessment to calculate your preliminary Canadian Vehicle Readiness Score.
+            </p>
+            <p className="text-xs text-sky-700/85 font-bold tracking-wide">
+              🔒 No VIN required. No payment required.
             </p>
           </div>
 
@@ -251,12 +259,12 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
         <div className="relative max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center z-10">
           
           <div className="space-y-6">
-            <span className="text-xs font-mono font-bold uppercase tracking-widest text-brand-secondary">Canadian Drivers Focus</span>
-            <h2 className="font-display font-bold text-3xl md:text-4xl text-white tracking-tight leading-tight">
+            <span className="text-xs font-mono font-bold uppercase tracking-widest text-cyan-400">Canadian Drivers Focus</span>
+            <h2 className="font-sans font-extrabold text-3xl md:text-4xl text-white tracking-tight leading-tight drop-shadow-md">
               Built around Canadian driving realities
             </h2>
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-              Many vehicle tools focus on raw trouble codes, fleet tracking dashboards, or insurer-style driving logs. Astrateq Gadgets is exploring a different layer: simple, diagnostic-level readiness intelligence for Canadian commutes, seasonal roads, highway travel, and privacy-conscious drivers.
+              Many vehicle tools focus on raw codes, fleet dashboards, or insurer-style monitoring. Astrateq Gadgets is exploring a different layer: readiness intelligence for Canadian commutes, road trips, seasonal roads, and privacy-conscious drivers.
             </p>
 
             <ul className="space-y-3 text-sm">
@@ -315,11 +323,11 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
       {/* 5. FINAL CALL TO ACTION */}
       <section className="py-24 px-6 bg-slate-50 border-t border-slate-100 text-center">
         <div className="max-w-xl mx-auto space-y-6">
-          <h2 className="font-display font-bold text-3xl text-slate-900 tracking-tight">
-            Ready to see your vehicle readiness profile?
+          <h2 className="font-display font-extrabold text-3xl text-slate-900 tracking-tight">
+            Your readiness score is one step away.
           </h2>
-          <p className="text-sm text-slate-500 max-w-md mx-auto leading-relaxed">
-            Take the 60-second diagnostic. Review your preliminary risk signals immediately, and see if your profile qualifies for founding early-access hardware.
+          <p className="text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
+            Complete the 60-second diagnostic to preview your score, risk profile, and founding cohort classification.
           </p>
           <div className="pt-4">
             <button

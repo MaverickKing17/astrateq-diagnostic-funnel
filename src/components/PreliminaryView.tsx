@@ -16,8 +16,8 @@ export default function PreliminaryView({ result, onSubmitEmail, onTrackEvent }:
   const [error, setError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Simple validation
-  const handleSubmit = (e: React.FormEvent) => {
+  // Real API submit via Express backend proxy
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
 
@@ -33,13 +33,57 @@ export default function PreliminaryView({ result, onSubmitEmail, onTrackEvent }:
     }
 
     setIsSubmitting(true);
-    onTrackEvent('email_submitted', { email, firstName });
+    onTrackEvent('email_submitted_start', { email, firstName });
 
-    // Simulated network submit
-    setTimeout(() => {
-      setIsSubmitting(false);
-      onSubmitEmail(email, firstName);
-    }, 1500);
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+          firstName,
+          score: result.score,
+          tierName: result.tierName,
+          riskProfile: result.riskProfile,
+          privacyAlignment: result.privacyAlignment,
+          compatibilityConfidence: result.compatibilityConfidence,
+          riskDesc: result.riskDesc,
+          tierDesc: result.tierDesc,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        if (data.simulated) {
+          onTrackEvent('email_simulated_success', { message: data.message });
+        } else {
+          onTrackEvent('email_send_success', { message: data.message });
+        }
+        setIsSubmitting(false);
+        onSubmitEmail(email, firstName);
+      } else {
+        // Real API returned error (e.g., wrong API key/domain validation in Resend)
+        console.error('Email dispatch failed:', data.error);
+        setError(`Email Dispatch Notice: ${data.error || "An error occurred with Resend."}. Proceeding to report anyway...`);
+        
+        // After a brief delay, let the user proceed anyway so they aren't stuck due to an API config issue
+        setTimeout(() => {
+          setIsSubmitting(false);
+          onSubmitEmail(email, firstName);
+        }, 3000);
+      }
+    } catch (err: any) {
+      console.error('Error sending email:', err);
+      setError(`Connection Notice: Could not connect to verification server. Proceeding to report anyway...`);
+      
+      setTimeout(() => {
+        setIsSubmitting(false);
+        onSubmitEmail(email, firstName);
+      }, 3000);
+    }
   };
 
   return (
