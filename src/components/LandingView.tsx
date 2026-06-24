@@ -15,8 +15,11 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
       
       {/* 1. HERO SECTION */}
       <section className="relative overflow-hidden bg-slate-950 text-white min-h-[95vh] flex items-center justify-center px-4 sm:px-6 py-12 md:py-20">
+        {/* Deep professional navy base under the image */}
+        <div className="absolute inset-0 bg-[#020b14]" />
+
         {/* Background image overlay - highly clear and premium */}
-        <div className="absolute inset-0 z-0 opacity-85">
+        <div className="absolute inset-0 z-0 opacity-75">
           <img
             src={heroImage}
             alt="Canadian mountain wilderness highway"
@@ -25,10 +28,10 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
           />
         </div>
         
-        {/* Balanced dark overlay to preserve depth while making image highly clear */}
-        <div className="absolute inset-0 bg-slate-950/50 z-0" />
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/90 via-slate-950/50 to-slate-950 z-0" />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-transparent to-slate-950/90 z-0" />
+        {/* Deeper, more professional navy-to-transparent gradient overlays atop the hero image */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#030d1a]/95 via-[#030d1a]/65 to-[#030d1a]/95 z-0" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#030d1a]/90 via-transparent to-[#030d1a]/90 z-0" />
+        <div className="absolute inset-0 bg-radial-[circle_at_50%_50%] from-transparent via-[#030d1a]/30 to-[#030d1a]/90 z-0" />
 
         {/* Content floats directly over the background image with strong text drop-shadows */}
         <div className="relative max-w-4xl w-full mx-auto z-10 text-center space-y-6 sm:space-y-8 px-4">
