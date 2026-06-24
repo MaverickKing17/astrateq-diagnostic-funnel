@@ -102,22 +102,23 @@ export function calculateDiagnosticResult(answers: UserAnswers): DiagnosticResul
   const maxPossible = 118;
   const rawRatio = scoreSum / maxPossible;
   
-  // Custom formula to land elegantly between 58 and 96
-  const calculatedScore = Math.round(58 + (96 - 58) * rawRatio);
-  const score = Math.max(58, Math.min(96, calculatedScore));
+  // Custom formula to land elegantly between 45 and 92 (to make it feel highly realistic and believable)
+  const calculatedScore = Math.round(45 + (92 - 45) * rawRatio);
+  const score = Math.max(45, Math.min(92, calculatedScore));
 
-  // Determine Classifications
+  // Determine Classifications based on requested ranges:
+  // High Readiness: 80–94, Moderate: 60–79, Needs Attention: 40–59
   let tier: 1 | 2 | 3 = 2;
   let tierName = "Priority Evaluation Cohort";
   let tierTag = "Moderate Readiness";
   let tierDesc = "Your profile shows a moderate-high readiness score, placing you in our priority evaluation cohort for early hardware and feature compatibility matching.";
   
-  if (score >= 86) {
+  if (score >= 80) {
     tier = 1;
     tierName = "Founding Early Allocation";
     tierTag = "High Readiness";
     tierDesc = "Your profile shows strong, top-tier alignment with Astrateq Gadgets' pre-launch priorities and hardware communication standards.";
-  } else if (score < 72) {
+  } else if (score < 60) {
     tier = 3;
     tierName = "Standard Validation Queue";
     tierTag = "Needs Attention";

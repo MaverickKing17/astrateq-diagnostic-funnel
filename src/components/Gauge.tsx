@@ -42,17 +42,17 @@ export default function Gauge({ score, size = 200 }: GaugeProps) {
   const targetOffset = activeSweepLength - (score / 100) * activeSweepLength;
 
   // Determine status metadata
-  let statusText = 'Good';
+  let statusText = 'Moderate Readiness';
   let statusColor = 'text-sky-500';
   let statusBg = 'bg-sky-50 text-sky-700 border-sky-100';
   let strokeColor = '#0ea5e9'; // sky-500
 
-  if (score >= 86) {
-    statusText = 'Excellent';
+  if (score >= 80) {
+    statusText = 'High Readiness';
     statusColor = 'text-emerald-500';
     statusBg = 'bg-emerald-50 text-emerald-700 border-emerald-100';
     strokeColor = '#10b981'; // emerald-500
-  } else if (score < 72) {
+  } else if (score < 60) {
     statusText = 'Needs Attention';
     statusColor = 'text-amber-500';
     statusBg = 'bg-amber-50 text-amber-700 border-amber-100';

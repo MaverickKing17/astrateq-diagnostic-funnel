@@ -70,9 +70,9 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
               <Gauge score={result.score} size={220} />
               
               <div className="w-full mt-4 pt-4 border-t border-slate-100 text-center">
-                <span className="text-[10px] font-mono text-slate-400 block font-semibold uppercase">COMPATIBILITY HIGHWAY BASELINE</span>
+                <span className="text-[10px] font-mono text-slate-400 block font-semibold uppercase">Readiness Index</span>
                 <p className="text-xs text-slate-500 mt-1 leading-normal">
-                  Calculated against standard Canadian mechanical bus telemetry parameters.
+                  Your score reflects your vehicle profile, driving context, and privacy preference inputs.
                 </p>
               </div>
             </div>
@@ -131,7 +131,7 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
             <div className="dashboard-card bg-white p-6 sm:p-8 rounded-2xl border border-slate-100 space-y-6">
               
               <div className="border-b border-slate-100 pb-4">
-                <h3 className="font-display font-bold text-xl text-slate-900">Your Diagnostic Index Results</h3>
+                <h3 className="font-display font-bold text-xl text-slate-900">Your Vehicle Readiness Breakdown</h3>
                 <p className="text-xs text-slate-500 mt-1">Generated and locked on {new Date().toLocaleDateString('en-CA')}</p>
               </div>
 
@@ -149,7 +149,7 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
                 <div className="p-4 rounded-xl bg-slate-50/50 border border-slate-100 space-y-1.5">
                   <span className="text-[10px] font-mono font-bold uppercase text-slate-400">RISK PROFILE TYPE</span>
                   <div className="font-bold text-slate-900 text-sm leading-tight">{result.riskProfile}</div>
-                  <div className="text-xs text-slate-500 leading-snug">Calculated risk exposure under standard road environments.</div>
+                  <div className="text-xs text-slate-500 leading-snug">Your driving context suggests moderate seasonal or highway-readiness considerations.</div>
                 </div>
 
                 {/* Compatibility Confidence */}
@@ -159,7 +159,7 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
                     <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
                     <div className="font-bold text-slate-900 text-sm">{result.compatibilityConfidence}</div>
                   </div>
-                  <div className="text-xs text-slate-500 leading-snug">Hardware CAN-bus sync feasibility index.</div>
+                  <div className="text-xs text-slate-500 leading-snug">Your vehicle profile shows strong compatibility confidence for pre-launch review.</div>
                 </div>
 
                 {/* Privacy Alignment */}
@@ -169,7 +169,7 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
                     <span className="w-2 h-2 rounded-full bg-blue-500"></span>
                     <div className="font-bold text-slate-900 text-sm">{result.privacyAlignment}</div>
                   </div>
-                  <div className="text-xs text-slate-500 leading-snug">Matches Astrateq Gadgets' zero-surveillance design values.</div>
+                  <div className="text-xs text-slate-500 leading-snug">Aligned with Astrateq Gadgets' privacy-first, no-resale data principles.</div>
                 </div>
 
               </div>
@@ -178,7 +178,10 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
               <div className="bg-blue-50/40 border border-blue-100/55 p-5 rounded-xl space-y-2">
                 <h4 className="text-xs font-mono font-bold uppercase text-brand-primary">What this means</h4>
                 <p className="text-sm text-slate-700 leading-relaxed">
-                  {result.tierDesc} Specifically, your profile types suggest strong resilience under typical high-velocity Ontario highway commuting, but would benefit from local-first thermal sensor telemetry to manage seasonal stresses safely without sending driving habits to insurers.
+                  Your profile shows strong alignment with Astrateq Gadgets’ Canadian readiness validation priorities. Based on your vehicle profile, privacy preference, and driving context, you may be eligible to continue toward founding cohort review.
+                </p>
+                <p className="text-sm text-slate-700 leading-relaxed font-semibold">
+                  Your next step is to record your early-access interest before the current validation cycle closes.
                 </p>
               </div>
 
@@ -189,20 +192,20 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
               <div className="space-y-3">
                 <span className="text-[10px] font-mono font-bold uppercase text-brand-primary tracking-widest block">Pre-Launch Funding Cohort Reservation</span>
                 <h3 className="font-display font-extrabold text-xl sm:text-2xl text-slate-900 leading-tight">
-                  Your Vehicle Readiness Score: <span className="text-brand-primary">{result.score} / 100</span>
+                  Your Founding Cohort Pathway Is Open
                 </h3>
                 <p className="text-sm font-bold text-[#102A43]">
-                  Classification: {result.tierName}
+                  Classification: {result.tierName} (Score: {result.score} / 100)
                 </p>
                 <p className="text-sm text-slate-600 leading-relaxed bg-white border border-slate-100 p-4 rounded-xl shadow-xs">
-                  <strong>Explanation:</strong> Your profile shows strong alignment with Astrateq Gadgets’ Canadian readiness validation priorities. You may be eligible to continue toward founding cohort review.
+                  Your readiness result suggests alignment with Astrateq Gadgets’ pre-launch validation priorities. You may continue to the reservation page to record your early-access interest.
                 </p>
               </div>
 
               <div className="pt-2 flex flex-col gap-3">
                 <button
                   onClick={() => handleCtaClick('reservation_bridge_cta')}
-                  className="w-full py-4 bg-brand-primary hover:bg-sky-600 text-white font-bold text-base rounded-xl shadow-lg shadow-blue-900/10 active:scale-98 transition-all flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full py-4 bg-brand-primary hover:bg-sky-600 text-white font-bold text-base rounded-xl shadow-lg shadow-blue-900/10 active:scale-98 transition-all flex items-center justify-center gap-2 cursor-pointer animate-pulse-subtle"
                   id="reservation_bridge_cta"
                 >
                   <span>Continue to Founding Cohort Reservation</span>
@@ -211,7 +214,7 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
                 <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 text-[11px] text-slate-500 font-semibold text-center">
                   <span>No payment required during validation</span>
                   <span className="text-slate-300 hidden sm:inline">•</span>
-                  <span>Early access interest only</span>
+                  <span>Early-access interest only</span>
                   <span className="text-slate-300 hidden sm:inline">•</span>
                   <span>Canadian driver cohort</span>
                 </div>
@@ -228,9 +231,9 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
         <div className="max-w-5xl mx-auto space-y-10">
           
           <div className="text-center space-y-2">
-            <h2 className="font-display font-bold text-2xl text-slate-900">Privacy-First By Design</h2>
+            <h2 className="font-display font-bold text-2xl text-slate-900">Privacy-first by design</h2>
             <p className="text-sm text-slate-500 max-w-md mx-auto">
-              A readiness checking mechanism completely stripped of surveillance-style positioning.
+              A readiness check built without surveillance-style positioning.
             </p>
           </div>
 
@@ -245,7 +248,7 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
               <ul className="text-xs text-slate-500 space-y-2.5 leading-relaxed list-disc list-inside">
                 <li>Vehicle diagnostic type and profile</li>
                 <li>Driving context and commute frequency</li>
-                <li>Verified email address for custom reports</li>
+                <li>Verified email address for result delivery and cohort follow-up</li>
               </ul>
             </div>
 
@@ -271,7 +274,7 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
               <ul className="text-xs text-slate-500 space-y-2.5 leading-relaxed list-disc list-inside">
                 <li>To map regional Canadian compatibility demand</li>
                 <li>To coordinate localized rollout batches</li>
-                <li>To validate demand for surveillance-free tech</li>
+                <li>To validate demand for privacy-first vehicle intelligence</li>
               </ul>
             </div>
 
@@ -283,7 +286,7 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
       {/* 5. BOTTOM SCENIC HERO CALL TO ACTION */}
       <section className="relative overflow-hidden bg-slate-950 text-white min-h-[50vh] flex items-center px-6 py-16">
         {/* Background image backdrop */}
-        <div className="absolute inset-0 z-0 opacity-40 mix-blend-luminosity">
+        <div className="absolute inset-0 z-0 opacity-45 mix-blend-luminosity">
           <img
             src={ctaImage}
             alt="Sleek premium car on mountain pass road"
@@ -300,10 +303,10 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
             Astrateq Gadgets founding cohort
           </span>
           <h2 className="font-display font-bold text-2xl sm:text-3xl md:text-4xl tracking-tight max-w-2xl mx-auto">
-            Ready to shape the future of driver intelligence?
+            Your founding cohort next step is ready.
           </h2>
           <p className="text-slate-300 text-sm max-w-md mx-auto leading-relaxed">
-            Your inputs directly help validate real, hardware-level diagnostic demand. Secure your founding spot in our Canadian trial program today.
+            Continue from your readiness result to record your early-access interest. No payment is required during validation.
           </p>
 
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -312,16 +315,16 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
               className="px-7 py-3.5 bg-gradient-to-r from-brand-primary to-brand-secondary text-white font-bold text-sm sm:text-base rounded-xl shadow-lg hover:opacity-95 transition-all flex items-center gap-2 cursor-pointer w-full sm:w-auto justify-center"
               id="reserve_access_bottom_btn"
             >
-              <span>Reserve My Founding Access</span>
-              <ChevronRight className="w-4 h-4" />
+              <span>Continue to Founding Cohort Reservation</span>
+              <ArrowRight className="w-5 h-5" />
             </button>
 
             <button
               onClick={onReset}
-              className="px-5 py-3.5 bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 hover:border-slate-700 font-semibold text-sm rounded-xl transition-all flex items-center gap-2 cursor-pointer w-full sm:w-auto justify-center"
+              className="px-4 py-2.5 bg-slate-900/60 hover:bg-slate-800/80 text-slate-400 hover:text-slate-200 border border-slate-800/80 hover:border-slate-700/80 font-medium text-xs sm:text-sm rounded-xl transition-all flex items-center gap-2 cursor-pointer w-full sm:w-auto justify-center"
               id="retake_diagnostic_bottom_btn"
             >
-              <RefreshCw className="w-4 h-4" />
+              <RefreshCw className="w-3.5 h-3.5" />
               <span>Retake Diagnostic</span>
             </button>
           </div>
