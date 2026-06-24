@@ -1,77 +1,86 @@
-import { Shield, Clock, ShieldCheck, CheckCircle2, ChevronRight, Gauge, AlertTriangle, Users, Compass } from 'lucide-react';
+import React from 'react';
+import { Shield, Clock, ShieldCheck, CheckCircle2, ChevronRight, Gauge, AlertTriangle, Users, Compass, Lock, MapPin } from 'lucide-react';
 import { motion } from 'motion/react';
 
 interface LandingViewProps {
   onStartDiagnostic: () => void;
   heroImage: string;
   commuteImage: string;
+  quizView: React.ReactNode;
 }
 
-export default function LandingView({ onStartDiagnostic, heroImage, commuteImage }: LandingViewProps) {
+export default function LandingView({ onStartDiagnostic, heroImage, commuteImage, quizView }: LandingViewProps) {
   return (
     <div className="font-sans text-slate-800" id="landing_view_container">
       
       {/* 1. HERO SECTION */}
-      <section className="relative overflow-hidden bg-slate-950 text-white min-h-[90vh] flex items-center">
+      <section className="relative overflow-hidden bg-[#0A192F] text-white min-h-[95vh] flex items-center">
         {/* Background image overlay */}
-        <div className="absolute inset-0 z-0 opacity-45 mix-blend-luminosity">
+        <div className="absolute inset-0 z-0 opacity-60">
           <img
             src={heroImage}
             alt="Canadian mountain wilderness highway"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-center filter brightness-[0.85] contrast-[1.05]"
             referrerPolicy="no-referrer"
           />
         </div>
         
-        {/* Radial subtle blue ambient glow behind content */}
-        <div className="absolute inset-0 bg-radial-[circle_at_50%_40%] from-brand-primary/20 via-slate-950/90 to-slate-950 z-0"></div>
+        {/* Linear & Radial Overlay Gradients for readability and subtle blue-navy tint */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0A192F]/90 via-[#0A192F]/65 to-[#0A192F] z-0" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0A192F]/90 via-transparent to-[#0A192F]/90 z-0" />
+        <div className="absolute inset-0 bg-radial-[circle_at_50%_35%] from-transparent via-[#0A192F]/75 to-[#0A192F] z-0" />
 
         <div className="relative max-w-4xl mx-auto px-6 py-20 z-10 text-center space-y-8">
           
           {/* Privacy-First Badge Above Title */}
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-primary/10 border border-brand-primary/30 text-brand-secondary text-xs font-semibold uppercase tracking-wider mx-auto">
-            <Shield className="w-3.5 h-3.5" />
-            <span>Privacy-First Driver Intelligence</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-400/30 text-cyan-300 text-xs font-semibold uppercase tracking-wider mx-auto">
+            <Shield className="w-3.5 h-3.5 text-cyan-400" />
+            <span>Privacy-first driver intelligence</span>
           </div>
 
-          <h1 className="font-display font-bold text-4xl sm:text-5xl md:text-6xl text-white tracking-tight leading-tight max-w-3xl mx-auto">
-            Get your free Canadian <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">Vehicle Readiness Score</span> in 60 seconds.
+          <h1 className="font-sans font-extrabold text-4xl sm:text-5xl md:text-6xl text-white tracking-tight leading-[1.15] max-w-[820px] mx-auto drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]">
+            Get your free Canadian <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38bdf8] via-[#0ea5e9] to-cyan-300 font-black">Vehicle Readiness Score</span> in 60 seconds.
           </h1>
 
-          <p className="text-base sm:text-lg md:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            <strong className="text-brand-secondary block sm:inline mr-1">Drive Safer. Drive Smarter.</strong> See how your vehicle and driving profile stack up for Canadian road conditions — without turning your driving data into a surveillance product.
-          </p>
+          <div className="space-y-4 max-w-2xl mx-auto">
+            <p className="text-cyan-400 font-sans font-black text-sm sm:text-base md:text-lg uppercase tracking-widest drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]">
+              Drive Safer. Drive Smarter.
+            </p>
+            <p className="text-sm sm:text-base md:text-lg text-slate-200 leading-relaxed drop-shadow-[0_1px_4px_rgba(0,0,0,0.3)]">
+              See how your vehicle and driving profile stack up for Canadian road conditions — without turning your driving data into a surveillance product.
+            </p>
+          </div>
 
-          {/* Quick Stats Grid */}
-          <div className="flex flex-wrap items-center justify-center gap-y-4 gap-x-6 text-xs sm:text-sm text-slate-300 bg-slate-900/60 backdrop-blur-md border border-slate-800 p-4 rounded-2xl max-w-xl mx-auto font-medium">
+          {/* Compact Horizontal Trust Badge Group */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-xs sm:text-sm text-slate-200 bg-[#0F2942]/65 backdrop-blur-md border border-[#204468]/50 px-5 py-3 rounded-2xl max-w-2xl mx-auto font-semibold shadow-lg">
             <div className="flex items-center gap-2">
-              <ShieldCheck className="w-4.5 h-4.5 text-brand-secondary" />
+              <Lock className="w-4 h-4 text-cyan-400" />
               <span>No payment required</span>
             </div>
-            <div className="w-1 h-1 bg-slate-700 rounded-full hidden sm:block"></div>
+            <div className="hidden sm:block text-slate-600 font-light">|</div>
             <div className="flex items-center gap-2">
-              <Clock className="w-4.5 h-4.5 text-brand-secondary" />
+              <Clock className="w-4 h-4 text-cyan-400" />
               <span>60 seconds or less</span>
             </div>
-            <div className="w-1 h-1 bg-slate-700 rounded-full hidden sm:block"></div>
+            <div className="hidden sm:block text-slate-600 font-light">|</div>
             <div className="flex items-center gap-2">
-              <Compass className="w-4.5 h-4.5 text-brand-secondary" />
+              <MapPin className="w-4 h-4 text-cyan-400 animate-pulse" />
               <span>Built for Canadian roads</span>
             </div>
           </div>
 
           {/* Core Conversion Call to Action */}
-          <div className="space-y-4">
+          <div className="space-y-4 pt-2">
             <button
               onClick={onStartDiagnostic}
-              className="px-8 py-4.5 bg-gradient-to-r from-brand-primary to-brand-secondary hover:opacity-95 text-white font-semibold text-lg rounded-2xl shadow-xl shadow-blue-900/30 hover:shadow-blue-500/20 active:scale-98 transition-all flex items-center gap-2.5 mx-auto cursor-pointer"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-10 py-5 bg-gradient-to-r from-[#0ea5e9] via-[#0284c7] to-cyan-500 hover:from-[#38bdf8] hover:to-[#0284c7] text-white font-extrabold text-lg sm:text-xl rounded-2xl shadow-2xl shadow-cyan-500/20 hover:shadow-cyan-400/30 hover:-translate-y-0.5 active:translate-y-0 active:scale-98 transition-all duration-200 cursor-pointer border border-cyan-400/20 group"
               id="hero_diagnostic_cta"
             >
               <span>Get My Free Readiness Score</span>
-              <ChevronRight className="w-5 h-5" />
+              <ChevronRight className="w-5.5 h-5.5 ml-2 transition-transform duration-200 group-hover:translate-x-1" />
             </button>
-            <p className="text-xs text-slate-400 max-w-md mx-auto">
-              Takes about 60 seconds. Your result helps shape Astrateq Gadgets’ pre-launch validation program.
+            <p className="text-[11px] sm:text-xs text-slate-400 max-w-md mx-auto leading-relaxed">
+              Takes about 60 seconds. No payment required. Your result helps shape Astrateq Gadgets’ pre-launch validation program.
             </p>
           </div>
 
@@ -203,6 +212,28 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
         </div>
       </section>
 
+      {/* INTERACTIVE DIAGNOSTIC SECTION */}
+      <section className="py-20 px-6 bg-gradient-to-b from-[#F4F8FC] to-[#EBF3FC] border-b border-[#DCEBFA]" id="readiness-check">
+        <div className="max-w-4xl mx-auto space-y-10">
+          <div className="text-center space-y-3">
+            <span className="inline-flex items-center gap-1.5 text-xs font-mono font-bold tracking-widest text-sky-700 uppercase bg-sky-50 px-3.5 py-1.5 rounded-full border border-sky-200 shadow-xs">
+              <ShieldCheck className="w-3.5 h-3.5" />
+              Active Validation Portal
+            </span>
+            <h2 className="font-sans font-extrabold text-3xl sm:text-4xl text-[#102A43] tracking-tight">
+              Pre-Launch Driver Diagnostic
+            </h2>
+            <p className="text-sm sm:text-base text-slate-500 max-w-xl mx-auto leading-relaxed font-medium">
+              Complete this brief 60-second assessment to calculate your preliminary Canadian Vehicle Readiness Score.
+            </p>
+          </div>
+
+          <div className="bg-white/90 backdrop-blur-md rounded-3xl border border-[#DCEBFA] shadow-2xl overflow-hidden p-2 sm:p-6 max-w-3xl mx-auto">
+            {quizView}
+          </div>
+        </div>
+      </section>
+
       {/* 4. CANADIAN CONDITIONS SECTION */}
       <section className="py-20 px-6 bg-slate-950 text-white relative">
         <div className="absolute inset-0 z-0 opacity-20">
@@ -293,13 +324,13 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
           <div className="pt-4">
             <button
               onClick={onStartDiagnostic}
-              className="px-8 py-4 bg-brand-primary hover:bg-sky-600 text-white font-semibold text-base rounded-2xl shadow-lg hover:shadow-sky-500/10 active:scale-98 transition-all flex items-center gap-2 mx-auto cursor-pointer"
+              className="px-8 py-4 bg-gradient-to-r from-[#0ea5e9] to-[#0284c7] hover:from-[#38bdf8] hover:to-[#0284c7] text-white font-bold text-base rounded-2xl shadow-xl hover:shadow-sky-500/15 hover:-translate-y-0.5 active:translate-y-0 active:scale-98 transition-all duration-200 flex items-center gap-2 mx-auto cursor-pointer"
               id="final_landing_diagnostic_cta"
             >
               <span>Get My Free Readiness Score</span>
               <ChevronRight className="w-5 h-5" />
             </button>
-            <span className="text-[11px] text-slate-400 mt-2.5 block font-mono">
+            <span className="text-[11px] text-slate-400 mt-2.5 block font-mono font-medium uppercase tracking-wider">
               Free • 60 Seconds • No commitment required
             </span>
           </div>

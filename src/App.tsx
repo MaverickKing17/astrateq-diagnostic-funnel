@@ -55,7 +55,10 @@ export default function App() {
 
   const handleStartDiagnostic = () => {
     trackEvent('diagnostic_cta_click');
-    setCurrentStep('quiz');
+    const element = document.getElementById('readiness-check');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   };
 
   const handleCompleteQuiz = (userAnswers: UserAnswers) => {
@@ -108,6 +111,13 @@ export default function App() {
             onStartDiagnostic={handleStartDiagnostic} 
             heroImage={heroImage}
             commuteImage={commuteImage}
+            quizView={
+              <QuizView 
+                onComplete={handleCompleteQuiz} 
+                onBackToLanding={handleReset}
+                onTrackEvent={trackEvent}
+              />
+            }
           />
         )}
 
