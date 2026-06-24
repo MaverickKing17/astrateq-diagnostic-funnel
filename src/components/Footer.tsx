@@ -92,7 +92,7 @@ export default function Footer({ onOpenTab }: FooterProps) {
                   <Cpu className="w-3.5 h-3.5" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold text-[#102A43]">Local-first direction</p>
+                  <p className="text-xs font-bold text-[#102A43]">Local-first readiness direction</p>
                   <p className="text-[11px] text-slate-500 mt-0.5 leading-normal">
                     The system is being designed to reduce unnecessary cloud dependency.
                   </p>

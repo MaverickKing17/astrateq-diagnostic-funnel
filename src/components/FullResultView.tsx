@@ -63,8 +63,14 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
           <div className="lg:col-span-5 space-y-6">
             
             {/* Score Card */}
-            <div className="dashboard-card bg-white p-6.5 rounded-2xl border border-slate-100 flex flex-col items-center justify-center">
-              <h3 className="text-[10px] font-mono font-bold uppercase text-slate-400 tracking-widest mb-3">
+            <div className="dashboard-card bg-white p-8 rounded-2xl border border-slate-100 shadow-md relative flex flex-col items-center justify-center mt-3">
+              {/* Report Complete Badge */}
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-emerald-500 text-white text-[10px] font-mono font-bold uppercase tracking-wider px-3.5 py-1 rounded-full shadow-md flex items-center gap-1">
+                <CheckCircle2 className="w-3.5 h-3.5 text-white" />
+                <span>Report Complete</span>
+              </div>
+              
+              <h3 className="text-[10px] font-mono font-bold uppercase text-slate-400 tracking-widest mb-4 mt-2">
                 Vehicle Readiness Index
               </h3>
               <Gauge score={result.score} size={220} />
@@ -139,35 +145,47 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 
                 {/* Cohort Classification */}
-                <div className="p-4 rounded-xl bg-slate-50/50 border border-slate-100 space-y-1.5">
-                  <span className="text-[10px] font-mono font-bold uppercase text-slate-400">COHORT CLASSIFICATION</span>
-                  <div className="font-bold text-slate-900 text-sm leading-tight">{result.tierName}</div>
+                <div className="p-4.5 rounded-xl bg-slate-50/50 border border-slate-100 space-y-1.5 hover:bg-slate-50 transition-colors">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] font-mono font-bold uppercase text-slate-400">COHORT CLASSIFICATION</span>
+                    <CheckCircle2 className="w-4 h-4 text-sky-500" />
+                  </div>
+                  <div className="font-extrabold text-slate-900 text-sm leading-tight">{result.tierName}</div>
                   <div className="text-xs text-slate-500 leading-snug">Priority allocation tier based on validation criteria.</div>
                 </div>
 
                 {/* Driving Risk Profile */}
-                <div className="p-4 rounded-xl bg-slate-50/50 border border-slate-100 space-y-1.5">
-                  <span className="text-[10px] font-mono font-bold uppercase text-slate-400">RISK PROFILE TYPE</span>
-                  <div className="font-bold text-slate-900 text-sm leading-tight">{result.riskProfile}</div>
-                  <div className="text-xs text-slate-500 leading-snug">Your driving context suggests moderate seasonal or highway-readiness considerations.</div>
+                <div className="p-4.5 rounded-xl bg-slate-50/50 border border-slate-100 space-y-1.5 hover:bg-slate-50 transition-colors">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] font-mono font-bold uppercase text-slate-400">RISK PROFILE TYPE</span>
+                    <AlertTriangle className="w-4 h-4 text-amber-500" />
+                  </div>
+                  <div className="font-extrabold text-slate-900 text-sm leading-tight">{result.riskProfile}</div>
+                  <div className="text-xs text-slate-500 leading-snug">Your driving context suggests elevated highway, congestion, or seasonal driving considerations.</div>
                 </div>
 
                 {/* Compatibility Confidence */}
-                <div className="p-4 rounded-xl bg-slate-50/50 border border-slate-100 space-y-1.5">
-                  <span className="text-[10px] font-mono font-bold uppercase text-slate-400">COMPATIBILITY CONFIDENCE</span>
+                <div className="p-4.5 rounded-xl bg-slate-50/50 border border-slate-100 space-y-1.5 hover:bg-slate-50 transition-colors">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] font-mono font-bold uppercase text-slate-400">COMPATIBILITY CONFIDENCE</span>
+                    <Cpu className="w-4 h-4 text-emerald-500" />
+                  </div>
                   <div className="flex items-center gap-1.5">
                     <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                    <div className="font-bold text-slate-900 text-sm">{result.compatibilityConfidence}</div>
+                    <div className="font-extrabold text-slate-900 text-sm">{result.compatibilityConfidence}</div>
                   </div>
                   <div className="text-xs text-slate-500 leading-snug">Your vehicle profile shows strong compatibility confidence for pre-launch review.</div>
                 </div>
 
                 {/* Privacy Alignment */}
-                <div className="p-4 rounded-xl bg-slate-50/50 border border-slate-100 space-y-1.5">
-                  <span className="text-[10px] font-mono font-bold uppercase text-slate-400">PRIVACY ALIGNMENT</span>
+                <div className="p-4.5 rounded-xl bg-slate-50/50 border border-slate-100 space-y-1.5 hover:bg-slate-50 transition-colors">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] font-mono font-bold uppercase text-slate-400">PRIVACY ALIGNMENT</span>
+                    <Lock className="w-4 h-4 text-blue-500" />
+                  </div>
                   <div className="flex items-center gap-1.5">
                     <span className="w-2 h-2 rounded-full bg-blue-500"></span>
-                    <div className="font-bold text-slate-900 text-sm">{result.privacyAlignment}</div>
+                    <div className="font-extrabold text-slate-900 text-sm">{result.privacyAlignment}</div>
                   </div>
                   <div className="text-xs text-slate-500 leading-snug">Aligned with Astrateq Gadgets' privacy-first, no-resale data principles.</div>
                 </div>
@@ -218,6 +236,9 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
                   <span className="text-slate-300 hidden sm:inline">•</span>
                   <span>Canadian driver cohort</span>
                 </div>
+                <p className="text-[11px] text-sky-700/85 font-semibold max-w-md mx-auto text-center mt-2.5 bg-sky-50/60 border border-sky-100/50 py-2 px-3 rounded-xl leading-relaxed">
+                  ⏱️ <strong>Current validation cycle active for Ontario/GTA driver profiles.</strong> Early responses help shape compatibility priorities and rollout planning.
+                </p>
               </div>
             </div>
 
@@ -227,25 +248,25 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
       </section>
 
       {/* 4. OPERATIONAL PRIVACY PROMISE SECTION */}
-      <section className="py-16 px-6 bg-slate-50 border-y border-slate-100">
-        <div className="max-w-5xl mx-auto space-y-10">
+      <section className="py-20 px-6 bg-slate-50 border-y border-slate-150">
+        <div className="max-w-5xl mx-auto space-y-12">
           
-          <div className="text-center space-y-2">
-            <h2 className="font-display font-bold text-2xl text-slate-900">Privacy-first by design</h2>
-            <p className="text-sm text-slate-500 max-w-md mx-auto">
-              A readiness check built without surveillance-style positioning.
+          <div className="text-center space-y-3">
+            <h2 className="font-display font-extrabold text-3xl text-slate-900 tracking-tight">Privacy-first by design</h2>
+            <p className="text-sm sm:text-base text-slate-600 max-w-xl mx-auto leading-relaxed">
+              A readiness check designed without insurer-style tracking, advertising resale, or unnecessary personal data collection.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             
             {/* Column 1: What we ask for */}
-            <div className="bg-white p-6 rounded-2xl border border-slate-100 space-y-3">
-              <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center text-brand-primary font-bold text-sm">
-                01
+            <div className="bg-white p-8 rounded-2xl border border-slate-150/80 shadow-sm hover:shadow-md transition-shadow space-y-4">
+              <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-brand-primary text-xl font-extrabold shadow-xs">
+                <ShieldCheck className="w-6 h-6 text-brand-primary" />
               </div>
-              <h4 className="font-display font-bold text-slate-900 text-base">What we ask for</h4>
-              <ul className="text-xs text-slate-500 space-y-2.5 leading-relaxed list-disc list-inside">
+              <h4 className="font-display font-extrabold text-slate-900 text-lg tracking-tight">What we ask for</h4>
+              <ul className="text-sm text-slate-600 space-y-3 leading-relaxed list-disc list-inside">
                 <li>Vehicle diagnostic type and profile</li>
                 <li>Driving context and commute frequency</li>
                 <li>Verified email address for result delivery and cohort follow-up</li>
@@ -253,12 +274,12 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
             </div>
 
             {/* Column 2: What we do not do */}
-            <div className="bg-white p-6 rounded-2xl border border-slate-100 space-y-3">
-              <div className="w-10 h-10 rounded-lg bg-orange-50 flex items-center justify-center text-orange-600 font-bold text-sm">
-                02
+            <div className="bg-white p-8 rounded-2xl border border-slate-150/80 shadow-sm hover:shadow-md transition-shadow space-y-4">
+              <div className="w-12 h-12 rounded-xl bg-orange-50 flex items-center justify-center text-orange-600 text-xl font-extrabold shadow-xs">
+                <EyeOff className="w-6 h-6 text-orange-600" />
               </div>
-              <h4 className="font-display font-bold text-slate-900 text-base">What we do not do</h4>
-              <ul className="text-xs text-slate-500 space-y-2.5 leading-relaxed list-disc list-inside">
+              <h4 className="font-display font-extrabold text-slate-900 text-lg tracking-tight">What we do not do</h4>
+              <ul className="text-sm text-slate-600 space-y-3 leading-relaxed list-disc list-inside">
                 <li>We do not sell driving logs for advertising</li>
                 <li>We do not act as an insurance tracking app</li>
                 <li>We do not request excessive personal data</li>
@@ -266,12 +287,12 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
             </div>
 
             {/* Column 3: Why we ask */}
-            <div className="bg-white p-6 rounded-2xl border border-slate-100 space-y-3">
-              <div className="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center text-emerald-600 font-bold text-sm">
-                03
+            <div className="bg-white p-8 rounded-2xl border border-slate-150/80 shadow-sm hover:shadow-md transition-shadow space-y-4">
+              <div className="w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-600 text-xl font-extrabold shadow-xs">
+                <Cpu className="w-6 h-6 text-emerald-600" />
               </div>
-              <h4 className="font-display font-bold text-slate-900 text-base">Why we ask</h4>
-              <ul className="text-xs text-slate-500 space-y-2.5 leading-relaxed list-disc list-inside">
+              <h4 className="font-display font-extrabold text-slate-900 text-lg tracking-tight">Why we ask</h4>
+              <ul className="text-sm text-slate-600 space-y-3 leading-relaxed list-disc list-inside">
                 <li>To map regional Canadian compatibility demand</li>
                 <li>To coordinate localized rollout batches</li>
                 <li>To validate demand for privacy-first vehicle intelligence</li>
@@ -284,7 +305,7 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
       </section>
 
       {/* 5. BOTTOM SCENIC HERO CALL TO ACTION */}
-      <section className="relative overflow-hidden bg-slate-950 text-white min-h-[50vh] flex items-center px-6 py-16">
+      <section className="relative overflow-hidden bg-slate-950 text-white px-6 py-12 animate-fade-in">
         {/* Background image backdrop */}
         <div className="absolute inset-0 z-0 opacity-45 mix-blend-luminosity">
           <img
