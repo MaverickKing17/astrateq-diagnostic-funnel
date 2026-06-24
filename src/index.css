@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-brand-primary: #1d4ed8; /* Premium blue */
+  --color-brand-secondary: #0ea5e9; /* Pearl cyan */
+  --color-brand-navy: #0b1528; /* Deep premium automotive navy */
+  --color-brand-ice: #f0f7ff; /* Soft ice-blue */
+  --color-brand-pearl: #f8fafc; /* Pearl surface */
+}
+
+/* Custom visual styling to replicate premium automotive dashboard widgets */
+.dashboard-card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.03), 0 2px 4px -1px rgba(0, 0, 0, 0.01);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dashboard-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 20px -4px rgba(0, 0, 0, 0.06), 0 4px 8px -2px rgba(0, 0, 0, 0.02);
+}
+
+.gradient-bg {
+  background: radial-gradient(circle at 50% 0%, #ebf5ff 0%, #f8fafc 70%, #ffffff 100%);
+}
+

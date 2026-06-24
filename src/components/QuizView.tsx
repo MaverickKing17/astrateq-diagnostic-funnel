@@ -1,0 +1,243 @@
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { 
+  ArrowLeft, 
+  ArrowRight, 
+  ShieldAlert, 
+  Lock, 
+  Car, 
+  Truck, 
+  Gauge, 
+  Calendar, 
+  Navigation, 
+  AlertTriangle, 
+  Eye, 
+  HelpCircle, 
+  Clock, 
+  Wrench, 
+  Users,
+  CalendarDays,
+  ShieldCheck,
+  CheckCircle2,
+  Zap,
+  Compass
+} from 'lucide-react';
+import { QUESTIONS } from '../data/questions';
+import { UserAnswers } from '../types';
+
+interface QuizViewProps {
+  onComplete: (answers: UserAnswers) => void;
+  onBackToLanding: () => void;
+  onTrackEvent: (name: string, data?: Record<string, any>) => void;
+}
+
+export default function QuizView({ onComplete, onBackToLanding, onTrackEvent }: QuizViewProps) {
+  const [currentQuestionIdx, setCurrentQuestionIdx] = useState(0);
+  const [answers, setAnswers] = useState<UserAnswers>({});
+
+  const currentQuestion = QUESTIONS[currentQuestionIdx];
+  const totalQuestions = QUESTIONS.length;
+  const isLastQuestion = currentQuestionIdx === totalQuestions - 1;
+
+  const selectedOptionId = answers[currentQuestion.id];
+
+  const handleSelectOption = (optionId: string) => {
+    setAnswers(prev => ({
+      ...prev,
+      [currentQuestion.id]: optionId
+    }));
+    onTrackEvent('option_selected', { questionId: currentQuestion.id, optionId });
+  };
+
+  const handleNext = () => {
+    if (!selectedOptionId) return;
+
+    if (currentQuestionIdx === 0) {
+      onTrackEvent('diagnostic_started');
+    }
+
+    if (isLastQuestion) {
+      onTrackEvent('diagnostic_completed', { answers });
+      onComplete(answers);
+    } else {
+      setCurrentQuestionIdx(prev => prev + 1);
+      onTrackEvent('question_advanced', { currentIdx: currentQuestionIdx + 1 });
+    }
+  };
+
+  const handleBack = () => {
+    if (currentQuestionIdx === 0) {
+      onBackToLanding();
+    } else {
+      setCurrentQuestionIdx(prev => prev - 1);
+    }
+  };
+
+  // Helper to dynamically match icons to options for premium visuals
+  const getOptionIcon = (optId: string) => {
+    switch (optId) {
+      // Vehicle types (Q1)
+      case 'suv': return <Car className="w-5 h-5" />;
+      case 'sedan': return <Car className="w-5 h-5 text-sky-500" />;
+      case 'pickup': return <Truck className="w-5 h-5" />;
+      case 'minivan': return <Users className="w-5 h-5" />;
+      case 'hybrid_ev': return <Zap className="w-5 h-5 text-emerald-500" />;
+      // Year ranges (Q2)
+      case '2021_2026': return <Clock className="w-5 h-5 text-emerald-500" />;
+      case '2016_2020': return <Clock className="w-5 h-5 text-sky-500" />;
+      case '2011_2015': return <Wrench className="w-5 h-5 text-amber-500" />;
+      case '2006_2010': return <Wrench className="w-5 h-5 text-slate-500" />;
+      // Highway driving (Q3)
+      case 'daily': return <Navigation className="w-5 h-5 text-blue-600" />;
+      case 'several_week': return <CalendarDays className="w-5 h-5 text-sky-500" />;
+      case 'few_month': return <Calendar className="w-5 h-5" />;
+      // Context (Q4)
+      case 'gta': return <Navigation className="w-5 h-5 text-indigo-600" />;
+      case 'family': return <Users className="w-5 h-5 text-sky-500" />;
+      case 'road_trip': return <Compass className="w-5 h-5 text-emerald-600" />;
+      case 'long_distance': return <Navigation className="w-5 h-5 text-amber-600" />;
+      case 'mixed': return <Navigation className="w-5 h-5" />;
+      // Confidence (Q5)
+      case 'very_confident': return <CheckCircle2 className="w-5 h-5 text-emerald-500" />;
+      case 'somewhat_confident': return <CheckCircle2 className="w-5 h-5 text-sky-500" />;
+      case 'not_sure': return <HelpCircle className="w-5 h-5 text-amber-500" />;
+      case 'concerned': return <AlertTriangle className="w-5 h-5 text-rose-500" />;
+      // Concerns (Q6)
+      case 'warning_lights': return <AlertTriangle className="w-5 h-5 text-rose-500" />;
+      case 'road_trip_rel': return <Compass className="w-5 h-5 text-sky-500" />;
+      case 'privacy': return <Lock className="w-5 h-5 text-emerald-600" />;
+      case 'family_safety': return <Users className="w-5 h-5 text-blue-500" />;
+      case 'compatibility': return <Wrench className="w-5 h-5" />;
+      // Privacy importance (Q7)
+      case 'extremely': return <ShieldCheck className="w-5 h-5 text-emerald-600" />;
+      case 'important': return <ShieldCheck className="w-5 h-5 text-sky-500" />;
+      case 'somewhat': return <ShieldCheck className="w-5 h-5 text-slate-500" />;
+      
+      default: return <Gauge className="w-5 h-5 text-slate-400" />;
+    }
+  };
+
+  const progressPct = ((currentQuestionIdx + 1) / totalQuestions) * 100;
+
+  return (
+    <div className="max-w-2xl mx-auto px-4 py-10 font-sans" id="quiz_view_container">
+      
+      {/* 1. Header with progress indicator */}
+      <div className="mb-8 space-y-3">
+        <div className="flex items-center justify-between text-xs font-mono text-slate-500 font-semibold uppercase">
+          <span>ASTRATEQ driver diagnostic</span>
+          <span>Question {currentQuestionIdx + 1} of {totalQuestions}</span>
+        </div>
+        
+        {/* Progress Bar Container */}
+        <div className="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+          <motion.div 
+            className="h-full bg-gradient-to-r from-brand-primary to-brand-secondary rounded-full"
+            initial={{ width: '0%' }}
+            animate={{ width: `${progressPct}%` }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
+          />
+        </div>
+      </div>
+
+      {/* 2. Slide Animating Question Card */}
+      <div className="dashboard-card bg-white p-6 sm:p-8 rounded-2xl border border-slate-100 relative min-h-[460px] flex flex-col justify-between">
+        
+        <div className="space-y-6">
+          {/* Headline and Subhead */}
+          <div className="space-y-2">
+            <h2 className="font-display font-bold text-xl sm:text-2xl text-slate-900 leading-tight">
+              {currentQuestion.text}
+            </h2>
+            <p className="text-sm text-slate-500 leading-relaxed">
+              {currentQuestion.subtext || "This helps us understand your vehicle and driving realities."}
+            </p>
+          </div>
+
+          {/* Multiple choice Options list */}
+          <div className="grid grid-cols-1 gap-3.5">
+            {currentQuestion.options.map((option) => {
+              const isSelected = selectedOptionId === option.id;
+              return (
+                <button
+                  key={option.id}
+                  onClick={() => handleSelectOption(option.id)}
+                  className={`group p-4 rounded-xl border text-left flex items-start gap-3.5 cursor-pointer transition-all ${
+                    isSelected 
+                      ? 'bg-blue-50/55 border-brand-primary/40 ring-1 ring-brand-primary/20 shadow-sm' 
+                      : 'bg-slate-50/40 hover:bg-slate-50/90 border-slate-200'
+                  }`}
+                  id={`q${currentQuestion.id}_opt_${option.id}`}
+                >
+                  {/* Left Side Icon Column */}
+                  <div className={`p-2 rounded-lg shrink-0 transition-colors ${
+                    isSelected 
+                      ? 'bg-brand-primary text-white' 
+                      : 'bg-white border border-slate-200 text-slate-500 group-hover:text-slate-700'
+                  }`}>
+                    {getOptionIcon(option.id)}
+                  </div>
+
+                  {/* Text Column */}
+                  <div className="flex-1 min-w-0">
+                    <span className={`font-semibold block text-sm sm:text-base leading-tight ${
+                      isSelected ? 'text-brand-primary' : 'text-slate-800'
+                    }`}>
+                      {option.text}
+                    </span>
+                    {option.subtext && (
+                      <span className="text-xs text-slate-500 block mt-1 leading-snug">
+                        {option.subtext}
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Radio indicator */}
+                  <div className={`w-5 h-5 rounded-full border shrink-0 flex items-center justify-center ${
+                    isSelected ? 'border-brand-primary bg-brand-primary' : 'border-slate-300 bg-white'
+                  }`}>
+                    {isSelected && <div className="w-2 h-2 rounded-full bg-white" />}
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* 3. Action Buttons - Back and Next */}
+        <div className="mt-8 pt-6 border-t border-slate-100 flex items-center gap-4">
+          <button
+            onClick={handleBack}
+            className="px-5 py-3 rounded-xl border border-slate-200 text-slate-600 font-medium text-sm hover:bg-slate-50 cursor-pointer flex items-center gap-1.5 transition-colors"
+            id="quiz_back_btn"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            <span>{currentQuestionIdx === 0 ? "Landing" : "Back"}</span>
+          </button>
+
+          <button
+            onClick={handleNext}
+            disabled={!selectedOptionId}
+            className={`flex-1 py-3 px-6 rounded-xl font-semibold text-sm cursor-pointer transition-all flex items-center justify-center gap-2 ${
+              selectedOptionId
+                ? 'bg-brand-primary hover:bg-blue-700 text-white shadow-md'
+                : 'bg-slate-100 text-slate-400 cursor-not-allowed'
+            }`}
+            id="quiz_next_btn"
+          >
+            <span>{isLastQuestion ? "Calculate My Score" : "Next Question"}</span>
+            <ArrowRight className="w-4 h-4" />
+          </button>
+        </div>
+
+      </div>
+
+      {/* 4. Mini Safety Reassurance Statement */}
+      <div className="mt-6 flex items-center gap-2.5 px-4 text-xs text-slate-500 justify-center">
+        <Lock className="w-3.5 h-3.5 text-slate-400" />
+        <span>Your information is safe. Your responses are kept private and processed locally.</span>
+      </div>
+
+    </div>
+  );
+}
