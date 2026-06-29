@@ -189,11 +189,11 @@ async function startServer() {
             </div>
             <div class="content">
               <h1>Hi ${firstName || "Driver"},</h1>
-              <p>Your pre-launch diagnostics are complete. Below is a breakdown of your vehicle profile compatibility index as requested.</p>
+              <p>Your pre-launch driver awareness simulation is complete. Below is a breakdown of your simulated driver awareness score as requested.</p>
 
               <div class="score-box">
                 <div class="score-value">${score || 0}<span style="font-size: 20px; color: #94a3b8;">/100</span></div>
-                <div class="score-label">Vehicle Readiness Index</div>
+                <div class="score-label">Driver Awareness Score</div>
               </div>
 
               <table class="metrics-table">
@@ -206,7 +206,7 @@ async function startServer() {
                   <td class="value">${riskProfile || "N/A"}</td>
                 </tr>
                 <tr>
-                  <td class="label">Compatibility Confidence</td>
+                  <td class="label">Attention Pattern Readiness</td>
                   <td class="value">${compatibilityConfidence || "N/A"}</td>
                 </tr>
                 <tr>
@@ -218,11 +218,11 @@ async function startServer() {
               <div class="explanation-box">
                 <div class="explanation-title">What This Means</div>
                 <p class="explanation-text">
-                  ${tierDesc || "Your profile shows strong, top-tier alignment with Astrateq Gadgets' pre-launch priorities and hardware communication standards."} Specifically, your profile types suggest strong resilience under typical high-velocity Ontario highway commuting, but would benefit from local-first thermal sensor telemetry to manage seasonal stresses safely without sending driving habits to insurers.
+                  ${tierDesc || "Your profile shows strong, top-tier alignment with Astrateq Gadgets' pre-launch driver awareness priorities."} Specifically, your simulated profile helps us understand driving focus resilience under typical high-velocity Ontario highway commuting without tracking or sending driving habits to insurers.
                 </p>
               </div>
 
-              <a href="https://reserve.astrateqgadgets.com?entry=diagnostic&intent=cohort&email=${encodeURIComponent(email)}" class="cta-button">
+              <a href="https://reserve.astrateqgadgets.com?entry=simulation&intent=cohort&email=${encodeURIComponent(email)}" class="cta-button">
                 Continue to Founding Cohort Reservation
               </a>
 
@@ -234,7 +234,7 @@ async function startServer() {
               <p><strong>Astrateq Gadgets Pre-Launch Initiative</strong></p>
               <p>Toronto, ON, Canada</p>
               <p style="font-size: 10px; margin-top: 12px; color: #94a3b8;">
-                This diagnostic report is informational and does not replace official mechanical inspections or manufacturer safety diagnostics.
+                This simulated report is informational and does not replace certified professional driver training or safety assessments.
               </p>
             </div>
           </div>

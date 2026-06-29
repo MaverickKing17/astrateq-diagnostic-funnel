@@ -135,7 +135,7 @@ export default function InfoModal({ isOpen, activeTab, onTabChange, onClose, onS
                       <div className="bg-[#F4F8FC] border border-[#DCEBFA] rounded-2xl p-5 mt-4">
                         <h4 className="text-xs font-mono font-bold text-sky-700 tracking-wider uppercase mb-2">Focus Geography</h4>
                         <p className="text-xs text-[#102A43]/85 leading-relaxed">
-                          Our pre-launch diagnostic modeling factors in severe weather conditions across Ontario, the GTA highway system, and regional corridors to assure local relevancy.
+                          Our pre-launch simulated modeling factors in severe weather conditions across Ontario, the GTA highway system, and regional corridors to assure local relevancy.
                         </p>
                       </div>
                     </div>

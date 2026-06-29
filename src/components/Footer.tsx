@@ -68,9 +68,9 @@ export default function Footer({ onOpenTab }: FooterProps) {
                   <EyeOff className="w-3.5 h-3.5" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold text-[#102A43]">No insurance tracking</p>
+                  <p className="text-xs font-bold text-[#102A43]">No vehicle tracking</p>
                   <p className="text-[11px] text-slate-500 mt-0.5 leading-normal">
-                    Astrateq Gadgets is not being designed as an insurer-style tracking or driver surveillance product.
+                    We do not track your physical vehicle, require OBD connections, or log active location telemetry.
                   </p>
                 </div>
               </li>
@@ -80,9 +80,9 @@ export default function Footer({ onOpenTab }: FooterProps) {
                   <Lock className="w-3.5 h-3.5" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold text-[#102A43]">No data resale model</p>
+                  <p className="text-xs font-bold text-[#102A43]">No insurance sharing</p>
                   <p className="text-[11px] text-slate-500 mt-0.5 leading-normal">
-                    Your driving profile is not being built for advertising resale.
+                    We do not share your results or driver awareness profile with insurance companies.
                   </p>
                 </div>
               </li>
@@ -92,9 +92,9 @@ export default function Footer({ onOpenTab }: FooterProps) {
                   <Cpu className="w-3.5 h-3.5" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold text-[#102A43]">Local-first readiness direction</p>
+                  <p className="text-xs font-bold text-[#102A43]">No hardware required</p>
                   <p className="text-[11px] text-slate-500 mt-0.5 leading-normal">
-                    The system is being designed to reduce unnecessary cloud dependency.
+                    This simulation runs entirely in your web browser and does not require vehicle hardware links.
                   </p>
                 </div>
               </li>
@@ -104,9 +104,9 @@ export default function Footer({ onOpenTab }: FooterProps) {
                   <Award className="w-3.5 h-3.5" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold text-[#102A43]">Pre-launch validation</p>
+                  <p className="text-xs font-bold text-[#102A43]">Simulation-only research</p>
                   <p className="text-[11px] text-slate-500 mt-0.5 leading-normal">
-                    This simulation is used to validate interest, attention focus preferences, and driver safety software demand.
+                    This simulation is used to validate Canadian driver awareness and interest in privacy-first safety software.
                   </p>
                 </div>
               </li>
@@ -165,7 +165,7 @@ export default function Footer({ onOpenTab }: FooterProps) {
               © 2026 Astrateq Gadgets. Toronto, ON, Canada.
             </p>
             <p className="leading-relaxed text-slate-500 max-w-4xl font-medium">
-              Astrateq Gadgets is currently in pre-launch market validation. This diagnostic is informational and does not replace official mechanical inspections, certified safety assessments, or manufacturer diagnostics. Hardware availability, compatibility, pricing, and rollout timing are subject to validation results and future manufacturing decisions.
+              Astrateq Gadgets is currently validating interest in a software-based Driver Awareness Intelligence concept. This experience is simulated and does not connect to your vehicle, insurer, or hardware.
             </p>
           </div>
         </div>

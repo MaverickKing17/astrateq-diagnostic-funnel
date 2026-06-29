@@ -93,7 +93,7 @@ export default function PreliminaryView({ result, onSubmitEmail, onTrackEvent }:
       <div className="text-center space-y-3 mb-10">
         <div className="inline-flex items-center gap-2 px-3 py-1 bg-sky-50 text-sky-700 rounded-full text-xs font-bold border border-sky-100">
           <CheckCircle2 className="w-3.5 h-3.5 text-sky-600" />
-          <span>Diagnostic complete!</span>
+          <span>Simulation complete!</span>
         </div>
         <h1 className="font-display font-bold text-3xl text-slate-900 tracking-tight">
           Here's your preliminary result

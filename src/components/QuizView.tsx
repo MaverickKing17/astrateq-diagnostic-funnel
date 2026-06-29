@@ -240,7 +240,7 @@ export default function QuizView({ onComplete, onBackToLanding, onTrackEvent }: 
             }`}
             id="quiz_next_btn"
           >
-            <span>{isLastQuestion ? "Calculate My Score" : "Next Question"}</span>
+            <span>{isLastQuestion ? "Calculate My Score" : "Continue Simulation"}</span>
             <ArrowRight className="w-4 h-4" />
           </button>
         </div>

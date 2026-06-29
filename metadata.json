@@ -1,6 +1,6 @@
 {
   "name": "Astrateq Gadgets",
-  "description": "Pre-launch free diagnostic lead magnet page for Canadian vehicle and driver readiness intelligence.",
+  "description": "Pre-launch 60-second Driver Awareness Intelligence Simulation for Canadian road and safety behavior research validation.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

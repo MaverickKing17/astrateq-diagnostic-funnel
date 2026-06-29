@@ -25,7 +25,7 @@ interface FullResultViewProps {
 }
 
 export default function FullResultView({ result, email, firstName, onReset, onTrackEvent, ctaImage }: FullResultViewProps) {
-  const reservationUrl = "https://reserve.astrateqgadgets.com?entry=diagnostic&intent=cohort";
+  const reservationUrl = "https://reserve.astrateqgadgets.com?entry=simulation&intent=cohort";
 
   const handleCtaClick = (ctaName: string) => {
     onTrackEvent('reservation_cta_clicked', { ctaName, email, firstName });
@@ -348,7 +348,7 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
               id="retake_diagnostic_bottom_btn"
             >
               <RefreshCw className="w-3.5 h-3.5" />
-              <span>Retake Diagnostic</span>
+              <span>Retake Simulation</span>
             </button>
           </div>
         </div>
