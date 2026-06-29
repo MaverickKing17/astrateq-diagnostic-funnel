@@ -3,91 +3,97 @@ import { Question, UserAnswers, DiagnosticResult } from '../types';
 export const QUESTIONS: Question[] = [
   {
     id: 1,
-    text: "What type of vehicle do you drive?",
-    subtext: "Different vehicle profiles require specific diagnostic communication protocols.",
+    text: "How often do you drive per week?",
+    subtext: "Driving frequency helps estimate exposure patterns used in your simulated awareness profile.",
     options: [
-      { id: "suv", text: "SUV / crossover", subtext: "Standard family or multi-use utility vehicle", weight: 8 },
-      { id: "sedan", text: "Sedan", subtext: "Traditional daily commuter or compact car", weight: 6 },
-      { id: "pickup", text: "Pickup truck", subtext: "Work, commercial use, or heavy-duty hauling", weight: 9 },
-      { id: "minivan", text: "Minivan", subtext: "Family transit, high-occupancy driving", weight: 7 },
-      { id: "hybrid_ev", text: "EV or hybrid", subtext: "Electric motor or dual-propulsion battery system", weight: 10 },
-      { id: "other", text: "Other", subtext: "Classic, commercial van, or custom vehicle", weight: 5 }
+      { id: "daily", text: "Daily", subtext: "Consistent daily driving with higher cumulative exposure", weight: 15 },
+      { id: "3_5_times", text: "3–5 times per week", subtext: "Regular weekly driving, typical commuter pattern", weight: 12 },
+      { id: "1_2_times", text: "1–2 times per week", subtext: "Occasional driving, localized weekend errands", weight: 10 },
+      { id: "rarely", text: "Rarely", subtext: "Infrequent driving, minimal weekly road exposure", weight: 8 }
     ]
   },
   {
     id: 2,
-    text: "What year range is your vehicle?",
-    subtext: "Helps us assess vehicle communication bus (CAN bus) type and privacy compatibility.",
+    text: "What type of driving do you do most often?",
+    subtext: "Driving environment shapes the specific cognitive load and attentional patterns required.",
     options: [
-      { id: "2021_2026", text: "2021–2026", subtext: "Modern telematics-equipped, complex digital network", weight: 12 },
-      { id: "2016_2020", text: "2016–2020", subtext: "Standard digital connectivity, transitioning bus speeds", weight: 15 },
-      { id: "2011_2015", text: "2011–2015", subtext: "Analog-digital hybrid, critical age for physical component wear", weight: 18 },
-      { id: "2006_2010", text: "2006–2010", subtext: "Standard CAN bus interface, high diagnostic utility potential", weight: 16 },
-      { id: "older", text: "Older than 2006", subtext: "Vintage or early OBD-II standard, high interest in smart retrofit", weight: 11 }
+      { id: "highway", text: "Major highway commutes", subtext: "High-speed lanes, repetitive scenery, potential road hypnosis", weight: 12 },
+      { id: "city", text: "City driving & errands", subtext: "Stop-and-go, heavy pedestrian traffic, active navigation demands", weight: 12 },
+      { id: "suburban", text: "Suburban family routes", subtext: "Lower congestion, residential lanes, predictable patterns", weight: 15 },
+      { id: "road_trips", text: "Long-distance road trips", subtext: "Extended hours, changing environments, cumulative physical strain", weight: 10 },
+      { id: "commercial", text: "Commercial / professional driving", subtext: "Long daily shifts, strict schedules, maximum focus requirement", weight: 8 }
     ]
   },
   {
     id: 3,
-    text: "How often do you drive on highways or major routes?",
-    subtext: "This helps us understand your high-speed risk exposure and commuting context.",
+    text: "When do you most often drive?",
+    subtext: "Time of day is highly correlated with circadian rhythm shifts and visual strain.",
     options: [
-      { id: "daily", text: "Daily", subtext: "I drive on highways almost every day", weight: 15 },
-      { id: "several_week", text: "Several times per week", subtext: "I drive on highways a few times per week", weight: 12 },
-      { id: "few_month", text: "A few times per month", subtext: "I drive on highways occasionally", weight: 8 },
-      { id: "rarely", text: "Rarely", subtext: "I rarely drive on highways", weight: 4 }
+      { id: "morning", text: "Morning rush hour", subtext: "High volume, high stress, morning awakening peak", weight: 12 },
+      { id: "midday", text: "Mid-day / afternoon", subtext: "Clear visibility, lower congestion, post-lunch dip potential", weight: 15 },
+      { id: "evening", text: "Evening rush hour", subtext: "Accumulated daily work fatigue, declining light, high traffic", weight: 10 },
+      { id: "night", text: "Late night / early morning", subtext: "Circadian low, dark roads, maximum fatigue vulnerability", weight: 5 }
     ]
   },
   {
     id: 4,
-    text: "Which driving context best describes you?",
-    subtext: "Canadian weather, infrastructure, and traffic density heavily affect driving stress.",
+    text: "How often do you drive in low-light or night conditions?",
+    subtext: "Low-light driving significantly increases sensory demand and fatigue acceleration.",
     options: [
-      { id: "gta", text: "GTA commuter", subtext: "High-density multi-lane highway travel, winter slush, frequent stops", weight: 15 },
-      { id: "family", text: "Family driver", subtext: "Suburban roads, school zones, weekend trips, multi-passenger focus", weight: 12 },
-      { id: "road_trip", text: "Summer road-trip driver", subtext: "Long distances, gravel access roads, heat stress, variable remote routes", weight: 14 },
-      { id: "long_distance", text: "Long-distance highway driver", subtext: "Inter-provincial transit, high speed, fatigue risk, commercial routes", weight: 15 },
-      { id: "mixed", text: "Mixed city and highway driver", subtext: "Balanced urban driving and weekend highway escapes", weight: 11 }
+      { id: "always", text: "Almost every trip", subtext: "Predominantly dark or twilight driving environment", weight: 5 },
+      { id: "frequently", text: "Frequently", subtext: "Regular night commutes or early morning starts", weight: 10 },
+      { id: "occasionally", text: "Occasionally", subtext: "Standard daytime driver with occasional night travel", weight: 12 },
+      { id: "rarely", text: "Rarely or never", subtext: "Strictly daytime driving, avoiding dark road conditions", weight: 15 }
     ]
   },
   {
     id: 5,
-    text: "How confident are you in your current vehicle readiness?",
-    subtext: "Your subjective peace of mind is as important as telemetry signals.",
+    text: "How would you rate your typical alertness while driving?",
+    subtext: "Self-reported fatigue levels help calibrate simulated attention degradation over time.",
     options: [
-      { id: "very_confident", text: "Very confident", subtext: "Never worry about unexpected dashboard lights or mechanical failure", weight: 5 },
-      { id: "somewhat_confident", text: "Somewhat confident", subtext: "Mostly fine, but occasionally worry during long trips or winter storms", weight: 12 },
-      { id: "not_sure", text: "Not sure", subtext: "Uncertain about hidden fault codes or true vehicle condition", weight: 18 },
-      { id: "concerned", text: "Concerned", subtext: "Active dashboard lights, old battery, or upcoming repairs needed", weight: 22 }
+      { id: "high", text: "Fully energized and alert", subtext: "No sluggishness, easily maintain crisp road focus", weight: 22 },
+      { id: "moderate", text: "Mostly alert but occasionally lose focus", subtext: "Brief periods of drifting attention, quickly recovered", weight: 15 },
+      { id: "sluggish", text: "Frequently feel sluggish or day-dreaming", subtext: "Mind wanders often, slow to react to visual cues", weight: 8 },
+      { id: "drowsy", text: "Struggle with drowsiness on regular routes", subtext: "Yawning, heavy eyelids, hard to stay present behind the wheel", weight: 4 }
     ]
   },
   {
     id: 6,
-    text: "Which concern matters most to you?",
-    subtext: "Astrateq Gadgets' validation program will prioritize software updates for top concerns.",
+    text: "How easily do you get distracted while driving?",
+    subtext: "Attentional split risk calculations are weighted based on your secondary cognitive task inputs.",
     options: [
-      { id: "warning_lights", text: "Warning lights and diagnostics", subtext: "Demystifying engine, battery, or brake fault codes immediately", weight: 15 },
-      { id: "road_trip", text: "Road-trip reliability", subtext: "Knowing the vehicle is stable before entering spotty signal areas", weight: 12 },
-      { id: "privacy", text: "Privacy and data control", subtext: "Keeping vehicle metrics local without sending speed logs to insurers", weight: 18 },
-      { id: "family_safety", text: "Family driving confidence", subtext: "Ensuring the vehicle is robust and safe for loved ones", weight: 14 },
-      { id: "compatibility", text: "Vehicle compatibility", subtext: "Verifying whether pre-launch hardware fits older or import models", weight: 10 }
+      { id: "focused", text: "Extremely focused / rarely distracted", subtext: "Devices stowed, passengers managed, full attention on the road", weight: 20 },
+      { id: "seldom", text: "Seldom distracted / highly aware", subtext: "Occasional navigation glance, keep main attention centered", weight: 15 },
+      { id: "occasionally", text: "Occasionally distracted", subtext: "Interact with audio, passengers, or system notifications", weight: 10 },
+      { id: "frequently", text: "Frequently split attention", subtext: "Constantly handling devices, complex dashboard screens, or visual clutter", weight: 4 }
     ]
   },
   {
     id: 7,
-    text: "How important is privacy in a vehicle intelligence system?",
-    subtext: "We are exploring local-first storage. Your response helps validate this requirement.",
+    text: "How often do you drive in winter or poor weather?",
+    subtext: "Canadian weather extremes and poor visibility multiply cognitive load and attention demands.",
     options: [
-      { id: "extremely", text: "Extremely important", subtext: "Absolutely critical. No insurer-style monitoring or surveillance", weight: 20 },
-      { id: "important", text: "Important", subtext: "Highly preferred. I prefer to keep my driving habits private", weight: 15 },
-      { id: "somewhat", text: "Somewhat important", subtext: "Prefer privacy, but open to some cloud features", weight: 8 },
-      { id: "not_sure", text: "Not sure", subtext: "I do not think much about modern automotive telematics privacy", weight: 4 }
+      { id: "very_often", text: "Very often", subtext: "Year-round commuter, navigate snow, slush, or heavy downpours", weight: 8 },
+      { id: "sometimes", text: "Sometimes", subtext: "Drive when necessary but prefer to wait out major winter storms", weight: 12 },
+      { id: "avoid", text: "Actively try to avoid poor weather", subtext: "Stay home or use transit during adverse conditions", weight: 14 },
+      { id: "never", text: "Never or extremely rarely", subtext: "Drive only in ideal, dry road conditions", weight: 15 }
+    ]
+  },
+  {
+    id: 8,
+    text: "How important is privacy in a driver awareness intelligence system?",
+    subtext: "We are exploring local-first awareness models. Your response helps validate driver privacy requirements.",
+    options: [
+      { id: "extremely", text: "Extremely important", subtext: "Absolutely critical. No insurer-style monitoring or cloud surveillance", weight: 20 },
+      { id: "important", text: "Important", subtext: "Highly preferred. I prefer to keep my attentional habits private", weight: 15 },
+      { id: "somewhat", text: "Somewhat important", subtext: "Prefer privacy, but open to cloud-assisted safety features", weight: 10 },
+      { id: "not_sure", text: "Not sure", subtext: "I do not think much about automotive data privacy", weight: 5 }
     ]
   }
 ];
 
 export function calculateDiagnosticResult(answers: UserAnswers): DiagnosticResult {
   let scoreSum = 0;
-  // Calculate raw weighted sum
   for (const q of QUESTIONS) {
     const selectedOptId = answers[q.id];
     const option = q.options.find(o => o.id === selectedOptId);
@@ -96,81 +102,77 @@ export function calculateDiagnosticResult(answers: UserAnswers): DiagnosticResul
     }
   }
 
-  // Raw maximum sum possible: 10 + 18 + 15 + 15 + 22 + 18 + 20 = 118
-  // Let's normalize it to a beautiful dashboard score between 55 and 96
-  // (We don't want 0 or 100 as they are outliers that feel less custom/personal).
-  const maxPossible = 118;
-  const rawRatio = scoreSum / maxPossible;
-  
-  // Custom formula to land elegantly between 45 and 92 (to make it feel highly realistic and believable)
-  const calculatedScore = Math.round(45 + (92 - 45) * rawRatio);
-  const score = Math.max(45, Math.min(92, calculatedScore));
+  // Define min and max possible weights
+  const minPossible = 47; // Sum of minimum options: 8+8+5+5+4+4+8+5 = 47
+  const maxPossible = 137; // Sum of maximum options: 15+15+15+15+22+20+15+20 = 137
 
-  // Determine Classifications based on requested ranges:
-  // High Readiness: 80–94, Moderate: 60–79, Needs Attention: 40–59
+  const rawRatio = (scoreSum - minPossible) / (maxPossible - minPossible);
+  const calculatedScore = Math.round(45 + (96 - 45) * rawRatio);
+  const score = Math.max(45, Math.min(96, calculatedScore));
+
+  // Research Cohort Classifications
   let tier: 1 | 2 | 3 = 2;
   let tierName = "Priority Evaluation Cohort";
-  let tierTag = "Moderate Readiness";
-  let tierDesc = "Your profile shows a moderate-high readiness score, placing you in our priority evaluation cohort for early hardware and feature compatibility matching.";
-  
+  let tierTag = "Moderate Awareness Readiness";
+  let tierDesc = "Your simulated profile shows moderate driver awareness readiness. You show standard alertness habits but have notable fatigue exposure on evening or busy commutes.";
+
   if (score >= 80) {
     tier = 1;
-    tierName = "Founding Early Allocation";
-    tierTag = "High Readiness";
-    tierDesc = "Your profile shows strong, top-tier alignment with Astrateq Gadgets' pre-launch priorities and hardware communication standards.";
+    tierName = "Founding Research Cohort";
+    tierTag = "High Awareness Readiness";
+    tierDesc = "Your simulated profile shows high alertness retention, proactive attention habits, and low overall fatigue risk exposure, qualifying you for the founding research cohort.";
   } else if (score < 60) {
     tier = 3;
-    tierName = "Standard Validation Queue";
-    tierTag = "Needs Attention";
-    tierDesc = "Your profile suggests higher mechanical/driving stress or complex retrofitting required. You've been placed in our Standard Validation Queue.";
+    tierName = "Standard Simulation Queue";
+    tierTag = "Attention Exposure Risk";
+    tierDesc = "Your inputs suggest significant exposure to long driving hours, low-light conditions, and frequent attentional split risks. You have been aligned with our standard simulation queue.";
   }
 
-  // Customize Risk Profile based on driving context (Q4) and highway (Q3)
-  const q4Answer = answers[4];
-  const q3Answer = answers[3];
-  
-  let riskProfile = "Moderate Summer Readiness";
-  let riskDesc = "Elevated mechanical stress risks during high-speed highway segments. Normal city operations remain within safe ranges.";
-
-  if (q4Answer === "gta") {
-    riskProfile = "High Commuter Congestion Profile";
-    riskDesc = "Prone to stop-and-go thermal stress on Ontario 400-series highways. Slush and salt risk during seasonal shifts.";
-  } else if (q4Answer === "family") {
-    riskProfile = "Balanced Family Safety Profile";
-    riskDesc = "Localized driving context with lower sustained speed stress. Heavy focus on short-trip battery and alternator health.";
-  } else if (q4Answer === "road_trip") {
-    riskProfile = "High Thermal & Distance Stress Profile";
-    riskDesc = "Long stretches of highway and variable remote roads. Higher vulnerability to cooling and sensor calibration issues.";
-  } else if (q4Answer === "long_distance") {
-    riskProfile = "Severe Highway Wear Profile";
-    riskDesc = "Sustained high-velocity mechanical strain. Rapid battery discharge rates and critical focus on real-time oil and sensor health.";
-  } else if (q4Answer === "mixed") {
-    riskProfile = "Moderate Mixed-Use Profile";
-    riskDesc = "Balanced highway speed exposure and city idle times. Subject to standard GTA transition conditions.";
-  }
-
-  // Custom compatibility and privacy signals based on vehicle year (Q2) and privacy preference (Q7)
+  // Customize Fatigue Risk Awareness Profile based on Q2 (driving type)
   const q2Answer = answers[2];
-  let compatibilityConfidence: 'High' | 'Moderate' | 'Pending Review' = 'High';
-  if (q2Answer === "older") {
-    compatibilityConfidence = 'Pending Review';
-  } else if (q2Answer === "2011_2015" || q2Answer === "2006_2010") {
-    compatibilityConfidence = 'Moderate';
+  let riskProfile = "Moderate Commuting Stress Profile";
+  let riskDesc = "Standard fatigue accumulation aligned with typical Canadian road conditions.";
+
+  if (q2Answer === "highway") {
+    riskProfile = "Sustained Highway Fatigue Profile";
+    riskDesc = "Prone to 'highway hypnosis' and progressive attention decline on extended, high-speed routes.";
+  } else if (q2Answer === "city") {
+    riskProfile = "Urban Attentional Split Profile";
+    riskDesc = "Frequent cognitive splitting and distraction spikes driven by high-density city traffic demands.";
+  } else if (q2Answer === "suburban") {
+    riskProfile = "Standard Low-Risk Comfort Profile";
+    riskDesc = "Stable local attention retention with minimal acute fatigue hazards on predictable residential routes.";
+  } else if (q2Answer === "road_trips") {
+    riskProfile = "Long-Distance Sensory Fatigue Profile";
+    riskDesc = "Elevated risk of fatigue accumulation during extended driving sessions beyond two hours.";
+  } else if (q2Answer === "commercial") {
+    riskProfile = "Sustained Professional Strain Profile";
+    riskDesc = "Extreme daily driving exposure and cumulative fatigue risk requiring active cognitive rest management.";
   }
 
-  const q7Answer = answers[7];
+  // Alignment values
+  const q8Answer = answers[8];
   let privacyAlignment: 'Excellent' | 'High' | 'Good' = 'High';
-  if (q7Answer === "extremely") {
+  if (q8Answer === "extremely") {
     privacyAlignment = 'Excellent';
-  } else if (q7Answer === "not_sure") {
+  } else if (q8Answer === "not_sure") {
     privacyAlignment = 'Good';
   }
 
-  let recommendation = "Unlock your full readiness report and founding cohort eligibility summary by entering your email.";
+  // Map compatibility confidence to simulation profile accuracy or general fit
+  const q1Answer = answers[1];
+  let compatibilityConfidence: 'High' | 'Moderate' | 'Pending Review' = 'High';
+  if (q1Answer === "rarely") {
+    compatibilityConfidence = 'Pending Review';
+  } else if (q1Answer === "1_2_times") {
+    compatibilityConfidence = 'Moderate';
+  }
+
+  let recommendation = "Unlock your full simulated driver awareness report and research cohort eligibility by entering your email.";
   if (tier === 1) {
-    recommendation = "Outstanding fit detected. Complete your profile with your email to claim your founding early allocation badge.";
+    recommendation = "Outstanding fit detected for our focus research cohort. Complete your profile with your email to claim your early access path.";
   } else if (tier === 3) {
-    recommendation = "Compatibility evaluation required. Enter your email to receive custom hardware retrofit suggestions and waitlist updates.";
+    recommendation = "Attention exposure risk identified. Enter your email to receive custom focus strategies and waitlist updates.";
   }
 
   return {

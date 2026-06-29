@@ -47,10 +47,10 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
             <span>Identity and Email Verified</span>
           </div>
           <h1 className="font-display font-bold text-3xl sm:text-4xl tracking-tight">
-            Your Full Vehicle Readiness Report
+            Your Simulated Driver Awareness Report
           </h1>
           <p className="text-sm text-slate-400 max-w-md mx-auto">
-            Thank you, {firstName || 'driver'}! Your customized pre-launch diagnostics are fully compiled.
+            Thank you, {firstName || 'driver'}! Your customized simulated awareness profile is fully compiled.
           </p>
         </div>
       </section>
@@ -71,14 +71,14 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
               </div>
               
               <h3 className="text-[10px] font-mono font-bold uppercase text-slate-400 tracking-widest mb-4 mt-2">
-                Vehicle Readiness Index
+                Driver Awareness Score
               </h3>
               <Gauge score={result.score} size={220} />
               
               <div className="w-full mt-4 pt-4 border-t border-slate-100 text-center">
-                <span className="text-[10px] font-mono text-slate-400 block font-semibold uppercase">Readiness Index</span>
+                <span className="text-[10px] font-mono text-slate-400 block font-semibold uppercase">Awareness Score</span>
                 <p className="text-xs text-slate-500 mt-1 leading-normal">
-                  Your score reflects your vehicle profile, driving context, and privacy preference inputs.
+                  Your simulated score reflects your driving habits, fatigue exposure, and attention inputs.
                 </p>
               </div>
             </div>
@@ -137,7 +137,7 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
             <div className="dashboard-card bg-white p-6 sm:p-8 rounded-2xl border border-slate-100 space-y-6">
               
               <div className="border-b border-slate-100 pb-4">
-                <h3 className="font-display font-bold text-xl text-slate-900">Your Vehicle Readiness Breakdown</h3>
+                <h3 className="font-display font-bold text-xl text-slate-900">Your Simulated Awareness Breakdown</h3>
                 <p className="text-xs text-slate-500 mt-1">Generated and locked on {new Date().toLocaleDateString('en-CA')}</p>
               </div>
 
@@ -151,7 +151,7 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
                     <CheckCircle2 className="w-4 h-4 text-sky-500" />
                   </div>
                   <div className="font-extrabold text-slate-900 text-sm leading-tight">{result.tierName}</div>
-                  <div className="text-xs text-slate-500 leading-snug">Priority allocation tier based on validation criteria.</div>
+                  <div className="text-xs text-slate-500 leading-snug">Research cohort alignment based on simulated awareness outputs.</div>
                 </div>
 
                 {/* Driving Risk Profile */}
@@ -161,7 +161,7 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
                     <AlertTriangle className="w-4 h-4 text-amber-500" />
                   </div>
                   <div className="font-extrabold text-slate-900 text-sm leading-tight">{result.riskProfile}</div>
-                  <div className="text-xs text-slate-500 leading-snug">Your driving context suggests elevated highway, congestion, or seasonal driving considerations.</div>
+                  <div className="text-xs text-slate-500 leading-snug">Your inputs suggest simulated focus patterns under specific driving environments.</div>
                 </div>
 
                 {/* Compatibility Confidence */}
@@ -174,7 +174,7 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
                     <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
                     <div className="font-extrabold text-slate-900 text-sm">{result.compatibilityConfidence}</div>
                   </div>
-                  <div className="text-xs text-slate-500 leading-snug">Your vehicle profile shows strong compatibility confidence for pre-launch review.</div>
+                  <div className="text-xs text-slate-500 leading-snug">Your profile shows strong consistency for simulated driver awareness reporting.</div>
                 </div>
 
                 {/* Privacy Alignment */}
@@ -196,10 +196,10 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
               <div className="bg-blue-50/40 border border-blue-100/55 p-5 rounded-xl space-y-2">
                 <h4 className="text-xs font-mono font-bold uppercase text-brand-primary">What this means</h4>
                 <p className="text-sm text-slate-700 leading-relaxed">
-                  Your profile shows strong alignment with Astrateq Gadgets’ Canadian readiness validation priorities. Based on your vehicle profile, privacy preference, and driving context, you may be eligible to continue toward founding cohort review.
+                  Your profile shows strong alignment with Astrateq Gadgets’ Canadian readiness validation priorities. Based on your fatigue exposure, privacy preference, and driving context, you may be eligible to continue toward founding cohort review.
                 </p>
                 <p className="text-sm text-slate-700 leading-relaxed font-semibold">
-                  Your next step is to record your early-access interest before the current validation cycle closes.
+                  Your next step is to register your early-access interest before the current validation cycle closes.
                 </p>
               </div>
 
@@ -208,15 +208,15 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
             {/* 3. RESERVATION BRIDGE */}
             <div className="dashboard-card bg-gradient-to-r from-blue-50 via-sky-50/30 to-white p-6 sm:p-8 rounded-2xl border-2 border-blue-500/30 shadow-md space-y-5">
               <div className="space-y-3">
-                <span className="text-[10px] font-mono font-bold uppercase text-brand-primary tracking-widest block">Pre-Launch Funding Cohort Reservation</span>
+                <span className="text-[10px] font-mono font-bold uppercase text-brand-primary tracking-widest block">Pre-Launch Research Cohort Entry</span>
                 <h3 className="font-display font-extrabold text-xl sm:text-2xl text-slate-900 leading-tight">
-                  Your Founding Cohort Pathway Is Open
+                  Your Research Cohort Pathway Is Open
                 </h3>
                 <p className="text-sm font-bold text-[#102A43]">
                   Classification: {result.tierName} (Score: {result.score} / 100)
                 </p>
                 <p className="text-sm text-slate-600 leading-relaxed bg-white border border-slate-100 p-4 rounded-xl shadow-xs">
-                  Your readiness result suggests alignment with Astrateq Gadgets’ pre-launch validation priorities. You may continue to the reservation page to record your early-access interest.
+                  Your simulated awareness profile shows alignment with Astrateq Gadgets’ pre-launch validation priorities. You may continue to the reservation page to register your early-access interest.
                 </p>
               </div>
 
@@ -226,7 +226,7 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
                   className="w-full py-4 bg-brand-primary hover:bg-sky-600 text-white font-bold text-base rounded-xl shadow-lg shadow-blue-900/10 active:scale-98 transition-all flex items-center justify-center gap-2 cursor-pointer animate-pulse-subtle"
                   id="reservation_bridge_cta"
                 >
-                  <span>Continue to Founding Cohort Reservation</span>
+                  <span>Continue to Research Cohort Entry</span>
                   <ArrowRight className="w-5 h-5" />
                 </button>
                 <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 text-[11px] text-slate-500 font-semibold text-center">
@@ -267,9 +267,9 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
               </div>
               <h4 className="font-display font-extrabold text-slate-900 text-lg tracking-tight">What we ask for</h4>
               <ul className="text-sm text-slate-600 space-y-3 leading-relaxed list-disc list-inside">
-                <li>Vehicle diagnostic type and profile</li>
                 <li>Driving context and commute frequency</li>
-                <li>Verified email address for result delivery and cohort follow-up</li>
+                <li>Fatigue, alertness, and attention inputs</li>
+                <li>Verified email address for simulated report delivery</li>
               </ul>
             </div>
 
@@ -280,9 +280,9 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
               </div>
               <h4 className="font-display font-extrabold text-slate-900 text-lg tracking-tight">What we do not do</h4>
               <ul className="text-sm text-slate-600 space-y-3 leading-relaxed list-disc list-inside">
-                <li>We do not sell driving logs for advertising</li>
-                <li>We do not act as an insurance tracking app</li>
-                <li>We do not request excessive personal data</li>
+                <li>We do not sell driving logs or behavior tracking</li>
+                <li>We do not track you, score your insurance, or use vehicle OBD</li>
+                <li>We do not require hardware, vehicle links, or VINs</li>
               </ul>
             </div>
 
@@ -293,9 +293,9 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
               </div>
               <h4 className="font-display font-extrabold text-slate-900 text-lg tracking-tight">Why we ask</h4>
               <ul className="text-sm text-slate-600 space-y-3 leading-relaxed list-disc list-inside">
-                <li>To map regional Canadian compatibility demand</li>
-                <li>To coordinate localized rollout batches</li>
-                <li>To validate demand for privacy-first vehicle intelligence</li>
+                <li>To map regional Canadian driver fatigue demands</li>
+                <li>To coordinate future driver awareness research</li>
+                <li>To validate interest in privacy-first driver safety software</li>
               </ul>
             </div>
 
@@ -323,13 +323,13 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
         {/* Content floats directly over the background image with drop-shadows */}
         <div className="relative max-w-2xl w-full mx-auto z-10 text-center space-y-6 px-4">
           <span className="text-[10px] font-mono font-bold bg-brand-primary/20 text-brand-secondary border border-brand-primary/30 px-3 py-1.5 rounded-full uppercase tracking-widest inline-block backdrop-blur-xs">
-            Astrateq Gadgets founding cohort
+            Astrateq Gadgets research cohort
           </span>
           <h2 className="font-display font-bold text-2xl sm:text-3xl md:text-4xl tracking-tight max-w-2xl mx-auto text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.85)]">
-            Your founding cohort next step is ready.
+            Your research cohort next step is ready.
           </h2>
           <p className="text-slate-200 text-sm max-w-md mx-auto leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] font-medium">
-            Continue from your readiness result to record your early-access interest. No payment is required during validation.
+            Continue from your simulated results to register your early-access interest. No payment is required during validation.
           </p>
 
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -338,8 +338,8 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
               className="px-7 py-3.5 bg-gradient-to-r from-brand-primary to-brand-secondary text-white font-bold text-sm sm:text-base rounded-xl shadow-lg hover:opacity-95 transition-all flex items-center gap-2 cursor-pointer w-full sm:w-auto justify-center group"
               id="reserve_access_bottom_btn"
             >
-              <span>Continue to Founding Cohort Reservation</span>
-              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-0.5" />
+              <span>Continue to Research Cohort Entry</span>
+              <ArrowRight className="w-5.5 h-5.5 transition-transform group-hover:translate-x-0.5" />
             </button>
 
             <button

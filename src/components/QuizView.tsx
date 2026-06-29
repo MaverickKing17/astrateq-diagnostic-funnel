@@ -20,7 +20,10 @@ import {
   ShieldCheck,
   CheckCircle2,
   Zap,
-  Compass
+  Compass,
+  Sun,
+  Moon,
+  CloudSnow
 } from 'lucide-react';
 import { QUESTIONS } from '../data/questions';
 import { UserAnswers } from '../types';
@@ -76,42 +79,54 @@ export default function QuizView({ onComplete, onBackToLanding, onTrackEvent }: 
   // Helper to dynamically match icons to options for premium visuals
   const getOptionIcon = (optId: string) => {
     switch (optId) {
-      // Vehicle types (Q1)
-      case 'suv': return <Car className="w-5 h-5" />;
-      case 'sedan': return <Car className="w-5 h-5 text-sky-500" />;
-      case 'pickup': return <Truck className="w-5 h-5" />;
-      case 'minivan': return <Users className="w-5 h-5" />;
-      case 'hybrid_ev': return <Zap className="w-5 h-5 text-emerald-500" />;
-      // Year ranges (Q2)
-      case '2021_2026': return <Clock className="w-5 h-5 text-emerald-500" />;
-      case '2016_2020': return <Clock className="w-5 h-5 text-sky-500" />;
-      case '2011_2015': return <Wrench className="w-5 h-5 text-amber-500" />;
-      case '2006_2010': return <Wrench className="w-5 h-5 text-slate-500" />;
-      // Highway driving (Q3)
-      case 'daily': return <Navigation className="w-5 h-5 text-blue-600" />;
-      case 'several_week': return <CalendarDays className="w-5 h-5 text-sky-500" />;
-      case 'few_month': return <Calendar className="w-5 h-5" />;
-      // Context (Q4)
-      case 'gta': return <Navigation className="w-5 h-5 text-indigo-600" />;
-      case 'family': return <Users className="w-5 h-5 text-sky-500" />;
-      case 'road_trip': return <Compass className="w-5 h-5 text-emerald-600" />;
-      case 'long_distance': return <Navigation className="w-5 h-5 text-amber-600" />;
-      case 'mixed': return <Navigation className="w-5 h-5" />;
-      // Confidence (Q5)
-      case 'very_confident': return <CheckCircle2 className="w-5 h-5 text-emerald-500" />;
-      case 'somewhat_confident': return <CheckCircle2 className="w-5 h-5 text-sky-500" />;
-      case 'not_sure': return <HelpCircle className="w-5 h-5 text-amber-500" />;
-      case 'concerned': return <AlertTriangle className="w-5 h-5 text-rose-500" />;
-      // Concerns (Q6)
-      case 'warning_lights': return <AlertTriangle className="w-5 h-5 text-rose-500" />;
-      case 'road_trip_rel': return <Compass className="w-5 h-5 text-sky-500" />;
-      case 'privacy': return <Lock className="w-5 h-5 text-emerald-600" />;
-      case 'family_safety': return <Users className="w-5 h-5 text-blue-500" />;
-      case 'compatibility': return <Wrench className="w-5 h-5" />;
-      // Privacy importance (Q7)
-      case 'extremely': return <ShieldCheck className="w-5 h-5 text-emerald-600" />;
-      case 'important': return <ShieldCheck className="w-5 h-5 text-sky-500" />;
-      case 'somewhat': return <ShieldCheck className="w-5 h-5 text-slate-500" />;
+      // Q1: Driving frequency
+      case 'daily': return <CalendarDays className="w-5 h-5 text-sky-500" />;
+      case '3_5_times': return <CalendarDays className="w-5 h-5 text-blue-500" />;
+      case '1_2_times': return <Calendar className="w-5 h-5 text-slate-450" />;
+      case 'rarely': return <Clock className="w-5 h-5 text-slate-400" />;
+
+      // Q2: Environment types
+      case 'highway': return <Navigation className="w-5 h-5 text-sky-500" />;
+      case 'city': return <Car className="w-5 h-5 text-amber-500" />;
+      case 'suburban': return <Users className="w-5 h-5 text-emerald-500" />;
+      case 'road_trips': return <Compass className="w-5 h-5 text-indigo-500" />;
+      case 'commercial': return <Truck className="w-5 h-5 text-rose-500" />;
+
+      // Q3: Time of day
+      case 'morning': return <Sun className="w-5 h-5 text-amber-400" />;
+      case 'midday': return <Sun className="w-5 h-5 text-amber-500" />;
+      case 'evening': return <Sun className="w-5 h-5 text-orange-450" />;
+      case 'night': return <Moon className="w-5 h-5 text-indigo-400" />;
+
+      // Q4: Low-light / night conditions
+      case 'always': return <Moon className="w-5 h-5 text-indigo-600" />;
+      case 'frequently': return <Moon className="w-5 h-5 text-indigo-400" />;
+      case 'occasionally': return <Sun className="w-5 h-5 text-amber-400" />;
+      case 'rarely_never': return <Sun className="w-5 h-5 text-amber-500" />;
+
+      // Q5: Alertness level
+      case 'high': return <Zap className="w-5 h-5 text-emerald-500" />;
+      case 'moderate': return <CheckCircle2 className="w-5 h-5 text-sky-500" />;
+      case 'sluggish': return <AlertTriangle className="w-5 h-5 text-amber-500" />;
+      case 'drowsy': return <ShieldAlert className="w-5 h-5 text-rose-500" />;
+
+      // Q6: Distraction split
+      case 'focused': return <Eye className="w-5 h-5 text-emerald-500" />;
+      case 'seldom': return <Eye className="w-5 h-5 text-sky-500" />;
+      case 'occasionally': return <AlertTriangle className="w-5 h-5 text-amber-500" />;
+      case 'frequently': return <ShieldAlert className="w-5 h-5 text-rose-500" />;
+
+      // Q7: Winter / poor weather
+      case 'very_often': return <CloudSnow className="w-5 h-5 text-sky-400" />;
+      case 'sometimes': return <CloudSnow className="w-5 h-5 text-slate-400" />;
+      case 'avoid': return <ShieldAlert className="w-5 h-5 text-amber-500" />;
+      case 'never': return <Sun className="w-5 h-5 text-amber-500" />;
+
+      // Q8: Privacy importance
+      case 'extremely': return <Lock className="w-5 h-5 text-emerald-500" />;
+      case 'important': return <Lock className="w-5 h-5 text-sky-500" />;
+      case 'somewhat': return <ShieldCheck className="w-5 h-5 text-slate-400" />;
+      case 'not_sure': return <HelpCircle className="w-5 h-5 text-slate-400" />;
       
       default: return <Gauge className="w-5 h-5 text-slate-400" />;
     }
@@ -125,7 +140,7 @@ export default function QuizView({ onComplete, onBackToLanding, onTrackEvent }: 
       {/* 1. Header with progress indicator */}
       <div className="mb-8 space-y-3">
         <div className="flex items-center justify-between text-xs font-mono text-slate-500 font-semibold uppercase">
-          <span>ASTRATEQ driver diagnostic</span>
+          <span>ASTRATEQ driver simulation</span>
           <span>Question {currentQuestionIdx + 1} of {totalQuestions}</span>
         </div>
         
@@ -150,7 +165,7 @@ export default function QuizView({ onComplete, onBackToLanding, onTrackEvent }: 
               {currentQuestion.text}
             </h2>
             <p className="text-sm text-slate-500 leading-relaxed">
-              {currentQuestion.subtext || "This helps us understand your vehicle and driving realities."}
+              {currentQuestion.subtext || "This helps us understand your driving patterns and focus habits."}
             </p>
           </div>
 

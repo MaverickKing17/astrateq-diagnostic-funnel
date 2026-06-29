@@ -43,10 +43,10 @@ export default function Footer({ onOpenTab }: FooterProps) {
             
             <div className="space-y-3">
               <p className="text-sm font-bold text-[#102A43] leading-snug">
-                Privacy-first driver readiness intelligence for Canadian roads.
+                Privacy-first driver awareness intelligence for Canadian roads.
               </p>
               <p className="text-xs text-slate-500 leading-relaxed">
-                Helping Ontario and Canadian drivers understand vehicle readiness, driving context, and privacy-first automotive intelligence before full product rollout.
+                Helping Ontario and Canadian drivers understand fatigue risk exposure, attentional patterns, and privacy-first driver safety intelligence before future product decisions.
               </p>
             </div>
 
@@ -106,7 +106,7 @@ export default function Footer({ onOpenTab }: FooterProps) {
                 <div>
                   <p className="text-xs font-bold text-[#102A43]">Pre-launch validation</p>
                   <p className="text-[11px] text-slate-500 mt-0.5 leading-normal">
-                    This diagnostic is used to validate interest, compatibility demand, and readiness use cases.
+                    This simulation is used to validate interest, attention focus preferences, and driver safety software demand.
                   </p>
                 </div>
               </li>

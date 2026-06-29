@@ -99,7 +99,7 @@ export default function PreliminaryView({ result, onSubmitEmail, onTrackEvent }:
           Here's your preliminary result
         </h1>
         <p className="text-sm text-slate-500 max-w-lg mx-auto">
-          We have generated your preliminary readiness index based on your profile inputs. Unlock the full interactive report below.
+          We have generated your simulated driver awareness score based on your behavioral inputs. Enter your email below to unlock the full report.
         </p>
       </div>
 
@@ -114,10 +114,10 @@ export default function PreliminaryView({ result, onSubmitEmail, onTrackEvent }:
 
           <div>
             <h2 className="text-2xl sm:text-3xl font-display font-bold leading-tight mb-2 text-brand-navy">
-              Your Preliminary Vehicle <br/><span className="text-brand-primary">Readiness Score</span>
+              Your Simulated Driver <br/><span className="text-brand-primary">Awareness Score</span>
             </h2>
             <p className="text-slate-500 text-sm max-w-md">
-              Based on your GTA commuting profile and driving year range context.
+              Based on your commuting profile and attention habit inputs.
             </p>
             
             <div className="mt-10 flex flex-col sm:flex-row items-center sm:items-end gap-6">
@@ -140,14 +140,14 @@ export default function PreliminaryView({ result, onSubmitEmail, onTrackEvent }:
           <div className="grid grid-cols-2 gap-4 mt-8 border-t border-slate-100 pt-8">
             <div className="bg-slate-50 p-4 rounded-2xl">
               <p className="text-[10px] font-bold text-slate-400 uppercase mb-2">Profile Alignment</p>
-              <p className="text-sm font-bold text-slate-900">High Privacy Demand</p>
+              <p className="text-sm font-bold text-slate-900">Privacy First Preference</p>
               <div className="w-full h-1 bg-slate-200 mt-2 rounded-full overflow-hidden">
                 <div className="h-full bg-brand-primary rounded-full" style={{ width: result.privacyAlignment === 'Excellent' ? '95%' : '80%' }}></div>
               </div>
             </div>
             <div className="bg-slate-50 p-4 rounded-2xl">
               <p className="text-[10px] font-bold text-slate-400 uppercase mb-2">Risk Sensitivity</p>
-              <p className="text-sm font-bold text-slate-900">Ontario Winter Focus</p>
+              <p className="text-sm font-bold text-slate-900">Canadian Road Focus</p>
               <div className="w-full h-1 bg-slate-200 mt-2 rounded-full overflow-hidden">
                 <div className="h-full bg-brand-primary rounded-full" style={{ width: result.score >= 86 ? '90%' : result.score >= 72 ? '70%' : '50%' }}></div>
               </div>
@@ -161,9 +161,9 @@ export default function PreliminaryView({ result, onSubmitEmail, onTrackEvent }:
           {/* Email Capture Card */}
           <div className="bg-brand-navy text-white p-6 sm:p-8 rounded-3xl shadow-2xl flex flex-col justify-between">
             <div>
-              <h3 className="text-xl font-bold mb-3">Send My Full Result</h3>
+              <h3 className="text-xl font-bold mb-3">Send My Simulated Report</h3>
               <p className="text-slate-300 text-sm leading-relaxed mb-6">
-                Unlock your full readiness summary, risk breakdown, and check your <strong>Founding Cohort</strong> eligibility.
+                Unlock your full simulated driver awareness report, custom attention tips, and check your <strong>Founding Cohort</strong> eligibility.
               </p>
               
               <form onSubmit={handleSubmit} className="space-y-4" id="email_capture_form">
@@ -222,7 +222,7 @@ export default function PreliminaryView({ result, onSubmitEmail, onTrackEvent }:
                     ) : (
                       <>
                         <ShieldCheck className="w-4.5 h-4.5" />
-                        <span>Send My Full Result</span>
+                        <span>Send My Simulated Report</span>
                       </>
                     )}
                   </button>
@@ -232,7 +232,7 @@ export default function PreliminaryView({ result, onSubmitEmail, onTrackEvent }:
 
             <div className="mt-6 flex items-start gap-2 text-[10px] text-slate-400 p-2">
               <Lock className="w-3.5 h-3.5 text-brand-primary shrink-0 mt-0.5" />
-              <p>Privacy Promise: We do not sell your data for insurance tracking or advertising. No spam. Built for Canadians.</p>
+              <p>Privacy Promise: No vehicle connection. No insurance use. No hardware required. Your responses are secure and processed locally.</p>
             </div>
           </div>
 

@@ -121,10 +121,10 @@ export default function InfoModal({ isOpen, activeTab, onTabChange, onClose, onS
                       
                       <div className="text-sm text-slate-600 space-y-4 leading-relaxed">
                         <p className="font-medium text-[#102A43] text-base leading-snug">
-                          Astrateq Gadgets is an upcoming Canadian automotive technology brand exploring privacy-first driver readiness intelligence for Canadian roads.
+                          Astrateq Gadgets is an upcoming Canadian automotive technology brand validating privacy-first driver awareness intelligence for Canadian roads.
                         </p>
                         <p>
-                          The project is currently in pre-launch market validation. The goal is to understand whether Canadian drivers want clearer vehicle readiness insights, compatibility confidence, and privacy-conscious automotive intelligence before future hardware and software rollout decisions are made.
+                          The project is currently in pre-launch market validation. The goal is to understand whether Canadian drivers want clearer driver fatigue awareness insights, attentional simulations, and privacy-conscious behavioral intelligence before future software product decisions are made.
                         </p>
                         <p>
                           Astrateq Gadgets is focused on ordinary drivers, families, commuters, road-trippers, and privacy-conscious vehicle owners who want useful guidance without insurer-style tracking or unnecessary data resale.
@@ -147,12 +147,12 @@ export default function InfoModal({ isOpen, activeTab, onTabChange, onClose, onS
                       <div className="flex items-center gap-2.5">
                         <Cpu className="w-5 h-5 text-sky-500" />
                         <h3 className="font-sans font-bold text-xl text-[#102A43]">
-                          How the Readiness Check Works
+                          How the Simulation Works
                         </h3>
                       </div>
 
                       <p className="text-sm text-slate-600 leading-relaxed">
-                        The Astrateq Gadgets readiness check helps drivers understand how their vehicle profile, driving context, and privacy preferences align with the pre-launch validation program.
+                        The Astrateq Gadgets simulation helps drivers understand how their commute habits, fatigue risks, and attention patterns align with the pre-launch validation research.
                       </p>
 
                       {/* Step-by-step layout */}
@@ -161,15 +161,15 @@ export default function InfoModal({ isOpen, activeTab, onTabChange, onClose, onS
                           <div className="w-6 h-6 rounded-full bg-sky-100 text-sky-700 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">1</div>
                           <div>
                             <p className="font-bold text-xs text-[#102A43] mb-0.5">Analyze Profile</p>
-                            <p className="text-xs text-slate-500 leading-relaxed">Answer a few quick questions about your vehicle, driving habits, and privacy preferences.</p>
+                            <p className="text-xs text-slate-500 leading-relaxed">Answer a few quick questions about your commute habits, attention levels, and privacy preferences.</p>
                           </div>
                         </div>
 
                         <div className="p-4 rounded-xl border border-slate-100 bg-slate-50 flex gap-3">
                           <div className="w-6 h-6 rounded-full bg-sky-100 text-sky-700 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">2</div>
                           <div>
-                            <p className="font-bold text-xs text-[#102A43] mb-0.5">Receive Diagnosis</p>
-                            <p className="text-xs text-slate-500 leading-relaxed">Receive a preliminary readiness score and risk profile based on your inputs.</p>
+                            <p className="font-bold text-xs text-[#102A43] mb-0.5">Receive Simulation</p>
+                            <p className="text-xs text-slate-500 leading-relaxed">Receive a simulated driver awareness score and fatigue risk profile based on your inputs.</p>
                           </div>
                         </div>
 
@@ -177,15 +177,15 @@ export default function InfoModal({ isOpen, activeTab, onTabChange, onClose, onS
                           <div className="w-6 h-6 rounded-full bg-sky-100 text-sky-700 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">3</div>
                           <div>
                             <p className="font-bold text-xs text-[#102A43] mb-0.5">Review Cohort</p>
-                            <p className="text-xs text-slate-500 leading-relaxed">Review your cohort classification and next-step recommendation.</p>
+                            <p className="text-xs text-slate-500 leading-relaxed">Review your cohort classification and research recommendation.</p>
                           </div>
                         </div>
 
                         <div className="p-4 rounded-xl border border-slate-100 bg-slate-50 flex gap-3">
                           <div className="w-6 h-6 rounded-full bg-sky-100 text-sky-700 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">4</div>
                           <div>
-                            <p className="font-bold text-xs text-[#102A43] mb-0.5">Reserve Access</p>
-                            <p className="text-xs text-slate-500 leading-relaxed">If your profile aligns with current validation priorities, continue to founding cohort reservation.</p>
+                            <p className="font-bold text-xs text-[#102A43] mb-0.5">Register Access</p>
+                            <p className="text-xs text-slate-500 leading-relaxed">If your profile aligns with current validation research priorities, continue to register for early research cohort entry.</p>
                           </div>
                         </div>
                       </div>
@@ -193,7 +193,7 @@ export default function InfoModal({ isOpen, activeTab, onTabChange, onClose, onS
                       <div className="p-4 bg-amber-50 border border-amber-200/60 rounded-xl flex gap-3 text-xs text-amber-800 mt-4 leading-relaxed">
                         <HelpCircle className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
                         <p>
-                          <strong>Informational Tool Only:</strong> This diagnostic does not replace a mechanic, inspection, or certified vehicle safety assessment. It is an informational pre-launch validation tool.
+                          <strong>Informational Tool Only:</strong> This simulation is informational only. It does not replace professional driver training, certified medical/fatigue diagnostics, or physical driver assessments.
                         </p>
                       </div>
                     </div>
@@ -210,7 +210,7 @@ export default function InfoModal({ isOpen, activeTab, onTabChange, onClose, onS
                       </div>
 
                       <p className="text-sm text-slate-600 leading-relaxed">
-                        Astrateq Gadgets is being designed around a privacy-first data philosophy.
+                        Astrateq Gadgets is being designed around a privacy-first driver safety data philosophy.
                       </p>
 
                       <div className="space-y-4 pt-2">
@@ -222,15 +222,15 @@ export default function InfoModal({ isOpen, activeTab, onTabChange, onClose, onS
                           <div className="p-4 bg-white space-y-2">
                             <div className="flex items-start gap-2.5 text-xs text-slate-600">
                               <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
-                              <span><strong>Basic vehicle profile</strong> (Make category, weight range, drive configuration)</span>
+                              <span><strong>Basic driving context</strong> (Commute duration, peak times, general environmental fatigue)</span>
                             </div>
                             <div className="flex items-start gap-2.5 text-xs text-slate-600">
                               <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
-                              <span><strong>Driving context</strong> (Frequency of highway travel, road conditions, safety goals)</span>
+                              <span><strong>Attentional patterns</strong> (Alertness level, screen focus habits, fatigue responses)</span>
                             </div>
                             <div className="flex items-start gap-2.5 text-xs text-slate-600">
                               <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
-                              <span><strong>Email address</strong> (To deliver results and cohort verification)</span>
+                              <span><strong>Email address</strong> (To deliver simulated results and research cohort verification)</span>
                             </div>
                           </div>
                         </div>
@@ -243,7 +243,7 @@ export default function InfoModal({ isOpen, activeTab, onTabChange, onClose, onS
                           <div className="p-4 bg-white space-y-2">
                             <div className="flex items-start gap-2.5 text-xs text-slate-600">
                               <X className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
-                              <span><strong>No insurance tracking:</strong> We do not position Astrateq Gadgets as an insurance tracking app.</span>
+                              <span><strong>No insurance tracking:</strong> Astrateq Gadgets is never used for insurance scoring or reporting. This is purely for personal driver awareness.</span>
                             </div>
                             <div className="flex items-start gap-2.5 text-xs text-slate-600">
                               <X className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
@@ -251,7 +251,7 @@ export default function InfoModal({ isOpen, activeTab, onTabChange, onClose, onS
                             </div>
                             <div className="flex items-start gap-2.5 text-xs text-slate-600">
                               <X className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
-                              <span><strong>No unnecessary tracking:</strong> We do not ask for unnecessary personal data during validation.</span>
+                              <span><strong>No vehicle tracking:</strong> We do not require hardware links, OBD-II connections, VIN numbers, or active location tracking.</span>
                             </div>
                           </div>
                         </div>
@@ -262,15 +262,15 @@ export default function InfoModal({ isOpen, activeTab, onTabChange, onClose, onS
                             <h4 className="font-bold text-xs text-sky-800 uppercase tracking-wide">Why we ask:</h4>
                           </div>
                           <div className="p-4 bg-white space-y-2 text-xs text-slate-600">
-                            <p>• To understand regional compatibility demand for hardware manufacturing priority.</p>
-                            <p>• To validate Canadian driver readiness use cases for custom calibration tuning.</p>
-                            <p>• To prioritize future rollout schedules and product feature decisions.</p>
+                            <p>• To map regional Canadian driver fatigue demands and software configuration priorities.</p>
+                            <p>• To coordinate future driver awareness and focus research programs.</p>
+                            <p>• To validate interest in privacy-first, software-driven driver safety tools.</p>
                           </div>
                         </div>
                       </div>
 
                       <p className="text-xs text-slate-500 italic mt-2">
-                        Astrateq Gadgets' goal is to explore useful vehicle intelligence without turning drivers into data products.
+                        Astrateq Gadgets' goal is to explore useful driver awareness intelligence without turning commuters into data products.
                       </p>
                     </div>
                   )}
@@ -292,25 +292,25 @@ export default function InfoModal({ isOpen, activeTab, onTabChange, onClose, onS
                             Is Astrateq Gadgets available now?
                           </h4>
                           <p className="text-xs text-slate-600 leading-relaxed">
-                            Astrateq Gadgets is currently in pre-launch market validation. The readiness check and reservation flow are designed to measure interest, compatibility demand, and early-access intent before future rollout decisions.
+                            Astrateq Gadgets is currently in pre-launch market validation. The simulation and cohort registration flow are designed to measure interest, attentional focus needs, and early-access intent before future software rollout decisions.
                           </p>
                         </div>
 
                         <div className="p-4 rounded-xl bg-slate-50 border border-slate-150 space-y-2">
                           <h4 className="font-bold text-xs sm:text-sm text-[#102A43]">
-                            Is this a final product purchase?
+                            Is this a final product purchase or pre-order?
                           </h4>
                           <p className="text-xs text-slate-600 leading-relaxed">
-                            No. This is not a final product purchase. The system is being used to validate interest and collect early-access signals from Canadian drivers.
+                            No. Astrateq Gadgets is currently in the pre-launch validation phase. We do NOT collect pre-orders, payments, security deposits, or bank info. This is a pre-launch validation research cohort registration to gauge market demand.
                           </p>
                         </div>
 
                         <div className="p-4 rounded-xl bg-slate-50 border border-slate-150 space-y-2">
                           <h4 className="font-bold text-xs sm:text-sm text-[#102A43]">
-                            Does this replace a mechanic?
+                            Does this require hardware or vehicle connections?
                           </h4>
                           <p className="text-xs text-slate-600 leading-relaxed">
-                            No. The readiness check is informational only and does not replace a professional mechanic, diagnostic inspection, or certified safety assessment.
+                            No. This simulation is purely software-based and runs entirely in your browser without requiring any OBD-II hardware, dashcams, or direct vehicle telemetry connections.
                           </p>
                         </div>
 
@@ -319,16 +319,16 @@ export default function InfoModal({ isOpen, activeTab, onTabChange, onClose, onS
                             Will my data be sold?
                           </h4>
                           <p className="text-xs text-slate-600 leading-relaxed">
-                            Astrateq Gadgets is not being designed around advertising resale or insurer-style tracking. The validation system is intended to minimize unnecessary data collection and focus on readiness-related inputs.
+                            Absolutely not. Astrateq Gadgets is built with a privacy-first software philosophy. Your answers are secure, processed locally, and we never sell your driver profile data or behavior metrics.
                           </p>
                         </div>
 
                         <div className="p-4 rounded-xl bg-slate-50 border border-slate-150 space-y-2">
                           <h4 className="font-bold text-xs sm:text-sm text-[#102A43]">
-                            What happens after I complete the readiness check?
+                            What happens after I complete the simulation?
                           </h4>
                           <p className="text-xs text-slate-600 leading-relaxed">
-                            You may receive a readiness score, risk profile, cohort classification, and an invitation to continue toward founding cohort reservation if your profile aligns with the current validation program.
+                            You receive a simulated driver awareness score, fatigue profile, cohort classification, and an invitation to register for early research cohort entry.
                           </p>
                         </div>
                       </div>
@@ -351,10 +351,10 @@ export default function InfoModal({ isOpen, activeTab, onTabChange, onClose, onS
                 id="info_modal_cta_btn"
               >
                 <span>
-                  {activeTab === 'about' && 'Return to readiness check'}
-                  {activeTab === 'howItWorks' && 'Start readiness check'}
-                  {activeTab === 'privacy' && 'Review readiness check'}
-                  {activeTab === 'faq' && 'Back to readiness check'}
+                  {activeTab === 'about' && 'Return to simulation'}
+                  {activeTab === 'howItWorks' && 'Start simulation'}
+                  {activeTab === 'privacy' && 'Review simulation'}
+                  {activeTab === 'faq' && 'Back to simulation'}
                 </span>
                 <ChevronRight className="w-3.5 h-3.5" />
               </button>
