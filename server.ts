@@ -16,7 +16,7 @@ async function startServer() {
   // API Route: Send Diagnostic Email via Resend
   app.post("/api/send-email", async (req, res) => {
     try {
-      const { email, firstName, score, tierName, riskProfile, privacyAlignment, compatibilityConfidence, riskDesc, tierDesc } = req.body;
+      const { email, firstName, score, tierName, riskProfile, privacyAlignment, attentionReadiness, riskDesc, tierDesc } = req.body;
 
       if (!email) {
         return res.status(400).json({ success: false, error: "Email address is required." });
@@ -207,7 +207,7 @@ async function startServer() {
                 </tr>
                 <tr>
                   <td class="label">Attention Pattern Readiness</td>
-                  <td class="value">${compatibilityConfidence || "N/A"}</td>
+                  <td class="value">${attentionReadiness || "N/A"}</td>
                 </tr>
                 <tr>
                   <td class="label">Privacy Alignment</td>

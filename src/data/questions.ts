@@ -15,7 +15,7 @@ export const QUESTIONS: Question[] = [
   {
     id: 2,
     text: "What type of driving do you do most often?",
-    subtext: "Driving environment shapes the specific cognitive load and attentional patterns required.",
+    subtext: "Driving environment helps compare city traffic, suburban routes, highways, and mixed road conditions.",
     options: [
       { id: "highway", text: "Major highway commutes", subtext: "High-speed lanes, repetitive scenery, potential road hypnosis", weight: 12 },
       { id: "city", text: "City driving & errands", subtext: "Stop-and-go, heavy pedestrian traffic, active navigation demands", weight: 12 },
@@ -27,7 +27,7 @@ export const QUESTIONS: Question[] = [
   {
     id: 3,
     text: "When do you most often drive?",
-    subtext: "Time of day is highly correlated with circadian rhythm shifts and visual strain.",
+    subtext: "Time of day helps estimate when fatigue and attention shifts may be more likely to appear.",
     options: [
       { id: "morning", text: "Morning rush hour", subtext: "High volume, high stress, morning awakening peak", weight: 12 },
       { id: "midday", text: "Mid-day / afternoon", subtext: "Clear visibility, lower congestion, post-lunch dip potential", weight: 15 },
@@ -38,7 +38,7 @@ export const QUESTIONS: Question[] = [
   {
     id: 4,
     text: "How often do you drive in low-light or night conditions?",
-    subtext: "Low-light driving significantly increases sensory demand and fatigue acceleration.",
+    subtext: "Low-light exposure helps model how visibility and alertness may influence awareness patterns.",
     options: [
       { id: "always", text: "Almost every trip", subtext: "Predominantly dark or twilight driving environment", weight: 5 },
       { id: "frequently", text: "Frequently", subtext: "Regular night commutes or early morning starts", weight: 10 },
@@ -49,7 +49,7 @@ export const QUESTIONS: Question[] = [
   {
     id: 5,
     text: "How would you rate your typical alertness while driving?",
-    subtext: "Self-reported fatigue levels help calibrate simulated attention degradation over time.",
+    subtext: "Self-reported alertness helps estimate how you perceive your attention during typical drives.",
     options: [
       { id: "high", text: "Fully energized and alert", subtext: "No sluggishness, easily maintain crisp road focus", weight: 22 },
       { id: "moderate", text: "Mostly alert but occasionally lose focus", subtext: "Brief periods of drifting attention, quickly recovered", weight: 15 },
@@ -60,7 +60,7 @@ export const QUESTIONS: Question[] = [
   {
     id: 6,
     text: "How easily do you get distracted while driving?",
-    subtext: "Attentional split risk calculations are weighted based on your secondary cognitive task inputs.",
+    subtext: "Distraction patterns help model attention stability across different driving contexts.",
     options: [
       { id: "focused", text: "Extremely focused / rarely distracted", subtext: "Devices stowed, passengers managed, full attention on the road", weight: 20 },
       { id: "seldom", text: "Seldom distracted / highly aware", subtext: "Occasional navigation glance, keep main attention centered", weight: 15 },
@@ -71,7 +71,7 @@ export const QUESTIONS: Question[] = [
   {
     id: 7,
     text: "How often do you drive in winter or poor weather?",
-    subtext: "Canadian weather extremes and poor visibility multiply cognitive load and attention demands.",
+    subtext: "Poor weather exposure helps reflect Canadian driving conditions such as snow, rain, fog, and low visibility.",
     options: [
       { id: "very_often", text: "Very often", subtext: "Year-round commuter, navigate snow, slush, or heavy downpours", weight: 8 },
       { id: "sometimes", text: "Sometimes", subtext: "Drive when necessary but prefer to wait out major winter storms", weight: 12 },
@@ -159,13 +159,13 @@ export function calculateDiagnosticResult(answers: UserAnswers): DiagnosticResul
     privacyAlignment = 'Good';
   }
 
-  // Map compatibility confidence to simulation profile accuracy or general fit
+  // Map Attention Readiness to simulation profile accuracy or general fit
   const q1Answer = answers[1];
-  let compatibilityConfidence: 'High' | 'Moderate' | 'Pending Review' = 'High';
+  let attentionReadiness: 'High' | 'Moderate' | 'Pending Review' = 'High';
   if (q1Answer === "rarely") {
-    compatibilityConfidence = 'Pending Review';
+    attentionReadiness = 'Pending Review';
   } else if (q1Answer === "1_2_times") {
-    compatibilityConfidence = 'Moderate';
+    attentionReadiness = 'Moderate';
   }
 
   let recommendation = "Unlock your full simulated driver awareness report and research cohort eligibility by entering your email.";
@@ -183,7 +183,7 @@ export function calculateDiagnosticResult(answers: UserAnswers): DiagnosticResul
     tierDesc,
     riskProfile,
     riskDesc,
-    compatibilityConfidence,
+    attentionReadiness,
     privacyAlignment,
     recommendation
   };

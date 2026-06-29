@@ -73,74 +73,74 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
             </p>
           </div>
 
-          {/* 5-SECOND VALUE STRIP */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto pt-2">
-            
-            <div className="bg-slate-950/75 border border-slate-800/80 p-4 rounded-xl text-left shadow-lg backdrop-blur-sm">
-              <div className="flex items-center gap-2 mb-1.5">
-                <div className="w-6 h-6 rounded-md bg-sky-500/20 text-sky-400 flex items-center justify-center font-bold text-xs">01</div>
-                <h4 className="font-bold text-sm text-white">See your awareness score</h4>
-              </div>
-              <p className="text-slate-300 text-xs leading-relaxed font-normal">
-                A simulated 0–100 profile based on your driving habits and attention patterns.
-              </p>
-            </div>
-
-            <div className="bg-slate-950/75 border border-slate-800/80 p-4 rounded-xl text-left shadow-lg backdrop-blur-sm">
-              <div className="flex items-center gap-2 mb-1.5">
-                <div className="w-6 h-6 rounded-md bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-xs">02</div>
-                <h4 className="font-bold text-sm text-white">Understand fatigue exposure</h4>
-              </div>
-              <p className="text-slate-300 text-xs leading-relaxed font-normal">
-                Preview how commute timing, long drives, and road conditions may affect awareness.
-              </p>
-            </div>
-
-            <div className="bg-slate-950/75 border border-slate-800/80 p-4 rounded-xl text-left shadow-lg backdrop-blur-sm">
-              <div className="flex items-center gap-2 mb-1.5">
-                <div className="w-6 h-6 rounded-md bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-xs">03</div>
-                <h4 className="font-bold text-sm text-white">Join the research cohort</h4>
-              </div>
-              <p className="text-slate-300 text-xs leading-relaxed font-normal">
-                Help validate a future Driver Awareness Intelligence concept for Canadian drivers.
-              </p>
-            </div>
-
+          {/* Primary CTA Button (Dominant Centered Block) */}
+          <div className="space-y-3.5 pt-4 max-w-xl mx-auto">
+            <button
+              onClick={onStartDiagnostic}
+              className="w-full sm:w-auto inline-flex items-center justify-center px-12 py-5 bg-gradient-to-r from-[#0ea5e9] via-[#0284c7] to-cyan-500 hover:from-[#38bdf8] hover:to-[#0284c7] text-white font-extrabold text-xl rounded-2xl shadow-[0_0_40px_rgba(14,165,233,0.35)] hover:shadow-[0_0_50px_rgba(56,189,248,0.5)] hover:-translate-y-0.5 active:translate-y-0 active:scale-98 transition-all duration-200 cursor-pointer border border-cyan-400/30 group"
+              id="hero_diagnostic_cta"
+            >
+              <span>Start Awareness Simulation</span>
+              <ChevronRight className="w-6 h-6 ml-2 transition-transform duration-200 group-hover:translate-x-1" />
+            </button>
+            <p className="text-xs text-slate-300 font-medium tracking-wide">
+              Free · 60 seconds · No tracking · No hardware required
+            </p>
           </div>
 
           {/* Trust Badges */}
-          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-slate-300 max-w-2xl mx-auto font-semibold pt-1">
-            <div className="flex items-center gap-1.5 bg-slate-900/40 px-3 py-1 rounded-full border border-slate-800">
+          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs text-slate-350 max-w-2xl mx-auto font-semibold pt-1">
+            <div className="flex items-center gap-1.5 bg-slate-900/50 px-3 py-1 rounded-full border border-slate-800">
               <Lock className="w-3.5 h-3.5 text-cyan-400" />
               <span>No vehicle connection</span>
             </div>
-            <div className="flex items-center gap-1.5 bg-slate-900/40 px-3 py-1 rounded-full border border-slate-800">
+            <div className="flex items-center gap-1.5 bg-slate-900/50 px-3 py-1 rounded-full border border-slate-800">
               <MapPin className="w-3.5 h-3.5 text-cyan-400" />
               <span>No insurance use</span>
             </div>
-            <div className="flex items-center gap-1.5 bg-slate-900/40 px-3 py-1 rounded-full border border-slate-800">
+            <div className="flex items-center gap-1.5 bg-slate-900/50 px-3 py-1 rounded-full border border-slate-800">
               <ShieldCheck className="w-3.5 h-3.5 text-cyan-400" />
               <span>No hardware required</span>
             </div>
-            <div className="flex items-center gap-1.5 bg-slate-900/40 px-3 py-1 rounded-full border border-slate-800">
+            <div className="flex items-center gap-1.5 bg-slate-900/50 px-3 py-1 rounded-full border border-slate-800">
               <Clock className="w-3.5 h-3.5 text-cyan-400" />
               <span>60 seconds or less</span>
             </div>
           </div>
 
-          {/* Primary CTA Button */}
-          <div className="space-y-3 pt-4">
-            <button
-              onClick={onStartDiagnostic}
-              className="w-full sm:w-auto inline-flex items-center justify-center px-10 py-4.5 bg-gradient-to-r from-[#0ea5e9] via-[#0284c7] to-cyan-500 hover:from-[#38bdf8] hover:to-[#0284c7] text-white font-extrabold text-lg rounded-xl shadow-2xl shadow-cyan-500/30 hover:shadow-cyan-400/40 hover:-translate-y-0.5 active:translate-y-0 active:scale-98 transition-all duration-200 cursor-pointer border border-cyan-400/25 group"
-              id="hero_diagnostic_cta"
-            >
-              <span>Start Awareness Simulation</span>
-              <ChevronRight className="w-5.5 h-5.5 ml-2 transition-transform duration-200 group-hover:translate-x-1" />
-            </button>
-            <p className="text-xs text-slate-300 font-medium">
-              Free · 60 seconds · Simulation only · No tracking
-            </p>
+          {/* 5-SECOND VALUE STRIP (Secondary Simplified Info) */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto pt-8 border-t border-slate-900/40">
+            
+            <div className="bg-slate-950/45 border border-slate-900 p-4 rounded-xl text-left backdrop-blur-xs">
+              <div className="flex items-center gap-2 mb-1">
+                <div className="w-5 h-5 rounded-md bg-sky-500/10 text-sky-400 flex items-center justify-center font-bold text-[10px]">01</div>
+                <h4 className="font-bold text-sm text-slate-100">Awareness Score</h4>
+              </div>
+              <p className="text-slate-350 text-xs leading-relaxed font-normal">
+                Simulated 0–100 driver awareness profile.
+              </p>
+            </div>
+
+            <div className="bg-slate-950/45 border border-slate-900 p-4 rounded-xl text-left backdrop-blur-xs">
+              <div className="flex items-center gap-2 mb-1">
+                <div className="w-5 h-5 rounded-md bg-amber-500/10 text-amber-400 flex items-center justify-center font-bold text-[10px]">02</div>
+                <h4 className="font-bold text-sm text-slate-100">Fatigue Profile</h4>
+              </div>
+              <p className="text-slate-350 text-xs leading-relaxed font-normal">
+                See how timing and driving context may affect alertness.
+              </p>
+            </div>
+
+            <div className="bg-slate-950/45 border border-slate-900 p-4 rounded-xl text-left backdrop-blur-xs">
+              <div className="flex items-center gap-2 mb-1">
+                <div className="w-5 h-5 rounded-md bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold text-[10px]">03</div>
+                <h4 className="font-bold text-sm text-slate-100">Research Cohort</h4>
+              </div>
+              <p className="text-slate-350 text-xs leading-relaxed font-normal">
+                See where your profile fits in the validation study.
+              </p>
+            </div>
+
           </div>
 
         </div>
@@ -407,40 +407,64 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
       </section>
 
       {/* 7. WHAT HAPPENS AFTER YOUR SIMULATION */}
-      <section className="py-20 px-6 bg-white border-b border-slate-100">
-        <div className="max-w-4xl mx-auto space-y-12">
+      <section className="py-22 px-6 bg-[#F4F8FC] border-y border-[#DCEBFA]">
+        <div className="max-w-5xl mx-auto space-y-12">
           
           <div className="text-center space-y-3">
-            <span className="text-xs font-mono font-bold tracking-widest text-brand-primary uppercase">Post-Simulation Pathway</span>
-            <h2 className="font-sans font-extrabold text-3xl text-slate-900 tracking-tight">
+            <span className="text-xs font-mono font-bold tracking-widest text-sky-700 uppercase bg-sky-50 px-3.5 py-1.5 rounded-full border border-sky-200">Post-Simulation Pathway</span>
+            <h2 className="font-sans font-extrabold text-3xl sm:text-4xl text-[#102A43] tracking-tight">
               What happens after your simulation?
             </h2>
+            <p className="text-sm text-slate-500 max-w-lg mx-auto">
+              Our pre-launch cohort pathway is transparent, secure, and completely risk-free.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             
-            <div className="space-y-3">
-              <div className="text-xs font-mono text-cyan-600 font-bold uppercase">Step 01</div>
-              <h4 className="font-sans font-bold text-[#102A43] text-lg">Receive your awareness profile</h4>
-              <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
-                See your Driver Awareness Score, Fatigue Risk Awareness Profile, and attention pattern summary.
-              </p>
+            <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-150 shadow-md hover:shadow-lg transition-all duration-300 flex flex-col justify-between space-y-4">
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <div className="w-10 h-10 rounded-xl bg-sky-50 text-brand-primary flex items-center justify-center font-bold">
+                    <Gauge className="w-5 h-5 text-brand-primary" />
+                  </div>
+                  <span className="text-xs font-mono font-bold text-slate-400">STEP 01</span>
+                </div>
+                <h4 className="font-sans font-bold text-[#102A43] text-lg">Receive your awareness profile</h4>
+                <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
+                  See your simulated Driver Awareness Score and Fatigue Risk Awareness Profile.
+                </p>
+              </div>
             </div>
 
-            <div className="space-y-3">
-              <div className="text-xs font-mono text-cyan-600 font-bold uppercase">Step 02</div>
-              <h4 className="font-sans font-bold text-[#102A43] text-lg">View your research cohort</h4>
-              <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
-                Understand which validation cohort your simulated profile aligns with.
-              </p>
+            <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-150 shadow-md hover:shadow-lg transition-all duration-300 flex flex-col justify-between space-y-4">
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <div className="w-10 h-10 rounded-xl bg-cyan-50 text-cyan-600 flex items-center justify-center font-bold">
+                    <Compass className="w-5 h-5 text-cyan-600" />
+                  </div>
+                  <span className="text-xs font-mono font-bold text-slate-400">STEP 02</span>
+                </div>
+                <h4 className="font-sans font-bold text-[#102A43] text-lg">View your research cohort</h4>
+                <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
+                  Understand which validation cohort your awareness profile aligns with.
+                </p>
+              </div>
             </div>
 
-            <div className="space-y-3">
-              <div className="text-xs font-mono text-cyan-600 font-bold uppercase">Step 03</div>
-              <h4 className="font-sans font-bold text-[#102A43] text-lg">Choose whether to join</h4>
-              <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
-                Help Astrateq Gadgets validate demand for future Driver Awareness Intelligence tools.
-              </p>
+            <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-150 shadow-md hover:shadow-lg transition-all duration-300 flex flex-col justify-between space-y-4">
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-600" />
+                  </div>
+                  <span className="text-xs font-mono font-bold text-slate-400">STEP 03</span>
+                </div>
+                <h4 className="font-sans font-bold text-[#102A43] text-lg">Choose whether to join</h4>
+                <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
+                  Help validate future Driver Awareness Intelligence tools for Canadian drivers.
+                </p>
+              </div>
             </div>
 
           </div>

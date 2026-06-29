@@ -119,13 +119,13 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
                     <span className="text-[9px] font-mono font-bold uppercase bg-slate-200 text-slate-600 px-2 py-0.2 rounded">Standard Queue</span>
                   </div>
                   <p className="text-slate-500 mt-1 leading-normal">
-                    Requires hardware verification or custom driver setup.
+                    Requires manual profile validation or custom setup.
                   </p>
                 </div>
               </div>
               
               <div className="text-[10px] text-slate-400 italic leading-normal">
-                Note: Diagnostic scores are pre-launch validation approximations and do not guarantee hardware availability or instant compatibility.
+                Note: Simulated awareness scores are pre-launch validation approximations for driver behavior research purposes.
               </div>
             </div>
 
@@ -164,15 +164,15 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
                   <div className="text-xs text-slate-500 leading-snug">Your inputs suggest simulated focus patterns under specific driving environments.</div>
                 </div>
 
-                {/* Compatibility Confidence */}
+                {/* Attention Readiness */}
                 <div className="p-4.5 rounded-xl bg-slate-50/50 border border-slate-100 space-y-1.5 hover:bg-slate-50 transition-colors">
                   <div className="flex items-center justify-between">
-                    <span className="text-[10px] font-mono font-bold uppercase text-slate-400">COMPATIBILITY CONFIDENCE</span>
+                    <span className="text-[10px] font-mono font-bold uppercase text-slate-400">ATTENTION READINESS</span>
                     <Cpu className="w-4 h-4 text-emerald-500" />
                   </div>
                   <div className="flex items-center gap-1.5">
                     <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                    <div className="font-extrabold text-slate-900 text-sm">{result.compatibilityConfidence}</div>
+                    <div className="font-extrabold text-slate-900 text-sm">{result.attentionReadiness}</div>
                   </div>
                   <div className="text-xs text-slate-500 leading-snug">Your profile shows strong consistency for simulated driver awareness reporting.</div>
                 </div>
@@ -237,7 +237,7 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
                   <span>Canadian driver cohort</span>
                 </div>
                 <p className="text-[11px] text-sky-700/85 font-semibold max-w-md mx-auto text-center mt-2.5 bg-sky-50/60 border border-sky-100/50 py-2 px-3 rounded-xl leading-relaxed">
-                  ⏱️ <strong>Current validation cycle active for Ontario/GTA driver profiles.</strong> Early responses help shape compatibility priorities and rollout planning.
+                  ⏱️ <strong>Current validation cycle active for Ontario/GTA driver profiles.</strong> Early responses help shape software development and research focus.
                 </p>
               </div>
             </div>
@@ -281,7 +281,7 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
               <h4 className="font-display font-extrabold text-slate-900 text-lg tracking-tight">What we do not do</h4>
               <ul className="text-sm text-slate-600 space-y-3 leading-relaxed list-disc list-inside">
                 <li>We do not sell driving logs or behavior tracking</li>
-                <li>We do not track you, score your insurance, or use vehicle OBD</li>
+                <li>We do not track you, score your insurance, or require vehicle connections</li>
                 <li>We do not require hardware, vehicle links, or VINs</li>
               </ul>
             </div>

@@ -48,7 +48,7 @@ export default function PreliminaryView({ result, onSubmitEmail, onTrackEvent }:
           tierName: result.tierName,
           riskProfile: result.riskProfile,
           privacyAlignment: result.privacyAlignment,
-          compatibilityConfidence: result.compatibilityConfidence,
+          attentionReadiness: result.attentionReadiness,
           riskDesc: result.riskDesc,
           tierDesc: result.tierDesc,
         }),
@@ -246,7 +246,7 @@ export default function PreliminaryView({ result, onSubmitEmail, onTrackEvent }:
               </div>
               <div className="flex items-center space-x-4">
                 <div className="w-8 h-8 bg-white border border-slate-150 rounded-lg shadow-sm flex items-center justify-center text-brand-primary font-bold">02</div>
-                <p className="text-xs font-semibold text-slate-700">Understand compatibility demand</p>
+                <p className="text-xs font-semibold text-slate-700">Understand Attention Readiness needs</p>
               </div>
               <div className="flex items-center space-x-4">
                 <div className="w-8 h-8 bg-white border border-slate-150 rounded-lg shadow-sm flex items-center justify-center text-brand-primary font-bold">03</div>

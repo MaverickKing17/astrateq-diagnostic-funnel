@@ -19,7 +19,6 @@ import LandingView from './components/LandingView';
 import QuizView from './components/QuizView';
 import PreliminaryView from './components/PreliminaryView';
 import FullResultView from './components/FullResultView';
-import EventLogger from './components/EventLogger';
 import InfoModal, { InfoTabType } from './components/InfoModal';
 
 export default function App() {
@@ -151,9 +150,6 @@ export default function App() {
 
       {/* Marketing Conversion Footer - hidden during active quiz to maximize focus */}
       {currentStep !== 'quiz' && <Footer onOpenTab={(tab) => setInfoModalTab(tab)} />}
-
-      {/* Floating Interactive Analytics Console */}
-      <EventLogger events={events} onClear={clearEvents} />
 
       {/* Interactive Documentation README Modal */}
       <InfoModal 

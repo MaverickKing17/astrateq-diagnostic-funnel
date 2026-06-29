@@ -24,7 +24,7 @@ export interface DiagnosticResult {
   tierDesc: string;
   riskProfile: string;
   riskDesc: string;
-  compatibilityConfidence: 'High' | 'Moderate' | 'Pending Review';
+  attentionReadiness: 'High' | 'Moderate' | 'Pending Review';
   privacyAlignment: 'Excellent' | 'High' | 'Good';
   recommendation: string;
 }

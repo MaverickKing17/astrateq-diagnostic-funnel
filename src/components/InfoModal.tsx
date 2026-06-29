@@ -193,7 +193,7 @@ export default function InfoModal({ isOpen, activeTab, onTabChange, onClose, onS
                       <div className="p-4 bg-amber-50 border border-amber-200/60 rounded-xl flex gap-3 text-xs text-amber-800 mt-4 leading-relaxed">
                         <HelpCircle className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
                         <p>
-                          <strong>Informational Tool Only:</strong> This simulation is informational only. It does not replace professional driver training, certified medical/fatigue diagnostics, or physical driver assessments.
+                          <strong>Informational Tool Only:</strong> This simulation is informational only. It does not replace professional driver training, certified medical/fatigue assessments, or physical driver assessments.
                         </p>
                       </div>
                     </div>
@@ -251,7 +251,7 @@ export default function InfoModal({ isOpen, activeTab, onTabChange, onClose, onS
                             </div>
                             <div className="flex items-start gap-2.5 text-xs text-slate-600">
                               <X className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
-                              <span><strong>No vehicle tracking:</strong> We do not require hardware links, OBD-II connections, VIN numbers, or active location tracking.</span>
+                              <span><strong>No vehicle tracking:</strong> We do not require hardware links, vehicle connections, VIN numbers, or active location tracking.</span>
                             </div>
                           </div>
                         </div>
@@ -310,7 +310,7 @@ export default function InfoModal({ isOpen, activeTab, onTabChange, onClose, onS
                             Does this require hardware or vehicle connections?
                           </h4>
                           <p className="text-xs text-slate-600 leading-relaxed">
-                            No. This simulation is purely software-based and runs entirely in your browser without requiring any OBD-II hardware, dashcams, or direct vehicle telemetry connections.
+                            No. This simulation is purely software-based and runs entirely in your browser without requiring any hardware links, dashcams, or direct vehicle telemetry connections.
                           </p>
                         </div>
 
