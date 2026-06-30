@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Shield, 
   Clock, 
@@ -18,6 +18,7 @@ import {
   CalendarDays,
   ChevronDown,
   ChevronUp,
+  ArrowUp,
   Sparkles,
   Smartphone,
   Volume2,
@@ -35,6 +36,23 @@ interface LandingViewProps {
 
 export default function LandingView({ onStartDiagnostic, heroImage, commuteImage, quizView }: LandingViewProps) {
   const [activeFaqIdx, setActiveFaqIdx] = useState<number | null>(null);
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 400) {
+        setShowScrollTop(true);
+      } else {
+        setShowScrollTop(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
     <div className="font-sans text-slate-800 animate-fadeIn" id="landing_view_container">
@@ -175,7 +193,7 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="bg-gradient-to-br from-sky-50/80 via-white/95 to-white p-8 rounded-3xl border-2 border-sky-200/90 shadow-[0_0_15px_rgba(14,165,233,0.15)] hover:shadow-[0_0_25px_rgba(14,165,233,0.35)] hover:border-sky-400 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden" 
+              className="bg-gradient-to-br from-sky-50 to-sky-100/70 p-8 rounded-3xl border-2 border-sky-200/90 shadow-[0_4px_20px_rgba(14,165,233,0.06)] hover:shadow-[0_15px_35px_rgba(14,165,233,0.18)] hover:border-sky-400 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden" 
               id="sec2_card_1"
             >
               <div className="absolute -right-6 -bottom-6 w-24 h-24 bg-sky-200/20 rounded-full blur-xl group-hover:bg-sky-200/35 transition-all duration-500"></div>
@@ -184,10 +202,10 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
                   <Users className="w-7 h-7" />
                 </div>
                 <div>
-                  <div className="text-[10px] font-mono font-bold text-sky-600 tracking-wider uppercase mb-1">Interactive Diagnostic</div>
+                  <div className="text-[10px] font-mono font-bold text-sky-650 tracking-wider uppercase mb-1">Interactive Diagnostic</div>
                   <h4 className="font-sans font-extrabold text-slate-900 text-xl group-hover:text-sky-700 transition-colors duration-250">Behavioral Inputs</h4>
                 </div>
-                <p className="text-sm text-slate-650 leading-relaxed font-medium">
+                <p className="text-sm text-slate-700 leading-relaxed font-medium">
                   You answer quick questions about driving frequency, commute patterns, fatigue exposure, and attention habits.
                 </p>
               </div>
@@ -199,7 +217,7 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: 0.25 }}
-              className="bg-gradient-to-br from-amber-50/80 via-white/95 to-white p-8 rounded-3xl border-2 border-amber-200/90 shadow-[0_0_15px_rgba(245,158,11,0.15)] hover:shadow-[0_0_25px_rgba(245,158,11,0.35)] hover:border-amber-400 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden" 
+              className="bg-gradient-to-br from-amber-50 to-amber-100/70 p-8 rounded-3xl border-2 border-amber-200/95 shadow-[0_4px_20px_rgba(245,158,11,0.06)] hover:shadow-[0_15px_35px_rgba(245,158,11,0.18)] hover:border-amber-400 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden" 
               id="sec2_card_2"
             >
               <div className="absolute -right-6 -bottom-6 w-24 h-24 bg-amber-200/20 rounded-full blur-xl group-hover:bg-amber-200/35 transition-all duration-500"></div>
@@ -208,10 +226,10 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
                   <Gauge className="w-7 h-7" />
                 </div>
                 <div>
-                  <div className="text-[10px] font-mono font-bold text-amber-600 tracking-wider uppercase mb-1">Core Algorithm</div>
+                  <div className="text-[10px] font-mono font-bold text-amber-700 tracking-wider uppercase mb-1">Core Algorithm</div>
                   <h4 className="font-sans font-extrabold text-slate-900 text-xl group-hover:text-amber-700 transition-colors duration-250">Simulated Profile</h4>
                 </div>
-                <p className="text-sm text-slate-650 leading-relaxed font-medium">
+                <p className="text-sm text-slate-700 leading-relaxed font-medium">
                   The model generates a conceptual Driver Awareness Score and Fatigue Risk Awareness Profile.
                 </p>
               </div>
@@ -223,7 +241,7 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="bg-gradient-to-br from-emerald-50/80 via-white/95 to-white p-8 rounded-3xl border-2 border-emerald-200/90 shadow-[0_0_15px_rgba(16,185,129,0.15)] hover:shadow-[0_0_25px_rgba(16,185,129,0.35)] hover:border-emerald-400 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden" 
+              className="bg-gradient-to-br from-emerald-50 to-emerald-100/70 p-8 rounded-3xl border-2 border-emerald-200/90 shadow-[0_4px_20px_rgba(16,185,129,0.06)] hover:shadow-[0_15px_35px_rgba(16,185,129,0.18)] hover:border-emerald-400 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden" 
               id="sec2_card_3"
             >
               <div className="absolute -right-6 -bottom-6 w-24 h-24 bg-emerald-200/20 rounded-full blur-xl group-hover:bg-emerald-200/35 transition-all duration-500"></div>
@@ -232,10 +250,10 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
                   <ShieldCheck className="w-7 h-7" />
                 </div>
                 <div>
-                  <div className="text-[10px] font-mono font-bold text-emerald-650 tracking-wider uppercase mb-1">Market Validation</div>
+                  <div className="text-[10px] font-mono font-bold text-emerald-700 tracking-wider uppercase mb-1">Market Validation</div>
                   <h4 className="font-sans font-extrabold text-slate-900 text-xl group-hover:text-emerald-700 transition-colors duration-250">Research Signal</h4>
                 </div>
-                <p className="text-sm text-slate-650 leading-relaxed font-medium">
+                <p className="text-sm text-slate-700 leading-relaxed font-medium">
                   Your result helps Astrateq Gadgets understand whether Canadian drivers want this type of awareness intelligence tool.
                 </p>
               </div>
@@ -939,6 +957,20 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
           </div>
         </div>
       </section>
+
+      {/* Scroll to Top Button */}
+      {showScrollTop && (
+        <motion.button
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          onClick={scrollToTop}
+          className="fixed bottom-6 right-6 z-50 bg-white hover:bg-sky-50 text-[#0ea5e9] hover:text-[#0284c7] p-3.5 rounded-full shadow-[0_6px_25px_rgba(14,165,233,0.25)] hover:shadow-[0_10px_30px_rgba(14,165,233,0.45)] border-2 border-[#0ea5e9] hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer group flex items-center justify-center"
+          aria-label="Scroll to top"
+          id="scroll-to-top-button"
+        >
+          <ArrowUp className="w-6 h-6 stroke-[3] group-hover:-translate-y-0.5 transition-transform duration-250" />
+        </motion.button>
+      )}
 
     </div>
   );
