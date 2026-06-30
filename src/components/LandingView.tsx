@@ -189,11 +189,8 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
             
             {/* Card 1 */}
             <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: 0.1 }}
               whileHover={{ y: -8, scale: 1.025 }}
+              transition={{ duration: 0.2 }}
               className="bg-gradient-to-br from-white via-sky-50/60 to-sky-100/40 hover:from-white hover:via-sky-100/60 hover:to-sky-200/50 p-8 rounded-3xl border-2 border-sky-100/80 hover:border-[#0ea5e9] shadow-[0_12px_40px_rgba(14,165,233,0.06)] hover:shadow-[0_24px_60px_rgba(14,165,233,0.22)] transition-all duration-300 flex flex-col justify-between group relative overflow-hidden cursor-pointer min-h-[300px]" 
               id="sec2_card_1"
             >
@@ -227,11 +224,8 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
  
             {/* Card 2 */}
             <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: 0.25 }}
               whileHover={{ y: -8, scale: 1.025 }}
+              transition={{ duration: 0.2 }}
               className="bg-gradient-to-br from-white via-amber-50/60 to-amber-100/40 hover:from-white hover:via-amber-100/60 hover:to-amber-200/50 p-8 rounded-3xl border-2 border-amber-100/80 hover:border-amber-500 shadow-[0_12px_40px_rgba(245,158,11,0.06)] hover:shadow-[0_24px_60px_rgba(245,158,11,0.22)] transition-all duration-300 flex flex-col justify-between group relative overflow-hidden cursor-pointer min-h-[300px]" 
               id="sec2_card_2"
             >
@@ -265,11 +259,8 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
  
             {/* Card 3 */}
             <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: 0.4 }}
               whileHover={{ y: -8, scale: 1.025 }}
+              transition={{ duration: 0.2 }}
               className="bg-gradient-to-br from-white via-emerald-50/60 to-emerald-100/40 hover:from-white hover:via-emerald-100/60 hover:to-emerald-200/50 p-8 rounded-3xl border-2 border-emerald-100/80 hover:border-emerald-500 shadow-[0_12px_40px_rgba(16,185,129,0.06)] hover:shadow-[0_24px_60px_rgba(16,185,129,0.22)] transition-all duration-300 flex flex-col justify-between group relative overflow-hidden cursor-pointer min-h-[300px]" 
               id="sec2_card_3"
             >
@@ -319,11 +310,8 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
             
             {/* Card 1 */}
             <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: 0.1 }}
               whileHover={{ y: -8, scale: 1.025 }}
+              transition={{ duration: 0.2 }}
               className="bg-gradient-to-br from-white via-sky-50/60 to-sky-100/40 hover:from-white hover:via-sky-100/60 hover:to-sky-200/50 p-8 rounded-3xl border-2 border-sky-100/80 hover:border-[#0ea5e9] shadow-[0_12px_40px_rgba(14,165,233,0.06)] hover:shadow-[0_24px_60px_rgba(14,165,233,0.22)] transition-all duration-300 flex flex-col justify-between min-h-[300px] relative overflow-hidden group cursor-pointer" 
               id="sec3_card_1"
             >
@@ -355,11 +343,8 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
  
             {/* Card 2 */}
             <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: 0.25 }}
               whileHover={{ y: -8, scale: 1.025 }}
+              transition={{ duration: 0.2 }}
               className="bg-gradient-to-br from-white via-amber-50/60 to-amber-100/40 hover:from-white hover:via-amber-100/60 hover:to-amber-200/50 p-8 rounded-3xl border-2 border-amber-100/80 hover:border-amber-500 shadow-[0_12px_40px_rgba(245,158,11,0.06)] hover:shadow-[0_24px_60px_rgba(245,158,11,0.22)] transition-all duration-300 flex flex-col justify-between min-h-[300px] relative overflow-hidden group cursor-pointer" 
               id="sec3_card_2"
             >
@@ -391,11 +376,8 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
  
             {/* Card 3 */}
             <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: 0.4 }}
               whileHover={{ y: -8, scale: 1.025 }}
+              transition={{ duration: 0.2 }}
               className="bg-gradient-to-br from-white via-emerald-50/60 to-emerald-100/40 hover:from-white hover:via-emerald-100/60 hover:to-emerald-200/50 p-8 rounded-3xl border-2 border-emerald-100/80 hover:border-emerald-500 shadow-[0_12px_40px_rgba(16,185,129,0.06)] hover:shadow-[0_24px_60px_rgba(16,185,129,0.22)] transition-all duration-300 flex flex-col justify-between min-h-[300px] relative overflow-hidden group cursor-pointer" 
               id="sec3_card_3"
             >
@@ -454,11 +436,8 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
               
               {/* Step 1 */}
               <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: 0.1 }}
                 whileHover={{ y: -8, scale: 1.025 }}
+                transition={{ duration: 0.2 }}
                 className="bg-gradient-to-br from-white via-sky-50/20 to-sky-100/10 p-8 rounded-3xl border-2 border-sky-100 shadow-[0_12px_40px_rgba(14,165,233,0.04)] hover:shadow-[0_24px_50px_rgba(14,165,233,0.18)] hover:border-sky-400/80 transition-all duration-300 flex flex-col items-center text-center group cursor-pointer relative overflow-hidden" 
                 id="sec4_card_1"
               >
@@ -477,11 +456,8 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
 
               {/* Step 2 */}
               <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: 0.25 }}
                 whileHover={{ y: -8, scale: 1.025 }}
+                transition={{ duration: 0.2 }}
                 className="bg-gradient-to-br from-white via-violet-50/20 to-violet-100/10 p-8 rounded-3xl border-2 border-violet-100 shadow-[0_12px_40px_rgba(139,92,246,0.04)] hover:shadow-[0_24px_50px_rgba(139,92,246,0.18)] hover:border-violet-400/80 transition-all duration-300 flex flex-col items-center text-center group cursor-pointer relative overflow-hidden" 
                 id="sec4_card_2"
               >
@@ -500,11 +476,8 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
 
               {/* Step 3 */}
               <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: 0.4 }}
                 whileHover={{ y: -8, scale: 1.025 }}
+                transition={{ duration: 0.2 }}
                 className="bg-gradient-to-br from-white via-emerald-50/20 to-emerald-100/10 p-8 rounded-3xl border-2 border-emerald-100 shadow-[0_12px_40px_rgba(16,185,129,0.04)] hover:shadow-[0_24px_50px_rgba(16,185,129,0.18)] hover:border-emerald-400/80 transition-all duration-300 flex flex-col items-center text-center group cursor-pointer relative overflow-hidden" 
                 id="sec4_card_3"
               >
@@ -688,10 +661,8 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             
             <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: 0.1 }}
+              whileHover={{ y: -6, scale: 1.015 }}
+              transition={{ duration: 0.2 }}
               className="bg-gradient-to-br from-white to-slate-50/50 p-8 pl-9 rounded-3xl border-2 border-sky-150 shadow-[0_0_15px_rgba(14,165,233,0.13)] hover:shadow-[0_0_25px_rgba(14,165,233,0.35)] hover:border-sky-400 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden" 
               id="sec5_card_1"
             >
@@ -708,10 +679,8 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
             </motion.div>
 
             <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: 0.25 }}
+              whileHover={{ y: -6, scale: 1.015 }}
+              transition={{ duration: 0.2 }}
               className="bg-gradient-to-br from-white to-slate-50/50 p-8 pl-9 rounded-3xl border-2 border-violet-150 shadow-[0_0_15px_rgba(139,92,246,0.13)] hover:shadow-[0_0_25px_rgba(139,92,246,0.35)] hover:border-violet-400 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden" 
               id="sec5_card_2"
             >
@@ -728,10 +697,8 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
             </motion.div>
 
             <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: 0.4 }}
+              whileHover={{ y: -6, scale: 1.015 }}
+              transition={{ duration: 0.2 }}
               className="bg-gradient-to-br from-white to-slate-50/50 p-8 pl-9 rounded-3xl border-2 border-indigo-150 shadow-[0_0_15px_rgba(99,102,241,0.13)] hover:shadow-[0_0_25px_rgba(99,102,241,0.35)] hover:border-indigo-400 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden" 
               id="sec5_card_3"
             >
@@ -796,10 +763,8 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             
             <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: 0.1 }}
+              whileHover={{ y: -6, scale: 1.015 }}
+              transition={{ duration: 0.2 }}
               className="bg-gradient-to-br from-white to-sky-50/30 p-8 rounded-3xl border-2 border-sky-150 shadow-[0_0_15px_rgba(14,165,233,0.13)] hover:shadow-[0_0_25px_rgba(14,165,233,0.35)] hover:border-sky-400 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group" 
               id="sec7_card_1"
             >
@@ -820,10 +785,8 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
             </motion.div>
 
             <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: 0.25 }}
+              whileHover={{ y: -6, scale: 1.015 }}
+              transition={{ duration: 0.2 }}
               className="bg-gradient-to-br from-white to-cyan-50/30 p-8 rounded-3xl border-2 border-cyan-150 shadow-[0_0_15px_rgba(6,182,212,0.13)] hover:shadow-[0_0_25px_rgba(6,182,212,0.35)] hover:border-cyan-400 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group" 
               id="sec7_card_2"
             >
@@ -844,10 +807,8 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
             </motion.div>
 
             <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: 0.4 }}
+              whileHover={{ y: -6, scale: 1.015 }}
+              transition={{ duration: 0.2 }}
               className="bg-gradient-to-br from-white to-emerald-50/30 p-8 rounded-3xl border-2 border-emerald-150 shadow-[0_0_15px_rgba(16,185,129,0.13)] hover:shadow-[0_0_25px_rgba(16,185,129,0.35)] hover:border-emerald-400 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group" 
               id="sec7_card_3"
             >
