@@ -22,6 +22,8 @@ import PreliminaryView from './components/PreliminaryView';
 import FullResultView from './components/FullResultView';
 import InfoModal, { InfoTabType } from './components/InfoModal';
 
+import commuteImage from './assets/images/toronto_gta_commute_1782319738788.jpg';
+
 export default function App() {
   const [currentStep, setCurrentStep] = useState<'landing' | 'quiz' | 'calculating' | 'preliminary' | 'full'>('landing');
   const [answers, setAnswers] = useState<UserAnswers>({});
@@ -33,7 +35,6 @@ export default function App() {
 
   // Asset paths from generated images
   const heroImage = "https://i.ibb.co/yFr9sMwv/Jun-24-2026-03-12-49-PM.png";
-  const commuteImage = "/src/assets/images/toronto_gta_commute_1782319738788.jpg";
   const ctaImage = "https://i.ibb.co/yFr9sMwv/Jun-24-2026-03-12-49-PM.png";
 
   // Track simulated marketing analytics events

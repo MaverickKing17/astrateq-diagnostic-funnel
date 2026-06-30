@@ -24,6 +24,7 @@ import {
   HelpCircle
 } from 'lucide-react';
 import { motion } from 'motion/react';
+import auraDialImage from '../assets/images/aura_dial_premium_pro_1782848205367.jpg';
 
 interface LandingViewProps {
   onStartDiagnostic: () => void;
@@ -433,7 +434,7 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
               <div>
                 <div className="relative aspect-[16/10] overflow-hidden bg-slate-900 border-b border-slate-900/80">
                   <img 
-                    src="/src/assets/images/aura_dial_premium_pro_1782848205367.jpg" 
+                    src={auraDialImage} 
                     alt="Astrateq Aura Dial professional dashboard dashboard photography" 
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     referrerPolicy="no-referrer"
