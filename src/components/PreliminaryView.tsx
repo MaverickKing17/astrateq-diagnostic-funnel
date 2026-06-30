@@ -161,31 +161,43 @@ export default function PreliminaryView({ result, onSubmitEmail, onTrackEvent }:
           {/* Email Capture Card */}
           <div className="bg-brand-navy text-white p-6 sm:p-8 rounded-3xl shadow-2xl flex flex-col justify-between">
             <div>
-              <h3 className="text-xl font-bold mb-3">Send My Simulated Report</h3>
+              {/* Dynamic Priority Slot Allocation Badge */}
+              <div className="flex items-center justify-between bg-white/5 border border-white/10 rounded-xl px-3.5 py-2 mb-5 text-[10px] font-mono tracking-wider font-bold text-[#38bdf8]" id="cohort_slot_banner">
+                <div className="flex items-center gap-2">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                  </span>
+                  <span>PRIORITY SLOT ALLOCATED</span>
+                </div>
+                <span>ONTARIO-GTA</span>
+              </div>
+
+              <h3 className="text-xl font-bold mb-2">Send My Simulated Report</h3>
               <p className="text-slate-300 text-sm leading-relaxed mb-6">
-                Unlock your full simulated driver awareness report, custom attention tips, and check your <strong>Founding Cohort</strong> eligibility.
+                Unlock your full simulated driver awareness report, custom attention tips, and secure your <strong>Founding Cohort</strong> early-access slot.
               </p>
               
               <form onSubmit={handleSubmit} className="space-y-4" id="email_capture_form">
                 <div className="space-y-4">
                   <div>
-                    <label htmlFor="first_name_input" className="block text-[10px] uppercase tracking-widest font-bold text-slate-400 mb-2">First Name (Optional)</label>
+                    <label htmlFor="first_name_input" className="block text-[10px] uppercase tracking-widest font-bold text-slate-450 mb-2">First Name (Optional)</label>
                     <div className="relative">
-                      <User className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+                      <User className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 transition-colors" />
                       <input 
                         type="text" 
                         id="first_name_input"
                         placeholder="e.g. Liam" 
                         value={firstName}
                         onChange={(e) => setFirstName(e.target.value)}
-                        className="w-full bg-white/10 border border-white/20 rounded-xl pl-10 pr-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-primary placeholder:text-slate-500 text-white" 
+                        className="w-full bg-white/5 hover:bg-white/8 focus:bg-slate-900 border border-white/15 focus:border-[#38bdf8] focus:ring-4 focus:ring-[#38bdf8]/15 rounded-xl pl-10 pr-4 py-3.5 text-sm focus:outline-none placeholder:text-slate-500 text-white transition-all" 
                       />
                     </div>
                   </div>
                   <div>
-                    <label htmlFor="email_input" className="block text-[10px] uppercase tracking-widest font-bold text-slate-400 mb-2">Email Address *</label>
+                    <label htmlFor="email_input" className="block text-[10px] uppercase tracking-widest font-bold text-slate-450 mb-2">Email Address *</label>
                     <div className="relative">
-                      <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+                      <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 transition-colors" />
                       <input 
                         type="email" 
                         id="email_input"
@@ -193,7 +205,7 @@ export default function PreliminaryView({ result, onSubmitEmail, onTrackEvent }:
                         placeholder="your@email.com" 
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="w-full bg-white/10 border border-white/20 rounded-xl pl-10 pr-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-primary placeholder:text-slate-500 text-white" 
+                        className="w-full bg-white/5 hover:bg-white/8 focus:bg-slate-900 border border-white/15 focus:border-[#38bdf8] focus:ring-4 focus:ring-[#38bdf8]/15 rounded-xl pl-10 pr-4 py-3.5 text-sm focus:outline-none placeholder:text-slate-500 text-white transition-all" 
                       />
                     </div>
                   </div>
@@ -205,27 +217,34 @@ export default function PreliminaryView({ result, onSubmitEmail, onTrackEvent }:
                     </div>
                   )}
 
-                  <button 
-                    type="submit"
-                    disabled={isSubmitting}
-                    id="send_full_results_btn"
-                    className="w-full bg-brand-primary hover:bg-brand-primary/90 text-white font-bold py-4 rounded-xl transition-all shadow-lg shadow-brand-primary/20 text-sm uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer"
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <svg className="animate-spin h-4 w-4 text-white shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                        </svg>
-                        <span>Processing...</span>
-                      </>
-                    ) : (
-                      <>
-                        <ShieldCheck className="w-4.5 h-4.5" />
-                        <span>Send My Simulated Report</span>
-                      </>
-                    )}
-                  </button>
+                  <div className="pt-2">
+                    <button 
+                      type="submit"
+                      disabled={isSubmitting}
+                      id="send_full_results_btn"
+                      className="w-full bg-gradient-to-r from-brand-primary to-brand-secondary hover:from-[#38bdf8] hover:to-brand-primary text-white font-extrabold py-4 rounded-xl transition-all shadow-lg shadow-brand-primary/20 hover:shadow-brand-primary/45 text-sm uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer border border-cyan-400/20 active:scale-98"
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <svg className="animate-spin h-4 w-4 text-white shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                          </svg>
+                          <span>Securing My Slot...</span>
+                        </>
+                      ) : (
+                        <>
+                          <ShieldCheck className="w-4.5 h-4.5" />
+                          <span>Unlock Report & Reserve Slot</span>
+                        </>
+                      )}
+                    </button>
+                  </div>
+                  
+                  {/* Real-time Scarcity Indicator */}
+                  <p className="text-[10px] text-slate-450 text-center font-medium mt-1 leading-normal">
+                    ⚠️ Pre-launch validation: <strong>87 priority slots</strong> left in your postal area.
+                  </p>
                 </div>
               </form>
             </div>

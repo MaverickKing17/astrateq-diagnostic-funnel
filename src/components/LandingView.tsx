@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Shield, 
   Clock, 
@@ -15,7 +15,13 @@ import {
   Zap, 
   ArrowRight,
   Eye,
-  CalendarDays
+  CalendarDays,
+  ChevronDown,
+  ChevronUp,
+  Sparkles,
+  Smartphone,
+  Volume2,
+  HelpCircle
 } from 'lucide-react';
 import { motion } from 'motion/react';
 
@@ -27,6 +33,37 @@ interface LandingViewProps {
 }
 
 export default function LandingView({ onStartDiagnostic, heroImage, commuteImage, quizView }: LandingViewProps) {
+  const [activeFaqIdx, setActiveFaqIdx] = useState<number | null>(null);
+  const [liveActivityIdx, setLiveActivityIdx] = useState(0);
+  const [remainingSlots, setRemainingSlots] = useState(87);
+
+  const liveActivities = [
+    { initials: "J.M.", city: "Mississauga", score: 78, time: "2m ago" },
+    { initials: "T.S.", city: "Downtown Toronto", score: 84, time: "4m ago" },
+    { initials: "H.K.", city: "Scarborough", score: 62, time: "7m ago" },
+    { initials: "A.V.", city: "Brampton", score: 92, time: "11m ago" },
+    { initials: "M.L.", city: "Markham", score: 71, time: "14m ago" },
+    { initials: "S.B.", city: "Hamilton", score: 80, time: "18m ago" },
+  ];
+
+  useEffect(() => {
+    const activityInterval = setInterval(() => {
+      setLiveActivityIdx(prev => (prev + 1) % liveActivities.length);
+    }, 6000);
+
+    const slotInterval = setInterval(() => {
+      setRemainingSlots(prev => {
+        if (prev <= 79) return 79;
+        return prev - 1;
+      });
+    }, 45000);
+
+    return () => {
+      clearInterval(activityInterval);
+      clearInterval(slotInterval);
+    };
+  }, []);
+
   return (
     <div className="font-sans text-slate-800 animate-fadeIn" id="landing_view_container">
       
@@ -63,7 +100,7 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
             <span className="text-cyan-300 font-mono text-[10px] tracking-normal font-bold">Awareness intelligence without surveillance.</span>
           </div>
 
-          <h1 className="font-sans font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white tracking-tight leading-[1.12] max-w-4xl mx-auto drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)]">
+          <h1 className="font-sans font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white tracking-tight leading-[1.12] max-w-4xl mx-auto">
             Check your <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38bdf8] via-[#0ea5e9] to-cyan-300 font-black">Driver Awareness Readiness</span> in 60 seconds.
           </h1>
 
@@ -105,6 +142,20 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
             <div className="flex items-center gap-1.5 bg-slate-900/50 px-3 py-1 rounded-full border border-slate-800">
               <Clock className="w-3.5 h-3.5 text-cyan-400" />
               <span>60 seconds or less</span>
+            </div>
+          </div>
+
+          {/* Live Activity Ticker (Localized GTA urgency) */}
+          <div className="bg-slate-900/60 border border-slate-800/85 rounded-2xl p-4 max-w-xl mx-auto flex flex-col sm:flex-row items-center sm:justify-between gap-2 text-xs text-left backdrop-blur-xs" id="live_cohort_ticker">
+            <div className="flex items-center gap-2 shrink-0">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#0ea5e9]"></span>
+              </span>
+              <span className="font-mono text-[10px] font-bold text-slate-400 uppercase tracking-widest">Live Activity Feed</span>
+            </div>
+            <div className="text-slate-300 truncate text-center sm:text-left">
+              <strong className="text-white">{liveActivities[liveActivityIdx].initials}</strong> from <span className="text-[#38bdf8] font-semibold">{liveActivities[liveActivityIdx].city}</span> completed simulation (Score: <span className="text-emerald-400 font-bold">{liveActivities[liveActivityIdx].score}/100</span>) and secured priority slot <span className="text-slate-450">({liveActivities[liveActivityIdx].time})</span>
             </div>
           </div>
 
@@ -323,6 +374,110 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
               </div>
 
             </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* 4.5 PRE-LAUNCH GADGET PIPELINE (Aesthetic Physical Concepts) */}
+      <section className="py-20 px-6 bg-slate-900 text-white border-b border-slate-950" id="gadget-pipeline">
+        <div className="max-w-5xl mx-auto space-y-12">
+          
+          <div className="text-center space-y-3 max-w-3xl mx-auto">
+            <span className="inline-flex items-center gap-1.5 text-xs font-mono font-bold tracking-widest text-[#38bdf8] uppercase bg-slate-800 px-3.5 py-1.5 rounded-full border border-slate-750">
+              <Sparkles className="w-3.5 h-3.5 text-cyan-300 animate-pulse" />
+              Pre-Launch Gadget Pipeline
+            </span>
+            <h2 className="font-sans font-extrabold text-3xl sm:text-4xl text-white tracking-tight">
+              Future Privacy-First Physical Accessories
+            </h2>
+            <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+              We are designing localized physical devices that integrate with our Driver Awareness model. These conceptual accessories aim to assist drivers on the road with 100% offline edge processing.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            {/* Gadget 1 */}
+            <div className="bg-slate-950 border border-slate-800/85 p-8 rounded-3xl space-y-6 shadow-2xl relative overflow-hidden group hover:border-[#0ea5e9]/50 transition-all duration-300 flex flex-col justify-between">
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] bg-sky-500/10 text-[#38bdf8] border border-sky-400/20 px-2.5 py-1 rounded-full font-mono uppercase tracking-widest font-bold">
+                    Visor Mounted HUD
+                  </span>
+                  <span className="text-slate-550 font-mono text-xs">ASTR-01</span>
+                </div>
+                
+                <h3 className="font-sans font-bold text-2xl text-white">Astrateq Vision Shield™</h3>
+                <p className="text-sm text-slate-400 leading-relaxed">
+                  A companion head-up display clip-on that matches your profile's attention intervals. Projects soft visual alerts directly into your field of view during high-exposure commute segments.
+                </p>
+
+                <ul className="space-y-2 text-xs text-slate-300 pt-2">
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                    <span>No-look visual guidance (projects on road)</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                    <span>100% offline edge computing — zero storage</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                    <span>Polarized micro-projector for winter glare</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="pt-6 border-t border-slate-850/60 flex items-center justify-between text-xs text-slate-450">
+                <span>Status: <strong className="text-[#38bdf8] font-bold">Concept Validation</strong></span>
+                <span className="font-mono text-[10px] bg-slate-800 text-slate-300 px-2.5 py-1 rounded">EST: Q4 2026</span>
+              </div>
+            </div>
+
+            {/* Gadget 2 */}
+            <div className="bg-slate-950 border border-slate-800/85 p-8 rounded-3xl space-y-6 shadow-2xl relative overflow-hidden group hover:border-emerald-500/50 transition-all duration-300 flex flex-col justify-between">
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-400/20 px-2.5 py-1 rounded-full font-mono uppercase tracking-widest font-bold">
+                    Ambient Console
+                  </span>
+                  <span className="text-slate-550 font-mono text-xs">ASTR-02</span>
+                </div>
+                
+                <h3 className="font-sans font-bold text-2xl text-white">Astrateq Aura Dial™</h3>
+                <p className="text-sm text-slate-400 leading-relaxed">
+                  An elegant dashboard console that outputs non-distracting chromatic light pulses and subtle sound-attenuated signals. Calibrated to align with your personal circadian fatigue windows.
+                </p>
+
+                <ul className="space-y-2 text-xs text-slate-300 pt-2">
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                    <span>Bluetooth-free physical operation dials</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                    <span>Multi-tone sound cues designed to pierce road noise</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                    <span>Real-time local temperature response tuning</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="pt-6 border-t border-slate-850/60 flex items-center justify-between text-xs text-slate-450">
+                <span>Status: <strong className="text-emerald-400 font-bold">Concept Validation</strong></span>
+                <span className="font-mono text-[10px] bg-slate-800 text-slate-300 px-2.5 py-1 rounded">EST: Q1 2027</span>
+              </div>
+            </div>
+
+          </div>
+
+          <div className="bg-slate-950 p-6 rounded-2xl border border-slate-850/60 text-center max-w-2xl mx-auto">
+            <p className="text-xs text-slate-350 leading-relaxed">
+              💡 <strong>Cohort Advantage:</strong> Reserve members gain guaranteed access to early beta testing invitations and Founding Cohort pricing tiers.
+            </p>
           </div>
 
         </div>
@@ -547,6 +702,75 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
               No vehicle connection · No tracking · No insurance use <br/>
               <span className="text-slate-600 block mt-1 font-mono text-[9px] uppercase">Concept validation only</span>
             </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* 8.5 INTERACTIVE FAQ ACCORDION (Credibility & Obstacle Removal) */}
+      <section className="py-22 px-6 bg-white border-t border-slate-150">
+        <div className="max-w-4xl mx-auto space-y-12">
+          
+          <div className="text-center space-y-3">
+            <span className="text-xs font-mono font-bold tracking-widest text-brand-primary uppercase">Frequently Asked Questions</span>
+            <h2 className="font-sans font-extrabold text-3xl text-slate-900 tracking-tight">
+              Pre-Launch & Cohort Questions
+            </h2>
+            <p className="text-sm text-slate-500 max-w-md mx-auto">
+              Everything you need to know about the Astrateq driver validation program.
+            </p>
+          </div>
+
+          <div className="space-y-4 max-w-3xl mx-auto">
+            {[
+              {
+                q: "What is Astrateq Gadgets?",
+                a: "Astrateq Gadgets is an upcoming Canadian hardware and software development project focusing on localized driver awareness and fatigue safety. We develop tools optimized for severe Canadian highway conditions, commuter stress, and late-night driving patterns."
+              },
+              {
+                q: "How does the simulated scoring model work?",
+                a: "The diagnostic runs a relative weighted computation based on your behavioral inputs (like weekly highway exposure, driving hours, sleep routine, and winter weather exposure) compared to optimal awareness benchmarks. This produces your simulated 0-100 Driver Awareness Score."
+              },
+              {
+                q: "Is my driving data being tracked or shared?",
+                a: "Absolutely not. Astrateq Gadgets operates on a strict privacy-first architecture. There are no vehicle connections, telemetry collectors, or active tracking codes. The simulation is purely behavioral, and your results are never shared with insurance agencies or third parties."
+              },
+              {
+                q: "Is there any cost to register or reserve a slot?",
+                a: "No, the simulation and priority cohort reservation are 100% free. It serves to gauge interest and gather validation data to help guide physical device development for Canadian road safety."
+              },
+              {
+                q: "Do I need any special hardware for this?",
+                a: "No, this is a client-side software simulation. Our physical visor HUD (Vision Shield™) and console accessory (Aura Dial™) are upcoming releases currently in the pre-launch pipeline, and cohort members will get priority access to join their private testing programs once ready."
+              }
+            ].map((faq, idx) => {
+              const isOpen = activeFaqIdx === idx;
+              return (
+                <div 
+                  key={idx}
+                  className="bg-slate-50 border border-slate-150 rounded-2xl overflow-hidden transition-all duration-200"
+                  id={`faq_accordion_item_${idx}`}
+                >
+                  <button
+                    onClick={() => setActiveFaqIdx(isOpen ? null : idx)}
+                    className="w-full px-6 py-5 flex items-center justify-between text-left font-sans font-bold text-slate-900 hover:text-brand-primary transition-colors cursor-pointer"
+                  >
+                    <span className="text-sm sm:text-base">{faq.q}</span>
+                    {isOpen ? (
+                      <ChevronUp className="w-5 h-5 text-brand-primary shrink-0 ml-3" />
+                    ) : (
+                      <ChevronDown className="w-5 h-5 text-slate-400 shrink-0 ml-3" />
+                    )}
+                  </button>
+                  
+                  {isOpen && (
+                    <div className="px-6 pb-5 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 bg-white">
+                      {faq.a}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
 
         </div>

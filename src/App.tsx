@@ -17,12 +17,13 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import LandingView from './components/LandingView';
 import QuizView from './components/QuizView';
+import CalculatingView from './components/CalculatingView';
 import PreliminaryView from './components/PreliminaryView';
 import FullResultView from './components/FullResultView';
 import InfoModal, { InfoTabType } from './components/InfoModal';
 
 export default function App() {
-  const [currentStep, setCurrentStep] = useState<'landing' | 'quiz' | 'preliminary' | 'full'>('landing');
+  const [currentStep, setCurrentStep] = useState<'landing' | 'quiz' | 'calculating' | 'preliminary' | 'full'>('landing');
   const [answers, setAnswers] = useState<UserAnswers>({});
   const [result, setResult] = useState<DiagnosticResult | null>(null);
   const [email, setEmail] = useState('');
@@ -64,8 +65,7 @@ export default function App() {
     setAnswers(userAnswers);
     const calculated = calculateDiagnosticResult(userAnswers);
     setResult(calculated);
-    setCurrentStep('preliminary');
-    trackEvent('preliminary_result_viewed', { score: calculated.score, classification: calculated.tierName });
+    setCurrentStep('calculating');
   };
 
   const handleEmailSubmitted = (capturedEmail: string, capturedFirstName: string) => {
@@ -128,6 +128,17 @@ export default function App() {
           />
         )}
 
+        {currentStep === 'calculating' && (
+          <CalculatingView 
+            onCalculationComplete={() => {
+              setCurrentStep('preliminary');
+              if (result) {
+                trackEvent('preliminary_result_viewed', { score: result.score, classification: result.tierName });
+              }
+            }}
+          />
+        )}
+
         {currentStep === 'preliminary' && result && (
           <PreliminaryView 
             result={result} 
@@ -148,8 +159,8 @@ export default function App() {
         )}
       </main>
 
-      {/* Marketing Conversion Footer - hidden during active quiz to maximize focus */}
-      {currentStep !== 'quiz' && <Footer onOpenTab={(tab) => setInfoModalTab(tab)} />}
+      {/* Marketing Conversion Footer - hidden during active quiz/calculation to maximize focus */}
+      {currentStep !== 'quiz' && currentStep !== 'calculating' && <Footer onOpenTab={(tab) => setInfoModalTab(tab)} />}
 
       {/* Interactive Documentation README Modal */}
       <InfoModal 

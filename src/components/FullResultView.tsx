@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { 
   ShieldCheck, 
   ChevronRight, 
@@ -10,7 +11,10 @@ import {
   ArrowRight,
   RefreshCw,
   EyeOff,
-  Database
+  Database,
+  Sparkles,
+  Copy,
+  Check
 } from 'lucide-react';
 import { DiagnosticResult } from '../types';
 import Gauge from './Gauge';
@@ -25,12 +29,22 @@ interface FullResultViewProps {
 }
 
 export default function FullResultView({ result, email, firstName, onReset, onTrackEvent, ctaImage }: FullResultViewProps) {
+  const [copied, setCopied] = useState(false);
+  const [ticketId] = useState(() => `AST-ON-${Math.floor(1000 + Math.random() * 9000)}`);
   const reservationUrl = "https://reserve.astrateqgadgets.com?entry=simulation&intent=cohort";
 
   const handleCtaClick = (ctaName: string) => {
     onTrackEvent('reservation_cta_clicked', { ctaName, email, firstName });
     // Open in a new tab
     window.open(reservationUrl, '_blank');
+  };
+
+  const handleCopyLink = () => {
+    const shareUrl = `${window.location.origin}/?ref=${ticketId}`;
+    navigator.clipboard.writeText(shareUrl);
+    setCopied(true);
+    onTrackEvent('referral_link_copied', { ticketId, email });
+    setTimeout(() => setCopied(false), 2000);
   };
 
   return (
@@ -80,6 +94,88 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
                 <p className="text-xs text-slate-500 mt-1 leading-normal">
                   Your simulated score reflects your driving habits, fatigue exposure, and attention inputs.
                 </p>
+              </div>
+            </div>
+
+            {/* Beautiful Founding Cohort Pre-Launch Pass Card */}
+            <div className="bg-gradient-to-br from-slate-900 to-[#020d1a] text-white rounded-2xl border border-slate-800 shadow-xl overflow-hidden relative" id="reservation_pass_ticket">
+              {/* Ticket Jagged Edges / Cutout Circles */}
+              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-4 h-8 bg-[#F8FAFC] rounded-r-full z-10 border border-slate-100 border-l-0"></div>
+              <div className="absolute right-0 top-1/2 -translate-y-1/2 w-4 h-8 bg-[#F8FAFC] rounded-l-full z-10 border border-slate-100 border-r-0"></div>
+
+              <div className="p-6 space-y-4">
+                <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+                  <div className="flex items-center gap-1.5 text-cyan-400">
+                    <Sparkles className="w-4 h-4 animate-pulse" />
+                    <span className="text-[10px] font-mono font-black uppercase tracking-wider">Astrateq Founding Cohort</span>
+                  </div>
+                  <span className="text-[10px] font-mono font-bold uppercase text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded">
+                    ACTIVE RESERVATION
+                  </span>
+                </div>
+
+                {/* Ticket Body details */}
+                <div className="grid grid-cols-2 gap-y-3 gap-x-4 text-xs font-sans">
+                  <div>
+                    <span className="text-[9px] font-mono font-semibold text-slate-500 uppercase tracking-wider block">COHORT HOLDER</span>
+                    <strong className="text-white text-sm font-bold block truncate">{firstName || "Priority Driver"}</strong>
+                  </div>
+                  <div>
+                    <span className="text-[9px] font-mono font-semibold text-slate-500 uppercase tracking-wider block">RESERVATION ID</span>
+                    <strong className="text-cyan-300 text-sm font-mono font-bold block">{ticketId}</strong>
+                  </div>
+                  <div className="col-span-2 pt-1">
+                    <span className="text-[9px] font-mono font-semibold text-slate-500 uppercase tracking-wider block">VERIFIED EMAIL</span>
+                    <span className="text-slate-300 font-medium truncate block">{email}</span>
+                  </div>
+                  <div>
+                    <span className="text-[9px] font-mono font-semibold text-slate-500 uppercase tracking-wider block">COHORT RANK</span>
+                    <span className="text-slate-200 font-bold block">GTA / {result.tier === 1 ? "CLASS-A" : result.tier === 2 ? "CLASS-B" : "CLASS-C"}</span>
+                  </div>
+                  <div>
+                    <span className="text-[9px] font-mono font-semibold text-slate-500 uppercase tracking-wider block">PRIORITY STATUS</span>
+                    <span className="text-emerald-400 font-bold block">Guaranteed Slot</span>
+                  </div>
+                </div>
+
+                {/* Simulated Barcode block */}
+                <div className="pt-3 border-t border-dashed border-slate-800 flex flex-col items-center space-y-1.5">
+                  <div className="flex gap-[2px] h-7 w-full max-w-[200px] bg-white p-1 rounded">
+                    {Array.from({ length: 32 }).map((_, i) => (
+                      <div 
+                        key={i} 
+                        className="bg-black h-full" 
+                        style={{ width: `${(i % 3 === 0 || i % 7 === 0) ? '3px' : '1px'}` }}
+                      />
+                    ))}
+                  </div>
+                  <span className="text-[9px] font-mono text-slate-500">MEMBER-ID: {ticketId}-2026</span>
+                </div>
+
+                {/* Invite & Copy Referral Component */}
+                <div className="pt-2">
+                  <button 
+                    onClick={handleCopyLink}
+                    className="w-full bg-slate-800 hover:bg-slate-750 text-white py-2.5 px-3 rounded-xl border border-slate-700/60 hover:border-slate-600/60 font-semibold text-xs transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-98"
+                    id="copy_referral_link_btn"
+                  >
+                    {copied ? (
+                      <>
+                        <Check className="w-4 h-4 text-emerald-400" />
+                        <span className="text-emerald-400 font-bold">Pass Details &amp; Link Copied!</span>
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="w-3.5 h-3.5 text-slate-450" />
+                        <span>Copy Pass Link to Invite Co-workers</span>
+                      </>
+                    )}
+                  </button>
+                  <p className="text-[9px] text-slate-400 text-center mt-1.5 leading-tight">
+                    Share your unique pass link with family. Referrals boost cohort positioning.
+                  </p>
+                </div>
+
               </div>
             </div>
 
@@ -192,15 +288,92 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
 
               </div>
 
-              {/* What this means text block */}
-              <div className="bg-blue-50/40 border border-blue-100/55 p-5 rounded-xl space-y-2">
-                <h4 className="text-xs font-mono font-bold uppercase text-brand-primary">What this means</h4>
+              {/* What this means text block & Onboarding Roadmap */}
+              <div className="bg-[#f0f7ff] border border-sky-100 p-5 rounded-2xl space-y-3 shadow-xs">
+                <h4 className="text-xs font-mono font-bold uppercase text-brand-primary tracking-wider">Simulated Analysis & Onboarding Pathway</h4>
                 <p className="text-sm text-slate-700 leading-relaxed">
-                  Your profile shows strong alignment with Astrateq Gadgets’ Canadian readiness validation priorities. Based on your fatigue exposure, privacy preference, and driving context, you may be eligible to continue toward founding cohort review.
+                  Excellent work, <strong>{firstName || "Priority Driver"}</strong>! Based on your simulated score of <strong>{result.score}/100</strong> and your privacy preferences, your profile qualifies as a highly aligned candidate for the Astrateq pre-launch cohort.
                 </p>
-                <p className="text-sm text-slate-700 leading-relaxed font-semibold">
-                  Your next step is to register your early-access interest before the current validation cycle closes.
-                </p>
+                
+                {/* Onboarding Steps Visual Indicator */}
+                <div className="pt-2 border-t border-slate-250/30 space-y-2.5">
+                  <p className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-widest">Cohort Onboarding Status</p>
+                  <div className="grid grid-cols-4 gap-1 sm:gap-2">
+                    <div className="flex flex-col space-y-1">
+                      <div className="h-1.5 rounded-full bg-emerald-500"></div>
+                      <span className="text-[9px] font-bold text-emerald-600 text-center sm:text-left leading-tight">1. Simulated</span>
+                    </div>
+                    <div className="flex flex-col space-y-1">
+                      <div className="h-1.5 rounded-full bg-emerald-500"></div>
+                      <span className="text-[9px] font-bold text-emerald-600 text-center sm:text-left leading-tight">2. Verified</span>
+                    </div>
+                    <div className="flex flex-col space-y-1">
+                      <div className="h-1.5 rounded-full bg-brand-primary animate-pulse"></div>
+                      <span className="text-[9px] font-extrabold text-brand-primary text-center sm:text-left leading-tight">3. Reservation</span>
+                    </div>
+                    <div className="flex flex-col space-y-1">
+                      <div className="h-1.5 rounded-full bg-slate-200"></div>
+                      <span className="text-[9px] font-semibold text-slate-400 text-center sm:text-left leading-tight">4. Allocating</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Dynamic Personalized Awareness Recommendations */}
+              <div className="p-5 border border-slate-150 rounded-2xl space-y-4 bg-white shadow-xs">
+                <div className="flex items-center gap-2 border-b border-slate-100 pb-2.5">
+                  <span className="p-1 rounded bg-sky-50 text-brand-primary text-[10px] font-bold font-mono uppercase tracking-wider">Simulated</span>
+                  <h4 className="text-sm font-bold text-slate-900 font-sans">Custom Attention Tips for Your Profile</h4>
+                </div>
+                
+                <div className="space-y-3.5">
+                  {result.score >= 80 ? (
+                    <>
+                      <div className="flex items-start gap-3">
+                        <div className="w-5 h-5 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">✓</div>
+                        <p className="text-xs sm:text-sm text-slate-600 leading-normal">
+                          <strong>Active Vigilance Tuning:</strong> Your high readiness score is a great foundation. Keep attention locked by coordinating rest-stops with the 2-hour driving limit on long highway runs.
+                        </p>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="w-5 h-5 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">✓</div>
+                        <p className="text-xs sm:text-sm text-slate-600 leading-normal">
+                          <strong>Zero-surveillance Guard:</strong> Ensure your future driver devices continue using offline edge processing to protect your Ontario driving patterns.
+                        </p>
+                      </div>
+                    </>
+                  ) : result.score >= 62 ? (
+                    <>
+                      <div className="flex items-start gap-3">
+                        <div className="w-5 h-5 rounded-full bg-blue-50 text-brand-primary flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">✓</div>
+                        <p className="text-xs sm:text-sm text-slate-600 leading-normal">
+                          <strong>Interval Micro-Breaks:</strong> Your commuting density exposes you to moderate fatigue. Integrate brief 3-minute visual breaks away from screens before joining highway traffic.
+                        </p>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="w-5 h-5 rounded-full bg-blue-50 text-brand-primary flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">✓</div>
+                        <p className="text-xs sm:text-sm text-slate-600 leading-normal">
+                          <strong>Weather Contrast Settings:</strong> Prioritize high-contrast visor aids to mitigate early-morning glare and poor visibility on Canadian winter roads.
+                        </p>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="flex items-start gap-3">
+                        <div className="w-5 h-5 rounded-full bg-amber-50 text-amber-600 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">!</div>
+                        <p className="text-xs sm:text-sm text-slate-600 leading-normal">
+                          <strong>High Fatigue Mitigation:</strong> Your commute frequency indicates heavy exposure. Implement active circadian window planning, avoiding late-night highway segments where possible.
+                        </p>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="w-5 h-5 rounded-full bg-amber-50 text-amber-600 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">!</div>
+                        <p className="text-xs sm:text-sm text-slate-600 leading-normal">
+                          <strong>Active Distraction Blockers:</strong> Leverage offline alert signals to partition high-volume multi-tasking and establish an environment of pure driving readiness.
+                        </p>
+                      </div>
+                    </>
+                  )}
+                </div>
               </div>
 
             </div>
