@@ -170,50 +170,57 @@ export default function QuizView({ onComplete, onBackToLanding, onTrackEvent }: 
           </div>
 
           {/* Multiple choice Options list */}
-          <div className="grid grid-cols-1 gap-3.5">
+          <div className="grid grid-cols-1 gap-4">
             {currentQuestion.options.map((option) => {
               const isSelected = selectedOptionId === option.id;
               return (
-                <button
+                <motion.button
                   key={option.id}
                   onClick={() => handleSelectOption(option.id)}
-                  className={`group p-4 rounded-xl border text-left flex items-start gap-3.5 cursor-pointer transition-all ${
+                  whileHover={{ y: -2, scale: 1.01 }}
+                  whileTap={{ scale: 0.99 }}
+                  transition={{ duration: 0.2, ease: "easeOut" }}
+                  className={`group p-5 rounded-2xl border-2 text-left flex items-start gap-4 cursor-pointer transition-all ${
                     isSelected 
-                      ? 'bg-sky-50/55 border-brand-primary/40 ring-1 ring-brand-primary/20 shadow-sm' 
-                      : 'bg-slate-50/40 hover:bg-slate-50/90 border-slate-200'
+                      ? 'bg-sky-50/90 border-[#0284c7] shadow-[0_10px_30px_rgba(2,132,199,0.14)] ring-1 ring-[#0284c7]/20' 
+                      : 'bg-gradient-to-br from-white to-slate-50/60 hover:from-white hover:to-slate-50 border-slate-200/80 shadow-[0_3px_12px_rgba(15,23,42,0.03)] hover:shadow-[0_10px_25px_rgba(15,23,42,0.07)] hover:border-slate-300'
                   }`}
                   id={`q${currentQuestion.id}_opt_${option.id}`}
                 >
                   {/* Left Side Icon Column */}
-                  <div className={`p-2 rounded-lg shrink-0 transition-colors ${
+                  <div className={`p-2.5 rounded-xl shrink-0 transition-all duration-200 ${
                     isSelected 
-                      ? 'bg-brand-primary text-white' 
-                      : 'bg-white border border-slate-200 text-slate-500 group-hover:text-slate-700'
+                      ? 'bg-[#0284c7] text-white shadow-[0_4px_12px_rgba(2,132,199,0.25)] scale-110' 
+                      : 'bg-white border border-slate-200/90 text-slate-500 group-hover:text-slate-700 group-hover:border-slate-300 shadow-xs'
                   }`}>
                     {getOptionIcon(option.id)}
                   </div>
 
                   {/* Text Column */}
                   <div className="flex-1 min-w-0">
-                    <span className={`font-semibold block text-sm sm:text-base leading-tight ${
-                      isSelected ? 'text-brand-primary' : 'text-slate-800'
+                    <span className={`font-bold block text-base sm:text-lg leading-tight transition-colors ${
+                      isSelected ? 'text-[#0284c7]' : 'text-slate-800 group-hover:text-slate-900'
                     }`}>
                       {option.text}
                     </span>
                     {option.subtext && (
-                      <span className="text-xs text-slate-500 block mt-1 leading-snug">
+                      <span className={`text-xs sm:text-sm block mt-1.5 leading-relaxed transition-colors ${
+                        isSelected ? 'text-slate-700 font-medium' : 'text-slate-500 group-hover:text-slate-600'
+                      }`}>
                         {option.subtext}
                       </span>
                     )}
                   </div>
 
                   {/* Radio indicator */}
-                  <div className={`w-5 h-5 rounded-full border shrink-0 flex items-center justify-center ${
-                    isSelected ? 'border-brand-primary bg-brand-primary' : 'border-slate-300 bg-white'
+                  <div className={`w-5 h-5 rounded-full border-2 shrink-0 flex items-center justify-center transition-all ${
+                    isSelected 
+                      ? 'border-[#0284c7] bg-[#0284c7] ring-4 ring-sky-100 shadow-[0_2px_8px_rgba(2,132,199,0.3)]' 
+                      : 'border-slate-300 bg-white group-hover:border-slate-400'
                   }`}>
-                    {isSelected && <div className="w-2 h-2 rounded-full bg-white" />}
+                    {isSelected && <div className="w-2.5 h-2.5 rounded-full bg-white scale-110" />}
                   </div>
-                </button>
+                </motion.button>
               );
             })}
           </div>
