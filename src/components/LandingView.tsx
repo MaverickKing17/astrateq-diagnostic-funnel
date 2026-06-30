@@ -169,36 +169,54 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             
             {/* Card 1 */}
-            <div className="bg-slate-50 p-8 rounded-2xl border border-slate-100/80 shadow-xs space-y-4">
-              <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-brand-primary">
-                <Users className="w-6 h-6" />
+            <div className="bg-gradient-to-br from-sky-50/70 via-white/80 to-white p-8 rounded-3xl border border-sky-100/90 shadow-md hover:shadow-xl hover:border-sky-400/40 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden" id="sec2_card_1">
+              <div className="absolute -right-6 -bottom-6 w-24 h-24 bg-sky-200/15 rounded-full blur-xl group-hover:bg-sky-200/30 transition-all duration-500"></div>
+              <div className="space-y-4 relative z-10">
+                <div className="w-14 h-14 rounded-2xl bg-sky-500 text-white flex items-center justify-center shadow-md shadow-sky-500/20 group-hover:scale-110 group-hover:bg-sky-600 transition-all duration-300">
+                  <Users className="w-7 h-7" />
+                </div>
+                <div>
+                  <div className="text-[10px] font-mono font-bold text-sky-650 tracking-wider uppercase mb-1">Interactive Diagnostic</div>
+                  <h4 className="font-sans font-extrabold text-slate-900 text-xl group-hover:text-sky-700 transition-colors duration-250">Behavioral Inputs</h4>
+                </div>
+                <p className="text-sm text-slate-650 leading-relaxed font-medium">
+                  You answer quick questions about driving frequency, commute patterns, fatigue exposure, and attention habits.
+                </p>
               </div>
-              <h4 className="font-sans font-bold text-slate-900 text-lg">Behavioral Inputs</h4>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                You answer quick questions about driving frequency, commute patterns, fatigue exposure, and attention habits.
-              </p>
             </div>
 
             {/* Card 2 */}
-            <div className="bg-slate-50 p-8 rounded-2xl border border-slate-100/80 shadow-xs space-y-4">
-              <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-brand-primary">
-                <Gauge className="w-6 h-6" />
+            <div className="bg-gradient-to-br from-amber-50/70 via-white/80 to-white p-8 rounded-3xl border border-amber-100/90 shadow-md hover:shadow-xl hover:border-amber-400/40 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden" id="sec2_card_2">
+              <div className="absolute -right-6 -bottom-6 w-24 h-24 bg-amber-200/15 rounded-full blur-xl group-hover:bg-amber-200/30 transition-all duration-500"></div>
+              <div className="space-y-4 relative z-10">
+                <div className="w-14 h-14 rounded-2xl bg-amber-500 text-white flex items-center justify-center shadow-md shadow-amber-500/20 group-hover:scale-110 group-hover:bg-amber-600 transition-all duration-300">
+                  <Gauge className="w-7 h-7" />
+                </div>
+                <div>
+                  <div className="text-[10px] font-mono font-bold text-amber-650 tracking-wider uppercase mb-1">Core Algorithm</div>
+                  <h4 className="font-sans font-extrabold text-slate-900 text-xl group-hover:text-amber-700 transition-colors duration-250">Simulated Profile</h4>
+                </div>
+                <p className="text-sm text-slate-650 leading-relaxed font-medium">
+                  The model generates a conceptual Driver Awareness Score and Fatigue Risk Awareness Profile.
+                </p>
               </div>
-              <h4 className="font-sans font-bold text-slate-900 text-lg">Simulated Profile</h4>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                The model generates a conceptual Driver Awareness Score and Fatigue Risk Awareness Profile.
-              </p>
             </div>
 
             {/* Card 3 */}
-            <div className="bg-slate-50 p-8 rounded-2xl border border-slate-100/80 shadow-xs space-y-4">
-              <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-brand-primary">
-                <ShieldCheck className="w-6 h-6" />
+            <div className="bg-gradient-to-br from-emerald-50/70 via-white/80 to-white p-8 rounded-3xl border border-emerald-100/90 shadow-md hover:shadow-xl hover:border-emerald-400/40 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden" id="sec2_card_3">
+              <div className="absolute -right-6 -bottom-6 w-24 h-24 bg-emerald-200/15 rounded-full blur-xl group-hover:bg-emerald-200/30 transition-all duration-500"></div>
+              <div className="space-y-4 relative z-10">
+                <div className="w-14 h-14 rounded-2xl bg-emerald-500 text-white flex items-center justify-center shadow-md shadow-emerald-500/20 group-hover:scale-110 group-hover:bg-emerald-600 transition-all duration-300">
+                  <ShieldCheck className="w-7 h-7" />
+                </div>
+                <div>
+                  <div className="text-[10px] font-mono font-bold text-emerald-650 tracking-wider uppercase mb-1">Market Validation</div>
+                  <h4 className="font-sans font-extrabold text-slate-900 text-xl group-hover:text-emerald-700 transition-colors duration-250">Research Signal</h4>
+                </div>
+                <p className="text-sm text-slate-650 leading-relaxed font-medium">
+                  Your result helps Astrateq Gadgets understand whether Canadian drivers want this type of awareness intelligence tool.
+                </p>
               </div>
-              <h4 className="font-sans font-bold text-slate-900 text-lg">Research Signal</h4>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Your result helps Astrateq Gadgets understand whether Canadian drivers want this type of awareness intelligence tool.
-              </p>
             </div>
 
           </div>
@@ -215,22 +233,24 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
             <p className="font-display font-bold text-3xl text-slate-900 tracking-tight">What you’ll receive in 60 seconds</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             
             {/* Card 1 */}
-            <div className="dashboard-card bg-white p-8 rounded-2xl border border-slate-150 border-t-4 border-t-sky-500 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between min-h-[250px]">
-              <div className="space-y-4">
+            <div className="bg-gradient-to-br from-sky-50/85 via-white to-white p-8 rounded-3xl border border-sky-100/90 shadow-md hover:shadow-2xl hover:border-sky-400/50 hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[270px] relative overflow-hidden group" id="sec3_card_1">
+              <div className="absolute top-0 left-0 right-0 h-[6px] bg-gradient-to-r from-sky-400 to-sky-600"></div>
+              <div className="absolute -right-8 -bottom-8 w-28 h-28 bg-sky-350/10 rounded-full blur-2xl group-hover:bg-sky-350/20 transition-all duration-500"></div>
+              <div className="space-y-5 relative z-10">
                 <div className="flex items-center justify-between">
-                  <div className="w-12 h-12 rounded-xl bg-sky-50 flex items-center justify-center text-brand-primary">
-                    <Gauge className="w-6 h-6" />
+                  <div className="w-14 h-14 rounded-2xl bg-sky-500 text-white flex items-center justify-center shadow-md shadow-sky-500/20 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                    <Gauge className="w-7 h-7" />
                   </div>
-                  <span className="text-[10px] font-mono font-bold bg-sky-50 text-sky-800 px-2.5 py-1 rounded-full uppercase tracking-wider">
+                  <span className="text-[10px] font-mono font-extrabold bg-sky-100 text-sky-850 px-3 py-1 rounded-full uppercase tracking-wider border border-sky-200">
                     Simulated Output
                   </span>
                 </div>
                 <div>
-                  <h3 className="font-display font-extrabold text-lg text-slate-900">Driver Awareness Score</h3>
-                  <p className="text-xs sm:text-sm text-slate-500 mt-2 leading-relaxed">
+                  <h3 className="font-sans font-extrabold text-xl text-slate-900 group-hover:text-sky-700 transition-colors duration-200">Driver Awareness Score</h3>
+                  <p className="text-sm text-slate-650 mt-2.5 leading-relaxed font-medium">
                     A simulated 0–100 score based on driving habits, attention patterns, fatigue exposure, and road context.
                   </p>
                 </div>
@@ -238,19 +258,21 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
             </div>
 
             {/* Card 2 */}
-            <div className="dashboard-card bg-white p-8 rounded-2xl border border-slate-150 border-t-4 border-t-amber-500 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between min-h-[250px]">
-              <div className="space-y-4">
+            <div className="bg-gradient-to-br from-amber-50/85 via-white to-white p-8 rounded-3xl border border-amber-100/90 shadow-md hover:shadow-2xl hover:border-amber-400/50 hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[270px] relative overflow-hidden group" id="sec3_card_2">
+              <div className="absolute top-0 left-0 right-0 h-[6px] bg-gradient-to-r from-amber-400 to-amber-600"></div>
+              <div className="absolute -right-8 -bottom-8 w-28 h-28 bg-amber-350/10 rounded-full blur-2xl group-hover:bg-amber-350/20 transition-all duration-500"></div>
+              <div className="space-y-5 relative z-10">
                 <div className="flex items-center justify-between">
-                  <div className="w-12 h-12 rounded-xl bg-amber-50 flex items-center justify-center text-amber-600">
-                    <AlertTriangle className="w-6 h-6" />
+                  <div className="w-14 h-14 rounded-2xl bg-amber-500 text-white flex items-center justify-center shadow-md shadow-amber-500/20 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                    <AlertTriangle className="w-7 h-7" />
                   </div>
-                  <span className="text-[10px] font-mono font-bold bg-amber-50 text-amber-800 px-2.5 py-1 rounded-full uppercase tracking-wider">
+                  <span className="text-[10px] font-mono font-extrabold bg-amber-100 text-amber-850 px-3 py-1 rounded-full uppercase tracking-wider border border-amber-200">
                     Behavioral Signal
                   </span>
                 </div>
                 <div>
-                  <h3 className="font-display font-extrabold text-lg text-slate-900">Fatigue Risk Awareness Profile</h3>
-                  <p className="text-xs sm:text-sm text-slate-500 mt-2 leading-relaxed">
+                  <h3 className="font-sans font-extrabold text-xl text-slate-900 group-hover:text-amber-700 transition-colors duration-200">Fatigue Risk Profile</h3>
+                  <p className="text-sm text-slate-650 mt-2.5 leading-relaxed font-medium">
                     Understand how time of day, commute type, longer drives, and road conditions may influence awareness patterns.
                   </p>
                 </div>
@@ -258,19 +280,21 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
             </div>
 
             {/* Card 3 */}
-            <div className="dashboard-card bg-white p-8 rounded-2xl border border-slate-150 border-t-4 border-t-emerald-500 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between min-h-[250px]">
-              <div className="space-y-4">
+            <div className="bg-gradient-to-br from-emerald-50/85 via-white to-white p-8 rounded-3xl border border-emerald-100/90 shadow-md hover:shadow-2xl hover:border-emerald-400/50 hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[270px] relative overflow-hidden group" id="sec3_card_3">
+              <div className="absolute top-0 left-0 right-0 h-[6px] bg-gradient-to-r from-emerald-400 to-emerald-600"></div>
+              <div className="absolute -right-8 -bottom-8 w-28 h-28 bg-emerald-350/10 rounded-full blur-2xl group-hover:bg-emerald-350/20 transition-all duration-500"></div>
+              <div className="space-y-5 relative z-10">
                 <div className="flex items-center justify-between">
-                  <div className="w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-600">
-                    <Users className="w-6 h-6" />
+                  <div className="w-14 h-14 rounded-2xl bg-emerald-500 text-white flex items-center justify-center shadow-md shadow-emerald-500/20 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                    <Users className="w-7 h-7" />
                   </div>
-                  <span className="text-[10px] font-mono font-bold bg-emerald-50 text-emerald-850 px-2.5 py-1 rounded-full uppercase tracking-wider">
+                  <span className="text-[10px] font-mono font-extrabold bg-emerald-100 text-emerald-850 px-3 py-1 rounded-full uppercase tracking-wider border border-emerald-200">
                     Cohort Signal
                   </span>
                 </div>
                 <div>
-                  <h3 className="font-display font-extrabold text-lg text-slate-900">Research Cohort Classification</h3>
-                  <p className="text-xs sm:text-sm text-slate-500 mt-2 leading-relaxed">
+                  <h3 className="font-sans font-extrabold text-xl text-slate-900 group-hover:text-emerald-700 transition-colors duration-200">Research Cohort</h3>
+                  <p className="text-sm text-slate-650 mt-2.5 leading-relaxed font-medium">
                     See which validation cohort your simulated awareness profile aligns with and whether you may qualify for research participation.
                   </p>
                 </div>
@@ -360,9 +384,9 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
               <div>
                 <div className="relative aspect-[16/10] overflow-hidden bg-slate-900 border-b border-slate-900/80">
                   <img 
-                    src="/src/assets/images/vision_shield_in_car_1782845622070.jpg" 
-                    alt="Astrateq Vision Shield Visor Mounted HUD in-car realistic photography" 
-                    className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-700"
+                    src="https://i.ibb.co/jZxvBR0n/Chat-GPT-Image-Jun-30-2026-03-32-52-PM.png" 
+                    alt="Astrateq Vision Shield Visor Mounted HUD clear dashboard photography" 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     referrerPolicy="no-referrer"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 to-transparent"></div>
@@ -409,9 +433,9 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
               <div>
                 <div className="relative aspect-[16/10] overflow-hidden bg-slate-900 border-b border-slate-900/80">
                   <img 
-                    src="/src/assets/images/aura_dial_in_car_1782845633915.jpg" 
-                    alt="Astrateq Aura Dial realistic dashboard console photography" 
-                    className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-700"
+                    src="/src/assets/images/aura_dial_premium_pro_1782848205367.jpg" 
+                    alt="Astrateq Aura Dial professional dashboard dashboard photography" 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     referrerPolicy="no-referrer"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 to-transparent"></div>
@@ -480,34 +504,43 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             
-            <div className="bg-white p-8 rounded-2xl border border-slate-150 shadow-xs space-y-4">
-              <div className="w-12 h-12 rounded-xl bg-sky-50 flex items-center justify-center text-brand-primary">
-                <ShieldCheck className="w-6 h-6" />
+            <div className="bg-gradient-to-br from-white to-slate-50/50 p-8 pl-9 rounded-3xl border border-slate-200/80 shadow-md hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden" id="sec5_card_1">
+              <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-sky-400 to-sky-600"></div>
+              <div className="space-y-4">
+                <div className="w-12 h-12 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center border border-sky-100/60 group-hover:bg-sky-600 group-hover:text-white transition-all duration-300">
+                  <ShieldCheck className="w-6 h-6" />
+                </div>
+                <h4 className="font-sans font-extrabold text-slate-900 text-lg group-hover:text-sky-600 transition-colors duration-200">Driver awareness intelligence</h4>
+                <p className="text-sm text-slate-650 leading-relaxed font-medium">
+                  A software-led concept that turns driving habits, fatigue exposure, and attention patterns into a simulated awareness profile.
+                </p>
               </div>
-              <h4 className="font-sans font-bold text-slate-900 text-lg">Driver awareness intelligence</h4>
-              <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
-                A software-led concept that turns driving habits, fatigue exposure, and attention patterns into a simulated awareness profile.
-              </p>
             </div>
 
-            <div className="bg-white p-8 rounded-2xl border border-slate-150 shadow-xs space-y-4">
-              <div className="w-12 h-12 rounded-xl bg-sky-50 flex items-center justify-center text-brand-primary">
-                <MapPin className="w-6 h-6" />
+            <div className="bg-gradient-to-br from-white to-slate-50/50 p-8 pl-9 rounded-3xl border border-slate-200/80 shadow-md hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden" id="sec5_card_2">
+              <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-violet-400 to-violet-600"></div>
+              <div className="space-y-4">
+                <div className="w-12 h-12 rounded-xl bg-violet-50 text-violet-600 flex items-center justify-center border border-violet-100/60 group-hover:bg-violet-600 group-hover:text-white transition-all duration-300">
+                  <MapPin className="w-6 h-6" />
+                </div>
+                <h4 className="font-sans font-extrabold text-slate-900 text-lg group-hover:text-violet-600 transition-colors duration-200">Canadian driving context</h4>
+                <p className="text-sm text-slate-650 leading-relaxed font-medium">
+                  Designed around commutes, long drives, winter visibility, traffic fatigue, and privacy-conscious Canadian drivers.
+                </p>
               </div>
-              <h4 className="font-sans font-bold text-slate-900 text-lg">Canadian driving context</h4>
-              <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
-                Designed around commutes, long drives, winter visibility, traffic fatigue, and privacy-conscious Canadian drivers.
-              </p>
             </div>
 
-            <div className="bg-white p-8 rounded-2xl border border-slate-150 shadow-xs space-y-4">
-              <div className="w-12 h-12 rounded-xl bg-sky-50 flex items-center justify-center text-brand-primary">
-                <Cpu className="w-6 h-6" />
+            <div className="bg-gradient-to-br from-white to-slate-50/50 p-8 pl-9 rounded-3xl border border-slate-200/80 shadow-md hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden" id="sec5_card_3">
+              <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-indigo-400 to-indigo-600"></div>
+              <div className="space-y-4">
+                <div className="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center border border-indigo-100/60 group-hover:bg-indigo-600 group-hover:text-white transition-all duration-300">
+                  <Cpu className="w-6 h-6" />
+                </div>
+                <h4 className="font-sans font-extrabold text-slate-900 text-lg group-hover:text-indigo-600 transition-colors duration-200">Future product direction</h4>
+                <p className="text-sm text-slate-650 leading-relaxed font-medium">
+                  Your responses help determine whether this software concept should move toward prototype development.
+                </p>
               </div>
-              <h4 className="font-sans font-bold text-slate-900 text-lg">Future product direction</h4>
-              <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
-                Your responses help determine whether this software concept should move toward prototype development.
-              </p>
             </div>
 
           </div>
@@ -558,46 +591,52 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             
-            <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-150 shadow-md hover:shadow-lg transition-all duration-300 flex flex-col justify-between space-y-4">
+            <div className="bg-white p-8 rounded-3xl border border-sky-100 shadow-lg shadow-sky-100/40 hover:shadow-xl hover:shadow-sky-200/50 hover:border-sky-400/40 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group" id="sec7_card_1">
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <div className="w-10 h-10 rounded-xl bg-sky-50 text-brand-primary flex items-center justify-center font-bold">
-                    <Gauge className="w-5 h-5 text-brand-primary" />
+                  <div className="w-12 h-12 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center border border-sky-100/60 group-hover:bg-sky-600 group-hover:text-white transition-all duration-300">
+                    <Gauge className="w-6 h-6" />
                   </div>
-                  <span className="text-xs font-mono font-bold text-slate-400">STEP 01</span>
+                  <span className="text-[10px] font-mono font-extrabold bg-sky-50 text-sky-700 border border-sky-100 px-2.5 py-1 rounded-lg uppercase tracking-wider">
+                    STEP 01
+                  </span>
                 </div>
-                <h4 className="font-sans font-bold text-[#102A43] text-lg">Receive your awareness profile</h4>
-                <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
+                <h4 className="font-sans font-extrabold text-[#102A43] text-lg group-hover:text-sky-650 transition-colors duration-200">Receive your awareness profile</h4>
+                <p className="text-sm text-slate-650 leading-relaxed font-medium">
                   See your simulated Driver Awareness Score and Fatigue Risk Awareness Profile.
                 </p>
               </div>
             </div>
 
-            <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-150 shadow-md hover:shadow-lg transition-all duration-300 flex flex-col justify-between space-y-4">
+            <div className="bg-white p-8 rounded-3xl border border-cyan-100 shadow-lg shadow-cyan-100/40 hover:shadow-xl hover:shadow-cyan-200/50 hover:border-cyan-400/40 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group" id="sec7_card_2">
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <div className="w-10 h-10 rounded-xl bg-cyan-50 text-cyan-600 flex items-center justify-center font-bold">
-                    <Compass className="w-5 h-5 text-cyan-600" />
+                  <div className="w-12 h-12 rounded-xl bg-cyan-50 text-cyan-600 flex items-center justify-center border border-cyan-100/60 group-hover:bg-cyan-600 group-hover:text-white transition-all duration-300">
+                    <Compass className="w-6 h-6" />
                   </div>
-                  <span className="text-xs font-mono font-bold text-slate-400">STEP 02</span>
+                  <span className="text-[10px] font-mono font-extrabold bg-cyan-50 text-cyan-700 border border-cyan-100 px-2.5 py-1 rounded-lg uppercase tracking-wider">
+                    STEP 02
+                  </span>
                 </div>
-                <h4 className="font-sans font-bold text-[#102A43] text-lg">View your research cohort</h4>
-                <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
+                <h4 className="font-sans font-extrabold text-[#102A43] text-lg group-hover:text-cyan-650 transition-colors duration-200">View your research cohort</h4>
+                <p className="text-sm text-slate-650 leading-relaxed font-medium">
                   Understand which validation cohort your awareness profile aligns with.
                 </p>
               </div>
             </div>
 
-            <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-150 shadow-md hover:shadow-lg transition-all duration-300 flex flex-col justify-between space-y-4">
+            <div className="bg-white p-8 rounded-3xl border border-emerald-100 shadow-lg shadow-emerald-100/40 hover:shadow-xl hover:shadow-emerald-200/50 hover:border-emerald-400/40 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group" id="sec7_card_3">
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold">
-                    <CheckCircle2 className="w-5 h-5 text-emerald-600" />
+                  <div className="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center border border-emerald-100/60 group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300">
+                    <CheckCircle2 className="w-6 h-6" />
                   </div>
-                  <span className="text-xs font-mono font-bold text-slate-400">STEP 03</span>
+                  <span className="text-[10px] font-mono font-extrabold bg-emerald-50 text-emerald-700 border border-emerald-100 px-2.5 py-1 rounded-lg uppercase tracking-wider">
+                    STEP 03
+                  </span>
                 </div>
-                <h4 className="font-sans font-bold text-[#102A43] text-lg">Choose whether to join</h4>
-                <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
+                <h4 className="font-sans font-extrabold text-[#102A43] text-lg group-hover:text-emerald-650 transition-colors duration-200">Choose whether to join</h4>
+                <p className="text-sm text-slate-650 leading-relaxed font-medium">
                   Help validate future Driver Awareness Intelligence tools for Canadian drivers.
                 </p>
               </div>
