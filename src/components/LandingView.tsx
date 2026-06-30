@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { 
   Shield, 
   Clock, 
@@ -34,35 +34,6 @@ interface LandingViewProps {
 
 export default function LandingView({ onStartDiagnostic, heroImage, commuteImage, quizView }: LandingViewProps) {
   const [activeFaqIdx, setActiveFaqIdx] = useState<number | null>(null);
-  const [liveActivityIdx, setLiveActivityIdx] = useState(0);
-  const [remainingSlots, setRemainingSlots] = useState(87);
-
-  const liveActivities = [
-    { initials: "J.M.", city: "Mississauga", score: 78, time: "2m ago" },
-    { initials: "T.S.", city: "Downtown Toronto", score: 84, time: "4m ago" },
-    { initials: "H.K.", city: "Scarborough", score: 62, time: "7m ago" },
-    { initials: "A.V.", city: "Brampton", score: 92, time: "11m ago" },
-    { initials: "M.L.", city: "Markham", score: 71, time: "14m ago" },
-    { initials: "S.B.", city: "Hamilton", score: 80, time: "18m ago" },
-  ];
-
-  useEffect(() => {
-    const activityInterval = setInterval(() => {
-      setLiveActivityIdx(prev => (prev + 1) % liveActivities.length);
-    }, 6000);
-
-    const slotInterval = setInterval(() => {
-      setRemainingSlots(prev => {
-        if (prev <= 79) return 79;
-        return prev - 1;
-      });
-    }, 45000);
-
-    return () => {
-      clearInterval(activityInterval);
-      clearInterval(slotInterval);
-    };
-  }, []);
 
   return (
     <div className="font-sans text-slate-800 animate-fadeIn" id="landing_view_container">
@@ -142,20 +113,6 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
             <div className="flex items-center gap-1.5 bg-slate-900/50 px-3 py-1 rounded-full border border-slate-800">
               <Clock className="w-3.5 h-3.5 text-cyan-400" />
               <span>60 seconds or less</span>
-            </div>
-          </div>
-
-          {/* Live Activity Ticker (Localized GTA urgency) */}
-          <div className="bg-slate-900/60 border border-slate-800/85 rounded-2xl p-4 max-w-xl mx-auto flex flex-col sm:flex-row items-center sm:justify-between gap-2 text-xs text-left backdrop-blur-xs" id="live_cohort_ticker">
-            <div className="flex items-center gap-2 shrink-0">
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#0ea5e9]"></span>
-              </span>
-              <span className="font-mono text-[10px] font-bold text-slate-400 uppercase tracking-widest">Live Activity Feed</span>
-            </div>
-            <div className="text-slate-300 truncate text-center sm:text-left">
-              <strong className="text-white">{liveActivities[liveActivityIdx].initials}</strong> from <span className="text-[#38bdf8] font-semibold">{liveActivities[liveActivityIdx].city}</span> completed simulation (Score: <span className="text-emerald-400 font-bold">{liveActivities[liveActivityIdx].score}/100</span>) and secured priority slot <span className="text-slate-450">({liveActivities[liveActivityIdx].time})</span>
             </div>
           </div>
 
@@ -399,74 +356,98 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             
             {/* Gadget 1 */}
-            <div className="bg-slate-950 border border-slate-800/85 p-8 rounded-3xl space-y-6 shadow-2xl relative overflow-hidden group hover:border-[#0ea5e9]/50 transition-all duration-300 flex flex-col justify-between">
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <span className="text-[10px] bg-sky-500/10 text-[#38bdf8] border border-sky-400/20 px-2.5 py-1 rounded-full font-mono uppercase tracking-widest font-bold">
-                    Visor Mounted HUD
-                  </span>
-                  <span className="text-slate-550 font-mono text-xs">ASTR-01</span>
+            <div className="bg-slate-950 border border-slate-800/85 rounded-3xl overflow-hidden shadow-2xl relative group hover:border-[#0ea5e9]/50 transition-all duration-300 flex flex-col justify-between" id="gadget-vision-shield-card">
+              <div>
+                <div className="relative aspect-[16/10] overflow-hidden bg-slate-900 border-b border-slate-900/80">
+                  <img 
+                    src="/src/assets/images/vision_shield_in_car_1782845622070.jpg" 
+                    alt="Astrateq Vision Shield Visor Mounted HUD in-car realistic photography" 
+                    className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-700"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 to-transparent"></div>
                 </div>
-                
-                <h3 className="font-sans font-bold text-2xl text-white">Astrateq Vision Shield™</h3>
-                <p className="text-sm text-slate-400 leading-relaxed">
-                  A companion head-up display clip-on that matches your profile's attention intervals. Projects soft visual alerts directly into your field of view during high-exposure commute segments.
-                </p>
 
-                <ul className="space-y-2 text-xs text-slate-300 pt-2">
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
-                    <span>No-look visual guidance (projects on road)</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
-                    <span>100% offline edge computing — zero storage</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
-                    <span>Polarized micro-projector for winter glare</span>
-                  </li>
-                </ul>
+                <div className="p-8 space-y-4">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] bg-sky-500/10 text-[#38bdf8] border border-sky-400/20 px-2.5 py-1 rounded-full font-mono uppercase tracking-widest font-bold">
+                      Visor Mounted HUD
+                    </span>
+                    <span className="text-slate-550 font-mono text-xs">ASTR-01</span>
+                  </div>
+                  
+                  <h3 className="font-sans font-bold text-2xl text-white">Astrateq Vision Shield™</h3>
+                  <p className="text-sm text-slate-400 leading-relaxed">
+                    A companion head-up display clip-on that matches your profile's attention intervals. Projects soft visual alerts directly into your field of view during high-exposure commute segments.
+                  </p>
+
+                  <ul className="space-y-2 text-xs text-slate-300 pt-2">
+                    <li className="flex items-center gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                      <span>No-look visual guidance (projects on road)</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                      <span>100% offline edge computing — zero storage</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                      <span>Polarized micro-projector for winter glare</span>
+                    </li>
+                  </ul>
+                </div>
               </div>
 
-              <div className="pt-6 border-t border-slate-850/60 flex items-center justify-between text-xs text-slate-450">
+              <div className="mx-8 pb-8 pt-6 border-t border-slate-850/60 flex items-center justify-between text-xs text-slate-450">
                 <span>Status: <strong className="text-[#38bdf8] font-bold">Concept Validation</strong></span>
                 <span className="font-mono text-[10px] bg-slate-800 text-slate-300 px-2.5 py-1 rounded">EST: Q4 2026</span>
               </div>
             </div>
 
             {/* Gadget 2 */}
-            <div className="bg-slate-950 border border-slate-800/85 p-8 rounded-3xl space-y-6 shadow-2xl relative overflow-hidden group hover:border-emerald-500/50 transition-all duration-300 flex flex-col justify-between">
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <span className="text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-400/20 px-2.5 py-1 rounded-full font-mono uppercase tracking-widest font-bold">
-                    Ambient Console
-                  </span>
-                  <span className="text-slate-550 font-mono text-xs">ASTR-02</span>
+            <div className="bg-slate-950 border border-slate-800/85 rounded-3xl overflow-hidden shadow-2xl relative group hover:border-emerald-500/50 transition-all duration-300 flex flex-col justify-between" id="gadget-aura-dial-card">
+              <div>
+                <div className="relative aspect-[16/10] overflow-hidden bg-slate-900 border-b border-slate-900/80">
+                  <img 
+                    src="/src/assets/images/aura_dial_in_car_1782845633915.jpg" 
+                    alt="Astrateq Aura Dial realistic dashboard console photography" 
+                    className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-700"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 to-transparent"></div>
                 </div>
-                
-                <h3 className="font-sans font-bold text-2xl text-white">Astrateq Aura Dial™</h3>
-                <p className="text-sm text-slate-400 leading-relaxed">
-                  An elegant dashboard console that outputs non-distracting chromatic light pulses and subtle sound-attenuated signals. Calibrated to align with your personal circadian fatigue windows.
-                </p>
 
-                <ul className="space-y-2 text-xs text-slate-300 pt-2">
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                    <span>Bluetooth-free physical operation dials</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                    <span>Multi-tone sound cues designed to pierce road noise</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                    <span>Real-time local temperature response tuning</span>
-                  </li>
-                </ul>
+                <div className="p-8 space-y-4">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-400/20 px-2.5 py-1 rounded-full font-mono uppercase tracking-widest font-bold">
+                      Ambient Console
+                    </span>
+                    <span className="text-slate-550 font-mono text-xs">ASTR-02</span>
+                  </div>
+                  
+                  <h3 className="font-sans font-bold text-2xl text-white">Astrateq Aura Dial™</h3>
+                  <p className="text-sm text-slate-400 leading-relaxed">
+                    An elegant dashboard console that outputs non-distracting chromatic light pulses and subtle sound-attenuated signals. Calibrated to align with your personal circadian fatigue windows.
+                  </p>
+
+                  <ul className="space-y-2 text-xs text-slate-300 pt-2">
+                    <li className="flex items-center gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                      <span>Bluetooth-free physical operation dials</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                      <span>Multi-tone sound cues designed to pierce road noise</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                      <span>Real-time local temperature response tuning</span>
+                    </li>
+                  </ul>
+                </div>
               </div>
 
-              <div className="pt-6 border-t border-slate-850/60 flex items-center justify-between text-xs text-slate-450">
+              <div className="mx-8 pb-8 pt-6 border-t border-slate-850/60 flex items-center justify-between text-xs text-slate-450">
                 <span>Status: <strong className="text-emerald-400 font-bold">Concept Validation</strong></span>
                 <span className="font-mono text-[10px] bg-slate-800 text-slate-300 px-2.5 py-1 rounded">EST: Q1 2027</span>
               </div>
