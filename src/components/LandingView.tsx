@@ -964,11 +964,11 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 z-50 bg-white hover:bg-sky-50 text-[#0ea5e9] hover:text-[#0284c7] p-3.5 rounded-full shadow-[0_6px_25px_rgba(14,165,233,0.25)] hover:shadow-[0_10px_30px_rgba(14,165,233,0.45)] border-2 border-[#0ea5e9] hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer group flex items-center justify-center"
+          className="fixed bottom-6 right-6 z-50 bg-[#0ea5e9] hover:bg-[#0284c7] text-white p-3.5 rounded-full shadow-[0_8px_30px_rgba(14,165,233,0.4)] hover:shadow-[0_12px_35px_rgba(14,165,233,0.6)] border border-sky-400/30 hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer group flex items-center justify-center"
           aria-label="Scroll to top"
           id="scroll-to-top-button"
         >
-          <ArrowUp className="w-6 h-6 stroke-[3] group-hover:-translate-y-0.5 transition-transform duration-250" />
+          <ArrowUp className="w-6 h-6 stroke-[3] text-white group-hover:-translate-y-0.5 transition-transform duration-250" />
         </motion.button>
       )}
 
