@@ -169,14 +169,14 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             
             {/* Card 1 */}
-            <div className="bg-gradient-to-br from-sky-50/70 via-white/80 to-white p-8 rounded-3xl border border-sky-100/90 shadow-md hover:shadow-xl hover:border-sky-400/40 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden" id="sec2_card_1">
-              <div className="absolute -right-6 -bottom-6 w-24 h-24 bg-sky-200/15 rounded-full blur-xl group-hover:bg-sky-200/30 transition-all duration-500"></div>
+            <div className="bg-gradient-to-br from-sky-50/80 via-white/95 to-white p-8 rounded-3xl border-2 border-sky-200/90 shadow-[0_0_15px_rgba(14,165,233,0.15)] hover:shadow-[0_0_25px_rgba(14,165,233,0.35)] hover:border-sky-400 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden" id="sec2_card_1">
+              <div className="absolute -right-6 -bottom-6 w-24 h-24 bg-sky-200/20 rounded-full blur-xl group-hover:bg-sky-200/35 transition-all duration-500"></div>
               <div className="space-y-4 relative z-10">
-                <div className="w-14 h-14 rounded-2xl bg-sky-500 text-white flex items-center justify-center shadow-md shadow-sky-500/20 group-hover:scale-110 group-hover:bg-sky-600 transition-all duration-300">
+                <div className="w-14 h-14 rounded-2xl bg-sky-500 text-white flex items-center justify-center shadow-lg shadow-sky-500/25 group-hover:scale-110 group-hover:bg-sky-600 transition-all duration-300">
                   <Users className="w-7 h-7" />
                 </div>
                 <div>
-                  <div className="text-[10px] font-mono font-bold text-sky-650 tracking-wider uppercase mb-1">Interactive Diagnostic</div>
+                  <div className="text-[10px] font-mono font-bold text-sky-600 tracking-wider uppercase mb-1">Interactive Diagnostic</div>
                   <h4 className="font-sans font-extrabold text-slate-900 text-xl group-hover:text-sky-700 transition-colors duration-250">Behavioral Inputs</h4>
                 </div>
                 <p className="text-sm text-slate-650 leading-relaxed font-medium">
@@ -186,14 +186,14 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
             </div>
 
             {/* Card 2 */}
-            <div className="bg-gradient-to-br from-amber-50/70 via-white/80 to-white p-8 rounded-3xl border border-amber-100/90 shadow-md hover:shadow-xl hover:border-amber-400/40 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden" id="sec2_card_2">
-              <div className="absolute -right-6 -bottom-6 w-24 h-24 bg-amber-200/15 rounded-full blur-xl group-hover:bg-amber-200/30 transition-all duration-500"></div>
+            <div className="bg-gradient-to-br from-amber-50/80 via-white/95 to-white p-8 rounded-3xl border-2 border-amber-200/90 shadow-[0_0_15px_rgba(245,158,11,0.15)] hover:shadow-[0_0_25px_rgba(245,158,11,0.35)] hover:border-amber-400 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden" id="sec2_card_2">
+              <div className="absolute -right-6 -bottom-6 w-24 h-24 bg-amber-200/20 rounded-full blur-xl group-hover:bg-amber-200/35 transition-all duration-500"></div>
               <div className="space-y-4 relative z-10">
-                <div className="w-14 h-14 rounded-2xl bg-amber-500 text-white flex items-center justify-center shadow-md shadow-amber-500/20 group-hover:scale-110 group-hover:bg-amber-600 transition-all duration-300">
+                <div className="w-14 h-14 rounded-2xl bg-amber-500 text-white flex items-center justify-center shadow-lg shadow-amber-500/25 group-hover:scale-110 group-hover:bg-amber-600 transition-all duration-300">
                   <Gauge className="w-7 h-7" />
                 </div>
                 <div>
-                  <div className="text-[10px] font-mono font-bold text-amber-650 tracking-wider uppercase mb-1">Core Algorithm</div>
+                  <div className="text-[10px] font-mono font-bold text-amber-600 tracking-wider uppercase mb-1">Core Algorithm</div>
                   <h4 className="font-sans font-extrabold text-slate-900 text-xl group-hover:text-amber-700 transition-colors duration-250">Simulated Profile</h4>
                 </div>
                 <p className="text-sm text-slate-650 leading-relaxed font-medium">
@@ -203,10 +203,10 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
             </div>
 
             {/* Card 3 */}
-            <div className="bg-gradient-to-br from-emerald-50/70 via-white/80 to-white p-8 rounded-3xl border border-emerald-100/90 shadow-md hover:shadow-xl hover:border-emerald-400/40 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden" id="sec2_card_3">
-              <div className="absolute -right-6 -bottom-6 w-24 h-24 bg-emerald-200/15 rounded-full blur-xl group-hover:bg-emerald-200/30 transition-all duration-500"></div>
+            <div className="bg-gradient-to-br from-emerald-50/80 via-white/95 to-white p-8 rounded-3xl border-2 border-emerald-200/90 shadow-[0_0_15px_rgba(16,185,129,0.15)] hover:shadow-[0_0_25px_rgba(16,185,129,0.35)] hover:border-emerald-400 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden" id="sec2_card_3">
+              <div className="absolute -right-6 -bottom-6 w-24 h-24 bg-emerald-200/20 rounded-full blur-xl group-hover:bg-emerald-200/35 transition-all duration-500"></div>
               <div className="space-y-4 relative z-10">
-                <div className="w-14 h-14 rounded-2xl bg-emerald-500 text-white flex items-center justify-center shadow-md shadow-emerald-500/20 group-hover:scale-110 group-hover:bg-emerald-600 transition-all duration-300">
+                <div className="w-14 h-14 rounded-2xl bg-emerald-500 text-white flex items-center justify-center shadow-lg shadow-emerald-500/25 group-hover:scale-110 group-hover:bg-emerald-600 transition-all duration-300">
                   <ShieldCheck className="w-7 h-7" />
                 </div>
                 <div>
@@ -236,20 +236,20 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             
             {/* Card 1 */}
-            <div className="bg-gradient-to-br from-sky-50/85 via-white to-white p-8 rounded-3xl border border-sky-100/90 shadow-md hover:shadow-2xl hover:border-sky-400/50 hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[270px] relative overflow-hidden group" id="sec3_card_1">
+            <div className="bg-gradient-to-br from-sky-50/90 via-white to-white p-8 rounded-3xl border-2 border-sky-200/90 shadow-[0_0_18px_rgba(14,165,233,0.15)] hover:shadow-[0_0_30px_rgba(14,165,233,0.38)] hover:border-sky-400 hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[270px] relative overflow-hidden group" id="sec3_card_1">
               <div className="absolute top-0 left-0 right-0 h-[6px] bg-gradient-to-r from-sky-400 to-sky-600"></div>
-              <div className="absolute -right-8 -bottom-8 w-28 h-28 bg-sky-350/10 rounded-full blur-2xl group-hover:bg-sky-350/20 transition-all duration-500"></div>
+              <div className="absolute -right-8 -bottom-8 w-28 h-28 bg-sky-350/15 rounded-full blur-2xl group-hover:bg-sky-350/25 transition-all duration-500"></div>
               <div className="space-y-5 relative z-10">
                 <div className="flex items-center justify-between">
-                  <div className="w-14 h-14 rounded-2xl bg-sky-500 text-white flex items-center justify-center shadow-md shadow-sky-500/20 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                  <div className="w-14 h-14 rounded-2xl bg-sky-500 text-white flex items-center justify-center shadow-lg shadow-sky-500/25 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
                     <Gauge className="w-7 h-7" />
                   </div>
-                  <span className="text-[10px] font-mono font-extrabold bg-sky-100 text-sky-850 px-3 py-1 rounded-full uppercase tracking-wider border border-sky-200">
+                  <span className="text-[10px] font-mono font-extrabold bg-sky-100 text-sky-850 px-3 py-1 rounded-full uppercase tracking-wider border border-sky-200 shadow-sm">
                     Simulated Output
                   </span>
                 </div>
                 <div>
-                  <h3 className="font-sans font-extrabold text-xl text-slate-900 group-hover:text-sky-700 transition-colors duration-200">Driver Awareness Score</h3>
+                  <h3 className="font-sans font-extrabold text-xl text-slate-900 group-hover:text-sky-750 transition-colors duration-200">Driver Awareness Score</h3>
                   <p className="text-sm text-slate-650 mt-2.5 leading-relaxed font-medium">
                     A simulated 0–100 score based on driving habits, attention patterns, fatigue exposure, and road context.
                   </p>
@@ -258,20 +258,20 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
             </div>
 
             {/* Card 2 */}
-            <div className="bg-gradient-to-br from-amber-50/85 via-white to-white p-8 rounded-3xl border border-amber-100/90 shadow-md hover:shadow-2xl hover:border-amber-400/50 hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[270px] relative overflow-hidden group" id="sec3_card_2">
+            <div className="bg-gradient-to-br from-amber-50/90 via-white to-white p-8 rounded-3xl border-2 border-amber-200/90 shadow-[0_0_18px_rgba(245,158,11,0.15)] hover:shadow-[0_0_30px_rgba(245,158,11,0.38)] hover:border-amber-400 hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[270px] relative overflow-hidden group" id="sec3_card_2">
               <div className="absolute top-0 left-0 right-0 h-[6px] bg-gradient-to-r from-amber-400 to-amber-600"></div>
-              <div className="absolute -right-8 -bottom-8 w-28 h-28 bg-amber-350/10 rounded-full blur-2xl group-hover:bg-amber-350/20 transition-all duration-500"></div>
+              <div className="absolute -right-8 -bottom-8 w-28 h-28 bg-amber-350/15 rounded-full blur-2xl group-hover:bg-amber-350/25 transition-all duration-500"></div>
               <div className="space-y-5 relative z-10">
                 <div className="flex items-center justify-between">
-                  <div className="w-14 h-14 rounded-2xl bg-amber-500 text-white flex items-center justify-center shadow-md shadow-amber-500/20 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                  <div className="w-14 h-14 rounded-2xl bg-amber-500 text-white flex items-center justify-center shadow-lg shadow-amber-500/25 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
                     <AlertTriangle className="w-7 h-7" />
                   </div>
-                  <span className="text-[10px] font-mono font-extrabold bg-amber-100 text-amber-850 px-3 py-1 rounded-full uppercase tracking-wider border border-amber-200">
+                  <span className="text-[10px] font-mono font-extrabold bg-amber-100 text-amber-850 px-3 py-1 rounded-full uppercase tracking-wider border border-amber-200 shadow-sm">
                     Behavioral Signal
                   </span>
                 </div>
                 <div>
-                  <h3 className="font-sans font-extrabold text-xl text-slate-900 group-hover:text-amber-700 transition-colors duration-200">Fatigue Risk Profile</h3>
+                  <h3 className="font-sans font-extrabold text-xl text-slate-900 group-hover:text-amber-755 transition-colors duration-200">Fatigue Risk Profile</h3>
                   <p className="text-sm text-slate-650 mt-2.5 leading-relaxed font-medium">
                     Understand how time of day, commute type, longer drives, and road conditions may influence awareness patterns.
                   </p>
@@ -280,20 +280,20 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
             </div>
 
             {/* Card 3 */}
-            <div className="bg-gradient-to-br from-emerald-50/85 via-white to-white p-8 rounded-3xl border border-emerald-100/90 shadow-md hover:shadow-2xl hover:border-emerald-400/50 hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[270px] relative overflow-hidden group" id="sec3_card_3">
+            <div className="bg-gradient-to-br from-emerald-50/90 via-white to-white p-8 rounded-3xl border-2 border-emerald-200/90 shadow-[0_0_18px_rgba(16,185,129,0.15)] hover:shadow-[0_0_30px_rgba(16,185,129,0.38)] hover:border-emerald-400 hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between min-h-[270px] relative overflow-hidden group" id="sec3_card_3">
               <div className="absolute top-0 left-0 right-0 h-[6px] bg-gradient-to-r from-emerald-400 to-emerald-600"></div>
-              <div className="absolute -right-8 -bottom-8 w-28 h-28 bg-emerald-350/10 rounded-full blur-2xl group-hover:bg-emerald-350/20 transition-all duration-500"></div>
+              <div className="absolute -right-8 -bottom-8 w-28 h-28 bg-emerald-350/15 rounded-full blur-2xl group-hover:bg-emerald-350/25 transition-all duration-500"></div>
               <div className="space-y-5 relative z-10">
                 <div className="flex items-center justify-between">
-                  <div className="w-14 h-14 rounded-2xl bg-emerald-500 text-white flex items-center justify-center shadow-md shadow-emerald-500/20 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                  <div className="w-14 h-14 rounded-2xl bg-emerald-500 text-white flex items-center justify-center shadow-lg shadow-emerald-500/25 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
                     <Users className="w-7 h-7" />
                   </div>
-                  <span className="text-[10px] font-mono font-extrabold bg-emerald-100 text-emerald-850 px-3 py-1 rounded-full uppercase tracking-wider border border-emerald-200">
+                  <span className="text-[10px] font-mono font-extrabold bg-emerald-100 text-emerald-850 px-3 py-1 rounded-full uppercase tracking-wider border border-emerald-200 shadow-sm">
                     Cohort Signal
                   </span>
                 </div>
                 <div>
-                  <h3 className="font-sans font-extrabold text-xl text-slate-900 group-hover:text-emerald-700 transition-colors duration-200">Research Cohort</h3>
+                  <h3 className="font-sans font-extrabold text-xl text-slate-900 group-hover:text-emerald-755 transition-colors duration-200">Research Cohort</h3>
                   <p className="text-sm text-slate-650 mt-2.5 leading-relaxed font-medium">
                     See which validation cohort your simulated awareness profile aligns with and whether you may qualify for research participation.
                   </p>
@@ -504,10 +504,10 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             
-            <div className="bg-gradient-to-br from-white to-slate-50/50 p-8 pl-9 rounded-3xl border border-slate-200/80 shadow-md hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden" id="sec5_card_1">
+            <div className="bg-gradient-to-br from-white to-slate-50/50 p-8 pl-9 rounded-3xl border-2 border-sky-150 shadow-[0_0_15px_rgba(14,165,233,0.13)] hover:shadow-[0_0_25px_rgba(14,165,233,0.35)] hover:border-sky-400 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden" id="sec5_card_1">
               <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-sky-400 to-sky-600"></div>
               <div className="space-y-4">
-                <div className="w-12 h-12 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center border border-sky-100/60 group-hover:bg-sky-600 group-hover:text-white transition-all duration-300">
+                <div className="w-12 h-12 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center border border-sky-100/60 group-hover:bg-sky-600 group-hover:text-white transition-all duration-300 shadow-xs">
                   <ShieldCheck className="w-6 h-6" />
                 </div>
                 <h4 className="font-sans font-extrabold text-slate-900 text-lg group-hover:text-sky-600 transition-colors duration-200">Driver awareness intelligence</h4>
@@ -517,10 +517,10 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-white to-slate-50/50 p-8 pl-9 rounded-3xl border border-slate-200/80 shadow-md hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden" id="sec5_card_2">
+            <div className="bg-gradient-to-br from-white to-slate-50/50 p-8 pl-9 rounded-3xl border-2 border-violet-150 shadow-[0_0_15px_rgba(139,92,246,0.13)] hover:shadow-[0_0_25px_rgba(139,92,246,0.35)] hover:border-violet-400 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden" id="sec5_card_2">
               <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-violet-400 to-violet-600"></div>
               <div className="space-y-4">
-                <div className="w-12 h-12 rounded-xl bg-violet-50 text-violet-600 flex items-center justify-center border border-violet-100/60 group-hover:bg-violet-600 group-hover:text-white transition-all duration-300">
+                <div className="w-12 h-12 rounded-xl bg-violet-50 text-violet-600 flex items-center justify-center border border-violet-100/60 group-hover:bg-violet-600 group-hover:text-white transition-all duration-300 shadow-xs">
                   <MapPin className="w-6 h-6" />
                 </div>
                 <h4 className="font-sans font-extrabold text-slate-900 text-lg group-hover:text-violet-600 transition-colors duration-200">Canadian driving context</h4>
@@ -530,10 +530,10 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-white to-slate-50/50 p-8 pl-9 rounded-3xl border border-slate-200/80 shadow-md hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden" id="sec5_card_3">
+            <div className="bg-gradient-to-br from-white to-slate-50/50 p-8 pl-9 rounded-3xl border-2 border-indigo-150 shadow-[0_0_15px_rgba(99,102,241,0.13)] hover:shadow-[0_0_25px_rgba(99,102,241,0.35)] hover:border-indigo-400 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden" id="sec5_card_3">
               <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-indigo-400 to-indigo-600"></div>
               <div className="space-y-4">
-                <div className="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center border border-indigo-100/60 group-hover:bg-indigo-600 group-hover:text-white transition-all duration-300">
+                <div className="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center border border-indigo-100/60 group-hover:bg-indigo-600 group-hover:text-white transition-all duration-300 shadow-xs">
                   <Cpu className="w-6 h-6" />
                 </div>
                 <h4 className="font-sans font-extrabold text-slate-900 text-lg group-hover:text-indigo-600 transition-colors duration-200">Future product direction</h4>
@@ -591,10 +591,10 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             
-            <div className="bg-white p-8 rounded-3xl border border-sky-100 shadow-lg shadow-sky-100/40 hover:shadow-xl hover:shadow-sky-200/50 hover:border-sky-400/40 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group" id="sec7_card_1">
+            <div className="bg-gradient-to-br from-white to-sky-50/30 p-8 rounded-3xl border-2 border-sky-150 shadow-[0_0_15px_rgba(14,165,233,0.13)] hover:shadow-[0_0_25px_rgba(14,165,233,0.35)] hover:border-sky-400 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group" id="sec7_card_1">
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <div className="w-12 h-12 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center border border-sky-100/60 group-hover:bg-sky-600 group-hover:text-white transition-all duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center border border-sky-100/60 group-hover:bg-sky-600 group-hover:text-white transition-all duration-300 shadow-xs">
                     <Gauge className="w-6 h-6" />
                   </div>
                   <span className="text-[10px] font-mono font-extrabold bg-sky-50 text-sky-700 border border-sky-100 px-2.5 py-1 rounded-lg uppercase tracking-wider">
@@ -608,10 +608,10 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
               </div>
             </div>
 
-            <div className="bg-white p-8 rounded-3xl border border-cyan-100 shadow-lg shadow-cyan-100/40 hover:shadow-xl hover:shadow-cyan-200/50 hover:border-cyan-400/40 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group" id="sec7_card_2">
+            <div className="bg-gradient-to-br from-white to-cyan-50/30 p-8 rounded-3xl border-2 border-cyan-150 shadow-[0_0_15px_rgba(6,182,212,0.13)] hover:shadow-[0_0_25px_rgba(6,182,212,0.35)] hover:border-cyan-400 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group" id="sec7_card_2">
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <div className="w-12 h-12 rounded-xl bg-cyan-50 text-cyan-600 flex items-center justify-center border border-cyan-100/60 group-hover:bg-cyan-600 group-hover:text-white transition-all duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-cyan-50 text-cyan-600 flex items-center justify-center border border-cyan-100/60 group-hover:bg-cyan-600 group-hover:text-white transition-all duration-300 shadow-xs">
                     <Compass className="w-6 h-6" />
                   </div>
                   <span className="text-[10px] font-mono font-extrabold bg-cyan-50 text-cyan-700 border border-cyan-100 px-2.5 py-1 rounded-lg uppercase tracking-wider">
@@ -625,10 +625,10 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
               </div>
             </div>
 
-            <div className="bg-white p-8 rounded-3xl border border-emerald-100 shadow-lg shadow-emerald-100/40 hover:shadow-xl hover:shadow-emerald-200/50 hover:border-emerald-400/40 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group" id="sec7_card_3">
+            <div className="bg-gradient-to-br from-white to-emerald-50/30 p-8 rounded-3xl border-2 border-emerald-150 shadow-[0_0_15px_rgba(16,185,129,0.13)] hover:shadow-[0_0_25px_rgba(16,185,129,0.35)] hover:border-emerald-400 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group" id="sec7_card_3">
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <div className="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center border border-emerald-100/60 group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center border border-emerald-100/60 group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300 shadow-xs">
                     <CheckCircle2 className="w-6 h-6" />
                   </div>
                   <span className="text-[10px] font-mono font-extrabold bg-emerald-50 text-emerald-700 border border-emerald-100 px-2.5 py-1 rounded-lg uppercase tracking-wider">
