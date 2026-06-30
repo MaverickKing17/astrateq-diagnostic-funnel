@@ -308,49 +308,71 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
       </section>
 
       {/* 4. HOW IT WORKS */}
-      <section className="py-20 px-6 bg-white border-b border-slate-100">
-        <div className="max-w-4xl mx-auto space-y-12">
+      <section className="py-24 px-6 bg-[#F8FAFC]/50 border-b border-slate-150">
+        <div className="max-w-5xl mx-auto space-y-12">
           
           <div className="text-center space-y-3">
-            <h2 className="text-xs font-mono font-bold tracking-widest text-brand-primary uppercase">Interactive Guide</h2>
-            <p className="font-display font-bold text-3xl text-slate-900 tracking-tight">How It Works</p>
+            <span className="text-xs font-mono font-extrabold tracking-widest text-sky-700 uppercase bg-sky-50 px-3.5 py-1.5 rounded-full border border-sky-100 shadow-xs">
+              Interactive Guide
+            </span>
+            <h2 className="font-sans font-extrabold text-3xl sm:text-4xl text-slate-900 tracking-tight">
+              How It Works
+            </h2>
+            <p className="text-sm text-slate-500 max-w-md mx-auto font-medium">
+              A quick, three-step simulation designed specifically for Canadian commuters.
+            </p>
           </div>
 
-          <div className="bg-slate-50/50 rounded-3xl p-8 sm:p-12 border border-slate-100/90 relative shadow-xs">
-            {/* Desktop Connector dashed lines */}
-            <div className="hidden md:block absolute top-[54px] left-[18%] right-[18%] h-[2px] border-t border-dashed border-slate-200 z-0"></div>
+          <div className="relative">
+            {/* Desktop Connector dashed gradient line */}
+            <div className="hidden md:block absolute top-[110px] left-[15%] right-[15%] h-[2px] bg-gradient-to-r from-sky-400 via-violet-400 to-emerald-400 opacity-60 z-0"></div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
               
               {/* Step 1 */}
-              <div className="text-center space-y-3 group">
-                <div className="w-12 h-12 rounded-full bg-brand-primary text-white flex items-center justify-center font-bold text-lg mx-auto shadow-sm ring-4 ring-white">
+              <div 
+                className="bg-white p-8 rounded-3xl border-2 border-sky-150 shadow-[0_0_15px_rgba(14,165,233,0.08)] hover:shadow-[0_0_25px_rgba(14,165,233,0.30)] hover:border-sky-400 hover:-translate-y-1.5 transition-all duration-300 flex flex-col items-center text-center group" 
+                id="sec4_card_1"
+              >
+                <div className="w-14 h-14 rounded-full bg-sky-500 text-white flex items-center justify-center font-extrabold text-xl shadow-lg shadow-sky-500/25 ring-4 ring-sky-100 group-hover:scale-110 transition-transform duration-300 mb-5">
                   1
                 </div>
-                <h3 className="font-display font-bold text-slate-900 text-base">Answer awareness questions</h3>
-                <p className="text-xs sm:text-sm text-slate-500 max-w-xs mx-auto leading-relaxed">
+                <h3 className="font-sans font-extrabold text-slate-900 text-lg group-hover:text-sky-700 transition-colors duration-200">
+                  Answer awareness questions
+                </h3>
+                <p className="text-sm text-slate-600 mt-3 leading-relaxed font-medium">
                   Tell us about your driving frequency, commute patterns, fatigue exposure, and attention habits.
                 </p>
               </div>
 
               {/* Step 2 */}
-              <div className="text-center space-y-3 group">
-                <div className="w-12 h-12 rounded-full bg-brand-primary text-white flex items-center justify-center font-bold text-lg mx-auto shadow-sm ring-4 ring-white">
+              <div 
+                className="bg-white p-8 rounded-3xl border-2 border-violet-150 shadow-[0_0_15px_rgba(139,92,246,0.08)] hover:shadow-[0_0_25px_rgba(139,92,246,0.30)] hover:border-violet-400 hover:-translate-y-1.5 transition-all duration-300 flex flex-col items-center text-center group" 
+                id="sec4_card_2"
+              >
+                <div className="w-14 h-14 rounded-full bg-violet-500 text-white flex items-center justify-center font-extrabold text-xl shadow-lg shadow-violet-500/25 ring-4 ring-violet-100 group-hover:scale-110 transition-transform duration-300 mb-5">
                   2
                 </div>
-                <h3 className="font-display font-bold text-slate-900 text-base">Get your simulated profile</h3>
-                <p className="text-xs sm:text-sm text-slate-500 max-w-xs mx-auto leading-relaxed">
+                <h3 className="font-sans font-extrabold text-slate-900 text-lg group-hover:text-violet-700 transition-colors duration-200">
+                  Get your simulated profile
+                </h3>
+                <p className="text-sm text-slate-600 mt-3 leading-relaxed font-medium">
                   Receive a conceptual Driver Awareness Score and fatigue awareness summary.
                 </p>
               </div>
 
               {/* Step 3 */}
-              <div className="text-center space-y-3 group">
-                <div className="w-12 h-12 rounded-full bg-brand-primary text-white flex items-center justify-center font-bold text-lg mx-auto shadow-sm ring-4 ring-white">
+              <div 
+                className="bg-white p-8 rounded-3xl border-2 border-emerald-150 shadow-[0_0_15px_rgba(16,185,129,0.08)] hover:shadow-[0_0_25px_rgba(16,185,129,0.30)] hover:border-emerald-400 hover:-translate-y-1.5 transition-all duration-300 flex flex-col items-center text-center group" 
+                id="sec4_card_3"
+              >
+                <div className="w-14 h-14 rounded-full bg-emerald-500 text-white flex items-center justify-center font-extrabold text-xl shadow-lg shadow-emerald-500/25 ring-4 ring-emerald-100 group-hover:scale-110 transition-transform duration-300 mb-5">
                   3
                 </div>
-                <h3 className="font-display font-bold text-slate-900 text-base">See your research cohort</h3>
-                <p className="text-xs sm:text-sm text-slate-500 max-w-xs mx-auto leading-relaxed">
+                <h3 className="font-sans font-extrabold text-slate-900 text-lg group-hover:text-emerald-700 transition-colors duration-200">
+                  See your research cohort
+                </h3>
+                <p className="text-sm text-slate-600 mt-3 leading-relaxed font-medium">
                   Learn whether your profile aligns with Astrateq Gadgets’ pre-launch research cohort.
                 </p>
               </div>
