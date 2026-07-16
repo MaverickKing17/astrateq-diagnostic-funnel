@@ -90,26 +90,44 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
             <span className="text-cyan-300 font-mono text-[10px] tracking-normal font-bold">Awareness intelligence without surveillance.</span>
           </div>
 
-          <h1 className="font-sans font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white tracking-tight leading-[1.12] max-w-4xl mx-auto">
-            Check your <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38bdf8] via-[#0ea5e9] to-cyan-300 font-black">Driver Awareness Readiness</span> in 60 seconds.
-          </h1>
+          {/* Scenic Overlay Linear-gradient scrim background for pristine text contrast */}
+          <div className="bg-gradient-to-b from-black/55 to-black/35 backdrop-blur-md rounded-3xl p-6 sm:p-8 md:p-10 border border-white/10 max-w-4xl mx-auto space-y-5 sm:space-y-6 shadow-2xl">
+            <h1 className="font-sans font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white tracking-tight leading-[1.12] max-w-4xl mx-auto">
+              Check your <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38bdf8] via-[#0ea5e9] to-cyan-300 font-black">Driver Awareness Readiness</span> in 60 seconds.
+            </h1>
 
-          <div className="max-w-3xl mx-auto">
-            <p className="text-slate-100 text-sm sm:text-base md:text-lg leading-relaxed font-medium drop-shadow-[0_2px_10px_rgba(0,0,0,0.85)]">
-              Answer a few quick questions to receive a simulated Driver Awareness Score, Fatigue Risk Awareness Profile, and Research Cohort Classification — without vehicle tracking, insurance scoring, or hardware.
-            </p>
+            <div className="max-w-3xl mx-auto">
+              <p className="text-slate-100 text-sm sm:text-base md:text-lg leading-relaxed font-medium drop-shadow-[0_2px_10px_rgba(0,0,0,0.85)]">
+                Answer a few quick questions to receive a simulated Driver Awareness Score, Fatigue Risk Awareness Profile, and Research Cohort Classification — without vehicle tracking, insurance scoring, or hardware.
+              </p>
+            </div>
           </div>
 
-          {/* Primary CTA Button (Dominant Centered Block) */}
-          <div className="space-y-3.5 pt-4 max-w-xl mx-auto">
-            <button
-              onClick={onStartDiagnostic}
-              className="w-full sm:w-auto inline-flex items-center justify-center px-12 py-5 bg-gradient-to-r from-[#0ea5e9] via-[#0284c7] to-cyan-500 hover:from-[#38bdf8] hover:to-[#0284c7] text-white font-extrabold text-xl rounded-2xl shadow-[0_0_40px_rgba(14,165,233,0.35)] hover:shadow-[0_0_50px_rgba(56,189,248,0.5)] hover:-translate-y-0.5 active:translate-y-0 active:scale-98 transition-all duration-200 cursor-pointer border border-cyan-400/30 group"
-              id="hero_diagnostic_cta"
-            >
-              <span>Start Awareness Simulation</span>
-              <ChevronRight className="w-6 h-6 ml-2 transition-transform duration-200 group-hover:translate-x-1" />
-            </button>
+          {/* Primary & Secondary CTA Block */}
+          <div className="space-y-4 pt-4 max-w-2xl mx-auto">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <button
+                onClick={onStartDiagnostic}
+                className="w-full sm:w-auto inline-flex items-center justify-center px-10 py-5 bg-gradient-to-r from-[#0ea5e9] via-[#0284c7] to-cyan-500 hover:from-[#38bdf8] hover:to-[#0284c7] text-white font-extrabold text-xl rounded-2xl shadow-[0_0_40px_rgba(14,165,233,0.35)] hover:shadow-[0_0_50px_rgba(56,189,248,0.5)] hover:-translate-y-0.5 active:translate-y-0 active:scale-98 transition-all duration-200 cursor-pointer border border-cyan-400/30 group"
+                id="hero_diagnostic_cta"
+              >
+                <span>Start Awareness Simulation</span>
+                <ChevronRight className="w-6 h-6 ml-2 transition-transform duration-200 group-hover:translate-x-1" />
+              </button>
+              <button
+                onClick={() => {
+                  const el = document.getElementById('how-it-works');
+                  if (el) {
+                    el.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className="w-full sm:w-auto inline-flex items-center justify-center px-10 py-5 bg-white/10 hover:bg-white/20 text-white font-bold text-xl rounded-2xl backdrop-blur-md border border-white/20 shadow-lg hover:-translate-y-0.5 active:translate-y-0 active:scale-98 transition-all duration-200 cursor-pointer group"
+                id="hero_how_it_works_cta"
+              >
+                <span>How It Works</span>
+                <ChevronDown className="w-5 h-5 ml-2 transition-transform duration-250 group-hover:translate-y-0.5" />
+              </button>
+            </div>
             <p className="text-xs text-slate-300 font-medium tracking-wide">
               Free · 60 seconds · No tracking · No hardware required
             </p>
@@ -191,7 +209,7 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
             <motion.div 
               whileHover={{ y: -8, scale: 1.025 }}
               transition={{ duration: 0.2 }}
-              className="bg-gradient-to-br from-white via-sky-50/60 to-sky-100/40 hover:from-white hover:via-sky-100/60 hover:to-sky-200/50 p-8 rounded-3xl border-2 border-sky-100/80 hover:border-[#0ea5e9] shadow-[0_12px_40px_rgba(14,165,233,0.06)] hover:shadow-[0_24px_60px_rgba(14,165,233,0.22)] transition-all duration-300 flex flex-col justify-between group relative overflow-hidden cursor-pointer min-h-[300px]" 
+              className="bg-gradient-to-br from-white via-sky-50/60 to-sky-100/40 hover:from-white hover:via-sky-100/60 hover:to-sky-200/50 p-8 rounded-3xl border-2 border-sky-100/80 hover:border-[#0ea5e9] shadow-[0_12px_40px_rgba(14,165,233,0.06)] hover:shadow-[0_24px_60px_rgba(14,165,233,0.22)] transition-all duration-300 flex flex-col justify-between group relative overflow-hidden cursor-pointer min-h-[300px] h-full" 
               id="sec2_card_1"
             >
               {/* Background dot-grid texture */}
@@ -226,7 +244,7 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
             <motion.div 
               whileHover={{ y: -8, scale: 1.025 }}
               transition={{ duration: 0.2 }}
-              className="bg-gradient-to-br from-white via-amber-50/60 to-amber-100/40 hover:from-white hover:via-amber-100/60 hover:to-amber-200/50 p-8 rounded-3xl border-2 border-amber-100/80 hover:border-amber-500 shadow-[0_12px_40px_rgba(245,158,11,0.06)] hover:shadow-[0_24px_60px_rgba(245,158,11,0.22)] transition-all duration-300 flex flex-col justify-between group relative overflow-hidden cursor-pointer min-h-[300px]" 
+              className="bg-gradient-to-br from-white via-amber-50/60 to-amber-100/40 hover:from-white hover:via-amber-100/60 hover:to-amber-200/50 p-8 rounded-3xl border-2 border-amber-100/80 hover:border-amber-500 shadow-[0_12px_40px_rgba(245,158,11,0.06)] hover:shadow-[0_24px_60px_rgba(245,158,11,0.22)] transition-all duration-300 flex flex-col justify-between group relative overflow-hidden cursor-pointer min-h-[300px] h-full" 
               id="sec2_card_2"
             >
               {/* Background dot-grid texture */}
@@ -261,7 +279,7 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
             <motion.div 
               whileHover={{ y: -8, scale: 1.025 }}
               transition={{ duration: 0.2 }}
-              className="bg-gradient-to-br from-white via-emerald-50/60 to-emerald-100/40 hover:from-white hover:via-emerald-100/60 hover:to-emerald-200/50 p-8 rounded-3xl border-2 border-emerald-100/80 hover:border-emerald-500 shadow-[0_12px_40px_rgba(16,185,129,0.06)] hover:shadow-[0_24px_60px_rgba(16,185,129,0.22)] transition-all duration-300 flex flex-col justify-between group relative overflow-hidden cursor-pointer min-h-[300px]" 
+              className="bg-gradient-to-br from-white via-emerald-50/60 to-emerald-100/40 hover:from-white hover:via-emerald-100/60 hover:to-emerald-200/50 p-8 rounded-3xl border-2 border-emerald-100/80 hover:border-emerald-500 shadow-[0_12px_40px_rgba(16,185,129,0.06)] hover:shadow-[0_24px_60px_rgba(16,185,129,0.22)] transition-all duration-300 flex flex-col justify-between group relative overflow-hidden cursor-pointer min-h-[300px] h-full" 
               id="sec2_card_3"
             >
               {/* Background dot-grid texture */}
@@ -312,7 +330,7 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
             <motion.div 
               whileHover={{ y: -8, scale: 1.025 }}
               transition={{ duration: 0.2 }}
-              className="bg-gradient-to-br from-white via-sky-50/60 to-sky-100/40 hover:from-white hover:via-sky-100/60 hover:to-sky-200/50 p-8 rounded-3xl border-2 border-sky-100/80 hover:border-[#0ea5e9] shadow-[0_12px_40px_rgba(14,165,233,0.06)] hover:shadow-[0_24px_60px_rgba(14,165,233,0.22)] transition-all duration-300 flex flex-col justify-between min-h-[300px] relative overflow-hidden group cursor-pointer" 
+              className="bg-gradient-to-br from-white via-sky-50/60 to-sky-100/40 hover:from-white hover:via-sky-100/60 hover:to-sky-200/50 p-8 rounded-3xl border-2 border-sky-100/80 hover:border-[#0ea5e9] shadow-[0_12px_40px_rgba(14,165,233,0.06)] hover:shadow-[0_24px_60px_rgba(14,165,233,0.22)] transition-all duration-300 flex flex-col justify-between min-h-[300px] h-full relative overflow-hidden group cursor-pointer" 
               id="sec3_card_1"
             >
               {/* Background dot-grid texture */}
@@ -345,7 +363,7 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
             <motion.div 
               whileHover={{ y: -8, scale: 1.025 }}
               transition={{ duration: 0.2 }}
-              className="bg-gradient-to-br from-white via-amber-50/60 to-amber-100/40 hover:from-white hover:via-amber-100/60 hover:to-amber-200/50 p-8 rounded-3xl border-2 border-amber-100/80 hover:border-amber-500 shadow-[0_12px_40px_rgba(245,158,11,0.06)] hover:shadow-[0_24px_60px_rgba(245,158,11,0.22)] transition-all duration-300 flex flex-col justify-between min-h-[300px] relative overflow-hidden group cursor-pointer" 
+              className="bg-gradient-to-br from-white via-amber-50/60 to-amber-100/40 hover:from-white hover:via-amber-100/60 hover:to-amber-200/50 p-8 rounded-3xl border-2 border-amber-100/80 hover:border-amber-500 shadow-[0_12px_40px_rgba(245,158,11,0.06)] hover:shadow-[0_24px_60px_rgba(245,158,11,0.22)] transition-all duration-300 flex flex-col justify-between min-h-[300px] h-full relative overflow-hidden group cursor-pointer" 
               id="sec3_card_2"
             >
               {/* Background dot-grid texture */}
@@ -378,7 +396,7 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
             <motion.div 
               whileHover={{ y: -8, scale: 1.025 }}
               transition={{ duration: 0.2 }}
-              className="bg-gradient-to-br from-white via-emerald-50/60 to-emerald-100/40 hover:from-white hover:via-emerald-100/60 hover:to-emerald-200/50 p-8 rounded-3xl border-2 border-emerald-100/80 hover:border-emerald-500 shadow-[0_12px_40px_rgba(16,185,129,0.06)] hover:shadow-[0_24px_60px_rgba(16,185,129,0.22)] transition-all duration-300 flex flex-col justify-between min-h-[300px] relative overflow-hidden group cursor-pointer" 
+              className="bg-gradient-to-br from-white via-emerald-50/60 to-emerald-100/40 hover:from-white hover:via-emerald-100/60 hover:to-emerald-200/50 p-8 rounded-3xl border-2 border-emerald-100/80 hover:border-emerald-500 shadow-[0_12px_40px_rgba(16,185,129,0.06)] hover:shadow-[0_24px_60px_rgba(16,185,129,0.22)] transition-all duration-300 flex flex-col justify-between min-h-[300px] h-full relative overflow-hidden group cursor-pointer" 
               id="sec3_card_3"
             >
               {/* Background dot-grid texture */}
@@ -438,7 +456,7 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
               <motion.div 
                 whileHover={{ y: -8, scale: 1.025 }}
                 transition={{ duration: 0.2 }}
-                className="bg-gradient-to-br from-white via-sky-50/20 to-sky-100/10 p-8 rounded-3xl border-2 border-sky-100 shadow-[0_12px_40px_rgba(14,165,233,0.04)] hover:shadow-[0_24px_50px_rgba(14,165,233,0.18)] hover:border-sky-400/80 transition-all duration-300 flex flex-col items-center text-center group cursor-pointer relative overflow-hidden" 
+                className="bg-gradient-to-br from-white via-sky-50/20 to-sky-100/10 p-8 rounded-3xl border-2 border-sky-100 shadow-[0_12px_40px_rgba(14,165,233,0.04)] hover:shadow-[0_24px_50px_rgba(14,165,233,0.18)] hover:border-sky-400/80 transition-all duration-300 flex flex-col items-center text-center group cursor-pointer relative overflow-hidden h-full" 
                 id="sec4_card_1"
               >
                 <div className="absolute top-0 left-0 right-0 h-[4px] bg-[#0ea5e9]"></div>
@@ -453,12 +471,12 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
                   Tell us about your driving frequency, commute patterns, fatigue exposure, and attention habits.
                 </p>
               </motion.div>
-
+ 
               {/* Step 2 */}
               <motion.div 
                 whileHover={{ y: -8, scale: 1.025 }}
                 transition={{ duration: 0.2 }}
-                className="bg-gradient-to-br from-white via-violet-50/20 to-violet-100/10 p-8 rounded-3xl border-2 border-violet-100 shadow-[0_12px_40px_rgba(139,92,246,0.04)] hover:shadow-[0_24px_50px_rgba(139,92,246,0.18)] hover:border-violet-400/80 transition-all duration-300 flex flex-col items-center text-center group cursor-pointer relative overflow-hidden" 
+                className="bg-gradient-to-br from-white via-violet-50/20 to-violet-100/10 p-8 rounded-3xl border-2 border-violet-100 shadow-[0_12px_40px_rgba(139,92,246,0.04)] hover:shadow-[0_24px_50px_rgba(139,92,246,0.18)] hover:border-violet-400/80 transition-all duration-300 flex flex-col items-center text-center group cursor-pointer relative overflow-hidden h-full" 
                 id="sec4_card_2"
               >
                 <div className="absolute top-0 left-0 right-0 h-[4px] bg-violet-500"></div>
@@ -473,12 +491,12 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
                   Receive a conceptual Driver Awareness Score and fatigue awareness summary.
                 </p>
               </motion.div>
-
+ 
               {/* Step 3 */}
               <motion.div 
                 whileHover={{ y: -8, scale: 1.025 }}
                 transition={{ duration: 0.2 }}
-                className="bg-gradient-to-br from-white via-emerald-50/20 to-emerald-100/10 p-8 rounded-3xl border-2 border-emerald-100 shadow-[0_12px_40px_rgba(16,185,129,0.04)] hover:shadow-[0_24px_50px_rgba(16,185,129,0.18)] hover:border-emerald-400/80 transition-all duration-300 flex flex-col items-center text-center group cursor-pointer relative overflow-hidden" 
+                className="bg-gradient-to-br from-white via-emerald-50/20 to-emerald-100/10 p-8 rounded-3xl border-2 border-emerald-100 shadow-[0_12px_40px_rgba(16,185,129,0.04)] hover:shadow-[0_24px_50px_rgba(16,185,129,0.18)] hover:border-emerald-400/80 transition-all duration-300 flex flex-col items-center text-center group cursor-pointer relative overflow-hidden h-full" 
                 id="sec4_card_3"
               >
                 <div className="absolute top-0 left-0 right-0 h-[4px] bg-emerald-500"></div>
@@ -663,7 +681,7 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
             <motion.div 
               whileHover={{ y: -6, scale: 1.015 }}
               transition={{ duration: 0.2 }}
-              className="bg-gradient-to-br from-white to-slate-50/50 p-8 pl-9 rounded-3xl border-2 border-sky-150 shadow-[0_0_15px_rgba(14,165,233,0.13)] hover:shadow-[0_0_25px_rgba(14,165,233,0.35)] hover:border-sky-400 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden" 
+              className="bg-gradient-to-br from-white to-slate-50/50 p-8 pl-9 rounded-3xl border-2 border-sky-150 shadow-[0_0_15px_rgba(14,165,233,0.13)] hover:shadow-[0_0_25px_rgba(14,165,233,0.35)] hover:border-sky-400 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden h-full" 
               id="sec5_card_1"
             >
               <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-sky-400 to-sky-600"></div>
@@ -681,7 +699,7 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
             <motion.div 
               whileHover={{ y: -6, scale: 1.015 }}
               transition={{ duration: 0.2 }}
-              className="bg-gradient-to-br from-white to-slate-50/50 p-8 pl-9 rounded-3xl border-2 border-violet-150 shadow-[0_0_15px_rgba(139,92,246,0.13)] hover:shadow-[0_0_25px_rgba(139,92,246,0.35)] hover:border-violet-400 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden" 
+              className="bg-gradient-to-br from-white to-slate-50/50 p-8 pl-9 rounded-3xl border-2 border-violet-150 shadow-[0_0_15px_rgba(139,92,246,0.13)] hover:shadow-[0_0_25px_rgba(139,92,246,0.35)] hover:border-violet-400 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden h-full" 
               id="sec5_card_2"
             >
               <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-violet-400 to-violet-600"></div>
@@ -699,7 +717,7 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
             <motion.div 
               whileHover={{ y: -6, scale: 1.015 }}
               transition={{ duration: 0.2 }}
-              className="bg-gradient-to-br from-white to-slate-50/50 p-8 pl-9 rounded-3xl border-2 border-indigo-150 shadow-[0_0_15px_rgba(99,102,241,0.13)] hover:shadow-[0_0_25px_rgba(99,102,241,0.35)] hover:border-indigo-400 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden" 
+              className="bg-gradient-to-br from-white to-slate-50/50 p-8 pl-9 rounded-3xl border-2 border-indigo-150 shadow-[0_0_15px_rgba(99,102,241,0.13)] hover:shadow-[0_0_25px_rgba(99,102,241,0.35)] hover:border-indigo-400 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden h-full" 
               id="sec5_card_3"
             >
               <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-indigo-400 to-indigo-600"></div>
@@ -760,57 +778,83 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             
+            {/* Step 1: Concept Validation */}
             <motion.div 
               whileHover={{ y: -6, scale: 1.015 }}
               transition={{ duration: 0.2 }}
-              className="bg-gradient-to-br from-white to-sky-50/30 p-8 rounded-3xl border-2 border-sky-150 shadow-[0_0_15px_rgba(14,165,233,0.13)] hover:shadow-[0_0_25px_rgba(14,165,233,0.35)] hover:border-sky-400 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group" 
+              className="bg-gradient-to-br from-white to-sky-50/30 p-8 rounded-3xl border-2 border-sky-150 shadow-[0_0_15px_rgba(14,165,233,0.13)] hover:shadow-[0_0_25px_rgba(14,165,233,0.35)] hover:border-sky-400 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group h-full" 
               id="sec7_card_1"
             >
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <div className="w-12 h-12 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center border border-sky-100/60 group-hover:bg-sky-600 group-hover:text-white transition-all duration-300 shadow-xs">
-                    <Gauge className="w-6 h-6" />
+                    <ShieldCheck className="w-6 h-6" />
                   </div>
                   <span className="text-[10px] font-mono font-extrabold bg-sky-50 text-sky-700 border border-sky-100 px-2.5 py-1 rounded-lg uppercase tracking-wider">
-                    STEP 01
+                    PHASE 01
                   </span>
                 </div>
-                <h4 className="font-sans font-extrabold text-[#102A43] text-lg group-hover:text-sky-650 transition-colors duration-200">Receive your awareness profile</h4>
-                <p className="text-sm text-slate-650 leading-relaxed font-medium">
-                  See your simulated Driver Awareness Score and Fatigue Risk Awareness Profile.
+                <h4 className="font-sans font-extrabold text-[#102A43] text-lg group-hover:text-sky-650 transition-colors duration-200">Concept Validation</h4>
+                <p className="text-xs text-slate-650 leading-relaxed font-semibold">
+                  Current phase assessing early interest and user-controlled inputs.
                 </p>
               </div>
             </motion.div>
 
+            {/* Step 2: Simulation Analytics */}
             <motion.div 
               whileHover={{ y: -6, scale: 1.015 }}
               transition={{ duration: 0.2 }}
-              className="bg-gradient-to-br from-white to-cyan-50/30 p-8 rounded-3xl border-2 border-cyan-150 shadow-[0_0_15px_rgba(6,182,212,0.13)] hover:shadow-[0_0_25px_rgba(6,182,212,0.35)] hover:border-cyan-400 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group" 
+              className="bg-gradient-to-br from-white to-violet-50/30 p-8 rounded-3xl border-2 border-violet-150 shadow-[0_0_15px_rgba(139,92,246,0.13)] hover:shadow-[0_0_25px_rgba(139,92,246,0.35)] hover:border-violet-400 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group h-full" 
               id="sec7_card_2"
             >
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <div className="w-12 h-12 rounded-xl bg-cyan-50 text-cyan-600 flex items-center justify-center border border-cyan-100/60 group-hover:bg-cyan-600 group-hover:text-white transition-all duration-300 shadow-xs">
-                    <Compass className="w-6 h-6" />
+                  <div className="w-12 h-12 rounded-xl bg-violet-50 text-violet-600 flex items-center justify-center border border-violet-100/60 group-hover:bg-violet-600 group-hover:text-white transition-all duration-300 shadow-xs">
+                    <Gauge className="w-6 h-6" />
                   </div>
-                  <span className="text-[10px] font-mono font-extrabold bg-cyan-50 text-cyan-700 border border-cyan-100 px-2.5 py-1 rounded-lg uppercase tracking-wider">
-                    STEP 02
+                  <span className="text-[10px] font-mono font-extrabold bg-violet-50 text-violet-700 border border-violet-100 px-2.5 py-1 rounded-lg uppercase tracking-wider">
+                    PHASE 02
                   </span>
                 </div>
-                <h4 className="font-sans font-extrabold text-[#102A43] text-lg group-hover:text-cyan-650 transition-colors duration-200">View your research cohort</h4>
-                <p className="text-sm text-slate-650 leading-relaxed font-medium">
-                  Understand which validation cohort your awareness profile aligns with.
+                <h4 className="font-sans font-extrabold text-[#102A43] text-lg group-hover:text-violet-650 transition-colors duration-200">Simulation Analytics</h4>
+                <p className="text-xs text-slate-650 leading-relaxed font-semibold">
+                  Aggregating anonymous telemetry feedback to map regional baseline focus profiles.
                 </p>
               </div>
             </motion.div>
 
+            {/* Step 3: Prototype Exploration */}
             <motion.div 
               whileHover={{ y: -6, scale: 1.015 }}
               transition={{ duration: 0.2 }}
-              className="bg-gradient-to-br from-white to-emerald-50/30 p-8 rounded-3xl border-2 border-emerald-150 shadow-[0_0_15px_rgba(16,185,129,0.13)] hover:shadow-[0_0_25px_rgba(16,185,129,0.35)] hover:border-emerald-400 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group" 
+              className="bg-gradient-to-br from-white to-amber-50/30 p-8 rounded-3xl border-2 border-amber-150 shadow-[0_0_15px_rgba(245,158,11,0.13)] hover:shadow-[0_0_25px_rgba(245,158,11,0.35)] hover:border-amber-400 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group h-full" 
               id="sec7_card_3"
+            >
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <div className="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center border border-amber-100/60 group-hover:bg-amber-600 group-hover:text-white transition-all duration-300 shadow-xs">
+                    <Smartphone className="w-6 h-6" />
+                  </div>
+                  <span className="text-[10px] font-mono font-extrabold bg-amber-50 text-amber-700 border border-amber-100 px-2.5 py-1 rounded-lg uppercase tracking-wider">
+                    PHASE 03
+                  </span>
+                </div>
+                <h4 className="font-sans font-extrabold text-[#102A43] text-lg group-hover:text-amber-650 transition-colors duration-200">Prototype Exploration</h4>
+                <p className="text-xs text-slate-650 leading-relaxed font-semibold">
+                  Evaluating high-performance, 100% local, offline smartphone engine limits.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Step 4: Pilot Program */}
+            <motion.div 
+              whileHover={{ y: -6, scale: 1.015 }}
+              transition={{ duration: 0.2 }}
+              className="bg-gradient-to-br from-white to-emerald-50/30 p-8 rounded-3xl border-2 border-emerald-150 shadow-[0_0_15px_rgba(16,185,129,0.13)] hover:shadow-[0_0_25px_rgba(16,185,129,0.35)] hover:border-emerald-400 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group h-full" 
+              id="sec7_card_4"
             >
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
@@ -818,12 +862,12 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
                     <CheckCircle2 className="w-6 h-6" />
                   </div>
                   <span className="text-[10px] font-mono font-extrabold bg-emerald-50 text-emerald-700 border border-emerald-100 px-2.5 py-1 rounded-lg uppercase tracking-wider">
-                    STEP 03
+                    PHASE 04
                   </span>
                 </div>
-                <h4 className="font-sans font-extrabold text-[#102A43] text-lg group-hover:text-emerald-650 transition-colors duration-200">Choose whether to join</h4>
-                <p className="text-sm text-slate-650 leading-relaxed font-medium">
-                  Help validate future Driver Awareness Intelligence tools for Canadian drivers.
+                <h4 className="font-sans font-extrabold text-[#102A43] text-lg group-hover:text-emerald-650 transition-colors duration-200">Pilot Program</h4>
+                <p className="text-xs text-slate-650 leading-relaxed font-semibold">
+                  Inviting validated cohort participants to early sandboxed alpha applications if threshold demand is validated.
                 </p>
               </div>
             </motion.div>
