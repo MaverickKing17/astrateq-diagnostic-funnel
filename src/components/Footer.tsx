@@ -150,9 +150,16 @@ export default function Footer({ onOpenTab }: FooterProps) {
               </button>
             </div>
 
-            <div className="pt-3 border-t border-slate-200 mt-2 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping shrink-0" />
-              <span className="text-[10px] text-slate-400 font-mono tracking-wider uppercase">Active Pilot Phase</span>
+            <div className="pt-4 border-t border-[#DCEBFA] mt-4 flex items-center">
+              <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 shadow-xs" id="active_pilot_status_pill">
+                <span className="relative flex h-2.5 w-2.5 shrink-0">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                </span>
+                <span className="text-[11px] font-extrabold text-emerald-700 font-mono tracking-wider uppercase">
+                  Active Pilot Phase
+                </span>
+              </div>
             </div>
           </div>
 

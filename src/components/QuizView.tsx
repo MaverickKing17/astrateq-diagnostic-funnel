@@ -156,7 +156,7 @@ export default function QuizView({ onComplete, onBackToLanding, onTrackEvent }: 
       </div>
 
       {/* 2. Slide Animating Question Card */}
-      <div className="dashboard-card bg-[#0b111e]/90 p-6 sm:p-8 rounded-3xl border border-slate-800/85 relative min-h-[460px] flex flex-col justify-between shadow-[inset_0_1.5px_3px_rgba(255,255,255,0.02)]">
+      <div className="bg-[#0b111e]/90 p-6 sm:p-8 rounded-3xl border border-slate-800/85 relative min-h-[460px] flex flex-col justify-between shadow-[inset_0_1.5px_3px_rgba(255,255,255,0.02)]" id="quiz_inner_card">
         
         <div className="space-y-6">
           {/* Headline and Subhead */}

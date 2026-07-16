@@ -14,7 +14,11 @@ import {
   Zap,
   Lock,
   Globe,
-  Gauge
+  Gauge,
+  Gift,
+  Users,
+  Award,
+  Trophy
 } from 'lucide-react';
 import { DiagnosticResult } from '../types';
 
@@ -40,6 +44,26 @@ export default function CohortReservationView({
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [copiedLink, setCopiedLink] = useState(false);
   const [downloading, setDownloading] = useState(false);
+  const [referralsCount, setReferralsCount] = useState(() => {
+    const saved = localStorage.getItem(`referrals_${ticketId}`);
+    return saved ? parseInt(saved, 10) : 0;
+  });
+  const [showSimNotification, setShowSimNotification] = useState<string | null>(null);
+
+  const incrementReferrals = () => {
+    const newCount = referralsCount + 1;
+    setReferralsCount(newCount);
+    localStorage.setItem(`referrals_${ticketId}`, newCount.toString());
+    onTrackEvent('simulated_referral_added', { ticketId, currentCount: newCount });
+    
+    // Show a realistic toast notification
+    const names = ["Emily R.", "David M.", "Sarah T.", "Ryan K.", "Chloe P.", "Marcus L.", "Jessica W."];
+    const randomName = names[Math.floor(Math.random() * names.length)];
+    setShowSimNotification(`🎉 ${randomName} just signed up using your link!`);
+    setTimeout(() => {
+      setShowSimNotification(null);
+    }, 4000);
+  };
 
   const vehicleOptions = [
     { 
@@ -115,6 +139,18 @@ export default function CohortReservationView({
   return (
     <div className="font-sans max-w-4xl mx-auto px-4 py-4 text-slate-100" id="cohort_reservation_container">
       
+      {showSimNotification && (
+        <div className="fixed bottom-6 right-6 z-50 max-w-sm p-4 bg-slate-900/95 backdrop-blur-md border border-sky-500/30 rounded-2xl shadow-2xl flex items-center gap-3 animate-fade-in text-white" id="simulated_toast">
+          <div className="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+            <Users className="w-4 h-4" />
+          </div>
+          <div>
+            <p className="text-xs font-bold text-slate-100">{showSimNotification}</p>
+            <span className="text-[10px] text-sky-400 font-mono block mt-0.5">Simulated Referral Registered</span>
+          </div>
+        </div>
+      )}
+
       {!isSubmitted ? (
         <div className="space-y-8 animate-fade-in">
           {/* Header Progress Back button */}
@@ -425,6 +461,207 @@ export default function CohortReservationView({
                     </>
                   )}
                 </button>
+              </div>
+            </div>
+
+          </div>
+
+          {/* PRE-LAUNCH REFERRAL REWARDS TRACKER STATION */}
+          <div className="bg-[#0b111e] rounded-3xl border border-sky-500/15 p-6 sm:p-8 space-y-6 shadow-xl" id="referral_rewards_station">
+            
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-5">
+              <div className="space-y-1">
+                <div className="flex items-center gap-2">
+                  <Gift className="w-5 h-5 text-sky-400" />
+                  <h3 className="font-sans font-black text-lg text-white">Pre-Launch Driver Referral Rewards</h3>
+                </div>
+                <p className="text-xs text-slate-400">
+                  Secure additional physical driver hardware & lifetime license benefits by sharing your diagnostic ticket.
+                </p>
+              </div>
+
+              {/* DEMO SIMULATOR BUTTON */}
+              <div className="flex items-center shrink-0">
+                <button
+                  type="button"
+                  onClick={incrementReferrals}
+                  className="px-3.5 py-1.5 bg-sky-500/10 hover:bg-sky-500/20 border border-sky-500/20 rounded-xl text-sky-400 font-bold text-[11px] font-mono flex items-center gap-1.5 cursor-pointer active:scale-95 transition-all"
+                  id="simulate_referral_btn"
+                >
+                  <Zap className="w-3.5 h-3.5 animate-pulse text-sky-400" />
+                  <span>Simulate Referral Signup</span>
+                </button>
+              </div>
+            </div>
+
+            {/* PROGRESS METER */}
+            <div className="space-y-3 bg-[#0d1624]/60 p-5 rounded-2xl border border-slate-800">
+              <div className="flex justify-between items-end text-xs font-mono">
+                <div className="space-y-0.5">
+                  <span className="text-slate-500 font-semibold uppercase">Your Referrals</span>
+                  <div className="flex items-center gap-1.5">
+                    <Users className="w-4 h-4 text-sky-400" />
+                    <strong className="text-white text-base">{referralsCount} Verified Signups</strong>
+                  </div>
+                </div>
+                <div className="text-right">
+                  <span className="text-slate-500 font-semibold uppercase">Next Target</span>
+                  <p className="text-sky-400 font-bold">
+                    {referralsCount >= 10 ? "Maximum Level Reached! 🚀" : `${referralsCount} / ${referralsCount < 1 ? 1 : referralsCount < 3 ? 3 : referralsCount < 5 ? 5 : 10} Unlocks`}
+                  </p>
+                </div>
+              </div>
+
+              {/* Real-time fluid Progress Bar */}
+              <div className="relative h-2.5 bg-slate-950 rounded-full overflow-hidden">
+                <div 
+                  className="h-full bg-gradient-to-r from-sky-500 to-emerald-500 transition-all duration-500"
+                  style={{ width: `${Math.min((referralsCount / 10) * 100, 100)}%` }}
+                ></div>
+                
+                {/* Tick indicators */}
+                <div className="absolute left-[10%] top-0 h-full w-0.5 bg-slate-800" title="1 Referral"></div>
+                <div className="absolute left-[30%] top-0 h-full w-0.5 bg-slate-800" title="3 Referrals"></div>
+                <div className="absolute left-[50%] top-0 h-full w-0.5 bg-slate-800" title="5 Referrals"></div>
+                <div className="absolute left-[100%] top-0 h-full w-0.5 bg-slate-800" title="10 Referrals"></div>
+              </div>
+
+              <div className="flex justify-between text-[10px] font-mono text-slate-500 px-1">
+                <span>0 Referrals</span>
+                <span>1 (Beta Access)</span>
+                <span>3 (Dash Mount)</span>
+                <span>5 (Lifetime Software)</span>
+                <span>10 (HUD Kit)</span>
+              </div>
+            </div>
+
+            {/* MILESTONE LIST */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              
+              {/* Level 1: Beta Access */}
+              <div className={`p-4 rounded-2xl border transition-all ${
+                referralsCount >= 1 
+                  ? 'bg-emerald-500/5 border-emerald-500/25 shadow-md' 
+                  : 'bg-[#10192a]/30 border-slate-800/80 opacity-75'
+              }`}>
+                <div className="flex justify-between items-start">
+                  <span className={`px-2 py-0.5 rounded-full text-[9px] font-mono font-bold uppercase tracking-wider ${
+                    referralsCount >= 1 ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'bg-slate-800 text-slate-400'
+                  }`}>
+                    1 Referral - {referralsCount >= 1 ? "Unlocked" : "Locked"}
+                  </span>
+                  {referralsCount >= 1 ? (
+                    <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+                  ) : (
+                    <Lock className="w-4 h-4 text-slate-600 mt-0.5" />
+                  )}
+                </div>
+                <div className="mt-2.5">
+                  <strong className={`text-sm font-bold block ${referralsCount >= 1 ? 'text-white' : 'text-slate-400'}`}>
+                    Beta App OTA Access
+                  </strong>
+                  <p className="text-xs text-slate-400 mt-1 leading-normal">
+                    Gain instant iOS TestFlight & Android Beta APK download access to the Ocular Focus tracker driver client on day one.
+                  </p>
+                </div>
+              </div>
+
+              {/* Level 2: Dash Mount */}
+              <div className={`p-4 rounded-2xl border transition-all ${
+                referralsCount >= 3 
+                  ? 'bg-emerald-500/5 border-emerald-500/25 shadow-md' 
+                  : 'bg-[#10192a]/30 border-slate-800/80 opacity-75'
+              }`}>
+                <div className="flex justify-between items-start">
+                  <span className={`px-2 py-0.5 rounded-full text-[9px] font-mono font-bold uppercase tracking-wider ${
+                    referralsCount >= 3 ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'bg-slate-800 text-slate-400'
+                  }`}>
+                    3 Referrals - {referralsCount >= 3 ? "Unlocked" : "Locked"}
+                  </span>
+                  {referralsCount >= 3 ? (
+                    <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+                  ) : (
+                    <Lock className="w-4 h-4 text-slate-600 mt-0.5" />
+                  )}
+                </div>
+                <div className="mt-2.5">
+                  <strong className={`text-sm font-bold block ${referralsCount >= 3 ? 'text-white' : 'text-slate-400'}`}>
+                    Exclusive Dash Mount Pack
+                  </strong>
+                  <p className="text-xs text-slate-400 mt-1 leading-normal">
+                    Free physical magnetic steering-column accessory that securely stabilizes your smartphone for zero-distraction eye-tracking.
+                  </p>
+                </div>
+              </div>
+
+              {/* Level 3: Lifetime Software */}
+              <div className={`p-4 rounded-2xl border transition-all ${
+                referralsCount >= 5 
+                  ? 'bg-emerald-500/5 border-emerald-500/25 shadow-md' 
+                  : 'bg-[#10192a]/30 border-slate-800/80 opacity-75'
+              }`}>
+                <div className="flex justify-between items-start">
+                  <span className={`px-2 py-0.5 rounded-full text-[9px] font-mono font-bold uppercase tracking-wider ${
+                    referralsCount >= 5 ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'bg-slate-800 text-slate-400'
+                  }`}>
+                    5 Referrals - {referralsCount >= 5 ? "Unlocked" : "Locked"}
+                  </span>
+                  {referralsCount >= 5 ? (
+                    <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+                  ) : (
+                    <Lock className="w-4 h-4 text-slate-600 mt-0.5" />
+                  )}
+                </div>
+                <div className="mt-2.5">
+                  <strong className={`text-sm font-bold block ${referralsCount >= 5 ? 'text-white' : 'text-slate-400'}`}>
+                    Lifetime Software License
+                  </strong>
+                  <p className="text-xs text-slate-400 mt-1 leading-normal">
+                    Waiver for all driver-intelligence cloud processing subscriptions. Zero fees for our cognitive fatigue alerts forever ($120/yr value).
+                  </p>
+                </div>
+              </div>
+
+              {/* Level 4: Steering HUD Kit */}
+              <div className={`p-4 rounded-2xl border transition-all ${
+                referralsCount >= 10 
+                  ? 'bg-emerald-500/5 border-emerald-500/25 shadow-md' 
+                  : 'bg-[#10192a]/30 border-slate-800/80 opacity-75'
+              }`}>
+                <div className="flex justify-between items-start">
+                  <span className={`px-2 py-0.5 rounded-full text-[9px] font-mono font-bold uppercase tracking-wider ${
+                    referralsCount >= 10 ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'bg-slate-800 text-slate-400'
+                  }`}>
+                    10 Referrals - {referralsCount >= 10 ? "Unlocked" : "Locked"}
+                  </span>
+                  {referralsCount >= 10 ? (
+                    <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+                  ) : (
+                    <Lock className="w-4 h-4 text-slate-600 mt-0.5" />
+                  )}
+                </div>
+                <div className="mt-2.5">
+                  <strong className={`text-sm font-bold block ${referralsCount >= 10 ? 'text-white' : 'text-slate-400'}`}>
+                    Physical Steering-Column HUD Kit
+                  </strong>
+                  <p className="text-xs text-slate-400 mt-1 leading-normal">
+                    Become a Core Beta Hardware partner. We will ship our dedicated HUD display module that mounts over your steering column cluster.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+            {/* Share action remind box */}
+            <div className="bg-[#0f1f33]/40 border border-sky-500/15 p-4 rounded-2xl flex items-center justify-between gap-4 text-xs font-sans">
+              <div className="space-y-0.5">
+                <span className="text-sky-300 font-bold block">How to Refer Drivers:</span>
+                <p className="text-slate-400 leading-normal">
+                  Simply use the <strong>"Share Link"</strong> button above! It automatically embeds your unique reservation ticket <strong>{ticketId}</strong> to link driver signups directly to your name.
+                </p>
+              </div>
+              <div className="shrink-0">
+                <Trophy className="w-8 h-8 text-sky-400/85" />
               </div>
             </div>
 
