@@ -123,11 +123,11 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
                     el.scrollIntoView({ behavior: 'smooth' });
                   }
                 }}
-                className="w-full sm:w-auto inline-flex items-center justify-center px-10 py-5 bg-transparent border border-white/20 text-slate-300 hover:text-white hover:border-white/50 font-bold text-xl rounded-2xl hover:-translate-y-0.5 active:translate-y-0 active:scale-98 transition-all duration-200 cursor-pointer group"
+                className="w-full sm:w-auto inline-flex items-center justify-center px-10 py-5 bg-slate-950/40 backdrop-blur-md border border-white/15 text-slate-200 hover:text-white hover:border-[#38bdf8]/50 font-bold text-xl rounded-2xl shadow-[0_4px_30px_rgba(0,0,0,0.4)] hover:shadow-[0_0_35px_rgba(14,165,233,0.18)] hover:-translate-y-0.5 active:translate-y-0 active:scale-98 transition-all duration-200 cursor-pointer group"
                 id="hero_how_it_works_cta"
               >
                 <span>How It Works</span>
-                <ChevronDown className="w-5 h-5 ml-2 transition-transform duration-250 group-hover:translate-y-0.5" />
+                <ChevronDown className="w-5 h-5 ml-2 text-slate-400 group-hover:text-sky-400 transition-all duration-250 group-hover:translate-y-0.5" />
               </button>
             </div>
             <p className="text-xs text-slate-300 font-medium tracking-wide">
