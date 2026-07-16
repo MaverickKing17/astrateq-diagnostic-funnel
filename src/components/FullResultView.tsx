@@ -24,20 +24,29 @@ interface FullResultViewProps {
   result: DiagnosticResult;
   email: string;
   firstName: string;
+  ticketId: string;
   onReset: () => void;
   onTrackEvent: (name: string, data?: Record<string, any>) => void;
   ctaImage: string;
+  onContinueToReservation: () => void;
 }
 
-export default function FullResultView({ result, email, firstName, onReset, onTrackEvent, ctaImage }: FullResultViewProps) {
+export default function FullResultView({ 
+  result, 
+  email, 
+  firstName, 
+  ticketId, 
+  onReset, 
+  onTrackEvent, 
+  ctaImage,
+  onContinueToReservation
+}: FullResultViewProps) {
   const [copied, setCopied] = useState(false);
-  const [ticketId] = useState(() => `AST-ON-${Math.floor(1000 + Math.random() * 9000)}`);
-  const reservationUrl = "https://reserve.astrateqgadgets.com?entry=simulation&intent=cohort";
 
   const handleCtaClick = (ctaName: string) => {
-    onTrackEvent('reservation_cta_clicked', { ctaName, email, firstName });
-    // Open in a new tab
-    window.open(reservationUrl, '_blank');
+    onTrackEvent('reservation_cta_clicked', { ctaName, email, firstName, ticketId });
+    // Call the internal reservation page transition
+    onContinueToReservation();
   };
 
   const handleCopyLink = () => {

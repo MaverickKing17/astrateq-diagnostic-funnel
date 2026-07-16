@@ -11,6 +11,7 @@
 import { useState, useEffect } from 'react';
 import { AnalyticsEvent, UserAnswers, DiagnosticResult } from './types';
 import { calculateDiagnosticResult } from './data/questions';
+import { initGoogleAnalytics, sendAnalyticsEvent } from './utils/analytics';
 
 // Importing sub-components
 import Header from './components/Header';
@@ -20,17 +21,19 @@ import QuizView from './components/QuizView';
 import CalculatingView from './components/CalculatingView';
 import PreliminaryView from './components/PreliminaryView';
 import FullResultView from './components/FullResultView';
+import CohortReservationView from './components/CohortReservationView';
 import InfoModal, { InfoTabType } from './components/InfoModal';
 
 import commuteImage from './assets/images/toronto_gta_commute_1782319738788.jpg';
 import heroBgImage from './assets/images/driver_awareness_hud_1782853766018.jpg';
 
 export default function App() {
-  const [currentStep, setCurrentStep] = useState<'landing' | 'quiz' | 'calculating' | 'preliminary' | 'full'>('landing');
+  const [currentStep, setCurrentStep] = useState<'landing' | 'quiz' | 'calculating' | 'preliminary' | 'full' | 'reservation'>('landing');
   const [answers, setAnswers] = useState<UserAnswers>({});
   const [result, setResult] = useState<DiagnosticResult | null>(null);
   const [email, setEmail] = useState('');
   const [firstName, setFirstName] = useState('');
+  const [ticketId, setTicketId] = useState(() => `AST-ON-${Math.floor(1000 + Math.random() * 9000)}`);
   const [events, setEvents] = useState<AnalyticsEvent[]>([]);
   const [infoModalTab, setInfoModalTab] = useState<InfoTabType | null>(null);
 
@@ -38,7 +41,12 @@ export default function App() {
   const heroImage = "https://i.ibb.co/wZZ5C29C/Gemini-Generated-Image-cl9hrqcl9hrqcl9h.png";
   const ctaImage = "https://i.ibb.co/yFr9sMwv/Jun-24-2026-03-12-49-PM.png";
 
-  // Track simulated marketing analytics events
+  // Initialize Google Analytics on mount
+  useEffect(() => {
+    initGoogleAnalytics();
+  }, []);
+
+  // Track simulated marketing analytics events and route them to Google Analytics
   const trackEvent = (name: string, data?: Record<string, any>) => {
     const newEvent: AnalyticsEvent = {
       id: Math.random().toString(36).substring(2, 9),
@@ -47,7 +55,9 @@ export default function App() {
       data
     };
     setEvents(prev => [...prev, newEvent]);
-    console.log(`[Analytics Event] ${name}:`, data);
+    
+    // Route to GA
+    sendAnalyticsEvent(name, data);
   };
 
   // Fire page_view on startup
@@ -158,15 +168,33 @@ export default function App() {
             result={result} 
             email={email}
             firstName={firstName}
+            ticketId={ticketId}
             onReset={handleReset}
             onTrackEvent={trackEvent}
             ctaImage={ctaImage}
+            onContinueToReservation={() => {
+              setCurrentStep('reservation');
+              trackEvent('reservation_flow_started', { email, firstName, ticketId });
+            }}
           />
+        )}
+
+        {currentStep === 'reservation' && result && (
+          <div className="max-w-4xl mx-auto py-8 px-4">
+            <CohortReservationView 
+              result={result} 
+              email={email}
+              firstName={firstName}
+              ticketId={ticketId}
+              onBackToResults={() => setCurrentStep('full')}
+              onTrackEvent={trackEvent}
+            />
+          </div>
         )}
       </main>
 
-      {/* Marketing Conversion Footer - hidden during active quiz/calculation to maximize focus */}
-      {currentStep !== 'quiz' && currentStep !== 'calculating' && <Footer onOpenTab={(tab) => setInfoModalTab(tab)} />}
+      {/* Marketing Conversion Footer - hidden during active quiz/calculation/reservation to maximize focus */}
+      {currentStep !== 'quiz' && currentStep !== 'calculating' && currentStep !== 'reservation' && <Footer onOpenTab={(tab) => setInfoModalTab(tab)} />}
 
       {/* Interactive Documentation README Modal */}
       <InfoModal 
