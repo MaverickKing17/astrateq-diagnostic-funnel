@@ -140,7 +140,7 @@ export default function QuizView({ onComplete, onBackToLanding, onTrackEvent }: 
       {/* 1. Header with progress indicator */}
       <div className="mb-8 space-y-3">
         <div className="flex items-center justify-between text-xs font-mono text-slate-500 font-semibold uppercase">
-          <span>ASTRATEQ driver simulation</span>
+          <span>ASTRATEQ GADGETS driver simulation</span>
           <span>Question {currentQuestionIdx + 1} of {totalQuestions}</span>
         </div>
         

@@ -107,7 +107,7 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
                 <div className="flex items-center justify-between border-b border-slate-800 pb-3">
                   <div className="flex items-center gap-1.5 text-cyan-400">
                     <Sparkles className="w-4 h-4 animate-pulse" />
-                    <span className="text-[10px] font-mono font-black uppercase tracking-wider">Astrateq Founding Cohort</span>
+                    <span className="text-[10px] font-mono font-black uppercase tracking-wider">Astrateq Gadgets Founding Cohort</span>
                   </div>
                   <span className="text-[10px] font-mono font-bold uppercase text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded">
                     ACTIVE RESERVATION
@@ -292,7 +292,7 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
               <div className="bg-[#f0f7ff] border border-sky-100 p-5 rounded-2xl space-y-3 shadow-xs">
                 <h4 className="text-xs font-mono font-bold uppercase text-brand-primary tracking-wider">Simulated Analysis & Onboarding Pathway</h4>
                 <p className="text-sm text-slate-700 leading-relaxed">
-                  Excellent work, <strong>{firstName || "Priority Driver"}</strong>! Based on your simulated score of <strong>{result.score}/100</strong> and your privacy preferences, your profile qualifies as a highly aligned candidate for the Astrateq pre-launch cohort.
+                  Excellent work, <strong>{firstName || "Priority Driver"}</strong>! Based on your simulated score of <strong>{result.score}/100</strong> and your privacy preferences, your profile qualifies as a highly aligned candidate for the Astrateq Gadgets pre-launch cohort.
                 </p>
                 
                 {/* Onboarding Steps Visual Indicator */}

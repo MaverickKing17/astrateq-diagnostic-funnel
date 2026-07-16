@@ -25,7 +25,6 @@ import {
   HelpCircle
 } from 'lucide-react';
 import { motion } from 'motion/react';
-import auraDialImage from '../assets/images/aura_dial_premium_pro_1782848205367.jpg';
 
 interface LandingViewProps {
   onStartDiagnostic: () => void;
@@ -72,10 +71,8 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
           />
         </div>
         
-        {/* Lighter overlays to make the image much clearer and details pop, while retaining excellent legibility */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#030d1a]/80 via-[#030d1a]/30 to-[#030d1a]/85 z-0" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#030d1a]/70 via-transparent to-[#030d1a]/70 z-0" />
-        <div className="absolute inset-0 bg-radial-[circle_at_50%_50%] from-transparent via-[#030d1a]/10 to-[#030d1a]/75 z-0" />
+        {/* Darkened gradient overlay scrim for perfect legibility and contrast */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-slate-950/90 z-0" />
 
         {/* Content floats directly over the background image */}
         <div className="relative max-w-5xl w-full mx-auto z-10 text-center space-y-6 sm:space-y-8 px-4 py-8">
@@ -96,10 +93,13 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
               Check your <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38bdf8] via-[#0ea5e9] to-cyan-300 font-black">Driver Awareness Readiness</span> in 60 seconds.
             </h1>
 
-            <div className="max-w-3xl mx-auto">
+            <div className="max-w-3xl mx-auto space-y-4">
               <p className="text-slate-100 text-sm sm:text-base md:text-lg leading-relaxed font-medium drop-shadow-[0_2px_10px_rgba(0,0,0,0.85)]">
                 Answer a few quick questions to receive a simulated Driver Awareness Score, Fatigue Risk Awareness Profile, and Research Cohort Classification — without vehicle tracking, insurance scoring, or hardware.
               </p>
+              <div className="pt-3.5 border-t border-white/10 text-cyan-200 text-xs sm:text-sm font-semibold tracking-wide leading-relaxed">
+                📢 <strong>Market Validation Initiative:</strong> This is a market validation initiative. We're exploring whether Canadian drivers see value in a privacy-first driver awareness platform before investing in full product development.
+              </div>
             </div>
           </div>
 
@@ -112,7 +112,7 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
                 id="hero_diagnostic_cta"
               >
                 <span>Start Awareness Simulation</span>
-                <ChevronRight className="w-6 h-6 ml-2 transition-transform duration-200 group-hover:translate-x-1" />
+                <ChevronRight className="w-5 h-5 ml-2 transition-transform duration-200 group-hover:translate-x-1" />
               </button>
               <button
                 onClick={() => {
@@ -121,7 +121,7 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
                     el.scrollIntoView({ behavior: 'smooth' });
                   }
                 }}
-                className="w-full sm:w-auto inline-flex items-center justify-center px-10 py-5 bg-white/10 hover:bg-white/20 text-white font-bold text-xl rounded-2xl backdrop-blur-md border border-white/20 shadow-lg hover:-translate-y-0.5 active:translate-y-0 active:scale-98 transition-all duration-200 cursor-pointer group"
+                className="w-full sm:w-auto inline-flex items-center justify-center px-10 py-5 bg-transparent border border-white/20 text-slate-300 hover:text-white hover:border-white/50 font-bold text-xl rounded-2xl hover:-translate-y-0.5 active:translate-y-0 active:scale-98 transition-all duration-200 cursor-pointer group"
                 id="hero_how_it_works_cta"
               >
                 <span>How It Works</span>
@@ -199,7 +199,7 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
             <span className="text-xs font-mono font-bold tracking-widest text-brand-primary uppercase">Core Mechanics</span>
             <h2 className="font-display font-bold text-3xl text-slate-900 tracking-tight">What this simulation does</h2>
             <p className="text-sm sm:text-base text-slate-500 leading-relaxed">
-              The Astrateq Driver Awareness Simulation helps you explore how your driving frequency, fatigue exposure, attention habits, and Canadian road conditions may shape your awareness profile. Your result is simulated and used for pre-launch market validation only.
+              The Astrateq Gadgets Driver Awareness Simulation helps you explore how your driving frequency, fatigue exposure, attention habits, and Canadian road conditions may shape your awareness profile. Your result is simulated and used for pre-launch market validation only.
             </p>
           </div>
 
@@ -431,7 +431,7 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
       </section>
 
       {/* 4. HOW IT WORKS */}
-      <section className="py-24 px-6 bg-slate-100/70 border-b border-slate-200">
+      <section id="how-it-works" className="py-24 px-6 bg-slate-100/70 border-b border-slate-200">
         <div className="max-w-5xl mx-auto space-y-12">
           
           <div className="text-center space-y-3">
@@ -518,158 +518,14 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
         </div>
       </section>
 
-      {/* 4.5 PRE-LAUNCH GADGET PIPELINE (Aesthetic Physical Concepts) */}
-      <section className="py-20 px-6 bg-slate-900 text-white border-b border-slate-950" id="gadget-pipeline">
-        <div className="max-w-5xl mx-auto space-y-12">
-          
-          <div className="text-center space-y-3 max-w-3xl mx-auto">
-            <span className="inline-flex items-center gap-1.5 text-xs font-mono font-bold tracking-widest text-[#38bdf8] uppercase bg-slate-800 px-3.5 py-1.5 rounded-full border border-slate-750">
-              <Sparkles className="w-3.5 h-3.5 text-cyan-300 animate-pulse" />
-              Pre-Launch Gadget Pipeline
-            </span>
-            <h2 className="font-sans font-extrabold text-3xl sm:text-4xl text-white tracking-tight">
-              Future Privacy-First Physical Accessories
-            </h2>
-            <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
-              We are designing localized physical devices that integrate with our Driver Awareness model. These conceptual accessories aim to assist drivers on the road with 100% offline edge processing.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            
-            {/* Gadget 1 */}
-            <motion.div 
-              whileHover={{ y: -8, scale: 1.02 }}
-              transition={{ duration: 0.3 }}
-              className="bg-[#0b0f19] border-2 border-slate-800/80 rounded-3xl overflow-hidden shadow-2xl relative group hover:border-[#0ea5e9]/70 hover:shadow-[0_20px_50px_rgba(14,165,233,0.18)] transition-all duration-300 flex flex-col justify-between cursor-pointer" 
-              id="gadget-vision-shield-card"
-            >
-              {/* Glowing accent background gradient bubble */}
-              <div className="absolute top-0 right-0 w-48 h-48 bg-sky-500/5 rounded-full blur-3xl group-hover:bg-sky-500/10 transition-all duration-500 pointer-events-none" />
-              
-              <div>
-                <div className="relative aspect-[16/10] overflow-hidden bg-slate-900 border-b-2 border-slate-900">
-                  <img 
-                    src="https://i.ibb.co/jZxvBR0n/Chat-GPT-Image-Jun-30-2026-03-32-52-PM.png" 
-                    alt="Astrateq Vision Shield Visor Mounted HUD clear dashboard photography" 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    referrerPolicy="no-referrer"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
-                </div>
-
-                <div className="p-8 space-y-5">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[10px] bg-sky-500/15 text-[#38bdf8] border-2 border-sky-500/30 px-3 py-1 rounded-full font-mono uppercase tracking-widest font-black shadow-[0_2px_10px_rgba(14,165,233,0.15)]">
-                      Visor Mounted HUD
-                    </span>
-                    <span className="text-slate-500 font-mono text-xs font-bold">ASTR-01</span>
-                  </div>
-                  
-                  <h3 className="font-sans font-black text-2xl text-white group-hover:text-[#38bdf8] transition-colors duration-200">Astrateq Vision Shield™</h3>
-                  <p className="text-sm text-slate-350 leading-relaxed font-semibold">
-                    A companion head-up display clip-on that matches your profile's attention intervals. Projects soft visual alerts directly into your field of view during high-exposure commute segments.
-                  </p>
-
-                  <ul className="space-y-2.5 text-xs text-slate-300 pt-2 border-t border-slate-850/40">
-                    <li className="flex items-center gap-2.5">
-                      <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0" />
-                      <span className="font-medium">No-look visual guidance (projects on road)</span>
-                    </li>
-                    <li className="flex items-center gap-2.5">
-                      <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0" />
-                      <span className="font-medium">100% offline edge computing — zero storage</span>
-                    </li>
-                    <li className="flex items-center gap-2.5">
-                      <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0" />
-                      <span className="font-medium">Polarized micro-projector for winter glare</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="mx-8 pb-8 pt-6 border-t-2 border-slate-900 flex items-center justify-between text-xs text-slate-400">
-                <span>Status: <strong className="text-[#38bdf8] font-bold">Concept Validation</strong></span>
-                <span className="font-mono text-[10px] bg-slate-800 text-slate-200 px-3 py-1 rounded-md font-bold uppercase tracking-wider">EST: Q4 2026</span>
-              </div>
-            </motion.div>
-
-            {/* Gadget 2 */}
-            <motion.div 
-              whileHover={{ y: -8, scale: 1.02 }}
-              transition={{ duration: 0.3 }}
-              className="bg-[#0b0f19] border-2 border-slate-800/80 rounded-3xl overflow-hidden shadow-2xl relative group hover:border-emerald-500/70 hover:shadow-[0_20px_50px_rgba(16,185,129,0.18)] transition-all duration-300 flex flex-col justify-between cursor-pointer" 
-              id="gadget-aura-dial-card"
-            >
-              {/* Glowing accent background gradient bubble */}
-              <div className="absolute top-0 right-0 w-48 h-48 bg-emerald-500/5 rounded-full blur-3xl group-hover:bg-emerald-500/10 transition-all duration-500 pointer-events-none" />
-              
-              <div>
-                <div className="relative aspect-[16/10] overflow-hidden bg-slate-900 border-b-2 border-slate-900">
-                  <img 
-                    src={auraDialImage} 
-                    alt="Astrateq Aura Dial professional dashboard dashboard photography" 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    referrerPolicy="no-referrer"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
-                </div>
-
-                <div className="p-8 space-y-5">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[10px] bg-emerald-500/15 text-emerald-400 border-2 border-emerald-500/30 px-3 py-1 rounded-full font-mono uppercase tracking-widest font-black shadow-[0_2px_10px_rgba(16,185,129,0.15)]">
-                      Ambient Console
-                    </span>
-                    <span className="text-slate-550 font-mono text-xs font-bold">ASTR-02</span>
-                  </div>
-                  
-                  <h3 className="font-sans font-bold text-2xl text-white group-hover:text-emerald-400 transition-colors duration-200">Astrateq Aura Dial™</h3>
-                  <p className="text-sm text-slate-350 leading-relaxed font-semibold">
-                    An elegant dashboard console that outputs non-distracting chromatic light pulses and subtle sound-attenuated signals. Calibrated to align with your personal circadian fatigue windows.
-                  </p>
-
-                  <ul className="space-y-2.5 text-xs text-slate-300 pt-2 border-t border-slate-850/40">
-                    <li className="flex items-center gap-2.5">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                      <span className="font-medium">Bluetooth-free physical operation dials</span>
-                    </li>
-                    <li className="flex items-center gap-2.5">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                      <span className="font-medium">Multi-tone sound cues designed to pierce road noise</span>
-                    </li>
-                    <li className="flex items-center gap-2.5">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                      <span className="font-medium">Real-time local temperature response tuning</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="mx-8 pb-8 pt-6 border-t-2 border-slate-900 flex items-center justify-between text-xs text-slate-400">
-                <span>Status: <strong className="text-emerald-400 font-bold">Concept Validation</strong></span>
-                <span className="font-mono text-[10px] bg-slate-800 text-slate-200 px-3 py-1 rounded-md font-bold uppercase tracking-wider">EST: Q1 2027</span>
-              </div>
-            </motion.div>
-
-          </div>
-
-          <div className="bg-slate-950 p-6 rounded-2xl border border-slate-850/60 text-center max-w-2xl mx-auto">
-            <p className="text-xs text-slate-350 leading-relaxed">
-              💡 <strong>Cohort Advantage:</strong> Reserve members gain guaranteed access to early beta testing invitations and Founding Cohort pricing tiers.
-            </p>
-          </div>
-
-        </div>
-      </section>
-
-      {/* 5. WHAT ASTRATEQ IS VALIDATING FIRST */}
+      {/* 5. WHAT ASTRATEQ GADGETS IS VALIDATING FIRST */}
       <section className="py-20 px-6 bg-slate-50 border-b border-slate-150">
         <div className="max-w-5xl mx-auto space-y-12">
           
           <div className="text-center space-y-3 max-w-3xl mx-auto">
             <span className="text-xs font-mono font-bold tracking-widest text-brand-primary uppercase">Concept Validation</span>
             <h2 className="font-sans font-extrabold text-3xl text-slate-900 tracking-tight">
-              What Astrateq is validating first
+              What Astrateq Gadgets is validating first
             </h2>
             <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
               Astrateq Gadgets is validating whether Canadian drivers want a software-based Driver Awareness Intelligence concept that helps them understand fatigue exposure, attention patterns, and safer driving behavior — without vehicle tracking, insurance scoring, or hardware.
@@ -798,7 +654,7 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
                 </div>
                 <h4 className="font-sans font-extrabold text-[#102A43] text-lg group-hover:text-sky-650 transition-colors duration-200">Concept Validation</h4>
                 <p className="text-xs text-slate-650 leading-relaxed font-semibold">
-                  Current phase assessing early interest and user-controlled inputs.
+                  Current phase assessing early interest and user-centric simulation metrics.
                 </p>
               </div>
             </motion.div>
@@ -849,7 +705,7 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
               </div>
             </motion.div>
 
-            {/* Step 4: Pilot Program */}
+            {/* Step 4: Pilot Study */}
             <motion.div 
               whileHover={{ y: -6, scale: 1.015 }}
               transition={{ duration: 0.2 }}
@@ -865,7 +721,7 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
                     PHASE 04
                   </span>
                 </div>
-                <h4 className="font-sans font-extrabold text-[#102A43] text-lg group-hover:text-emerald-650 transition-colors duration-200">Pilot Program</h4>
+                <h4 className="font-sans font-extrabold text-[#102A43] text-lg group-hover:text-emerald-650 transition-colors duration-200">Pilot Study</h4>
                 <p className="text-xs text-slate-650 leading-relaxed font-semibold">
                   Inviting validated cohort participants to early sandboxed alpha applications if threshold demand is validated.
                 </p>
@@ -967,7 +823,7 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
               Pre-Launch & Cohort Questions
             </h2>
             <p className="text-sm text-slate-500 max-w-md mx-auto">
-              Everything you need to know about the Astrateq driver validation program.
+              Everything you need to know about the Astrateq Gadgets driver validation program.
             </p>
           </div>
 
@@ -975,7 +831,7 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
             {[
               {
                 q: "What is Astrateq Gadgets?",
-                a: "Astrateq Gadgets is an upcoming Canadian hardware and software development project focusing on localized driver awareness and fatigue safety. We develop tools optimized for severe Canadian highway conditions, commuter stress, and late-night driving patterns."
+                a: "Astrateq Gadgets is an upcoming Canadian technology brand researching a new, privacy-first approach to driver awareness. We are exploring whether a dedicated driver awareness platform should exist, optimized for severe Canadian highway conditions, commuter stress, and late-night driving fatigue."
               },
               {
                 q: "How does the simulated scoring model work?",
@@ -987,11 +843,11 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
               },
               {
                 q: "Is there any cost to register or reserve a slot?",
-                a: "No, the simulation and priority cohort reservation are 100% free. It serves to gauge interest and gather validation data to help guide physical device development for Canadian road safety."
+                a: "No, the simulation and priority cohort reservation are 100% free. It serves to gauge interest and gather validation data to help explore whether Canadian drivers see value in a privacy-first driver awareness platform."
               },
               {
                 q: "Do I need any special hardware for this?",
-                a: "No, this is a client-side software simulation. Our physical visor HUD (Vision Shield™) and console accessory (Aura Dial™) are upcoming releases currently in the pre-launch pipeline, and cohort members will get priority access to join their private testing programs once ready."
+                a: "No, this is a 100% software-based behavioral simulation. We are exploring a new approach to driver awareness and validating demand before investing in hardware or commercial development. Cohort members will have priority if we proceed with future testing programs."
               }
             ].map((faq, idx) => {
               const isOpen = activeFaqIdx === idx;
