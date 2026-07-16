@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { motion } from 'motion/react';
 import { 
   ShieldCheck, 
   ChevronRight, 
@@ -180,17 +181,17 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
             </div>
 
             {/* Understanding Tiers Card */}
-            <div className="dashboard-card bg-white p-6 rounded-2xl border border-slate-100 space-y-4">
+            <div className="dashboard-card bg-white p-6 rounded-2xl border border-slate-200/70 shadow-[0_8px_30px_rgba(0,0,0,0.02)] space-y-4 hover:shadow-[0_15px_35px_rgba(0,0,0,0.05)] transition-all duration-300">
               <h4 className="text-xs font-mono font-bold uppercase text-slate-400 tracking-widest">
                 Our Pre-Launch Validation Tiers
               </h4>
               
               <div className="space-y-3.5 text-xs">
                 {/* Tier 1 */}
-                <div className={`p-3 rounded-xl border ${result.tier === 1 ? 'bg-blue-50/45 border-brand-primary/30' : 'bg-slate-50/40 border-slate-100'}`}>
+                <div className={`p-3.5 rounded-xl border transition-all duration-200 ${result.tier === 1 ? 'bg-sky-50/60 border-brand-primary/40 shadow-xs' : 'bg-slate-50/40 border-slate-100/80'}`}>
                   <div className="flex items-center justify-between">
                     <span className="font-bold text-slate-900">Tier 1: High Readiness</span>
-                    <span className="text-[9px] font-mono font-bold uppercase bg-emerald-100 text-emerald-800 px-2 py-0.2 rounded">Early Allocation</span>
+                    <span className="text-[9px] font-mono font-bold uppercase bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded shadow-2xs">Early Allocation</span>
                   </div>
                   <p className="text-slate-500 mt-1 leading-normal">
                     Strong alignment with early hardware and signal priority.
@@ -198,10 +199,10 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
                 </div>
 
                 {/* Tier 2 */}
-                <div className={`p-3 rounded-xl border ${result.tier === 2 ? 'bg-blue-50/45 border-brand-primary/30' : 'bg-slate-50/40 border-slate-100'}`}>
+                <div className={`p-3.5 rounded-xl border transition-all duration-200 ${result.tier === 2 ? 'bg-sky-50/60 border-brand-primary/40 shadow-xs' : 'bg-slate-50/40 border-slate-100/80'}`}>
                   <div className="flex items-center justify-between">
                     <span className="font-bold text-slate-900">Tier 2: Moderate Readiness</span>
-                    <span className="text-[9px] font-mono font-bold uppercase bg-blue-100 text-brand-primary px-2 py-0.2 rounded">Priority Cohort</span>
+                    <span className="text-[9px] font-mono font-bold uppercase bg-blue-100 text-brand-primary px-2 py-0.5 rounded shadow-2xs">Priority Cohort</span>
                   </div>
                   <p className="text-slate-500 mt-1 leading-normal">
                     Fits core commuter requirements; priority evaluation queue.
@@ -209,10 +210,10 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
                 </div>
 
                 {/* Tier 3 */}
-                <div className={`p-3 rounded-xl border ${result.tier === 3 ? 'bg-blue-50/45 border-brand-primary/30' : 'bg-slate-50/40 border-slate-100'}`}>
+                <div className={`p-3.5 rounded-xl border transition-all duration-200 ${result.tier === 3 ? 'bg-sky-50/60 border-brand-primary/40 shadow-xs' : 'bg-slate-50/40 border-slate-100/80'}`}>
                   <div className="flex items-center justify-between">
                     <span className="font-bold text-slate-900">Tier 3: Needs Attention</span>
-                    <span className="text-[9px] font-mono font-bold uppercase bg-slate-200 text-slate-600 px-2 py-0.2 rounded">Standard Queue</span>
+                    <span className="text-[9px] font-mono font-bold uppercase bg-slate-200 text-slate-600 px-2 py-0.5 rounded shadow-2xs">Standard Queue</span>
                   </div>
                   <p className="text-slate-500 mt-1 leading-normal">
                     Requires manual profile validation or custom setup.
@@ -220,7 +221,7 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
                 </div>
               </div>
               
-              <div className="text-[10px] text-slate-400 italic leading-normal">
+              <div className="text-[10px] text-slate-400 italic leading-normal pt-1 border-t border-slate-100">
                 Note: Simulated awareness scores are pre-launch validation approximations for driver behavior research purposes.
               </div>
             </div>
@@ -230,7 +231,7 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
           {/* Right Panel: Custom Metrics Detail (7 cols) */}
           <div className="lg:col-span-7 space-y-6">
             
-            <div className="dashboard-card bg-white p-6 sm:p-8 rounded-2xl border border-slate-100 space-y-6">
+            <div className="dashboard-card bg-white p-6 sm:p-8 rounded-2xl border border-slate-200/70 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_35px_rgba(0,0,0,0.05)] transition-all duration-300 space-y-6">
               
               <div className="border-b border-slate-100 pb-4">
                 <h3 className="font-display font-bold text-xl text-slate-900">Your Simulated Awareness Breakdown</h3>
@@ -421,11 +422,17 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
       </section>
 
       {/* 4. OPERATIONAL PRIVACY PROMISE SECTION */}
-      <section className="py-20 px-6 bg-slate-50 border-y border-slate-150">
-        <div className="max-w-5xl mx-auto space-y-12">
+      <section className="py-24 px-6 bg-gradient-to-b from-slate-50 via-slate-100/40 to-slate-50 border-y border-slate-200">
+        <div className="max-w-5xl mx-auto space-y-14">
           
-          <div className="text-center space-y-3">
-            <h2 className="font-display font-extrabold text-3xl text-slate-900 tracking-tight">Privacy-first by design</h2>
+          <div className="text-center space-y-4">
+            <span className="inline-flex items-center gap-1.5 text-[10px] font-mono font-bold tracking-widest text-[#0ea5e9] uppercase bg-sky-50 px-3.5 py-1.5 rounded-full border border-sky-150/80 shadow-xs">
+              <ShieldCheck className="w-3.5 h-3.5 text-sky-600" />
+              Operational Security Core
+            </span>
+            <h2 className="font-sans font-extrabold text-3xl sm:text-4xl text-slate-900 tracking-tight">
+              Privacy-First By Design
+            </h2>
             <p className="text-sm sm:text-base text-slate-600 max-w-xl mx-auto leading-relaxed">
               A readiness check designed without insurer-style tracking, advertising resale, or unnecessary personal data collection.
             </p>
@@ -434,43 +441,115 @@ export default function FullResultView({ result, email, firstName, onReset, onTr
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             
             {/* Column 1: What we ask for */}
-            <div className="bg-white p-8 rounded-2xl border border-slate-150/80 shadow-sm hover:shadow-md transition-shadow space-y-4">
-              <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-brand-primary text-xl font-extrabold shadow-xs">
-                <ShieldCheck className="w-6 h-6 text-brand-primary" />
+            <motion.div 
+              whileHover={{ y: -6, scale: 1.015 }}
+              transition={{ duration: 0.2 }}
+              className="bg-gradient-to-br from-white via-sky-50/15 to-sky-100/20 p-8 rounded-3xl border-2 border-sky-100 shadow-[0_10px_30px_rgba(2,132,199,0.03)] hover:shadow-[0_20px_40px_rgba(14,165,233,0.12)] hover:border-sky-400 transition-all duration-300 space-y-5 flex flex-col justify-between"
+              id="privacy_promise_card_1"
+            >
+              <div className="space-y-5">
+                <div className="w-12 h-12 rounded-2xl bg-sky-50 border border-sky-150/80 flex items-center justify-center text-sky-600 shadow-sm">
+                  <ShieldCheck className="w-6 h-6 text-sky-600" />
+                </div>
+                <div className="space-y-1.5">
+                  <h4 className="font-sans font-extrabold text-slate-900 text-lg tracking-tight">What we ask for</h4>
+                  <p className="text-xs text-slate-500 font-medium font-mono uppercase tracking-wider">Simulated inputs only</p>
+                </div>
+                
+                <ul className="text-xs sm:text-sm text-slate-700 space-y-3.5 leading-relaxed">
+                  <li className="flex items-start gap-3">
+                    <span className="w-2 h-2 rounded-full bg-sky-500 mt-2 shrink-0 shadow-xs" />
+                    <span>Driving context and commute frequency</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="w-2 h-2 rounded-full bg-sky-500 mt-2 shrink-0 shadow-xs" />
+                    <span>Fatigue, alertness, and attention inputs</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="w-2 h-2 rounded-full bg-sky-500 mt-2 shrink-0 shadow-xs" />
+                    <span>Verified email address for simulated report delivery</span>
+                  </li>
+                </ul>
               </div>
-              <h4 className="font-display font-extrabold text-slate-900 text-lg tracking-tight">What we ask for</h4>
-              <ul className="text-sm text-slate-600 space-y-3 leading-relaxed list-disc list-inside">
-                <li>Driving context and commute frequency</li>
-                <li>Fatigue, alertness, and attention inputs</li>
-                <li>Verified email address for simulated report delivery</li>
-              </ul>
-            </div>
+              <div className="pt-4 border-t border-sky-100/60 mt-4 text-[10px] font-mono text-sky-600/80 font-bold uppercase tracking-wider flex items-center gap-1">
+                <span className="w-1.5 h-1.5 bg-sky-500 rounded-full animate-pulse" />
+                <span>Zero vehicle links required</span>
+              </div>
+            </motion.div>
 
             {/* Column 2: What we do not do */}
-            <div className="bg-white p-8 rounded-2xl border border-slate-150/80 shadow-sm hover:shadow-md transition-shadow space-y-4">
-              <div className="w-12 h-12 rounded-xl bg-orange-50 flex items-center justify-center text-orange-600 text-xl font-extrabold shadow-xs">
-                <EyeOff className="w-6 h-6 text-orange-600" />
+            <motion.div 
+              whileHover={{ y: -6, scale: 1.015 }}
+              transition={{ duration: 0.2 }}
+              className="bg-gradient-to-br from-white via-orange-50/15 to-orange-100/20 p-8 rounded-3xl border-2 border-orange-100/80 shadow-[0_10px_30px_rgba(249,115,22,0.03)] hover:shadow-[0_20px_40px_rgba(249,115,22,0.12)] hover:border-orange-400 transition-all duration-300 space-y-5 flex flex-col justify-between"
+              id="privacy_promise_card_2"
+            >
+              <div className="space-y-5">
+                <div className="w-12 h-12 rounded-2xl bg-orange-50 border border-orange-150/80 flex items-center justify-center text-orange-600 shadow-sm">
+                  <EyeOff className="w-6 h-6 text-orange-600" />
+                </div>
+                <div className="space-y-1.5">
+                  <h4 className="font-sans font-extrabold text-slate-900 text-lg tracking-tight">What we do not do</h4>
+                  <p className="text-xs text-slate-500 font-medium font-mono uppercase tracking-wider">No active monitoring</p>
+                </div>
+                
+                <ul className="text-xs sm:text-sm text-slate-700 space-y-3.5 leading-relaxed">
+                  <li className="flex items-start gap-3">
+                    <span className="w-2 h-2 rounded-full bg-orange-500 mt-2 shrink-0 shadow-xs" />
+                    <span>We do not sell driving logs or behavior tracking</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="w-2 h-2 rounded-full bg-orange-500 mt-2 shrink-0 shadow-xs" />
+                    <span>We do not track you, score your insurance, or require vehicle connections</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="w-2 h-2 rounded-full bg-orange-500 mt-2 shrink-0 shadow-xs" />
+                    <span>We do not require hardware, vehicle links, or VINs</span>
+                  </li>
+                </ul>
               </div>
-              <h4 className="font-display font-extrabold text-slate-900 text-lg tracking-tight">What we do not do</h4>
-              <ul className="text-sm text-slate-600 space-y-3 leading-relaxed list-disc list-inside">
-                <li>We do not sell driving logs or behavior tracking</li>
-                <li>We do not track you, score your insurance, or require vehicle connections</li>
-                <li>We do not require hardware, vehicle links, or VINs</li>
-              </ul>
-            </div>
+              <div className="pt-4 border-t border-orange-100/60 mt-4 text-[10px] font-mono text-orange-600/85 font-bold uppercase tracking-wider flex items-center gap-1">
+                <span className="w-1.5 h-1.5 bg-orange-500 rounded-full" />
+                <span>100% Localized behavioral model</span>
+              </div>
+            </motion.div>
 
             {/* Column 3: Why we ask */}
-            <div className="bg-white p-8 rounded-2xl border border-slate-150/80 shadow-sm hover:shadow-md transition-shadow space-y-4">
-              <div className="w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-600 text-xl font-extrabold shadow-xs">
-                <Cpu className="w-6 h-6 text-emerald-600" />
+            <motion.div 
+              whileHover={{ y: -6, scale: 1.015 }}
+              transition={{ duration: 0.2 }}
+              className="bg-gradient-to-br from-white via-emerald-50/15 to-emerald-100/20 p-8 rounded-3xl border-2 border-emerald-100 shadow-[0_10px_30px_rgba(16,185,129,0.03)] hover:shadow-[0_20px_40px_rgba(16,185,129,0.12)] hover:border-emerald-400 transition-all duration-300 space-y-5 flex flex-col justify-between"
+              id="privacy_promise_card_3"
+            >
+              <div className="space-y-5">
+                <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-150/80 flex items-center justify-center text-emerald-600 shadow-sm">
+                  <Cpu className="w-6 h-6 text-emerald-600" />
+                </div>
+                <div className="space-y-1.5">
+                  <h4 className="font-sans font-extrabold text-slate-900 text-lg tracking-tight">Why we ask</h4>
+                  <p className="text-xs text-slate-500 font-medium font-mono uppercase tracking-wider">Canadian road validation</p>
+                </div>
+                
+                <ul className="text-xs sm:text-sm text-slate-700 space-y-3.5 leading-relaxed">
+                  <li className="flex items-start gap-3">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 mt-2 shrink-0 shadow-xs" />
+                    <span>To map regional Canadian driver fatigue demands</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 mt-2 shrink-0 shadow-xs" />
+                    <span>To coordinate future driver awareness research</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 mt-2 shrink-0 shadow-xs" />
+                    <span>To validate interest in privacy-first driver safety software</span>
+                  </li>
+                </ul>
               </div>
-              <h4 className="font-display font-extrabold text-slate-900 text-lg tracking-tight">Why we ask</h4>
-              <ul className="text-sm text-slate-600 space-y-3 leading-relaxed list-disc list-inside">
-                <li>To map regional Canadian driver fatigue demands</li>
-                <li>To coordinate future driver awareness research</li>
-                <li>To validate interest in privacy-first driver safety software</li>
-              </ul>
-            </div>
+              <div className="pt-4 border-t border-emerald-100/60 mt-4 text-[10px] font-mono text-emerald-600/85 font-bold uppercase tracking-wider flex items-center gap-1">
+                <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse" />
+                <span>Validating market feasibility</span>
+              </div>
+            </motion.div>
 
           </div>
 

@@ -80,13 +80,13 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
         <div className="relative max-w-5xl w-full mx-auto z-10 text-center space-y-6 sm:space-y-8 px-4 py-8">
           
           {/* Privacy-First Badge Above Title */}
-          <div className="inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-3 px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-400/35 text-cyan-200 text-xs font-semibold uppercase tracking-wider mx-auto shadow-md backdrop-blur-xs">
+          <div className="inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-3 px-5 py-2.5 rounded-full bg-slate-950/80 backdrop-blur-md text-xs font-bold uppercase tracking-wider mx-auto shadow-[0_10px_30px_rgba(0,0,0,0.5)] border border-sky-500/30">
             <div className="flex items-center gap-1.5">
-              <Shield className="w-3.5 h-3.5 text-cyan-300" />
-              <span>Privacy-First Driver Awareness Intelligence</span>
+              <Shield className="w-4 h-4 text-sky-400" />
+              <span className="text-white font-extrabold">Privacy-First Driver Awareness Intelligence</span>
             </div>
-            <span className="hidden sm:inline text-cyan-500/60 font-light">|</span>
-            <span className="text-cyan-300 font-mono text-[10px] tracking-normal font-bold">Awareness intelligence without surveillance.</span>
+            <span className="hidden sm:inline text-sky-500/30 font-light">|</span>
+            <span className="text-sky-300 font-mono text-[10px] tracking-normal font-bold">Awareness intelligence without surveillance.</span>
           </div>
 
           {/* Scenic Overlay Linear-gradient scrim background for pristine text contrast */}
@@ -616,7 +616,7 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
             </p>
           </div>
 
-          <div className="bg-white/95 backdrop-blur-md rounded-3xl border border-[#DCEBFA] shadow-2xl overflow-hidden p-2 sm:p-6 max-w-3xl mx-auto">
+          <div className="bg-[#090d16] rounded-3xl border border-sky-500/15 shadow-[0_24px_60px_rgba(0,0,0,0.55)] overflow-hidden p-3 sm:p-8 max-w-3xl mx-auto">
             {quizView}
           </div>
         </div>

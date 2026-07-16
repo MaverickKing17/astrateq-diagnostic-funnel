@@ -123,11 +123,15 @@ export default function App() {
         )}
 
         {currentStep === 'quiz' && (
-          <QuizView 
-            onComplete={handleCompleteQuiz} 
-            onBackToLanding={handleReset}
-            onTrackEvent={trackEvent}
-          />
+          <div className="max-w-4xl mx-auto py-12 px-4">
+            <div className="bg-[#090d16] rounded-3xl border border-sky-500/15 shadow-[0_24px_60px_rgba(0,0,0,0.55)] p-3 sm:p-8">
+              <QuizView 
+                onComplete={handleCompleteQuiz} 
+                onBackToLanding={handleReset}
+                onTrackEvent={trackEvent}
+              />
+            </div>
+          </div>
         )}
 
         {currentStep === 'calculating' && (

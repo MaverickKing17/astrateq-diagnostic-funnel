@@ -135,19 +135,19 @@ export default function QuizView({ onComplete, onBackToLanding, onTrackEvent }: 
   const progressPct = ((currentQuestionIdx + 1) / totalQuestions) * 100;
 
   return (
-    <div className="max-w-2xl mx-auto px-4 py-10 font-sans" id="quiz_view_container">
+    <div className="max-w-2xl mx-auto px-4 py-8 font-sans" id="quiz_view_container">
       
       {/* 1. Header with progress indicator */}
-      <div className="mb-8 space-y-3">
-        <div className="flex items-center justify-between text-xs font-mono text-slate-500 font-semibold uppercase">
+      <div className="mb-6 space-y-3">
+        <div className="flex items-center justify-between text-xs font-mono text-sky-400/85 font-semibold uppercase tracking-wider">
           <span>ASTRATEQ GADGETS driver simulation</span>
-          <span>Question {currentQuestionIdx + 1} of {totalQuestions}</span>
+          <span className="text-slate-400">Question {currentQuestionIdx + 1} of {totalQuestions}</span>
         </div>
         
         {/* Progress Bar Container */}
-        <div className="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div className="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
           <motion.div 
-            className="h-full bg-gradient-to-r from-brand-primary to-brand-secondary rounded-full"
+            className="h-full bg-gradient-to-r from-sky-400 via-sky-500 to-blue-500 rounded-full shadow-[0_0_10px_rgba(14,165,233,0.5)]"
             initial={{ width: '0%' }}
             animate={{ width: `${progressPct}%` }}
             transition={{ duration: 0.3, ease: 'easeOut' }}
@@ -156,42 +156,42 @@ export default function QuizView({ onComplete, onBackToLanding, onTrackEvent }: 
       </div>
 
       {/* 2. Slide Animating Question Card */}
-      <div className="dashboard-card bg-white p-6 sm:p-8 rounded-2xl border border-slate-100 relative min-h-[460px] flex flex-col justify-between">
+      <div className="dashboard-card bg-[#0b111e]/90 p-6 sm:p-8 rounded-3xl border border-slate-800/85 relative min-h-[460px] flex flex-col justify-between shadow-[inset_0_1.5px_3px_rgba(255,255,255,0.02)]">
         
         <div className="space-y-6">
           {/* Headline and Subhead */}
           <div className="space-y-2">
-            <h2 className="font-display font-bold text-xl sm:text-2xl text-slate-900 leading-tight">
+            <h2 className="font-sans font-extrabold text-xl sm:text-2xl text-white leading-tight tracking-tight">
               {currentQuestion.text}
             </h2>
-            <p className="text-sm text-slate-500 leading-relaxed">
+            <p className="text-sm text-slate-400 leading-relaxed font-medium">
               {currentQuestion.subtext || "This helps us understand your driving patterns and focus habits."}
             </p>
           </div>
 
           {/* Multiple choice Options list */}
-          <div className="grid grid-cols-1 gap-4">
+          <div className="grid grid-cols-1 gap-3.5">
             {currentQuestion.options.map((option) => {
               const isSelected = selectedOptionId === option.id;
               return (
                 <motion.button
                   key={option.id}
                   onClick={() => handleSelectOption(option.id)}
-                  whileHover={{ y: -2, scale: 1.01 }}
-                  whileTap={{ scale: 0.99 }}
+                  whileHover={{ y: -2, scale: 1.005 }}
+                  whileTap={{ scale: 0.995 }}
                   transition={{ duration: 0.2, ease: "easeOut" }}
-                  className={`group p-5 rounded-2xl border-2 text-left flex items-start gap-4 cursor-pointer transition-all ${
+                  className={`group p-4 sm:p-5 rounded-2xl border text-left flex items-start gap-4 cursor-pointer transition-all duration-200 ${
                     isSelected 
-                      ? 'bg-sky-50/90 border-[#0284c7] shadow-[0_10px_30px_rgba(2,132,199,0.14)] ring-1 ring-[#0284c7]/20' 
-                      : 'bg-gradient-to-br from-white to-slate-50/60 hover:from-white hover:to-slate-50 border-slate-200/80 shadow-[0_3px_12px_rgba(15,23,42,0.03)] hover:shadow-[0_10px_25px_rgba(15,23,42,0.07)] hover:border-slate-300'
+                      ? 'bg-gradient-to-r from-[#0c2340] to-[#0a182e] border-sky-500/85 shadow-[0_12px_32px_rgba(14,165,233,0.15)] ring-1 ring-sky-500/30' 
+                      : 'bg-[#10192a]/50 border-slate-800/70 hover:border-sky-500/35 hover:bg-[#12213a]/50 shadow-[0_4px_16px_rgba(0,0,0,0.15)] hover:shadow-[0_12px_28px_rgba(0,0,0,0.3)]'
                   }`}
                   id={`q${currentQuestion.id}_opt_${option.id}`}
                 >
                   {/* Left Side Icon Column */}
                   <div className={`p-2.5 rounded-xl shrink-0 transition-all duration-200 ${
                     isSelected 
-                      ? 'bg-[#0284c7] text-white shadow-[0_4px_12px_rgba(2,132,199,0.25)] scale-110' 
-                      : 'bg-white border border-slate-200/90 text-slate-500 group-hover:text-slate-700 group-hover:border-slate-300 shadow-xs'
+                      ? 'bg-gradient-to-br from-sky-500 to-blue-600 text-white shadow-[0_4px_14px_rgba(14,165,233,0.4)] scale-105' 
+                      : 'bg-slate-900 border border-slate-800 text-slate-400 group-hover:text-slate-200 group-hover:bg-slate-850 group-hover:border-slate-700 shadow-xs'
                   }`}>
                     {getOptionIcon(option.id)}
                   </div>
@@ -199,13 +199,13 @@ export default function QuizView({ onComplete, onBackToLanding, onTrackEvent }: 
                   {/* Text Column */}
                   <div className="flex-1 min-w-0">
                     <span className={`font-bold block text-base sm:text-lg leading-tight transition-colors ${
-                      isSelected ? 'text-[#0284c7]' : 'text-slate-800 group-hover:text-slate-900'
+                      isSelected ? 'text-sky-300' : 'text-slate-200 group-hover:text-white'
                     }`}>
                       {option.text}
                     </span>
                     {option.subtext && (
                       <span className={`text-xs sm:text-sm block mt-1.5 leading-relaxed transition-colors ${
-                        isSelected ? 'text-slate-700 font-medium' : 'text-slate-500 group-hover:text-slate-600'
+                        isSelected ? 'text-slate-300 font-medium' : 'text-slate-400 group-hover:text-slate-300'
                       }`}>
                         {option.subtext}
                       </span>
@@ -215,8 +215,8 @@ export default function QuizView({ onComplete, onBackToLanding, onTrackEvent }: 
                   {/* Radio indicator */}
                   <div className={`w-5 h-5 rounded-full border-2 shrink-0 flex items-center justify-center transition-all ${
                     isSelected 
-                      ? 'border-[#0284c7] bg-[#0284c7] ring-4 ring-sky-100 shadow-[0_2px_8px_rgba(2,132,199,0.3)]' 
-                      : 'border-slate-300 bg-white group-hover:border-slate-400'
+                      ? 'border-sky-400 bg-sky-500 ring-4 ring-sky-950/50 shadow-[0_2px_8px_rgba(14,165,233,0.4)]' 
+                      : 'border-slate-700 bg-slate-950 group-hover:border-sky-500/50 shadow-xs'
                   }`}>
                     {isSelected && <div className="w-2.5 h-2.5 rounded-full bg-white scale-110" />}
                   </div>
@@ -227,10 +227,10 @@ export default function QuizView({ onComplete, onBackToLanding, onTrackEvent }: 
         </div>
 
         {/* 3. Action Buttons - Back and Next */}
-        <div className="mt-8 pt-6 border-t border-slate-150 flex items-center gap-4">
+        <div className="mt-8 pt-6 border-t border-slate-800/80 flex items-center gap-4">
           <button
             onClick={handleBack}
-            className="px-5 py-3 rounded-xl border border-[#d9e2ec] bg-white text-slate-600 font-semibold text-sm hover:bg-[#f0f4f8] hover:text-[#102a43] hover:border-[#bcccdc] shadow-xs cursor-pointer flex items-center gap-1.5 transition-all duration-200"
+            className="px-5 py-3 rounded-xl border border-slate-800 bg-[#10192a]/80 text-slate-300 font-semibold text-sm hover:bg-slate-800 hover:text-white hover:border-slate-700 shadow-xs cursor-pointer flex items-center gap-1.5 transition-all duration-200"
             id="quiz_back_btn"
           >
             <ArrowLeft className="w-4 h-4" />
@@ -242,8 +242,8 @@ export default function QuizView({ onComplete, onBackToLanding, onTrackEvent }: 
             disabled={!selectedOptionId}
             className={`flex-1 py-3 px-6 rounded-xl font-semibold text-sm cursor-pointer transition-all duration-200 flex items-center justify-center gap-2 ${
               selectedOptionId
-                ? 'bg-[#0284c7] hover:bg-[#0270a9] text-white shadow-[0_4px_14px_rgba(2,132,199,0.3)] hover:shadow-[0_6px_20px_rgba(2,132,199,0.4)] hover:-translate-y-0.5 active:translate-y-0 active:scale-98'
-                : 'bg-[#f0f4f8] text-[#627d98] border border-[#d9e2ec] cursor-not-allowed opacity-90 shadow-xs'
+                ? 'bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white shadow-[0_4px_14px_rgba(14,165,233,0.4)] hover:shadow-[0_6px_20px_rgba(14,165,233,0.55)] hover:-translate-y-0.5 active:translate-y-0 active:scale-98'
+                : 'bg-slate-800/50 text-slate-550 border border-slate-800/80 cursor-not-allowed opacity-60 shadow-xs'
             }`}
             id="quiz_next_btn"
           >
@@ -255,8 +255,8 @@ export default function QuizView({ onComplete, onBackToLanding, onTrackEvent }: 
       </div>
 
       {/* 4. Mini Safety Reassurance Statement */}
-      <div className="mt-6 flex items-center gap-2.5 px-4 text-xs text-slate-500 justify-center">
-        <Lock className="w-3.5 h-3.5 text-slate-400" />
+      <div className="mt-6 flex items-center gap-2.5 px-4 text-xs text-slate-400 justify-center">
+        <Lock className="w-3.5 h-3.5 text-sky-400/80" />
         <span>Your information is safe. Your responses are kept private and processed locally.</span>
       </div>
 
