@@ -25,6 +25,8 @@ import {
   HelpCircle
 } from 'lucide-react';
 import { motion } from 'motion/react';
+import visionShieldInCar from '../assets/images/vision_shield_in_car_1782845622070.jpg';
+import auraDialInCar from '../assets/images/aura_dial_in_car_1782845633915.jpg';
 
 interface LandingViewProps {
   onStartDiagnostic: () => void;
@@ -810,6 +812,165 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
             </div>
           </div>
 
+        </div>
+      </section>
+
+      {/* 8.2 FUTURE PHYSICAL ACCESSORIES SECTION */}
+      <section className="py-24 px-6 bg-[#091122] border-t border-slate-900 text-white relative">
+        <div className="max-w-5xl mx-auto space-y-16">
+          
+          {/* Section Header */}
+          <div className="text-center space-y-4">
+            <span className="inline-flex items-center gap-1.5 text-[10px] font-mono font-bold tracking-widest text-sky-400 uppercase bg-sky-950/80 px-3.5 py-1.5 rounded-full border border-sky-800/60 shadow-xs">
+              <Cpu className="w-3.5 h-3.5 text-sky-400" />
+              Pre-Launch Gadget Pipeline
+            </span>
+            <h2 className="font-sans font-extrabold text-3xl sm:text-4xl text-white tracking-tight">
+              Future Privacy-First Physical Accessories
+            </h2>
+            <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
+              We are designing localized physical devices that integrate with our Driver Awareness model. These conceptual accessories aim to assist drivers on the road with 100% offline edge processing.
+            </p>
+          </div>
+
+          {/* Two Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-4xl mx-auto">
+            
+            {/* Card 1: Astrateq Vision Shield */}
+            <motion.div 
+              whileHover={{ y: -6, scale: 1.015 }}
+              transition={{ duration: 0.2 }}
+              className="bg-slate-900/60 backdrop-blur-md rounded-3xl border border-slate-800 overflow-hidden flex flex-col justify-between group h-full shadow-2xl"
+              id="accessories_card_1"
+            >
+              <div>
+                {/* Image container */}
+                <div className="h-64 sm:h-72 w-full overflow-hidden relative">
+                  <img 
+                    src={visionShieldInCar} 
+                    alt="Astrateq Vision Shield Visor Mounted HUD concept" 
+                    className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#091122]/90 via-transparent to-transparent"></div>
+                </div>
+
+                {/* Card Content */}
+                <div className="p-6 sm:p-8 space-y-5">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] font-mono font-bold bg-sky-950 text-sky-400 border border-sky-800/60 px-3 py-1 rounded-full uppercase tracking-wider">
+                      Visor Mounted HUD
+                    </span>
+                    <span className="text-xs font-mono text-slate-500 font-semibold tracking-wider">
+                      ASTR-01
+                    </span>
+                  </div>
+
+                  <h3 className="font-sans font-extrabold text-2xl text-white tracking-tight">
+                    Astrateq Vision Shield™
+                  </h3>
+
+                  <p className="text-sm text-slate-300 leading-relaxed">
+                    A companion head-up display clip-on that matches your profile's attention intervals. Projects soft visual alerts directly into your field of view during high-exposure commute segments.
+                  </p>
+
+                  {/* Horizontal line divider */}
+                  <div className="border-t border-slate-800/80 my-4"></div>
+
+                  {/* Bullet list */}
+                  <ul className="space-y-3.5 text-xs text-slate-300">
+                    <li className="flex items-start gap-2.5">
+                      <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                      <span>No-look visual guidance (projects on road)</span>
+                    </li>
+                    <li className="flex items-start gap-2.5">
+                      <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                      <span>Polarized micro-projector for winter glare</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Card Footer */}
+              <div className="px-6 sm:px-8 pb-8 pt-4 border-t border-slate-800/40 flex items-center justify-between text-xs font-mono">
+                <div className="flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-cyan-400"></span>
+                  <span className="text-slate-400 font-bold">Status: <span className="text-[#38bdf8]">Concept Validation</span></span>
+                </div>
+                <span className="bg-slate-800 text-slate-300 px-3 py-1 rounded-md font-bold tracking-wider uppercase text-[10px] border border-slate-700/50">
+                  EST: Q4 2026
+                </span>
+              </div>
+            </motion.div>
+
+            {/* Card 2: Astrateq Aura Dial */}
+            <motion.div 
+              whileHover={{ y: -6, scale: 1.015 }}
+              transition={{ duration: 0.2 }}
+              className="bg-slate-900/60 backdrop-blur-md rounded-3xl border border-slate-800 overflow-hidden flex flex-col justify-between group h-full shadow-2xl"
+              id="accessories_card_2"
+            >
+              <div>
+                {/* Image container */}
+                <div className="h-64 sm:h-72 w-full overflow-hidden relative">
+                  <img 
+                    src={auraDialInCar} 
+                    alt="Astrateq Aura Dial Ambient Console concept" 
+                    className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#091122]/90 via-transparent to-transparent"></div>
+                </div>
+
+                {/* Card Content */}
+                <div className="p-6 sm:p-8 space-y-5">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] font-mono font-bold bg-emerald-950 text-emerald-400 border border-emerald-800/60 px-3 py-1 rounded-full uppercase tracking-wider">
+                      Ambient Console
+                    </span>
+                    <span className="text-xs font-mono text-slate-500 font-semibold tracking-wider">
+                      ASTR-02
+                    </span>
+                  </div>
+
+                  <h3 className="font-sans font-extrabold text-2xl text-white tracking-tight">
+                    Astrateq Aura Dial™
+                  </h3>
+
+                  <p className="text-sm text-slate-300 leading-relaxed">
+                    An elegant dashboard console that outputs non-distracting chromatic light pulses and subtle sound-attenuated signals. Calibrated to align with your personal circadian fatigue windows.
+                  </p>
+
+                  {/* Horizontal line divider */}
+                  <div className="border-t border-slate-800/80 my-4"></div>
+
+                  {/* Bullet list */}
+                  <ul className="space-y-3.5 text-xs text-slate-300">
+                    <li className="flex items-start gap-2.5">
+                      <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                      <span>Bluetooth-free physical operation dials</span>
+                    </li>
+                    <li className="flex items-start gap-2.5">
+                      <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                      <span>Real-time local temperature response tuning</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Card Footer */}
+              <div className="px-6 sm:px-8 pb-8 pt-4 border-t border-slate-800/40 flex items-center justify-between text-xs font-mono">
+                <div className="flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                  <span className="text-slate-400 font-bold">Status: <span className="text-[#34d399]">Concept Validation</span></span>
+                </div>
+                <span className="bg-slate-800 text-slate-300 px-3 py-1 rounded-md font-bold tracking-wider uppercase text-[10px] border border-slate-700/50">
+                  EST: Q1 2027
+                </span>
+              </div>
+            </motion.div>
+
+          </div>
         </div>
       </section>
 

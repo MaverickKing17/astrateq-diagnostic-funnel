@@ -227,10 +227,10 @@ export default function QuizView({ onComplete, onBackToLanding, onTrackEvent }: 
         </div>
 
         {/* 3. Action Buttons - Back and Next */}
-        <div className="mt-8 pt-6 border-t border-slate-100 flex items-center gap-4">
+        <div className="mt-8 pt-6 border-t border-slate-150 flex items-center gap-4">
           <button
             onClick={handleBack}
-            className="px-5 py-3 rounded-xl border border-slate-200 text-slate-600 font-medium text-sm hover:bg-slate-50 cursor-pointer flex items-center gap-1.5 transition-colors"
+            className="px-5 py-3 rounded-xl border border-[#d9e2ec] bg-white text-slate-600 font-semibold text-sm hover:bg-[#f0f4f8] hover:text-[#102a43] hover:border-[#bcccdc] shadow-xs cursor-pointer flex items-center gap-1.5 transition-all duration-200"
             id="quiz_back_btn"
           >
             <ArrowLeft className="w-4 h-4" />
@@ -240,10 +240,10 @@ export default function QuizView({ onComplete, onBackToLanding, onTrackEvent }: 
           <button
             onClick={handleNext}
             disabled={!selectedOptionId}
-            className={`flex-1 py-3 px-6 rounded-xl font-semibold text-sm cursor-pointer transition-all flex items-center justify-center gap-2 ${
+            className={`flex-1 py-3 px-6 rounded-xl font-semibold text-sm cursor-pointer transition-all duration-200 flex items-center justify-center gap-2 ${
               selectedOptionId
-                ? 'bg-brand-primary hover:bg-sky-600 text-white shadow-md'
-                : 'bg-slate-100 text-slate-400 cursor-not-allowed'
+                ? 'bg-[#0284c7] hover:bg-[#0270a9] text-white shadow-[0_4px_14px_rgba(2,132,199,0.3)] hover:shadow-[0_6px_20px_rgba(2,132,199,0.4)] hover:-translate-y-0.5 active:translate-y-0 active:scale-98'
+                : 'bg-[#f0f4f8] text-[#627d98] border border-[#d9e2ec] cursor-not-allowed opacity-90 shadow-xs'
             }`}
             id="quiz_next_btn"
           >
