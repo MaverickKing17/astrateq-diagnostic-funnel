@@ -172,7 +172,7 @@ export default function Footer({ onOpenTab }: FooterProps) {
               © 2026 Astrateq Gadgets. Toronto, ON, Canada.
             </p>
             <p className="leading-relaxed text-slate-500 max-w-4xl font-medium">
-              Astrateq Gadgets is currently validating interest in a software-based Driver Awareness Intelligence concept. This experience is simulated and does not connect to your vehicle, insurer, or hardware.
+              Astrateq Gadgets is an early-stage Canadian technology research initiative validating whether regional drivers see value in privacy-first driver awareness frameworks before investing in hardware development.
             </p>
           </div>
         </div>

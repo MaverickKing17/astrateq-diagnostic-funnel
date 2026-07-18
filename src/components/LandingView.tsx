@@ -90,9 +90,9 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
           </div>
 
           {/* Scenic Overlay Linear-gradient scrim background for pristine text contrast */}
-          <div className="bg-gradient-to-b from-black/55 to-black/35 backdrop-blur-md rounded-3xl p-6 sm:p-8 md:p-10 border border-white/10 max-w-4xl mx-auto space-y-5 sm:space-y-6 shadow-2xl">
+          <div className="bg-slate-950/80 backdrop-blur-sm rounded-3xl p-6 sm:p-8 md:p-10 border border-white/10 max-w-4xl mx-auto space-y-5 sm:space-y-6 shadow-2xl">
             <h1 className="font-sans font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white tracking-tight leading-[1.12] max-w-4xl mx-auto">
-              Check your <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38bdf8] via-[#0ea5e9] to-cyan-300 font-black">Driver Awareness Readiness</span> in 60 seconds.
+              Check your <span className="text-sky-500 font-black">Driver Awareness Readiness</span> in 60 seconds.
             </h1>
 
             <div className="max-w-3xl mx-auto space-y-4">
@@ -161,7 +161,7 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
             <div className="bg-slate-950/45 border border-slate-900 p-4 rounded-xl text-left backdrop-blur-xs">
               <div className="flex items-center gap-2 mb-1">
                 <div className="w-5 h-5 rounded-md bg-sky-500/10 text-sky-400 flex items-center justify-center font-bold text-[10px]">01</div>
-                <h4 className="font-bold text-sm text-slate-100">Awareness Score</h4>
+                <h3 className="font-bold text-sm text-slate-100">Awareness Score</h3>
               </div>
               <p className="text-slate-350 text-xs leading-relaxed font-normal">
                 Simulated 0–100 driver awareness profile.
@@ -171,7 +171,7 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
             <div className="bg-slate-950/45 border border-slate-900 p-4 rounded-xl text-left backdrop-blur-xs">
               <div className="flex items-center gap-2 mb-1">
                 <div className="w-5 h-5 rounded-md bg-amber-500/10 text-amber-400 flex items-center justify-center font-bold text-[10px]">02</div>
-                <h4 className="font-bold text-sm text-slate-100">Fatigue Profile</h4>
+                <h3 className="font-bold text-sm text-slate-100">Fatigue Profile</h3>
               </div>
               <p className="text-slate-350 text-xs leading-relaxed font-normal">
                 See how timing and driving context may affect alertness.
@@ -181,7 +181,7 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
             <div className="bg-slate-950/45 border border-slate-900 p-4 rounded-xl text-left backdrop-blur-xs">
               <div className="flex items-center gap-2 mb-1">
                 <div className="w-5 h-5 rounded-md bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold text-[10px]">03</div>
-                <h4 className="font-bold text-sm text-slate-100">Research Cohort</h4>
+                <h3 className="font-bold text-sm text-slate-100">Research Cohort</h3>
               </div>
               <p className="text-slate-350 text-xs leading-relaxed font-normal">
                 See where your profile fits in the validation study.
@@ -234,7 +234,7 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
                 </div>
                 <div className="space-y-2">
                   <div className="text-[11px] font-mono font-extrabold text-sky-600 tracking-wider uppercase">Interactive Diagnostic</div>
-                  <h4 className="font-sans font-black text-slate-900 text-2xl tracking-tight group-hover:text-sky-800 transition-colors duration-200">Behavioral Inputs</h4>
+                  <h3 className="font-sans font-black text-slate-900 text-2xl tracking-tight group-hover:text-sky-800 transition-colors duration-200">Behavioral Inputs</h3>
                 </div>
                 <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-semibold">
                   You answer quick questions about driving frequency, commute patterns, fatigue exposure, and attention habits.
@@ -269,7 +269,7 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
                 </div>
                 <div className="space-y-2">
                   <div className="text-[11px] font-mono font-extrabold text-amber-700 tracking-wider uppercase">Core Algorithm</div>
-                  <h4 className="font-sans font-black text-slate-900 text-2xl tracking-tight group-hover:text-amber-800 transition-colors duration-200">Simulated Profile</h4>
+                  <h3 className="font-sans font-black text-slate-900 text-2xl tracking-tight group-hover:text-amber-800 transition-colors duration-200">Simulated Profile</h3>
                 </div>
                 <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-semibold">
                   The model generates a conceptual Driver Awareness Score and Fatigue Risk Awareness Profile.
@@ -304,7 +304,7 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
                 </div>
                 <div className="space-y-2">
                   <div className="text-[11px] font-mono font-extrabold text-emerald-700 tracking-wider uppercase">Market Validation</div>
-                  <h4 className="font-sans font-black text-slate-900 text-2xl tracking-tight group-hover:text-emerald-800 transition-colors duration-200">Research Signal</h4>
+                  <h3 className="font-sans font-black text-slate-900 text-2xl tracking-tight group-hover:text-emerald-800 transition-colors duration-200">Research Signal</h3>
                 </div>
                 <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-semibold">
                   Your result helps Astrateq Gadgets understand whether Canadian drivers want this type of awareness intelligence tool.
@@ -322,8 +322,8 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
         <div className="max-w-5xl mx-auto space-y-12">
           
           <div className="text-center space-y-3">
-            <h2 className="text-xs font-mono font-bold tracking-widest text-brand-primary uppercase">Simulated Deliverables</h2>
-            <p className="font-display font-bold text-3xl text-slate-900 tracking-tight">What you’ll receive in 60 seconds</p>
+            <span className="text-xs font-mono font-bold tracking-widest text-brand-primary uppercase block">Simulated Deliverables</span>
+            <h2 className="font-display font-bold text-3xl text-slate-900 tracking-tight">What you’ll receive in 60 seconds</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -527,7 +527,7 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
           <div className="text-center space-y-3 max-w-3xl mx-auto">
             <span className="text-xs font-mono font-bold tracking-widest text-brand-primary uppercase">Concept Validation</span>
             <h2 className="font-sans font-extrabold text-3xl text-slate-900 tracking-tight">
-              What Astrateq Gadgets is validating first
+              What we are validating together
             </h2>
             <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
               Astrateq Gadgets is validating whether Canadian drivers want a software-based Driver Awareness Intelligence concept that helps them understand fatigue exposure, attention patterns, and safer driving behavior — without vehicle tracking, insurance scoring, or hardware.
@@ -547,7 +547,7 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
                 <div className="w-12 h-12 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center border border-sky-100/60 group-hover:bg-sky-600 group-hover:text-white transition-all duration-300 shadow-xs">
                   <ShieldCheck className="w-6 h-6" />
                 </div>
-                <h4 className="font-sans font-extrabold text-slate-900 text-lg group-hover:text-sky-600 transition-colors duration-200">Driver awareness intelligence</h4>
+                <h3 className="font-sans font-extrabold text-slate-900 text-lg group-hover:text-sky-600 transition-colors duration-200">Driver awareness intelligence</h3>
                 <p className="text-sm text-slate-650 leading-relaxed font-medium">
                   A software-led concept that turns driving habits, fatigue exposure, and attention patterns into a simulated awareness profile.
                 </p>
@@ -565,7 +565,7 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
                 <div className="w-12 h-12 rounded-xl bg-violet-50 text-violet-600 flex items-center justify-center border border-violet-100/60 group-hover:bg-violet-600 group-hover:text-white transition-all duration-300 shadow-xs">
                   <MapPin className="w-6 h-6" />
                 </div>
-                <h4 className="font-sans font-extrabold text-slate-900 text-lg group-hover:text-violet-600 transition-colors duration-200">Canadian driving context</h4>
+                <h3 className="font-sans font-extrabold text-slate-900 text-lg group-hover:text-violet-600 transition-colors duration-200">Canadian driving context</h3>
                 <p className="text-sm text-slate-650 leading-relaxed font-medium">
                   Designed around commutes, long drives, winter visibility, traffic fatigue, and privacy-conscious Canadian drivers.
                 </p>
@@ -583,7 +583,7 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
                 <div className="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center border border-indigo-100/60 group-hover:bg-indigo-600 group-hover:text-white transition-all duration-300 shadow-xs">
                   <Cpu className="w-6 h-6" />
                 </div>
-                <h4 className="font-sans font-extrabold text-slate-900 text-lg group-hover:text-indigo-600 transition-colors duration-200">Future product direction</h4>
+                <h3 className="font-sans font-extrabold text-slate-900 text-lg group-hover:text-indigo-600 transition-colors duration-200">Future product direction</h3>
                 <p className="text-sm text-slate-650 leading-relaxed font-medium">
                   Your responses help determine whether this software concept should move toward prototype development.
                 </p>
@@ -654,7 +654,7 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
                     PHASE 01
                   </span>
                 </div>
-                <h4 className="font-sans font-extrabold text-[#102A43] text-lg group-hover:text-sky-650 transition-colors duration-200">Concept Validation</h4>
+                <h3 className="font-sans font-extrabold text-[#102A43] text-lg group-hover:text-sky-650 transition-colors duration-200">Concept Validation</h3>
                 <p className="text-xs text-slate-650 leading-relaxed font-semibold">
                   Current phase assessing early interest and user-centric simulation metrics.
                 </p>
@@ -677,7 +677,7 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
                     PHASE 02
                   </span>
                 </div>
-                <h4 className="font-sans font-extrabold text-[#102A43] text-lg group-hover:text-violet-650 transition-colors duration-200">Simulation Analytics</h4>
+                <h3 className="font-sans font-extrabold text-[#102A43] text-lg group-hover:text-violet-650 transition-colors duration-200">Simulation Analytics</h3>
                 <p className="text-xs text-slate-650 leading-relaxed font-semibold">
                   Aggregating anonymous telemetry feedback to map regional baseline focus profiles.
                 </p>
@@ -700,7 +700,7 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
                     PHASE 03
                   </span>
                 </div>
-                <h4 className="font-sans font-extrabold text-[#102A43] text-lg group-hover:text-amber-650 transition-colors duration-200">Prototype Exploration</h4>
+                <h3 className="font-sans font-extrabold text-[#102A43] text-lg group-hover:text-amber-650 transition-colors duration-200">Prototype Exploration</h3>
                 <p className="text-xs text-slate-650 leading-relaxed font-semibold">
                   Evaluating high-performance, 100% local, offline smartphone engine limits.
                 </p>
@@ -723,7 +723,7 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
                     PHASE 04
                   </span>
                 </div>
-                <h4 className="font-sans font-extrabold text-[#102A43] text-lg group-hover:text-emerald-650 transition-colors duration-200">Pilot Study</h4>
+                <h3 className="font-sans font-extrabold text-[#102A43] text-lg group-hover:text-emerald-650 transition-colors duration-200">Pilot Study</h3>
                 <p className="text-xs text-slate-650 leading-relaxed font-semibold">
                   Inviting validated cohort participants to early sandboxed alpha applications if threshold demand is validated.
                 </p>
@@ -755,7 +755,7 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
               <span>Awareness intelligence without surveillance</span>
             </div>
             <h2 className="font-sans font-extrabold text-3xl md:text-4xl text-white tracking-tight leading-tight drop-shadow-md">
-              Built around Canadian driving realities
+              Core Overarching Principles
             </h2>
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
               Many safety tools focus on vehicle data, tracking, or insurance-style monitoring. Astrateq Gadgets is exploring a different approach: a software-based awareness simulation that helps Canadian drivers understand fatigue exposure, attention patterns, road conditions, and privacy-first safety behavior.
