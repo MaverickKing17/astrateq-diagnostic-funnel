@@ -7,7 +7,7 @@ interface HeaderProps {
 
 export default function Header({ onReset, onOpenAbout }: HeaderProps) {
   return (
-    <header className="sticky top-0 z-50 backdrop-blur-md bg-white/90 border-b border-slate-200 shadow-sm px-4 py-2.5 transition-all">
+    <header className="sticky top-0 left-0 right-0 w-full z-50 backdrop-blur-md bg-white/95 border-b border-slate-200 shadow-sm px-4 py-2.5 transition-all">
       <div className="max-w-5xl mx-auto flex items-center justify-between">
         {/* Brand Logo & Title */}
         <button 
