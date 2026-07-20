@@ -73,8 +73,43 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
           />
         </div>
         
-        {/* Darkened gradient overlay scrim for perfect legibility and contrast */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-slate-950/90 z-0" />
+        {/* Darkened gradient overlay scrim - stronger bg-black/80 on mobile for Clean Focus, standard gradient on desktop */}
+        <div className="absolute inset-0 bg-black/80 md:bg-gradient-to-b md:from-black/70 md:via-black/50 md:to-slate-950/90 z-0" />
+
+        {/* Left Side HUD Telemetry Overlay - Cleanly Hidden on Mobile */}
+        <div className="hidden md:flex absolute left-8 top-[28%] z-10 flex-col gap-4 p-4 rounded-2xl bg-slate-950/75 backdrop-blur-md border border-white/10 text-left font-mono text-xs text-sky-400 shadow-xl w-52 animate-fadeIn" id="hud_telemetry_left">
+          <div className="text-[10px] uppercase text-sky-500/70 border-b border-white/10 pb-1 font-bold tracking-wider">SYSTEM TELEMETRY</div>
+          <div>
+            <span className="text-white font-semibold">COGNITIVE_LOAD</span>
+            <div className="w-full bg-slate-800 h-1.5 rounded-full mt-1.5 overflow-hidden">
+              <div className="bg-sky-400 h-full rounded-full" style={{ width: '42%' }}></div>
+            </div>
+            <div className="flex justify-between text-[9px] mt-1 text-slate-400">
+              <span>42% (OPTIMAL)</span>
+            </div>
+          </div>
+          <div>
+            <span className="text-white font-semibold">REFLEX_TIME</span>
+            <div className="text-lg font-bold text-white mt-0.5">180ms</div>
+            <div className="text-[9px] text-slate-400 uppercase tracking-wider">AVERAGE RESPONSE</div>
+          </div>
+        </div>
+
+        {/* Right Side HUD Telemetry Overlay - Cleanly Hidden on Mobile */}
+        <div className="hidden md:flex absolute right-8 top-[28%] z-10 flex-col items-center gap-2 p-4 rounded-2xl bg-slate-950/75 backdrop-blur-md border border-white/10 font-mono text-xs text-emerald-400 shadow-xl w-52 animate-fadeIn" id="hud_telemetry_right">
+          <div className="text-[10px] uppercase text-emerald-500/70 border-b border-white/10 pb-1 font-bold w-full text-center tracking-wider">AWARENESS PROFILE</div>
+          <div className="relative w-20 h-20 flex items-center justify-center mt-2">
+            <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="40" stroke="rgba(255,255,255,0.05)" strokeWidth="8" fill="transparent" />
+              <circle cx="50" cy="50" r="40" stroke="#10b981" strokeWidth="8" fill="transparent" strokeDasharray={251.2} strokeDashoffset={251.2 * (1 - 0.87)} />
+            </svg>
+            <div className="absolute flex flex-col items-center">
+              <span className="text-lg font-bold text-white">87%</span>
+              <span className="text-[7px] text-slate-400 uppercase tracking-widest">READINESS</span>
+            </div>
+          </div>
+          <div className="text-[9px] text-slate-300 text-center mt-1 uppercase tracking-wider">SIMULATED BASELINE</div>
+        </div>
 
         {/* Content floats directly over the background image */}
         <div className="relative max-w-5xl w-full mx-auto z-10 text-center space-y-6 sm:space-y-8 px-4 py-8">
@@ -90,8 +125,8 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
           </div>
 
           {/* Scenic Overlay Linear-gradient scrim background for pristine text contrast */}
-          <div className="bg-slate-950/80 backdrop-blur-sm rounded-3xl p-6 sm:p-8 md:p-10 border border-white/10 max-w-4xl mx-auto space-y-5 sm:space-y-6 shadow-2xl">
-            <h1 className="font-sans font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white tracking-tight leading-[1.12] max-w-4xl mx-auto">
+          <div className="w-[94%] sm:w-full mx-auto bg-[#070f22]/95 md:bg-slate-950/80 backdrop-blur-sm rounded-3xl p-5 sm:p-8 md:p-10 border border-white/10 max-w-4xl space-y-5 sm:space-y-6 shadow-2xl" id="central_hero_text_card">
+            <h1 className="font-sans font-extrabold text-2xl sm:text-3.5xl md:text-5xl lg:text-6xl text-white tracking-tight leading-[1.15] max-w-4xl mx-auto">
               Check your <span className="text-sky-500 font-black">Driver Awareness Readiness</span> in 60 seconds.
             </h1>
 
@@ -99,18 +134,18 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
               <p className="text-slate-100 text-sm sm:text-base md:text-lg leading-relaxed font-medium drop-shadow-[0_2px_10px_rgba(0,0,0,0.85)]">
                 Answer a few quick questions to receive a simulated Driver Awareness Score, Fatigue Risk Awareness Profile, and Research Cohort Classification — without vehicle tracking, insurance scoring, or hardware.
               </p>
-              <div className="pt-3.5 border-t border-white/10 text-cyan-200 text-xs sm:text-sm font-semibold tracking-wide leading-relaxed">
+              <div className="pt-3 border-t border-white/15 text-cyan-200 text-[11px] sm:text-xs md:text-sm font-semibold tracking-wide leading-relaxed px-1 sm:px-2">
                 📢 <strong>Market Validation Initiative:</strong> This is a market validation initiative. We're exploring whether Canadian drivers see value in a privacy-first driver awareness platform before investing in full product development.
               </div>
             </div>
           </div>
 
           {/* Primary & Secondary CTA Block */}
-          <div className="space-y-4 pt-4 max-w-2xl mx-auto">
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="space-y-4 pt-2 max-w-2xl mx-auto w-full px-2 sm:px-0">
+            <div className="flex flex-col w-full space-y-3 md:flex-row md:space-y-0 md:space-x-4 justify-center items-center">
               <button
                 onClick={onStartDiagnostic}
-                className="w-full sm:w-auto inline-flex items-center justify-center px-10 py-5 bg-gradient-to-r from-[#0ea5e9] via-[#0284c7] to-cyan-500 hover:from-[#38bdf8] hover:to-[#0284c7] text-white font-extrabold text-xl rounded-2xl shadow-[0_0_40px_rgba(14,165,233,0.35)] hover:shadow-[0_0_50px_rgba(56,189,248,0.5)] hover:-translate-y-0.5 active:translate-y-0 active:scale-98 transition-all duration-200 cursor-pointer border border-cyan-400/30 group"
+                className="w-full md:w-auto inline-flex items-center justify-center px-6 md:px-10 py-4 md:py-5 bg-gradient-to-r from-[#0ea5e9] via-[#0284c7] to-cyan-500 hover:from-[#38bdf8] hover:to-[#0284c7] text-white font-extrabold text-lg md:text-xl rounded-2xl shadow-[0_0_40px_rgba(14,165,233,0.35)] hover:shadow-[0_0_50px_rgba(56,189,248,0.5)] hover:-translate-y-0.5 active:translate-y-0 active:scale-98 transition-all duration-200 cursor-pointer border border-cyan-400/30 group"
                 id="hero_diagnostic_cta"
               >
                 <span>Start Awareness Simulation</span>
@@ -123,7 +158,7 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
                     el.scrollIntoView({ behavior: 'smooth' });
                   }
                 }}
-                className="w-full sm:w-auto inline-flex items-center justify-center px-10 py-5 bg-[#0284c7] hover:bg-[#0270a9] border border-[#03a9f4]/20 text-white font-bold text-xl rounded-2xl shadow-[0_4px_16px_rgba(2,132,199,0.4)] hover:shadow-[0_8px_24px_rgba(2,132,199,0.5)] hover:-translate-y-0.5 active:translate-y-0 active:scale-98 transition-all duration-200 cursor-pointer group"
+                className="w-full md:w-auto inline-flex items-center justify-center px-6 md:px-10 py-4 md:py-5 bg-[#0284c7] hover:bg-[#0270a9] border border-[#03a9f4]/20 text-white font-bold text-lg md:text-xl rounded-2xl shadow-[0_4px_16px_rgba(2,132,199,0.4)] hover:shadow-[0_8px_24px_rgba(2,132,199,0.5)] hover:-translate-y-0.5 active:translate-y-0 active:scale-98 transition-all duration-200 cursor-pointer group"
                 id="hero_how_it_works_cta"
               >
                 <span>How It Works</span>

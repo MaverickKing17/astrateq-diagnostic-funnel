@@ -25,7 +25,7 @@ import CohortReservationView from './components/CohortReservationView';
 import InfoModal, { InfoTabType } from './components/InfoModal';
 
 import commuteImage from './assets/images/toronto_gta_commute_1782319738788.jpg';
-import heroBgImage from './assets/images/driver_awareness_hud_1782853766018.jpg';
+import heroBgImage from './assets/images/canadian_road_hero_1782319723620.jpg';
 
 export default function App() {
   const [currentStep, setCurrentStep] = useState<'landing' | 'quiz' | 'calculating' | 'preliminary' | 'full' | 'reservation'>('landing');
@@ -38,7 +38,7 @@ export default function App() {
   const [infoModalTab, setInfoModalTab] = useState<InfoTabType | null>(null);
 
   // Asset paths from generated images
-  const heroImage = "https://i.ibb.co/wZZ5C29C/Gemini-Generated-Image-cl9hrqcl9hrqcl9h.png";
+  const heroImage = heroBgImage;
   const ctaImage = "https://i.ibb.co/yFr9sMwv/Jun-24-2026-03-12-49-PM.png";
 
   // Initialize Google Analytics on mount
