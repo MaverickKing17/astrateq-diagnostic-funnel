@@ -25,9 +25,14 @@ import {
   Activity,
   Layers,
   Sparkles,
-  FileText
+  FileText,
+  X,
+  Info,
+  Sliders,
+  Check,
+  ExternalLink
 } from 'lucide-react';
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 import visionShieldInCar from '../assets/images/vision_shield_in_car_1782845622070.jpg';
 import auraDialInCar from '../assets/images/aura_dial_in_car_1782845633915.jpg';
 
@@ -42,6 +47,8 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
   const [activeFaqIdx, setActiveFaqIdx] = useState<number | null>(0);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [showStickyBar, setShowStickyBar] = useState(false);
+  const [activeConceptModal, setActiveConceptModal] = useState<null | 'vision' | 'aura'>(null);
+  const [conceptFeedbackRecorded, setConceptFeedbackRecorded] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -269,45 +276,49 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             
             {/* Card 1: Distracted Driving */}
-            <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-4 hover:border-sky-300 transition-all duration-200 text-left">
-              <div className="w-12 h-12 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center font-bold">
+            <div className="group p-7 rounded-2xl bg-gradient-to-br from-white to-slate-50/80 border border-slate-200/90 hover:border-sky-400 shadow-md hover:shadow-xl hover:shadow-sky-500/10 hover:-translate-y-1 transition-all duration-300 text-left relative overflow-hidden">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-sky-400 to-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="w-12 h-12 rounded-xl bg-sky-100/80 text-sky-700 flex items-center justify-center font-bold shadow-xs">
                 <Eye className="w-6 h-6" />
               </div>
-              <h3 className="font-sans font-bold text-xl text-slate-900">Distracted Driving Lapses</h3>
-              <p className="text-sm text-slate-600 leading-relaxed">
+              <h3 className="font-sans font-extrabold text-xl text-slate-900 pt-3 group-hover:text-sky-700 transition-colors">Distracted Driving Lapses</h3>
+              <p className="text-sm text-slate-600 leading-relaxed font-normal pt-1">
                 Brief shifts in attention, dashboard screen interactions, and smartphone notifications create blind windows where reaction times double during critical braking moments.
               </p>
             </div>
 
             {/* Card 2: Driver Fatigue */}
-            <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-4 hover:border-amber-300 transition-all duration-200 text-left">
-              <div className="w-12 h-12 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold">
+            <div className="group p-7 rounded-2xl bg-gradient-to-br from-white to-slate-50/80 border border-slate-200/90 hover:border-amber-400 shadow-md hover:shadow-xl hover:shadow-amber-500/10 hover:-translate-y-1 transition-all duration-300 text-left relative overflow-hidden">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-400 to-orange-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="w-12 h-12 rounded-xl bg-amber-100/80 text-amber-700 flex items-center justify-center font-bold shadow-xs">
                 <AlertTriangle className="w-6 h-6" />
               </div>
-              <h3 className="font-sans font-bold text-xl text-slate-900">Driver Fatigue & Sleepiness</h3>
-              <p className="text-sm text-slate-600 leading-relaxed">
+              <h3 className="font-sans font-extrabold text-xl text-slate-900 pt-3 group-hover:text-amber-700 transition-colors">Driver Fatigue & Sleepiness</h3>
+              <p className="text-sm text-slate-600 leading-relaxed font-normal pt-1">
                 Circadian fatigue dips during late night drives, early morning commutes, and repetitive highway stretches gradually reduce awareness without the driver realizing it.
               </p>
             </div>
 
             {/* Card 3: Cognitive Overload */}
-            <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-4 hover:border-indigo-300 transition-all duration-200 text-left">
-              <div className="w-12 h-12 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold">
+            <div className="group p-7 rounded-2xl bg-gradient-to-br from-white to-slate-50/80 border border-slate-200/90 hover:border-indigo-400 shadow-md hover:shadow-xl hover:shadow-indigo-500/10 hover:-translate-y-1 transition-all duration-300 text-left relative overflow-hidden">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-indigo-400 to-violet-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="w-12 h-12 rounded-xl bg-indigo-100/80 text-indigo-700 flex items-center justify-center font-bold shadow-xs">
                 <Activity className="w-6 h-6" />
               </div>
-              <h3 className="font-sans font-bold text-xl text-slate-900">Cognitive Overload</h3>
-              <p className="text-sm text-slate-600 leading-relaxed">
+              <h3 className="font-sans font-extrabold text-xl text-slate-900 pt-3 group-hover:text-indigo-700 transition-colors">Cognitive Overload</h3>
+              <p className="text-sm text-slate-600 leading-relaxed font-normal pt-1">
                 Navigating dense metropolitan traffic, high-speed highway merging, and construction zones places heavy processing demands on brain attention reserves.
               </p>
             </div>
 
             {/* Card 4: Changing Canadian Conditions */}
-            <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-4 hover:border-teal-300 transition-all duration-200 text-left">
-              <div className="w-12 h-12 rounded-xl bg-teal-100 text-teal-700 flex items-center justify-center font-bold">
+            <div className="group p-7 rounded-2xl bg-gradient-to-br from-white to-slate-50/80 border border-slate-200/90 hover:border-teal-400 shadow-md hover:shadow-xl hover:shadow-teal-500/10 hover:-translate-y-1 transition-all duration-300 text-left relative overflow-hidden">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-teal-400 to-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="w-12 h-12 rounded-xl bg-teal-100/80 text-teal-700 flex items-center justify-center font-bold shadow-xs">
                 <CloudSnow className="w-6 h-6" />
               </div>
-              <h3 className="font-sans font-bold text-xl text-slate-900">Changing Canadian Weather</h3>
-              <p className="text-sm text-slate-600 leading-relaxed">
+              <h3 className="font-sans font-extrabold text-xl text-slate-900 pt-3 group-hover:text-teal-700 transition-colors">Changing Canadian Weather</h3>
+              <p className="text-sm text-slate-600 leading-relaxed font-normal pt-1">
                 Snow squalls, sudden ice glare, heavy rain, and early winter darkness demand heightened vigilance precisely when driver fatigue is at its peak.
               </p>
             </div>
@@ -646,54 +657,161 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
           </div>
 
           {/* Secondary Physical Accessories Preview (Contextual Future Concept) */}
-          <div className="p-8 rounded-3xl bg-[#091122] text-white border border-slate-800 space-y-6 text-left">
-            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b border-slate-800 pb-4">
-              <div>
-                <span className="text-[10px] font-mono text-sky-400 uppercase font-bold tracking-wider block">
-                  Future Pipeline Concept
-                </span>
-                <h3 className="font-sans font-extrabold text-2xl text-white">
+          <div className="relative p-8 sm:p-10 rounded-3xl bg-gradient-to-b from-[#0a152e] via-[#081024] to-[#050a18] text-white border border-sky-500/35 shadow-[0_25px_60px_rgba(7,15,34,0.35)] space-y-8 text-left overflow-hidden group/container">
+            
+            {/* Top illuminated gradient accent bar */}
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-sky-500 via-cyan-400 to-teal-400" />
+            
+            {/* Soft ambient background radial glows */}
+            <div className="absolute -top-32 -right-32 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
+
+            {/* Header Block */}
+            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b border-slate-800/80 pb-5 relative z-10">
+              <div className="space-y-1">
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-sky-400 animate-pulse"></span>
+                  <span className="text-[11px] font-mono text-sky-400 uppercase font-bold tracking-widest">
+                    FUTURE PIPELINE CONCEPT
+                  </span>
+                </div>
+                <h3 className="font-sans font-extrabold text-2xl sm:text-3xl text-white tracking-tight">
                   Future Privacy-First Physical Accessories
                 </h3>
               </div>
-              <span className="text-xs font-mono bg-sky-950 text-sky-400 px-3 py-1 rounded-full border border-sky-800/60 font-bold">
-                100% Offline Edge Processing
-              </span>
+              <div className="inline-flex items-center gap-2 text-xs font-mono bg-sky-950/80 text-sky-300 px-3.5 py-1.5 rounded-full border border-sky-500/30 font-bold shadow-xs">
+                <Cpu className="w-3.5 h-3.5 text-sky-400" />
+                <span>100% Offline Edge Processing</span>
+              </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Accessories 2-Card Grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 relative z-10">
               
-              <div className="flex items-start gap-4 p-4 rounded-xl bg-slate-900/60 border border-slate-800">
-                <img 
-                  src={visionShieldInCar} 
-                  alt="Astrateq Vision Shield concept" 
-                  className="w-20 h-20 rounded-lg object-cover border border-slate-700 shrink-0"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="space-y-1">
-                  <h4 className="font-bold text-white text-base">Astrateq Vision Shield™</h4>
-                  <p className="text-xs text-slate-300 leading-relaxed">
-                    A conceptual visor-mounted head-up display projecting non-intrusive focus cues during long highway commutes.
-                  </p>
+              {/* Card 1: Astrateq Vision Shield */}
+              <div className="group relative p-6 rounded-2xl bg-gradient-to-br from-[#0e1b38]/90 via-[#0a142c] to-[#070e20] border border-sky-500/30 hover:border-sky-400/80 shadow-2xl shadow-slate-950/70 hover:shadow-sky-500/20 transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between overflow-hidden">
+                <div className="space-y-4">
+                  
+                  {/* Visual Image Showcase Frame */}
+                  <div className="relative w-full h-48 sm:h-52 rounded-xl overflow-hidden border border-slate-700/80 group-hover:border-sky-400/50 transition-colors shadow-md">
+                    <img 
+                      src={visionShieldInCar} 
+                      alt="Astrateq Vision Shield concept" 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      referrerPolicy="no-referrer"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#070e20] via-transparent to-black/30" />
+                    <div className="absolute top-3 left-3 bg-slate-950/85 backdrop-blur-md text-sky-300 px-3 py-1 rounded-lg text-[10px] font-mono font-bold border border-white/10 flex items-center gap-1.5 shadow-sm">
+                      <Eye className="w-3 h-3 text-sky-400" />
+                      <span>Visor-Mounted HUD</span>
+                    </div>
+                  </div>
+
+                  {/* Content Header & Specs */}
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between">
+                      <h4 className="font-sans font-extrabold text-white text-xl group-hover:text-sky-300 transition-colors">
+                        Astrateq Vision Shield™
+                      </h4>
+                      <span className="text-[10px] font-mono text-emerald-400 bg-emerald-950/80 px-2.5 py-0.5 rounded-full border border-emerald-500/30">
+                        Concept Phase
+                      </span>
+                    </div>
+
+                    {/* Spec Tags */}
+                    <div className="flex flex-wrap gap-2 text-[10px] font-mono text-slate-300 pt-1">
+                      <span className="bg-slate-800/90 px-2.5 py-1 rounded-md border border-slate-700">HUD Projection</span>
+                      <span className="bg-slate-800/90 px-2.5 py-1 rounded-md border border-slate-700">Zero Distraction</span>
+                      <span className="bg-slate-800/90 px-2.5 py-1 rounded-md border border-slate-700">Edge AI</span>
+                    </div>
+
+                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal pt-1">
+                      A conceptual visor-mounted head-up display projecting non-intrusive focus cues during long highway commutes — maintaining zero camera streaming or cloud upload.
+                    </p>
+                  </div>
+
                 </div>
+
+                {/* Card Action Button */}
+                <div className="pt-5 mt-4 border-t border-slate-800/80 flex items-center justify-between">
+                  <span className="text-[11px] text-slate-400 font-mono">Research Spec Brief</span>
+                  <button
+                    onClick={() => {
+                      setActiveConceptModal('vision');
+                      setConceptFeedbackRecorded(false);
+                    }}
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-sky-400 hover:text-sky-300 bg-sky-950/60 hover:bg-sky-900/80 px-3.5 py-2 rounded-xl border border-sky-500/30 transition-all cursor-pointer"
+                  >
+                    <span>Explore Concept Spec</span>
+                    <ChevronRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+
               </div>
 
-              <div className="flex items-start gap-4 p-4 rounded-xl bg-slate-900/60 border border-slate-800">
-                <img 
-                  src={auraDialInCar} 
-                  alt="Astrateq Aura Dial concept" 
-                  className="w-20 h-20 rounded-lg object-cover border border-slate-700 shrink-0"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="space-y-1">
-                  <h4 className="font-bold text-white text-base">Astrateq Aura Dial™</h4>
-                  <p className="text-xs text-slate-300 leading-relaxed">
-                    A conceptual ambient console emitting soft light pulses calibrated to circadian fatigue periods.
-                  </p>
+              {/* Card 2: Astrateq Aura Dial */}
+              <div className="group relative p-6 rounded-2xl bg-gradient-to-br from-[#0e1b38]/90 via-[#0a142c] to-[#070e20] border border-sky-500/30 hover:border-sky-400/80 shadow-2xl shadow-slate-950/70 hover:shadow-sky-500/20 transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between overflow-hidden">
+                <div className="space-y-4">
+                  
+                  {/* Visual Image Showcase Frame */}
+                  <div className="relative w-full h-48 sm:h-52 rounded-xl overflow-hidden border border-slate-700/80 group-hover:border-sky-400/50 transition-colors shadow-md">
+                    <img 
+                      src={auraDialInCar} 
+                      alt="Astrateq Aura Dial concept" 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      referrerPolicy="no-referrer"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#070e20] via-transparent to-black/30" />
+                    <div className="absolute top-3 left-3 bg-slate-950/85 backdrop-blur-md text-amber-300 px-3 py-1 rounded-lg text-[10px] font-mono font-bold border border-white/10 flex items-center gap-1.5 shadow-sm">
+                      <Zap className="w-3 h-3 text-amber-400" />
+                      <span>Console Light Pulse Dial</span>
+                    </div>
+                  </div>
+
+                  {/* Content Header & Specs */}
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between">
+                      <h4 className="font-sans font-extrabold text-white text-xl group-hover:text-amber-300 transition-colors">
+                        Astrateq Aura Dial™
+                      </h4>
+                      <span className="text-[10px] font-mono text-emerald-400 bg-emerald-950/80 px-2.5 py-0.5 rounded-full border border-emerald-500/30">
+                        Concept Phase
+                      </span>
+                    </div>
+
+                    {/* Spec Tags */}
+                    <div className="flex flex-wrap gap-2 text-[10px] font-mono text-slate-300 pt-1">
+                      <span className="bg-slate-800/90 px-2.5 py-1 rounded-md border border-slate-700">Ambient Console</span>
+                      <span className="bg-slate-800/90 px-2.5 py-1 rounded-md border border-slate-700">Circadian Sync</span>
+                      <span className="bg-slate-800/90 px-2.5 py-1 rounded-md border border-slate-700">Tactile Dial</span>
+                    </div>
+
+                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal pt-1">
+                      A conceptual ambient console emitting soft light pulses calibrated to circadian fatigue periods — helping drivers stay gently alert during late-night Canadian highway drives.
+                    </p>
+                  </div>
+
                 </div>
+
+                {/* Card Action Button */}
+                <div className="pt-5 mt-4 border-t border-slate-800/80 flex items-center justify-between">
+                  <span className="text-[11px] text-slate-400 font-mono">Research Spec Brief</span>
+                  <button
+                    onClick={() => {
+                      setActiveConceptModal('aura');
+                      setConceptFeedbackRecorded(false);
+                    }}
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-400 hover:text-amber-300 bg-amber-950/60 hover:bg-amber-900/80 px-3.5 py-2 rounded-xl border border-amber-500/30 transition-all cursor-pointer"
+                  >
+                    <span>Explore Concept Spec</span>
+                    <ChevronRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+
               </div>
 
             </div>
+
           </div>
 
         </div>
@@ -845,6 +963,100 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
           <ArrowUp className="w-5 h-5 text-white" />
         </motion.button>
       )}
+
+      {/* Concept Specification Research Modal */}
+      <AnimatePresence>
+        {activeConceptModal && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 10 }}
+              className="relative w-full max-w-2xl bg-[#0a1428] text-white rounded-3xl border border-sky-500/40 shadow-2xl overflow-hidden p-6 sm:p-8 space-y-6 text-left max-h-[90vh] overflow-y-auto"
+            >
+              {/* Close Button */}
+              <button
+                onClick={() => setActiveConceptModal(null)}
+                className="absolute top-5 right-5 p-2 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors cursor-pointer"
+                aria-label="Close modal"
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              {/* Modal Image Header */}
+              <div className="relative w-full h-56 rounded-2xl overflow-hidden border border-slate-700 shadow-lg">
+                <img
+                  src={activeConceptModal === 'vision' ? visionShieldInCar : auraDialInCar}
+                  alt={activeConceptModal === 'vision' ? "Astrateq Vision Shield" : "Astrateq Aura Dial"}
+                  className="w-full h-full object-cover"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0a1428] via-transparent to-black/30" />
+                <div className="absolute bottom-4 left-4 bg-slate-950/85 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-white/10 text-xs font-mono font-bold text-sky-300">
+                  {activeConceptModal === 'vision' ? 'Visor-Mounted HUD Specification' : 'Console Ambient Light Dial Specification'}
+                </div>
+              </div>
+
+              {/* Modal Content */}
+              <div className="space-y-3">
+                <span className="text-[10px] font-mono uppercase text-sky-400 font-bold tracking-wider">
+                  Canadian Research Concept Brief
+                </span>
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
+                  {activeConceptModal === 'vision' ? 'Astrateq Vision Shield™' : 'Astrateq Aura Dial™'}
+                </h3>
+                <p className="text-sm text-slate-300 leading-relaxed font-normal">
+                  {activeConceptModal === 'vision' 
+                    ? 'A conceptual visor-mounted optical HUD engineered to project subtle, non-distracting awareness indicators directly into the driver peripheral line of sight without requiring screen glance down.'
+                    : 'A conceptual tactile console accessory engineered to emit soft, circadian-calibrated light pulses during late-evening highway commutes to preserve alertness without glare or eye strain.'}
+                </p>
+              </div>
+
+              {/* Research Spec Highlights */}
+              <div className="p-4 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-2.5 text-xs">
+                <span className="font-mono font-bold text-sky-400 uppercase tracking-wider block">
+                  Core Engineering Principles
+                </span>
+                <ul className="space-y-2 text-slate-300">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                    <span><strong>100% Offline Edge Chipset:</strong> Operates entirely offline with zero cloud server communication.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                    <span><strong>Privacy Protection:</strong> Zero video recording, zero GPS tracking, zero insurance telematics logs.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                    <span><strong>Canadian Climate Tested:</strong> Calibrated for winter glare, heavy snowfall contrast, and night highway conditions.</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Research Feedback Trigger */}
+              <div className="pt-2 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="text-xs text-slate-400">
+                  Would you be interested in testing this physical prototype in future research phases?
+                </div>
+                {conceptFeedbackRecorded ? (
+                  <div className="px-4 py-2 bg-emerald-950 text-emerald-300 rounded-xl border border-emerald-500/30 text-xs font-bold flex items-center gap-1.5 shrink-0">
+                    <Check className="w-4 h-4 text-emerald-400" />
+                    <span>Interest Noted — Thank You!</span>
+                  </div>
+                ) : (
+                  <button
+                    onClick={() => setConceptFeedbackRecorded(true)}
+                    className="px-4 py-2 bg-sky-500 hover:bg-sky-400 text-white rounded-xl text-xs font-bold transition-all shrink-0 cursor-pointer shadow-md"
+                  >
+                    Yes, I'd test this prototype
+                  </button>
+                )}
+              </div>
+
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
 
     </div>
   );
