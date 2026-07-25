@@ -222,11 +222,11 @@ export default function PreliminaryView({ result, onSubmitEmail, onTrackEvent }:
                       type="submit"
                       disabled={isSubmitting}
                       id="send_full_results_btn"
-                      className="w-full bg-gradient-to-r from-brand-primary to-brand-secondary hover:from-[#38bdf8] hover:to-brand-primary text-white font-extrabold py-4 rounded-xl transition-all shadow-lg shadow-brand-primary/20 hover:shadow-brand-primary/45 text-sm uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer border border-cyan-400/20 active:scale-98"
+                      className="w-full bg-yellow-400 hover:bg-yellow-300 text-slate-950 font-black py-4 rounded-xl transition-all shadow-[0_0_25px_rgba(250,204,21,0.5)] hover:shadow-[0_0_35px_rgba(250,204,21,0.8)] text-sm uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer border-2 border-yellow-200 active:scale-98"
                     >
                       {isSubmitting ? (
                         <>
-                          <svg className="animate-spin h-4 w-4 text-white shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                          <svg className="animate-spin h-4 w-4 text-slate-950 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                             <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                             <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                           </svg>
@@ -234,7 +234,7 @@ export default function PreliminaryView({ result, onSubmitEmail, onTrackEvent }:
                         </>
                       ) : (
                         <>
-                          <ShieldCheck className="w-4.5 h-4.5" />
+                          <ShieldCheck className="w-4.5 h-4.5 text-slate-950 stroke-[2.5]" />
                           <span>Unlock Report & Reserve Slot</span>
                         </>
                       )}

@@ -596,11 +596,11 @@ export default function FullResultView({
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               onClick={() => handleCtaClick('bottom_scenic_cta')}
-              className="px-7 py-3.5 bg-gradient-to-r from-brand-primary to-brand-secondary text-white font-bold text-sm sm:text-base rounded-xl shadow-lg hover:opacity-95 transition-all flex items-center gap-2 cursor-pointer w-full sm:w-auto justify-center group"
+              className="px-7 py-3.5 bg-yellow-400 hover:bg-yellow-300 text-slate-950 font-black text-sm sm:text-base rounded-xl shadow-[0_0_25px_rgba(250,204,21,0.6)] hover:shadow-[0_0_35px_rgba(250,204,21,0.9)] transition-all flex items-center gap-2 cursor-pointer w-full sm:w-auto justify-center group uppercase tracking-wide border-2 border-yellow-200"
               id="reserve_access_bottom_btn"
             >
               <span>Continue to Research Cohort Entry</span>
-              <ArrowRight className="w-5.5 h-5.5 transition-transform group-hover:translate-x-0.5" />
+              <ArrowRight className="w-5.5 h-5.5 text-slate-950 stroke-[3] transition-transform group-hover:translate-x-0.5" />
             </button>
 
             <button

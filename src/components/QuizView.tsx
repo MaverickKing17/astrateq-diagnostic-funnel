@@ -181,53 +181,59 @@ export default function QuizView({ onComplete, onBackToLanding, onTrackEvent }: 
                 <motion.button
                   key={option.id}
                   onClick={() => handleSelectOption(option.id)}
-                  whileHover={{ y: -3, scale: 1.008 }}
-                  whileTap={{ scale: 0.992 }}
-                  transition={{ duration: 0.2, ease: "easeOut" }}
-                  className={`relative group p-4 sm:p-5 rounded-2xl border text-left flex items-start gap-4 cursor-pointer transition-all duration-200 overflow-hidden ${
+                  whileHover={{ y: -2, scale: 1.008 }}
+                  whileTap={{ scale: 0.99 }}
+                  transition={{ duration: 0.18, ease: "easeOut" }}
+                  className={`relative group p-4 sm:p-5 rounded-2xl border text-left flex items-center gap-4 cursor-pointer transition-all duration-200 overflow-hidden ${
                     isSelected 
-                      ? 'bg-gradient-to-r from-[#0d2a52] via-[#0a2040] to-[#07162e] border-sky-400 shadow-[0_12px_36px_rgba(14,165,233,0.25)] ring-1 ring-sky-400/50' 
-                      : 'bg-gradient-to-r from-[#101b30] to-[#0c1527] border-slate-700/80 hover:border-sky-400/70 hover:bg-gradient-to-r hover:from-[#132342] hover:to-[#0f1d36] shadow-[0_6px_20px_rgba(0,0,0,0.25)] hover:shadow-[0_14px_32px_rgba(14,165,233,0.15)]'
+                      ? 'bg-gradient-to-r from-[#0d3468] via-[#0a2852] to-[#071c3c] border-sky-400 shadow-[0_12px_40px_rgba(14,165,233,0.35)] ring-2 ring-sky-400/60' 
+                      : 'bg-gradient-to-r from-[#112142]/95 via-[#0e1b36]/95 to-[#0a1429]/95 border-slate-700/90 hover:border-sky-400/80 hover:bg-gradient-to-r hover:from-[#152a54] hover:to-[#112142] shadow-[0_6px_22px_rgba(0,0,0,0.3)] hover:shadow-[0_12px_32px_rgba(14,165,233,0.2)]'
                   }`}
                   id={`q${currentQuestion.id}_opt_${option.id}`}
                 >
                   {/* Left-side active selection glowing bar */}
                   {isSelected && (
-                    <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-sky-400 to-cyan-400 rounded-l-2xl shadow-[0_0_12px_#38bdf8]" />
+                    <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-sky-300 via-cyan-400 to-indigo-500 shadow-[0_0_14px_#38bdf8]" />
                   )}
 
                   {/* Left Side Icon Column */}
-                  <div className={`p-2.5 rounded-xl shrink-0 transition-all duration-200 ${
+                  <div className={`p-3 rounded-xl shrink-0 transition-all duration-200 flex items-center justify-center ${
                     isSelected 
-                      ? 'bg-gradient-to-br from-sky-400 via-sky-500 to-blue-600 text-white shadow-[0_4px_16px_rgba(14,165,233,0.5)] scale-105' 
-                      : 'bg-slate-900/90 border border-slate-700/80 text-slate-300 group-hover:text-white group-hover:bg-slate-800 group-hover:border-sky-400/40 shadow-xs'
+                      ? 'bg-gradient-to-br from-sky-400 via-cyan-400 to-blue-600 text-slate-950 font-bold shadow-[0_0_18px_rgba(56,189,248,0.7)] scale-110 ring-2 ring-sky-300/50' 
+                      : 'bg-[#0a162d] border border-sky-500/25 text-sky-400 group-hover:text-white group-hover:bg-sky-950/80 group-hover:border-sky-400/60 shadow-xs group-hover:scale-105'
                   }`}>
                     {getOptionIcon(option.id)}
                   </div>
 
                   {/* Text Column */}
-                  <div className="flex-1 min-w-0">
-                    <span className={`font-bold block text-base sm:text-lg leading-tight transition-colors ${
-                      isSelected ? 'text-sky-300' : 'text-slate-100 group-hover:text-white'
-                    }`}>
-                      {option.text}
-                    </span>
+                  <div className="flex-1 min-w-0 pr-2">
+                    <div className="flex items-center gap-2">
+                      <span className={`font-extrabold block text-base sm:text-lg leading-tight transition-colors ${
+                        isSelected ? 'text-white' : 'text-slate-100 group-hover:text-sky-300'
+                      }`}>
+                        {option.text}
+                      </span>
+                    </div>
                     {option.subtext && (
-                      <span className={`text-xs sm:text-sm block mt-1.5 leading-relaxed transition-colors ${
-                        isSelected ? 'text-slate-200 font-medium' : 'text-slate-300 group-hover:text-slate-200'
+                      <span className={`text-xs sm:text-sm block mt-1 leading-relaxed transition-colors ${
+                        isSelected ? 'text-sky-100 font-medium' : 'text-slate-300 group-hover:text-slate-200'
                       }`}>
                         {option.subtext}
                       </span>
                     )}
                   </div>
 
-                  {/* Radio indicator */}
-                  <div className={`w-5 h-5 rounded-full border-2 shrink-0 flex items-center justify-center transition-all ${
+                  {/* Radio / Check indicator */}
+                  <div className={`w-6 h-6 rounded-full border-2 shrink-0 flex items-center justify-center transition-all ${
                     isSelected 
-                      ? 'border-sky-400 bg-sky-500 ring-4 ring-sky-950/60 shadow-[0_2px_10px_rgba(14,165,233,0.5)]' 
-                      : 'border-slate-600 bg-slate-900 group-hover:border-sky-400/80 shadow-xs'
+                      ? 'border-sky-300 bg-gradient-to-br from-sky-400 to-cyan-400 shadow-[0_0_15px_rgba(56,189,248,0.8)] scale-105' 
+                      : 'border-slate-600/90 bg-[#061022] group-hover:border-sky-400 group-hover:shadow-[0_0_10px_rgba(56,189,248,0.3)]'
                   }`}>
-                    {isSelected && <div className="w-2.5 h-2.5 rounded-full bg-white scale-110" />}
+                    {isSelected ? (
+                      <CheckCircle2 className="w-4 h-4 text-slate-950 stroke-[3]" />
+                    ) : (
+                      <div className="w-2 h-2 rounded-full bg-slate-700 group-hover:bg-sky-400/80 transition-colors" />
+                    )}
                   </div>
                 </motion.button>
               );
@@ -249,15 +255,15 @@ export default function QuizView({ onComplete, onBackToLanding, onTrackEvent }: 
           <button
             onClick={handleNext}
             disabled={!selectedOptionId}
-            className={`flex-1 py-3 px-6 rounded-xl font-semibold text-sm cursor-pointer transition-all duration-200 flex items-center justify-center gap-2 ${
+            className={`flex-1 py-3.5 px-6 rounded-xl font-black text-sm uppercase tracking-wide transition-all duration-200 flex items-center justify-center gap-2 ${
               selectedOptionId
-                ? 'bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white shadow-[0_4px_14px_rgba(14,165,233,0.4)] hover:shadow-[0_6px_20px_rgba(14,165,233,0.55)] hover:-translate-y-0.5 active:translate-y-0 active:scale-98'
-                : 'bg-slate-800/50 text-slate-550 border border-slate-800/80 cursor-not-allowed opacity-60 shadow-xs'
+                ? 'bg-yellow-400 hover:bg-yellow-300 text-slate-950 border-2 border-yellow-200 shadow-[0_0_25px_rgba(250,204,21,0.6)] hover:shadow-[0_0_35px_rgba(250,204,21,0.85)] hover:-translate-y-0.5 active:translate-y-0 active:scale-98 cursor-pointer'
+                : 'bg-slate-800/50 text-slate-500 border border-slate-800/80 cursor-not-allowed opacity-60 shadow-xs'
             }`}
             id="quiz_next_btn"
           >
             <span>{isLastQuestion ? "Calculate My Score" : "Continue Simulation"}</span>
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className={`w-4 h-4 stroke-[3] ${selectedOptionId ? 'text-slate-950' : 'text-slate-500'}`} />
           </button>
         </div>
 

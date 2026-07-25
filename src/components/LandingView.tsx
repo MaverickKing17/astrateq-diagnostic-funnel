@@ -139,11 +139,11 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
                 <button
                   onClick={onStartDiagnostic}
-                  className="inline-flex items-center justify-center px-7 py-4 bg-gradient-to-r from-sky-500 via-sky-600 to-cyan-600 hover:from-sky-400 hover:to-cyan-500 text-white font-extrabold text-base sm:text-lg rounded-2xl shadow-[0_0_30px_rgba(14,165,233,0.35)] hover:shadow-[0_0_40px_rgba(14,165,233,0.5)] transition-all duration-200 cursor-pointer border border-sky-300/30 group"
+                  className="inline-flex items-center justify-center px-7 py-4 bg-yellow-400 hover:bg-yellow-300 text-slate-950 font-black text-base sm:text-lg rounded-2xl shadow-[0_0_35px_rgba(250,204,21,0.6)] hover:shadow-[0_0_45px_rgba(250,204,21,0.8)] transition-all duration-200 cursor-pointer border-2 border-yellow-200 group"
                   id="hero_primary_cta"
                 >
-                  <span>START DRIVER AWARENESS SIMULATION</span>
-                  <ChevronRight className="w-5 h-5 ml-2 transition-transform duration-200 group-hover:translate-x-1" />
+                  <span className="tracking-wide">START DRIVER AWARENESS SIMULATION</span>
+                  <ChevronRight className="w-5 h-5 ml-2 text-slate-950 transition-transform duration-200 group-hover:translate-x-1 stroke-[3]" />
                 </button>
 
                 <button
@@ -175,76 +175,122 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
             </div>
 
             {/* Right Column: Mobile Simulator Interface Preview Visual */}
-            <div className="lg:col-span-5 flex justify-center">
-              <div className="relative w-full max-w-sm bg-gradient-to-b from-slate-900 to-[#0b172e] rounded-3xl p-5 border border-sky-500/25 shadow-[0_20px_50px_rgba(0,0,0,0.6)] backdrop-blur-md">
-                
-                {/* Visual Label Header */}
-                <div className="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
-                  <div className="flex items-center gap-2">
-                    <Smartphone className="w-4 h-4 text-sky-400" />
-                    <span className="text-xs font-mono font-bold text-slate-200 uppercase tracking-wider">
-                      Interactive Simulator Preview
-                    </span>
-                  </div>
-                  <span className="text-[10px] bg-sky-500/10 text-sky-400 px-2.5 py-0.5 rounded-full font-mono border border-sky-500/20">
-                    60s Diagnostic
-                  </span>
-                </div>
+            <div className="lg:col-span-5 flex justify-center relative">
+              
+              {/* Vibrant ambient background glow layer */}
+              <div className="absolute -inset-2 bg-gradient-to-r from-sky-500/30 via-cyan-500/25 to-indigo-500/30 rounded-[36px] blur-2xl opacity-80 animate-pulse pointer-events-none" />
+              <div className="absolute -top-6 -right-6 w-32 h-32 bg-cyan-400/20 rounded-full blur-3xl pointer-events-none" />
 
-                {/* Simulated Device Screen Content */}
-                <div className="bg-[#050b17] rounded-2xl p-4 border border-slate-800 space-y-4 text-left">
-                  
-                  {/* Step Banner */}
-                  <div className="flex items-center justify-between text-xs font-mono">
-                    <span className="text-slate-400">Section 1 of 3</span>
-                    <span className="text-emerald-400 font-bold">100% Privacy Preserved</span>
-                  </div>
-
-                  {/* Simulated Question Card */}
-                  <div className="bg-slate-900/80 p-3.5 rounded-xl border border-slate-800 space-y-2">
-                    <span className="text-[10px] uppercase tracking-wider text-sky-400 font-mono font-bold block">
-                      Driving Context Assessment
-                    </span>
-                    <p className="text-xs font-semibold text-white">
-                      How frequently do you drive on major Canadian highways or long commute routes?
-                    </p>
-                  </div>
-
-                  {/* Simulated Option Buttons */}
-                  <div className="space-y-2">
-                    <div className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-sky-500/50 flex items-center justify-between text-xs text-slate-300 transition-colors">
-                      <span className="font-medium">Daily heavy highway commute</span>
-                      <span className="w-2 h-2 rounded-full bg-sky-400"></span>
-                    </div>
-                    <div className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-sky-500/50 flex items-center justify-between text-xs text-slate-300 transition-colors">
-                      <span className="font-medium">3–5 times per week</span>
-                      <span className="w-2 h-2 rounded-full bg-slate-700"></span>
-                    </div>
-                  </div>
-
-                  {/* Simulated Score Gauge Preview */}
-                  <div className="pt-2 border-t border-slate-850 flex items-center justify-between">
-                    <div>
-                      <div className="text-[10px] text-slate-400 uppercase font-mono">Simulated Baseline</div>
-                      <div className="text-lg font-mono font-extrabold text-white">87<span className="text-xs text-slate-400 font-normal"> / 100</span></div>
-                    </div>
-                    <button 
-                      onClick={onStartDiagnostic}
-                      className="px-3.5 py-1.5 bg-sky-500 hover:bg-sky-400 text-white font-bold text-xs rounded-xl transition-colors cursor-pointer flex items-center gap-1"
-                    >
-                      <span>Try Simulator</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </button>
-                  </div>
-
-                </div>
-
-                {/* Subtext under device */}
-                <p className="text-[11px] text-slate-400 text-center mt-3 font-medium">
-                  "Discover something about your driving readiness today."
-                </p>
-
+              {/* Floating Highlight Pill Badge */}
+              <div className="absolute -top-5 right-4 z-20 bg-[#FFE600] text-black text-xs font-sans font-black tracking-widest px-4 py-1.5 rounded-full shadow-[0_0_25px_rgba(255,230,0,0.85)] border-2 border-slate-950 flex items-center gap-2 animate-bounce">
+                <span className="w-2.5 h-2.5 rounded-full bg-slate-950 animate-ping" />
+                <span>TRY LIVE PREVIEW</span>
               </div>
+
+              {/* Gradient Border Wrapping Outer Box */}
+              <div className="relative w-full max-w-sm p-[2px] rounded-[30px] bg-gradient-to-b from-sky-400 via-cyan-500/50 to-indigo-600/40 shadow-[0_25px_60px_rgba(14,165,233,0.35)] group">
+                
+                {/* Main Card Body */}
+                <div className="bg-gradient-to-b from-[#0a1835] via-[#071228] to-[#040a18] rounded-[28px] p-5 sm:p-6 backdrop-blur-xl relative overflow-hidden">
+                  
+                  {/* Subtle top phone speaker / camera notch design accent */}
+                  <div className="w-20 h-1.5 rounded-full bg-slate-800/90 border border-slate-700/50 mx-auto mb-4 shadow-inner" />
+
+                  {/* Visual Label Header */}
+                  <div className="flex items-center justify-between border-b border-slate-800/90 pb-3 mb-4">
+                    <div className="flex items-center gap-2">
+                      <div className="w-7 h-7 rounded-lg bg-sky-500/20 border border-sky-400/40 flex items-center justify-center text-sky-400">
+                        <Smartphone className="w-4 h-4" />
+                      </div>
+                      <span className="text-xs font-mono font-extrabold text-white uppercase tracking-wider">
+                        Simulator Preview
+                      </span>
+                    </div>
+                    
+                    <span className="inline-flex items-center gap-1.5 text-[10px] bg-yellow-400 text-slate-950 px-2.5 py-1 rounded-full font-mono font-black border border-yellow-200 shadow-sm">
+                      <span className="w-1.5 h-1.5 rounded-full bg-slate-950 animate-ping" />
+                      60s Diagnostic
+                    </span>
+                  </div>
+
+                  {/* Simulated Device Screen Content */}
+                  <div className="bg-[#040914] rounded-2xl p-4 border border-sky-500/30 shadow-inner space-y-4 text-left relative">
+                    
+                    {/* Top Glow Accent Bar */}
+                    <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-yellow-400 to-amber-400" />
+
+                    {/* Step Banner */}
+                    <div className="flex items-center justify-between text-xs font-mono pt-1">
+                      <span className="text-yellow-300 font-extrabold bg-yellow-950/80 px-2 py-0.5 rounded border border-yellow-500/40">
+                        Section 1 of 3
+                      </span>
+                      <span className="text-emerald-400 font-bold flex items-center gap-1">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+                        <span>Privacy Preserved</span>
+                      </span>
+                    </div>
+
+                    {/* Simulated Question Card */}
+                    <div className="bg-gradient-to-r from-sky-950/80 via-slate-900 to-slate-900/90 p-3.5 rounded-xl border-l-4 border-l-yellow-400 border-y border-r border-slate-800 space-y-1.5 shadow-md">
+                      <span className="text-[10px] uppercase tracking-wider text-yellow-300 font-mono font-extrabold flex items-center gap-1">
+                        <span className="w-1.5 h-1.5 rounded-full bg-yellow-400"></span>
+                        Driving Context Assessment
+                      </span>
+                      <p className="text-xs font-bold text-white leading-snug">
+                        How frequently do you drive on major Canadian highways or long commute routes?
+                      </p>
+                    </div>
+
+                    {/* Simulated Option Buttons */}
+                    <div className="space-y-2">
+                      <div 
+                        onClick={onStartDiagnostic}
+                        className="p-3 rounded-xl bg-gradient-to-r from-sky-950/60 to-slate-900 border border-yellow-400/80 hover:border-yellow-300 flex items-center justify-between text-xs text-white transition-all cursor-pointer shadow-sm group/opt"
+                      >
+                        <span className="font-semibold text-yellow-200 group-hover/opt:text-white">Daily heavy highway commute</span>
+                        <span className="w-3 h-3 rounded-full bg-yellow-400 shadow-[0_0_8px_rgba(250,204,21,0.9)] flex items-center justify-center">
+                          <span className="w-1 h-1 rounded-full bg-slate-950" />
+                        </span>
+                      </div>
+                      
+                      <div 
+                        onClick={onStartDiagnostic}
+                        className="p-3 rounded-xl bg-slate-900/90 border border-slate-800 hover:border-yellow-400/50 flex items-center justify-between text-xs text-slate-300 transition-all cursor-pointer group/opt2"
+                      >
+                        <span className="font-medium group-hover/opt2:text-white">3–5 times per week</span>
+                        <span className="w-3 h-3 rounded-full border border-slate-600 bg-slate-800"></span>
+                      </div>
+                    </div>
+
+                    {/* Simulated Score Gauge Preview & Interactive CTA */}
+                    <div className="pt-3 border-t border-slate-800/90 flex items-center justify-between">
+                      <div>
+                        <div className="text-[10px] text-yellow-400 uppercase font-mono font-bold">Simulated Baseline</div>
+                        <div className="text-xl font-mono font-black text-white flex items-baseline gap-1">
+                          <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-yellow-200">87</span>
+                          <span className="text-xs text-slate-400 font-normal"> / 100</span>
+                        </div>
+                      </div>
+                      
+                      <button 
+                        onClick={onStartDiagnostic}
+                        className="px-4 py-2.5 bg-yellow-400 hover:bg-yellow-300 text-slate-950 font-black text-xs rounded-xl transition-all duration-200 cursor-pointer flex items-center gap-1.5 shadow-[0_0_20px_rgba(250,204,21,0.6)] hover:shadow-[0_0_30px_rgba(250,204,21,0.9)] hover:scale-105 border border-yellow-200"
+                      >
+                        <span className="tracking-wide">Launch Simulator</span>
+                        <ArrowRight className="w-4 h-4 text-slate-950 stroke-[3]" />
+                      </button>
+                    </div>
+
+                  </div>
+
+                  {/* Subtext under device */}
+                  <p className="text-[11px] text-sky-200/80 text-center mt-3 font-medium flex items-center justify-center gap-1">
+                    <span>⚡ Discover your driving readiness profile in 60 seconds</span>
+                  </p>
+
+                </div>
+              </div>
+
             </div>
 
           </div>
@@ -946,11 +992,11 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
             <button
               onClick={onStartDiagnostic}
-              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-sky-500 via-sky-600 to-cyan-600 hover:from-sky-400 hover:to-cyan-500 text-white font-extrabold text-base rounded-2xl shadow-xl transition-all cursor-pointer border border-sky-300/30"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-yellow-400 hover:bg-yellow-300 text-slate-950 font-black text-base rounded-2xl shadow-[0_0_30px_rgba(250,204,21,0.6)] hover:shadow-[0_0_40px_rgba(250,204,21,0.85)] transition-all cursor-pointer border-2 border-yellow-200 group"
               id="final_start_simulation_cta"
             >
-              <span>Start Driver Awareness Simulation</span>
-              <ChevronRight className="w-5 h-5 ml-2" />
+              <span className="tracking-wide uppercase">Start Driver Awareness Simulation</span>
+              <ChevronRight className="w-5 h-5 ml-2 text-slate-950 stroke-[3] transition-transform duration-200 group-hover:translate-x-1" />
             </button>
 
             <button
@@ -979,11 +1025,11 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
           </div>
           <button
             onClick={onStartDiagnostic}
-            className="px-4 py-2.5 bg-gradient-to-r from-sky-500 to-cyan-500 hover:from-sky-400 hover:to-cyan-400 text-white font-bold text-xs rounded-xl shadow-md cursor-pointer flex items-center gap-1 shrink-0"
+            className="px-4 py-2.5 bg-yellow-400 hover:bg-yellow-300 text-slate-950 font-black text-xs rounded-xl shadow-md cursor-pointer flex items-center gap-1 shrink-0 border border-yellow-200"
             id="mobile_sticky_cta"
           >
             <span>Start 60s Simulation</span>
-            <ChevronRight className="w-3.5 h-3.5" />
+            <ChevronRight className="w-3.5 h-3.5 text-slate-950 stroke-[3]" />
           </button>
         </div>
       )}
