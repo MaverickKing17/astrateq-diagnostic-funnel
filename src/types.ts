@@ -16,8 +16,20 @@ export interface UserAnswers {
   [questionId: number]: string; // Option ID
 }
 
+export interface DrivingContextSummary {
+  routeType: string;
+  condition: string;
+  commuteLength: string;
+}
+
 export interface DiagnosticResult {
   score: number;
+  scoreLabel: 'EXCELLENT' | 'GOOD' | 'FAIR' | 'MODERATE';
+  attentionStability: 'EXCELLENT' | 'GOOD' | 'MODERATE';
+  fatigueRisk: 'LOW' | 'MODERATE' | 'ELEVATED';
+  environmentalComplexity: 'LOW' | 'MODERATE' | 'HIGH';
+  drivingContextSummary: DrivingContextSummary;
+  supportiveInsight: string;
   tier: 1 | 2 | 3;
   tierName: string;
   tierTag: string;

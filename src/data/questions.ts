@@ -103,18 +103,64 @@ export function calculateDiagnosticResult(answers: UserAnswers): DiagnosticResul
   }
 
   // Define min and max possible weights
-  const minPossible = 47; // Sum of minimum options: 8+8+5+5+4+4+8+5 = 47
-  const maxPossible = 137; // Sum of maximum options: 15+15+15+15+22+20+15+20 = 137
+  const minPossible = 47;
+  const maxPossible = 137;
 
   const rawRatio = (scoreSum - minPossible) / (maxPossible - minPossible);
   const calculatedScore = Math.round(45 + (96 - 45) * rawRatio);
   const score = Math.max(45, Math.min(96, calculatedScore));
 
+  // Determine Apple Health style Score Label
+  let scoreLabel: 'EXCELLENT' | 'GOOD' | 'FAIR' | 'MODERATE' = 'GOOD';
+  if (score >= 85) scoreLabel = 'EXCELLENT';
+  else if (score >= 75) scoreLabel = 'GOOD';
+  else if (score >= 62) scoreLabel = 'FAIR';
+  else scoreLabel = 'MODERATE';
+
+  // Determine Attention Stability
+  const q6Answer = answers[6];
+  let attentionStability: 'EXCELLENT' | 'GOOD' | 'MODERATE' = 'GOOD';
+  if (q6Answer === 'focused' || q6Answer === 'seldom') attentionStability = 'EXCELLENT';
+  else if (q6Answer === 'frequently') attentionStability = 'MODERATE';
+
+  // Determine Fatigue Risk
+  const q3Answer = answers[3];
+  const q5Answer = answers[5];
+  let fatigueRisk: 'LOW' | 'MODERATE' | 'ELEVATED' = 'LOW';
+  if (q3Answer === 'night' || q5Answer === 'drowsy') fatigueRisk = 'ELEVATED';
+  else if (q3Answer === 'evening' || q5Answer === 'sluggish') fatigueRisk = 'MODERATE';
+
+  // Determine Environmental Complexity
+  const q2Answer = answers[2];
+  const q7Answer = answers[7];
+  let environmentalComplexity: 'LOW' | 'MODERATE' | 'HIGH' = 'MODERATE';
+  if (q2Answer === 'highway' || q2Answer === 'city' || q7Answer === 'very_often') environmentalComplexity = 'HIGH';
+  else if (q2Answer === 'suburban' && q7Answer === 'never') environmentalComplexity = 'LOW';
+
+  // Extract Driving Context Summary
+  const routeTypeOpt = QUESTIONS[1]?.options.find(o => o.id === answers[2])?.text || "Highway & Urban";
+  const conditionOpt = QUESTIONS[6]?.options.find(o => o.id === answers[7])?.text || "Standard Weather";
+  const commuteOpt = QUESTIONS[0]?.options.find(o => o.id === answers[1])?.text || "30–60 Minutes";
+
+  const drivingContextSummary = {
+    routeType: routeTypeOpt,
+    condition: conditionOpt,
+    commuteLength: commuteOpt
+  };
+
+  // Supportive non-judgmental tone explanation
+  let supportiveInsight = "Your driving environment may create additional cognitive demands during extended routes, but your core awareness patterns demonstrate steady focus resilience.";
+  if (fatigueRisk === 'ELEVATED') {
+    supportiveInsight = "Late-day or night driving contexts naturally introduce higher cognitive demands. Gentle awareness feedback can help preserve steady focus on repetitive stretches.";
+  } else if (score >= 82) {
+    supportiveInsight = "Your attentional stability across variable road conditions is strong. Your driving profile exhibits high focus endurance with low fatigue susceptibility.";
+  }
+
   // Research Cohort Classifications
   let tier: 1 | 2 | 3 = 2;
   let tierName = "Priority Evaluation Cohort";
   let tierTag = "Moderate Awareness Readiness";
-  let tierDesc = "Your simulated profile shows moderate driver awareness readiness. You show standard alertness habits but have notable fatigue exposure on evening or busy commutes.";
+  let tierDesc = "Your simulated profile shows moderate driver awareness readiness. You show standard alertness habits with manageable fatigue exposure across busy commutes.";
 
   if (score >= 80) {
     tier = 1;
@@ -125,11 +171,10 @@ export function calculateDiagnosticResult(answers: UserAnswers): DiagnosticResul
     tier = 3;
     tierName = "Standard Simulation Queue";
     tierTag = "Attention Exposure Risk";
-    tierDesc = "Your inputs suggest significant exposure to long driving hours, low-light conditions, and frequent attentional split risks. You have been aligned with our standard simulation queue.";
+    tierDesc = "Your inputs suggest notable cognitive demands from long driving hours or night commutes. Your profile helps us model driver support for complex environmental conditions.";
   }
 
   // Customize Fatigue Risk Awareness Profile based on Q2 (driving type)
-  const q2Answer = answers[2];
   let riskProfile = "Moderate Commuting Stress Profile";
   let riskDesc = "Standard fatigue accumulation aligned with typical Canadian road conditions.";
 
@@ -159,7 +204,6 @@ export function calculateDiagnosticResult(answers: UserAnswers): DiagnosticResul
     privacyAlignment = 'Good';
   }
 
-  // Map Attention Readiness to simulation profile accuracy or general fit
   const q1Answer = answers[1];
   let attentionReadiness: 'High' | 'Moderate' | 'Pending Review' = 'High';
   if (q1Answer === "rarely") {
@@ -172,11 +216,17 @@ export function calculateDiagnosticResult(answers: UserAnswers): DiagnosticResul
   if (tier === 1) {
     recommendation = "Outstanding fit detected for our focus research cohort. Complete your profile with your email to claim your early access path.";
   } else if (tier === 3) {
-    recommendation = "Attention exposure risk identified. Enter your email to receive custom focus strategies and waitlist updates.";
+    recommendation = "High cognitive demand driving context identified. Enter your email to receive custom focus strategies and research updates.";
   }
 
   return {
     score,
+    scoreLabel,
+    attentionStability,
+    fatigueRisk,
+    environmentalComplexity,
+    drivingContextSummary,
+    supportiveInsight,
     tier,
     tierName,
     tierTag,

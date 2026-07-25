@@ -247,55 +247,62 @@ export default function FullResultView({
                 <p className="text-xs text-slate-500 mt-1">Generated and locked on {new Date().toLocaleDateString('en-CA')}</p>
               </div>
 
-              {/* Metrics Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                
-                {/* Cohort Classification */}
-                <div className="p-4.5 rounded-xl bg-slate-50/50 border border-slate-100 space-y-1.5 hover:bg-slate-50 transition-colors">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[10px] font-mono font-bold uppercase text-slate-400">COHORT CLASSIFICATION</span>
-                    <CheckCircle2 className="w-4 h-4 text-sky-500" />
-                  </div>
-                  <div className="font-extrabold text-slate-900 text-sm leading-tight">{result.tierName}</div>
-                  <div className="text-xs text-slate-500 leading-snug">Research cohort alignment based on simulated awareness outputs.</div>
+              {/* Apple Health Inspired Metrics Grid */}
+              <div className="space-y-4">
+                <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+                  <span className="text-xs font-mono font-bold uppercase text-slate-400 tracking-wider">YOUR DRIVER AWARENESS PROFILE</span>
+                  <span className="text-xs font-mono text-emerald-600 bg-emerald-50 px-2.5 py-0.5 rounded-full font-bold border border-emerald-200">
+                    {result.scoreLabel || "GOOD"}
+                  </span>
                 </div>
 
-                {/* Driving Risk Profile */}
-                <div className="p-4.5 rounded-xl bg-slate-50/50 border border-slate-100 space-y-1.5 hover:bg-slate-50 transition-colors">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[10px] font-mono font-bold uppercase text-slate-400">RISK PROFILE TYPE</span>
-                    <AlertTriangle className="w-4 h-4 text-amber-500" />
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  {/* Metric 1: Attention Stability */}
+                  <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/80 space-y-1 hover:border-sky-300 transition-colors">
+                    <span className="text-[10px] font-mono font-bold uppercase text-slate-400 block">ATTENTION STABILITY</span>
+                    <div className="text-base font-extrabold text-slate-900 flex items-center gap-1.5">
+                      <span className="w-2.5 h-2.5 rounded-full bg-sky-500"></span>
+                      <span>{result.attentionStability || "GOOD"}</span>
+                    </div>
+                    <span className="text-[11px] text-slate-500 block leading-tight pt-1">Consistent focus retention across routes</span>
                   </div>
-                  <div className="font-extrabold text-slate-900 text-sm leading-tight">{result.riskProfile}</div>
-                  <div className="text-xs text-slate-500 leading-snug">Your inputs suggest simulated focus patterns under specific driving environments.</div>
+
+                  {/* Metric 2: Fatigue Risk */}
+                  <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/80 space-y-1 hover:border-emerald-300 transition-colors">
+                    <span className="text-[10px] font-mono font-bold uppercase text-slate-400 block">FATIGUE RISK</span>
+                    <div className="text-base font-extrabold text-slate-900 flex items-center gap-1.5">
+                      <span className="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+                      <span>{result.fatigueRisk || "LOW"}</span>
+                    </div>
+                    <span className="text-[11px] text-slate-500 block leading-tight pt-1">Circadian alertness & night exposure</span>
+                  </div>
+
+                  {/* Metric 3: Environmental Complexity */}
+                  <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/80 space-y-1 hover:border-amber-300 transition-colors">
+                    <span className="text-[10px] font-mono font-bold uppercase text-slate-400 block">ENVIRONMENTAL COMPLEXITY</span>
+                    <div className="text-base font-extrabold text-slate-900 flex items-center gap-1.5">
+                      <span className="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+                      <span>{result.environmentalComplexity || "MODERATE"}</span>
+                    </div>
+                    <span className="text-[11px] text-slate-500 block leading-tight pt-1">Traffic, weather & highway demands</span>
+                  </div>
                 </div>
 
-                {/* Attention Readiness */}
-                <div className="p-4.5 rounded-xl bg-slate-50/50 border border-slate-100 space-y-1.5 hover:bg-slate-50 transition-colors">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[10px] font-mono font-bold uppercase text-slate-400">ATTENTION READINESS</span>
-                    <Cpu className="w-4 h-4 text-emerald-500" />
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                    <div className="font-extrabold text-slate-900 text-sm">{result.attentionReadiness}</div>
-                  </div>
-                  <div className="text-xs text-slate-500 leading-snug">Your profile shows strong consistency for simulated driver awareness reporting.</div>
+                {/* Driving Context Pills */}
+                <div className="p-3.5 bg-slate-900 text-white rounded-xl flex flex-wrap items-center gap-2 text-xs">
+                  <span className="font-mono text-slate-400 text-[10px] uppercase font-bold pr-2 border-r border-slate-800">DRIVING CONTEXT</span>
+                  <span className="bg-slate-800 text-sky-300 px-2.5 py-1 rounded-lg font-semibold border border-slate-700">{result.drivingContextSummary?.routeType || "Urban Commute"}</span>
+                  <span className="bg-slate-800 text-sky-300 px-2.5 py-1 rounded-lg font-semibold border border-slate-700">{result.drivingContextSummary?.condition || "Winter Conditions"}</span>
+                  <span className="bg-slate-800 text-sky-300 px-2.5 py-1 rounded-lg font-semibold border border-slate-700">{result.drivingContextSummary?.commuteLength || "45-min Commute"}</span>
                 </div>
+              </div>
 
-                {/* Privacy Alignment */}
-                <div className="p-4.5 rounded-xl bg-slate-50/50 border border-slate-100 space-y-1.5 hover:bg-slate-50 transition-colors">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[10px] font-mono font-bold uppercase text-slate-400">PRIVACY ALIGNMENT</span>
-                    <Lock className="w-4 h-4 text-blue-500" />
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-blue-500"></span>
-                    <div className="font-extrabold text-slate-900 text-sm">{result.privacyAlignment}</div>
-                  </div>
-                  <div className="text-xs text-slate-500 leading-snug">Aligned with Astrateq Gadgets' privacy-first, no-resale data principles.</div>
-                </div>
-
+              {/* Supportive Non-Judgmental Insight */}
+              <div className="p-4 bg-sky-50/80 border border-sky-200/80 rounded-2xl space-y-1.5">
+                <span className="text-[10px] font-mono font-bold uppercase text-sky-700 tracking-wider block">SUPPORTIVE ANALYSIS</span>
+                <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">
+                  {result.supportiveInsight || "Your driving environment may create additional cognitive demands during peak hours, but your overall attention stability remains well-balanced."}
+                </p>
               </div>
 
               {/* What this means text block & Onboarding Roadmap */}

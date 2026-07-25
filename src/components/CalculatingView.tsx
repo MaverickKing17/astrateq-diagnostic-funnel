@@ -7,10 +7,9 @@ interface CalculatingViewProps {
 }
 
 const SIMULATION_STEPS = [
-  { text: "Analyzing commute frequency and weekly road exposure...", duration: 600, icon: MapPin, color: "text-sky-500" },
-  { text: "Evaluating environmental risk factor alignment (Highways, City, Rural)...", duration: 600, icon: Compass, color: "text-blue-500" },
-  { text: "Weighting fatigue sensitivity and winter conditions profile...", duration: 600, icon: Cpu, color: "text-amber-500" },
-  { text: "Validating privacy preservation and telemetry-free parameters...", duration: 500, icon: ShieldCheck, color: "text-emerald-500" },
+  { text: "Analyzing driving context & Canadian commute conditions...", duration: 650, icon: MapPin, color: "text-sky-400" },
+  { text: "Evaluating awareness patterns & fatigue exposure indicators...", duration: 650, icon: Compass, color: "text-amber-400" },
+  { text: "Generating privacy-first driver awareness profile...", duration: 650, icon: ShieldCheck, color: "text-emerald-400" },
 ];
 
 export default function CalculatingView({ onCalculationComplete }: CalculatingViewProps) {
