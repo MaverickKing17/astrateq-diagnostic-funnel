@@ -11,15 +11,15 @@ html, body, #root {
 }
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-sans: "Segoe UI Variable Text", "Segoe UI", -apple-system, BlinkMacSystemFont, "Roboto", "Helvetica Neue", sans-serif;
+  --font-display: "Segoe UI Variable Display", "Segoe UI", -apple-system, BlinkMacSystemFont, "Roboto", sans-serif;
+  --font-mono: "Segoe UI Mono", "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
   
-  --color-brand-primary: #0284c7; /* Professional Sky Blue */
-  --color-brand-secondary: #38bdf8; /* Lighter Sky Blue */
-  --color-brand-navy: #102a43; /* Rich Deep Slate Navy */
-  --color-brand-ice: #f0f4f8; /* Professional Light Cool-Slate */
-  --color-brand-pearl: #ffffff; /* Pearl card surface */
+  --color-brand-primary: #0078d4; /* Microsoft Fluent Blue */
+  --color-brand-secondary: #2b88d8; 
+  --color-brand-navy: #002050; 
+  --color-brand-ice: #f3f2f1; 
+  --color-brand-pearl: #ffffff; 
 }
 
 /* Custom visual styling to replicate premium automotive dashboard widgets */
