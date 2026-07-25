@@ -23,6 +23,7 @@ import PreliminaryView from './components/PreliminaryView';
 import FullResultView from './components/FullResultView';
 import CohortReservationView from './components/CohortReservationView';
 import InfoModal, { InfoTabType } from './components/InfoModal';
+import LegalModal, { LegalTabType } from './components/LegalModal';
 
 import commuteImage from './assets/images/toronto_gta_commute_1782319738788.jpg';
 import heroBgImage from './assets/images/canadian_road_hero_1782319723620.jpg';
@@ -36,6 +37,7 @@ export default function App() {
   const [ticketId, setTicketId] = useState(() => `AST-ON-${Math.floor(1000 + Math.random() * 9000)}`);
   const [events, setEvents] = useState<AnalyticsEvent[]>([]);
   const [infoModalTab, setInfoModalTab] = useState<InfoTabType | null>(null);
+  const [legalModalTab, setLegalModalTab] = useState<LegalTabType | null>(null);
 
   // Asset paths from generated images
   const heroImage = heroBgImage;
@@ -194,7 +196,12 @@ export default function App() {
       </main>
 
       {/* Marketing Conversion Footer - hidden during active quiz/calculation/reservation to maximize focus */}
-      {currentStep !== 'quiz' && currentStep !== 'calculating' && currentStep !== 'reservation' && <Footer onOpenTab={(tab) => setInfoModalTab(tab)} />}
+      {currentStep !== 'quiz' && currentStep !== 'calculating' && currentStep !== 'reservation' && (
+        <Footer 
+          onOpenTab={(tab) => setInfoModalTab(tab)} 
+          onOpenLegal={(tab) => setLegalModalTab(tab)}
+        />
+      )}
 
       {/* Interactive Documentation README Modal */}
       <InfoModal 
@@ -203,6 +210,14 @@ export default function App() {
         onTabChange={(tab) => setInfoModalTab(tab)}
         onClose={() => setInfoModalTab(null)} 
         onStartDiagnostic={handleStartDiagnostic}
+      />
+
+      {/* Legal & Compliance Center Modal */}
+      <LegalModal 
+        isOpen={legalModalTab !== null}
+        activeTab={legalModalTab || 'privacy'}
+        onTabChange={(tab) => setLegalModalTab(tab)}
+        onClose={() => setLegalModalTab(null)}
       />
     </div>
   );

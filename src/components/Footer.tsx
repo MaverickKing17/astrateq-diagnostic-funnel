@@ -1,12 +1,14 @@
 import React from 'react';
-import { ShieldCheck, EyeOff, Lock, Cpu, CheckCircle2, MapPin, Award } from 'lucide-react';
+import { ShieldCheck, EyeOff, Lock, Cpu, CheckCircle2, MapPin, Award, Scale, Accessibility, FileText, Cookie, AlertTriangle, Copyright } from 'lucide-react';
 import { InfoTabType } from './InfoModal';
+import { LegalTabType } from './LegalModal';
 
 interface FooterProps {
   onOpenTab: (tab: InfoTabType) => void;
+  onOpenLegal: (tab: LegalTabType) => void;
 }
 
-export default function Footer({ onOpenTab }: FooterProps) {
+export default function Footer({ onOpenTab, onOpenLegal }: FooterProps) {
   return (
     <footer className="bg-[#F8FBFF] text-slate-600 py-12 px-6 border-t border-[#DCEBFA] font-sans" id="app_footer">
       <div className="max-w-5xl mx-auto space-y-10">
@@ -165,8 +167,92 @@ export default function Footer({ onOpenTab }: FooterProps) {
 
         </div>
 
+        {/* Dedicated Comprehensive Legal & Compliance Links Bar */}
+        <div className="pt-6 border-t border-[#DCEBFA] bg-white/60 p-4 sm:p-5 rounded-2xl border space-y-3">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
+            <span className="text-xs font-mono font-bold text-[#102A43] uppercase tracking-wider flex items-center gap-1.5">
+              <Scale className="w-4 h-4 text-sky-600" />
+              Legal & Regulatory Policies
+            </span>
+            <span className="text-[11px] text-slate-500 font-medium">
+              PIPEDA · AODA · WCAG 2.1 AA · DMCA · Ontario Laws
+            </span>
+          </div>
+
+          <div className="flex flex-wrap gap-2 sm:gap-4 text-xs font-medium text-slate-600">
+            <button
+              onClick={() => onOpenLegal('privacy')}
+              className="hover:text-sky-600 hover:underline transition-colors flex items-center gap-1 cursor-pointer font-bold text-slate-700"
+              id="legal_nav_privacy"
+            >
+              <ShieldCheck className="w-3.5 h-3.5 text-sky-500" />
+              <span>Privacy Policy (PIPEDA)</span>
+            </button>
+            <span className="text-slate-300">•</span>
+            
+            <button
+              onClick={() => onOpenLegal('terms')}
+              className="hover:text-sky-600 hover:underline transition-colors flex items-center gap-1 cursor-pointer"
+              id="legal_nav_terms"
+            >
+              <FileText className="w-3.5 h-3.5 text-slate-400" />
+              <span>Terms & Conditions</span>
+            </button>
+            <span className="text-slate-300">•</span>
+
+            <button
+              onClick={() => onOpenLegal('cookies')}
+              className="hover:text-sky-600 hover:underline transition-colors flex items-center gap-1 cursor-pointer"
+              id="legal_nav_cookies"
+            >
+              <Cookie className="w-3.5 h-3.5 text-slate-400" />
+              <span>Cookie Policy</span>
+            </button>
+            <span className="text-slate-300">•</span>
+
+            <button
+              onClick={() => onOpenLegal('disclaimer')}
+              className="hover:text-sky-600 hover:underline transition-colors flex items-center gap-1 cursor-pointer"
+              id="legal_nav_disclaimer"
+            >
+              <AlertTriangle className="w-3.5 h-3.5 text-amber-500" />
+              <span>Disclaimer</span>
+            </button>
+            <span className="text-slate-300">•</span>
+
+            <button
+              onClick={() => onOpenLegal('accessibility')}
+              className="hover:text-sky-600 hover:underline transition-colors flex items-center gap-1 cursor-pointer"
+              id="legal_nav_accessibility"
+            >
+              <Accessibility className="w-3.5 h-3.5 text-emerald-500" />
+              <span>Accessibility Policy (AODA)</span>
+            </button>
+            <span className="text-slate-300">•</span>
+
+            <button
+              onClick={() => onOpenLegal('dmca')}
+              className="hover:text-sky-600 hover:underline transition-colors flex items-center gap-1 cursor-pointer"
+              id="legal_nav_dmca"
+            >
+              <Copyright className="w-3.5 h-3.5 text-slate-400" />
+              <span>DMCA & IP</span>
+            </button>
+            <span className="text-slate-300">•</span>
+
+            <button
+              onClick={() => onOpenLegal('research_ethics')}
+              className="hover:text-sky-600 hover:underline transition-colors flex items-center gap-1 cursor-pointer"
+              id="legal_nav_ethics"
+            >
+              <Scale className="w-3.5 h-3.5 text-teal-500" />
+              <span>Research Ethics</span>
+            </button>
+          </div>
+        </div>
+
         {/* Legal / Disclosure Copy */}
-        <div className="pt-8 border-t border-[#DCEBFA] flex flex-col md:flex-row items-start justify-between gap-6 text-[11px] text-slate-500 leading-relaxed">
+        <div className="pt-4 flex flex-col md:flex-row items-start justify-between gap-6 text-[11px] text-slate-500 leading-relaxed">
           <div className="space-y-2">
             <p className="font-extrabold text-[#102A43]">
               © 2026 Astrateq Gadgets. Toronto, ON, Canada.
@@ -181,3 +267,4 @@ export default function Footer({ onOpenTab }: FooterProps) {
     </footer>
   );
 }
+

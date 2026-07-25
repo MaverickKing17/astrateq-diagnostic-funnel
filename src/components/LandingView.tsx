@@ -335,7 +335,7 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
         <div className="max-w-5xl mx-auto space-y-12">
           
           <div className="text-center space-y-3 max-w-3xl mx-auto">
-            <span className="text-xs font-mono font-bold tracking-widest text-sky-700 uppercase bg-sky-50 px-3.5 py-1.5 rounded-full border border-sky-100">
+            <span className="text-xs font-mono font-bold tracking-widest text-sky-700 uppercase bg-sky-50 px-3.5 py-1.5 rounded-full border border-sky-100 shadow-xs">
               Simulated Deliverables
             </span>
             <h2 className="font-sans font-extrabold text-3xl sm:text-4xl text-slate-900 tracking-tight">
@@ -349,41 +349,45 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
           {/* 4 Deliverable Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             
-            <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3 text-left hover:border-sky-400 transition-all">
-              <div className="w-10 h-10 rounded-lg bg-sky-50 text-sky-600 flex items-center justify-center font-bold">
+            <div className="group p-6 rounded-2xl bg-gradient-to-br from-white via-slate-50/90 to-sky-50/30 border border-slate-200/90 hover:border-sky-400 shadow-md hover:shadow-xl hover:shadow-sky-500/10 hover:-translate-y-1.5 transition-all duration-300 space-y-3 text-left relative overflow-hidden">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-sky-400 to-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="w-11 h-11 rounded-xl bg-sky-100/90 text-sky-700 flex items-center justify-center font-bold shadow-xs group-hover:scale-105 transition-transform">
                 <Gauge className="w-5 h-5" />
               </div>
-              <h3 className="font-sans font-extrabold text-slate-900 text-lg">Awareness Score</h3>
+              <h3 className="font-sans font-extrabold text-slate-900 text-lg group-hover:text-sky-700 transition-colors pt-1">Awareness Score</h3>
               <p className="text-xs text-slate-600 leading-relaxed font-medium">
                 A simulated 0–100 baseline rating your attention consistency across your typical driving context.
               </p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3 text-left hover:border-amber-400 transition-all">
-              <div className="w-10 h-10 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center font-bold">
+            <div className="group p-6 rounded-2xl bg-gradient-to-br from-white via-slate-50/90 to-amber-50/30 border border-slate-200/90 hover:border-amber-400 shadow-md hover:shadow-xl hover:shadow-amber-500/10 hover:-translate-y-1.5 transition-all duration-300 space-y-3 text-left relative overflow-hidden">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-400 to-orange-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="w-11 h-11 rounded-xl bg-amber-100/90 text-amber-700 flex items-center justify-center font-bold shadow-xs group-hover:scale-105 transition-transform">
                 <Clock className="w-5 h-5" />
               </div>
-              <h3 className="font-sans font-extrabold text-slate-900 text-lg">Fatigue Profile</h3>
+              <h3 className="font-sans font-extrabold text-slate-900 text-lg group-hover:text-amber-700 transition-colors pt-1">Fatigue Profile</h3>
               <p className="text-xs text-slate-600 leading-relaxed font-medium">
                 Analysis of circadian fatigue windows during early morning, evening, or extended commute hours.
               </p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3 text-left hover:border-indigo-400 transition-all">
-              <div className="w-10 h-10 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold">
+            <div className="group p-6 rounded-2xl bg-gradient-to-br from-white via-slate-50/90 to-indigo-50/30 border border-slate-200/90 hover:border-indigo-400 shadow-md hover:shadow-xl hover:shadow-indigo-500/10 hover:-translate-y-1.5 transition-all duration-300 space-y-3 text-left relative overflow-hidden">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-indigo-400 to-violet-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="w-11 h-11 rounded-xl bg-indigo-100/90 text-indigo-700 flex items-center justify-center font-bold shadow-xs group-hover:scale-105 transition-transform">
                 <Zap className="w-5 h-5" />
               </div>
-              <h3 className="font-sans font-extrabold text-slate-900 text-lg">Attention Stability</h3>
+              <h3 className="font-sans font-extrabold text-slate-900 text-lg group-hover:text-indigo-700 transition-colors pt-1">Attention Stability</h3>
               <p className="text-xs text-slate-600 leading-relaxed font-medium">
                 Evaluation of focus endurance and distraction resistance during prolonged highway driving.
               </p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3 text-left hover:border-teal-400 transition-all">
-              <div className="w-10 h-10 rounded-lg bg-teal-50 text-teal-600 flex items-center justify-center font-bold">
+            <div className="group p-6 rounded-2xl bg-gradient-to-br from-white via-slate-50/90 to-teal-50/30 border border-slate-200/90 hover:border-teal-400 shadow-md hover:shadow-xl hover:shadow-teal-500/10 hover:-translate-y-1.5 transition-all duration-300 space-y-3 text-left relative overflow-hidden">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-teal-400 to-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="w-11 h-11 rounded-xl bg-teal-100/90 text-teal-700 flex items-center justify-center font-bold shadow-xs group-hover:scale-105 transition-transform">
                 <Compass className="w-5 h-5" />
               </div>
-              <h3 className="font-sans font-extrabold text-slate-900 text-lg">Environmental Complexity</h3>
+              <h3 className="font-sans font-extrabold text-slate-900 text-lg group-hover:text-teal-700 transition-colors pt-1">Environmental Complexity</h3>
               <p className="text-xs text-slate-600 leading-relaxed font-medium">
                 Rating of exposure to weather hazards, winter glare, and urban traffic congestion.
               </p>
@@ -401,7 +405,7 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
         <div className="max-w-5xl mx-auto space-y-12">
           
           <div className="text-center space-y-3 max-w-3xl mx-auto">
-            <span className="text-xs font-mono font-bold tracking-widest text-sky-700 uppercase bg-sky-50 px-3.5 py-1.5 rounded-full border border-sky-100">
+            <span className="text-xs font-mono font-bold tracking-widest text-sky-700 uppercase bg-sky-50 px-3.5 py-1.5 rounded-full border border-sky-100 shadow-xs">
               Interactive Guide
             </span>
             <h2 className="font-sans font-extrabold text-3xl sm:text-4xl text-slate-900 tracking-tight">
@@ -415,34 +419,37 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
             
             {/* Step 1 */}
-            <div className="p-8 rounded-3xl bg-slate-50 border border-slate-200/80 space-y-4 relative overflow-hidden">
-              <div className="w-12 h-12 rounded-2xl bg-sky-600 text-white font-extrabold text-xl flex items-center justify-center shadow-md">
+            <div className="group p-8 rounded-3xl bg-gradient-to-br from-white to-slate-50/90 border border-slate-200/90 hover:border-sky-400 shadow-md hover:shadow-xl hover:shadow-sky-500/10 hover:-translate-y-1.5 transition-all duration-300 space-y-4 relative overflow-hidden">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-sky-400 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-sky-500 to-blue-600 text-white font-extrabold text-xl flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
                 1
               </div>
-              <h3 className="font-sans font-extrabold text-xl text-slate-900">Set Driving Context</h3>
-              <p className="text-sm text-slate-600 leading-relaxed font-medium">
+              <h3 className="font-sans font-extrabold text-xl text-slate-900 group-hover:text-sky-700 transition-colors">Set Driving Context</h3>
+              <p className="text-sm text-slate-600 leading-relaxed font-normal">
                 Answer quick questions about your weekly driving frequency, commute routes, highway exposure, and typical driving times.
               </p>
             </div>
 
             {/* Step 2 */}
-            <div className="p-8 rounded-3xl bg-slate-50 border border-slate-200/80 space-y-4 relative overflow-hidden">
-              <div className="w-12 h-12 rounded-2xl bg-violet-600 text-white font-extrabold text-xl flex items-center justify-center shadow-md">
+            <div className="group p-8 rounded-3xl bg-gradient-to-br from-white to-slate-50/90 border border-slate-200/90 hover:border-violet-400 shadow-md hover:shadow-xl hover:shadow-violet-500/10 hover:-translate-y-1.5 transition-all duration-300 space-y-4 relative overflow-hidden">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-violet-400 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-violet-500 to-purple-600 text-white font-extrabold text-xl flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
                 2
               </div>
-              <h3 className="font-sans font-extrabold text-xl text-slate-900">Complete Focus Assessment</h3>
-              <p className="text-sm text-slate-600 leading-relaxed font-medium">
+              <h3 className="font-sans font-extrabold text-xl text-slate-900 group-hover:text-violet-700 transition-colors">Complete Focus Assessment</h3>
+              <p className="text-sm text-slate-600 leading-relaxed font-normal">
                 Select your experiences with late-day tiredness, phone usage habits, winter driving stress, and fatigue recovery routines.
               </p>
             </div>
 
             {/* Step 3 */}
-            <div className="p-8 rounded-3xl bg-slate-50 border border-slate-200/80 space-y-4 relative overflow-hidden">
-              <div className="w-12 h-12 rounded-2xl bg-emerald-600 text-white font-extrabold text-xl flex items-center justify-center shadow-md">
+            <div className="group p-8 rounded-3xl bg-gradient-to-br from-white to-slate-50/90 border border-slate-200/90 hover:border-emerald-400 shadow-md hover:shadow-xl hover:shadow-emerald-500/10 hover:-translate-y-1.5 transition-all duration-300 space-y-4 relative overflow-hidden">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-400 to-teal-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 text-white font-extrabold text-xl flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
                 3
               </div>
-              <h3 className="font-sans font-extrabold text-xl text-slate-900">Receive Awareness Profile</h3>
-              <p className="text-sm text-slate-600 leading-relaxed font-medium">
+              <h3 className="font-sans font-extrabold text-xl text-slate-900 group-hover:text-emerald-700 transition-colors">Receive Awareness Profile</h3>
+              <p className="text-sm text-slate-600 leading-relaxed font-normal">
                 View your simulated awareness score, fatigue profile, and see how your profile aligns with our Canadian research cohort.
               </p>
             </div>
@@ -455,11 +462,16 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
       {/* ==========================================
           SECTION 5: WHY PRIVACY MATTERS
          ========================================== */}
-      <section id="why-privacy-matters" className="py-20 px-6 bg-[#070f22] text-white border-b border-slate-800">
-        <div className="max-w-5xl mx-auto space-y-12">
+      <section id="why-privacy-matters" className="py-20 px-6 bg-[#070f22] text-white border-b border-slate-800 relative overflow-hidden">
+        
+        {/* Soft background glow accents */}
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-sky-500/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-500/5 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="max-w-5xl mx-auto space-y-12 relative z-10">
           
           <div className="text-center space-y-3 max-w-3xl mx-auto">
-            <span className="inline-flex items-center gap-1.5 text-xs font-mono font-bold tracking-widest text-sky-400 uppercase bg-sky-950 px-3.5 py-1.5 rounded-full border border-sky-800/60">
+            <span className="inline-flex items-center gap-1.5 text-xs font-mono font-bold tracking-widest text-sky-400 uppercase bg-sky-950/80 px-3.5 py-1.5 rounded-full border border-sky-500/30 shadow-xs">
               <Lock className="w-3.5 h-3.5 text-sky-400" />
               Privacy Architecture
             </span>
@@ -474,42 +486,46 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
           {/* 4 Privacy Principles */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
             
-            <div className="p-6 sm:p-8 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-3">
-              <div className="w-10 h-10 rounded-lg bg-sky-500/10 text-sky-400 flex items-center justify-center font-bold">
-                <MapPin className="w-5 h-5" />
+            <div className="group p-7 sm:p-8 rounded-2xl bg-gradient-to-br from-[#0e1b38]/90 via-[#0a142c] to-[#070e20] border border-sky-500/25 hover:border-sky-400/80 shadow-xl shadow-slate-950/60 hover:shadow-sky-500/15 hover:-translate-y-1.5 transition-all duration-300 space-y-3 relative overflow-hidden">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-sky-400 to-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="w-11 h-11 rounded-xl bg-sky-500/15 text-sky-400 flex items-center justify-center font-bold border border-sky-500/20 group-hover:scale-105 transition-transform">
+                <MapPin className="w-5.5 h-5.5" />
               </div>
-              <h3 className="font-sans font-extrabold text-xl text-white">No Continuous Tracking</h3>
-              <p className="text-sm text-slate-300 leading-relaxed">
+              <h3 className="font-sans font-extrabold text-xl text-white group-hover:text-sky-300 transition-colors pt-1">No Continuous Tracking</h3>
+              <p className="text-sm text-slate-300 leading-relaxed font-normal">
                 We never record your GPS location, trip routes, or real-time driving behavior. Your privacy is protected by default.
               </p>
             </div>
 
-            <div className="p-6 sm:p-8 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-3">
-              <div className="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold">
-                <Lock className="w-5 h-5" />
+            <div className="group p-7 sm:p-8 rounded-2xl bg-gradient-to-br from-[#0e1b38]/90 via-[#0a142c] to-[#070e20] border border-emerald-500/25 hover:border-emerald-400/80 shadow-xl shadow-slate-950/60 hover:shadow-emerald-500/15 hover:-translate-y-1.5 transition-all duration-300 space-y-3 relative overflow-hidden">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-400 to-teal-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="w-11 h-11 rounded-xl bg-emerald-500/15 text-emerald-400 flex items-center justify-center font-bold border border-emerald-500/20 group-hover:scale-105 transition-transform">
+                <Lock className="w-5.5 h-5.5" />
               </div>
-              <h3 className="font-sans font-extrabold text-xl text-white">No Cloud Surveillance</h3>
-              <p className="text-sm text-slate-300 leading-relaxed">
+              <h3 className="font-sans font-extrabold text-xl text-white group-hover:text-emerald-300 transition-colors pt-1">No Cloud Surveillance</h3>
+              <p className="text-sm text-slate-300 leading-relaxed font-normal">
                 All diagnostic insights are processed on-demand. We do not stream camera feeds or continuous sensor logs to remote cloud servers.
               </p>
             </div>
 
-            <div className="p-6 sm:p-8 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-3">
-              <div className="w-10 h-10 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center font-bold">
-                <Cpu className="w-5 h-5" />
+            <div className="group p-7 sm:p-8 rounded-2xl bg-gradient-to-br from-[#0e1b38]/90 via-[#0a142c] to-[#070e20] border border-amber-500/25 hover:border-amber-400/80 shadow-xl shadow-slate-950/60 hover:shadow-amber-500/15 hover:-translate-y-1.5 transition-all duration-300 space-y-3 relative overflow-hidden">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-400 to-orange-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="w-11 h-11 rounded-xl bg-amber-500/15 text-amber-400 flex items-center justify-center font-bold border border-amber-500/20 group-hover:scale-105 transition-transform">
+                <Cpu className="w-5.5 h-5.5" />
               </div>
-              <h3 className="font-sans font-extrabold text-xl text-white">Privacy-First Architecture</h3>
-              <p className="text-sm text-slate-300 leading-relaxed">
+              <h3 className="font-sans font-extrabold text-xl text-white group-hover:text-amber-300 transition-colors pt-1">Privacy-First Architecture</h3>
+              <p className="text-sm text-slate-300 leading-relaxed font-normal">
                 Designed to put drivers in control of their own data. Technology should serve the driver's awareness, not track their habits for third parties.
               </p>
             </div>
 
-            <div className="p-6 sm:p-8 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-3">
-              <div className="w-10 h-10 rounded-lg bg-teal-500/10 text-teal-400 flex items-center justify-center font-bold">
-                <ShieldCheck className="w-5 h-5" />
+            <div className="group p-7 sm:p-8 rounded-2xl bg-gradient-to-br from-[#0e1b38]/90 via-[#0a142c] to-[#070e20] border border-teal-500/25 hover:border-teal-400/80 shadow-xl shadow-slate-950/60 hover:shadow-teal-500/15 hover:-translate-y-1.5 transition-all duration-300 space-y-3 relative overflow-hidden">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-teal-400 to-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="w-11 h-11 rounded-xl bg-teal-500/15 text-teal-400 flex items-center justify-center font-bold border border-teal-500/20 group-hover:scale-105 transition-transform">
+                <ShieldCheck className="w-5.5 h-5.5" />
               </div>
-              <h3 className="font-sans font-extrabold text-xl text-white">Anonymous Research Validation</h3>
-              <p className="text-sm text-slate-300 leading-relaxed">
+              <h3 className="font-sans font-extrabold text-xl text-white group-hover:text-teal-300 transition-colors pt-1">Anonymous Research Validation</h3>
+              <p className="text-sm text-slate-300 leading-relaxed font-normal">
                 No insurance company scoring, no employer reporting, and no identity data monetization. Purely designed for driver awareness research.
               </p>
             </div>
@@ -526,7 +542,7 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
         <div className="max-w-5xl mx-auto space-y-12">
           
           <div className="text-center space-y-3 max-w-3xl mx-auto">
-            <span className="text-xs font-mono font-bold tracking-widest text-sky-700 uppercase bg-sky-50 px-3.5 py-1.5 rounded-full border border-sky-100">
+            <span className="text-xs font-mono font-bold tracking-widest text-sky-700 uppercase bg-sky-50 px-3.5 py-1.5 rounded-full border border-sky-100 shadow-xs">
               Research Objectives
             </span>
             <h2 className="font-sans font-extrabold text-3xl sm:text-4xl text-slate-900 tracking-tight">
@@ -539,32 +555,35 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
             
-            <div className="p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
-              <div className="w-10 h-10 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center font-bold">
-                <HelpCircle className="w-5 h-5" />
+            <div className="group p-8 rounded-3xl bg-gradient-to-br from-white via-slate-50/90 to-sky-50/20 border border-slate-200/90 hover:border-sky-400 shadow-md hover:shadow-xl hover:shadow-sky-500/10 hover:-translate-y-1.5 transition-all duration-300 space-y-4 relative overflow-hidden">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-sky-400 to-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="w-11 h-11 rounded-xl bg-sky-100/90 text-sky-700 flex items-center justify-center font-bold shadow-xs group-hover:scale-105 transition-transform">
+                <HelpCircle className="w-5.5 h-5.5" />
               </div>
-              <h3 className="font-sans font-extrabold text-xl text-slate-900">Do drivers value awareness insights?</h3>
-              <p className="text-sm text-slate-600 leading-relaxed font-medium">
+              <h3 className="font-sans font-extrabold text-xl text-slate-900 group-hover:text-sky-700 transition-colors">Do drivers value awareness insights?</h3>
+              <p className="text-sm text-slate-600 leading-relaxed font-normal">
                 Testing whether personalized, privacy-first driver awareness scores help drivers make safer decisions before long trips or nightly commutes.
               </p>
             </div>
 
-            <div className="p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
-              <div className="w-10 h-10 rounded-xl bg-violet-50 text-violet-600 flex items-center justify-center font-bold">
-                <Shield className="w-5 h-5" />
+            <div className="group p-8 rounded-3xl bg-gradient-to-br from-white via-slate-50/90 to-violet-50/20 border border-slate-200/90 hover:border-violet-400 shadow-md hover:shadow-xl hover:shadow-violet-500/10 hover:-translate-y-1.5 transition-all duration-300 space-y-4 relative overflow-hidden">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-violet-400 to-purple-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="w-11 h-11 rounded-xl bg-violet-100/90 text-violet-700 flex items-center justify-center font-bold shadow-xs group-hover:scale-105 transition-transform">
+                <Shield className="w-5.5 h-5.5" />
               </div>
-              <h3 className="font-sans font-extrabold text-xl text-slate-900">Does privacy-first software improve trust?</h3>
-              <p className="text-sm text-slate-600 leading-relaxed font-medium">
+              <h3 className="font-sans font-extrabold text-xl text-slate-900 group-hover:text-violet-700 transition-colors">Does privacy-first software improve trust?</h3>
+              <p className="text-sm text-slate-600 leading-relaxed font-normal">
                 Validating whether drivers prefer local software concepts over surveillance-based insurance plug-ins and intrusive dashcams.
               </p>
             </div>
 
-            <div className="p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
-              <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold">
-                <Compass className="w-5 h-5" />
+            <div className="group p-8 rounded-3xl bg-gradient-to-br from-white via-slate-50/90 to-emerald-50/20 border border-slate-200/90 hover:border-emerald-400 shadow-md hover:shadow-xl hover:shadow-emerald-500/10 hover:-translate-y-1.5 transition-all duration-300 space-y-4 relative overflow-hidden">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-400 to-teal-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="w-11 h-11 rounded-xl bg-emerald-100/90 text-emerald-700 flex items-center justify-center font-bold shadow-xs group-hover:scale-105 transition-transform">
+                <Compass className="w-5.5 h-5.5" />
               </div>
-              <h3 className="font-sans font-extrabold text-xl text-slate-900">Which conditions impact focus most?</h3>
-              <p className="text-sm text-slate-600 leading-relaxed font-medium">
+              <h3 className="font-sans font-extrabold text-xl text-slate-900 group-hover:text-emerald-700 transition-colors">Which conditions impact focus most?</h3>
+              <p className="text-sm text-slate-600 leading-relaxed font-normal">
                 Gathering anonymous behavioral patterns across Canadian highways to understand how weather, commute duration, and timing affect alertness.
               </p>
             </div>
@@ -577,27 +596,43 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
       {/* ==========================================
           INTERACTIVE SIMULATOR PORTAL MOVED HIGH
          ========================================== */}
-      <section className="py-20 px-6 bg-gradient-to-b from-[#f0f6ff] to-[#e6f0fa] border-b border-sky-100" id="readiness-check">
-        <div className="max-w-4xl mx-auto space-y-8 text-center">
+      <section className="py-24 px-6 bg-gradient-to-b from-[#091530] via-[#060e22] to-[#040816] text-white border-y border-sky-500/30 relative overflow-hidden" id="readiness-check">
+        
+        {/* Glow Effects */}
+        <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-sky-500/15 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-0 right-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="max-w-4xl mx-auto space-y-10 text-center relative z-10">
           
-          <div className="space-y-3">
-            <span className="inline-flex items-center gap-1.5 text-xs font-mono font-bold tracking-widest text-sky-800 uppercase bg-sky-100/80 px-3.5 py-1.5 rounded-full border border-sky-200">
-              <ShieldCheck className="w-4 h-4 text-sky-600" />
-              Active Driver Simulation Portal
-            </span>
-            <h2 className="font-sans font-extrabold text-3xl sm:text-4xl text-slate-900 tracking-tight">
+          <div className="space-y-4 max-w-2xl mx-auto">
+            <div className="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-sky-300 uppercase bg-sky-950/90 px-4 py-2 rounded-full border border-sky-400/40 shadow-lg shadow-sky-950/80">
+              <span className="w-2 h-2 rounded-full bg-sky-400 animate-ping"></span>
+              <ShieldCheck className="w-4 h-4 text-sky-400" />
+              <span>Active Driver Simulation Portal</span>
+            </div>
+            
+            <h2 className="font-sans font-extrabold text-3xl sm:text-5xl text-white tracking-tight leading-tight">
               Start Your Driver Awareness Simulation
             </h2>
-            <p className="text-sm sm:text-base text-slate-600 max-w-xl mx-auto leading-relaxed font-normal">
+            
+            <p className="text-sm sm:text-base text-slate-300 max-w-xl mx-auto leading-relaxed font-normal">
               Complete this 60-second behavioral diagnostic to receive your simulated Driver Awareness Score and Fatigue Risk Profile.
             </p>
-            <p className="text-xs text-sky-700 font-bold font-mono">
-              Free · 60 seconds · No vehicle tracking · No hardware required
-            </p>
+            
+            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 text-xs font-mono text-sky-300 pt-1">
+              <span className="bg-sky-950/80 px-3 py-1 rounded-lg border border-sky-500/30 font-bold">100% Free</span>
+              <span className="text-slate-500">•</span>
+              <span className="bg-sky-950/80 px-3 py-1 rounded-lg border border-sky-500/30 font-bold">60 Seconds</span>
+              <span className="text-slate-500">•</span>
+              <span className="bg-sky-950/80 px-3 py-1 rounded-lg border border-sky-500/30 font-bold">No Vehicle Hardware</span>
+              <span className="text-slate-500">•</span>
+              <span className="bg-sky-950/80 px-3 py-1 rounded-lg border border-sky-500/30 font-bold">Zero GPS Tracking</span>
+            </div>
           </div>
 
           {/* Quiz Container Box */}
-          <div className="bg-[#090d16] rounded-3xl border border-sky-500/20 shadow-[0_24px_60px_rgba(0,0,0,0.4)] overflow-hidden p-3 sm:p-8 text-left max-w-3xl mx-auto">
+          <div className="relative bg-gradient-to-b from-[#0a152d] via-[#071024] to-[#040816] rounded-3xl border border-sky-500/40 shadow-[0_30px_90px_rgba(3,8,20,0.8)] overflow-hidden p-3 sm:p-8 text-left max-w-3xl mx-auto group">
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-sky-400 via-cyan-400 to-blue-500" />
             {quizView}
           </div>
 
@@ -611,7 +646,7 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
         <div className="max-w-5xl mx-auto space-y-12">
           
           <div className="text-center space-y-4 max-w-3xl mx-auto">
-            <span className="text-xs font-mono font-bold tracking-widest text-sky-700 uppercase bg-sky-50 px-3.5 py-1.5 rounded-full border border-sky-100">
+            <span className="text-xs font-mono font-bold tracking-widest text-sky-700 uppercase bg-sky-50 px-3.5 py-1.5 rounded-full border border-sky-100 shadow-xs">
               Research Participation
             </span>
             <h2 className="font-sans font-extrabold text-3xl sm:text-4xl text-slate-900 tracking-tight">
@@ -624,32 +659,35 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
             
-            <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
-              <div className="w-10 h-10 rounded-lg bg-sky-100 text-sky-700 flex items-center justify-center font-bold text-sm font-mono">
+            <div className="group p-6 rounded-2xl bg-gradient-to-br from-white via-slate-50/90 to-sky-50/20 border border-slate-200/90 hover:border-sky-400 shadow-md hover:shadow-xl hover:shadow-sky-500/10 hover:-translate-y-1.5 transition-all duration-300 space-y-3 relative overflow-hidden">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-sky-400 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="w-10 h-10 rounded-lg bg-sky-100 text-sky-700 flex items-center justify-center font-bold text-sm font-mono shadow-xs group-hover:scale-105 transition-transform">
                 01
               </div>
-              <h3 className="font-sans font-bold text-lg text-slate-900">Early Access Insights</h3>
-              <p className="text-xs text-slate-600 leading-relaxed font-medium">
+              <h3 className="font-sans font-bold text-lg text-slate-900 group-hover:text-sky-700 transition-colors">Early Access Insights</h3>
+              <p className="text-xs text-slate-600 leading-relaxed font-normal">
                 Cohort members receive updates on driver awareness study results and early access if prototype applications move forward.
               </p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
-              <div className="w-10 h-10 rounded-lg bg-violet-100 text-violet-700 flex items-center justify-center font-bold text-sm font-mono">
+            <div className="group p-6 rounded-2xl bg-gradient-to-br from-white via-slate-50/90 to-violet-50/20 border border-slate-200/90 hover:border-violet-400 shadow-md hover:shadow-xl hover:shadow-violet-500/10 hover:-translate-y-1.5 transition-all duration-300 space-y-3 relative overflow-hidden">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-violet-400 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="w-10 h-10 rounded-lg bg-violet-100 text-violet-700 flex items-center justify-center font-bold text-sm font-mono shadow-xs group-hover:scale-105 transition-transform">
                 02
               </div>
-              <h3 className="font-sans font-bold text-lg text-slate-900">Shape Product Direction</h3>
-              <p className="text-xs text-slate-600 leading-relaxed font-medium">
+              <h3 className="font-sans font-bold text-lg text-slate-900 group-hover:text-violet-700 transition-colors">Shape Product Direction</h3>
+              <p className="text-xs text-slate-600 leading-relaxed font-normal">
                 Provide feedback on desired awareness features, privacy guarantees, and physical accessory concepts.
               </p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
-              <div className="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-sm font-mono">
+            <div className="group p-6 rounded-2xl bg-gradient-to-br from-white via-slate-50/90 to-emerald-50/20 border border-slate-200/90 hover:border-emerald-400 shadow-md hover:shadow-xl hover:shadow-emerald-500/10 hover:-translate-y-1.5 transition-all duration-300 space-y-3 relative overflow-hidden">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-400 to-teal-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-sm font-mono shadow-xs group-hover:scale-105 transition-transform">
                 03
               </div>
-              <h3 className="font-sans font-bold text-lg text-slate-900">Priority Regional Slots</h3>
-              <p className="text-xs text-slate-600 leading-relaxed font-medium">
+              <h3 className="font-sans font-bold text-lg text-slate-900 group-hover:text-emerald-700 transition-colors">Priority Regional Slots</h3>
+              <p className="text-xs text-slate-600 leading-relaxed font-normal">
                 Reserve an early research slot in your postal area without financial obligation or hardware purchase.
               </p>
             </div>
