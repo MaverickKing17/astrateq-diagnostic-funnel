@@ -66,4 +66,28 @@ html, body, #root {
   scrollbar-color: #0ea5e9 #f1f5f9;
 }
 
+/* Microsoft Font styling for Beehiiv Embed & Buttons */
+#beehiiv_embed_container,
+#beehiiv_embed_container *,
+#beehiiv_embed_container iframe,
+#beehiiv_embed_container button,
+#beehiiv_embed_container input,
+#beehiiv_embed_container form,
+#beehiiv_embed_container div {
+  font-family: 'Segoe UI', 'Segoe UI Variable Text', -apple-system, BlinkMacSystemFont, Tahoma, Geneva, Verdana, Arial, sans-serif !important;
+}
+
+#beehiiv_embed_container button,
+#beehiiv_embed_container input[type="submit"],
+#beehiiv_embed_container [type="button"],
+#beehiiv_embed_container .subscribe-button,
+#beehiiv_embed_container [class*="submit"],
+#beehiiv_embed_container [class*="button"] {
+  font-family: 'Segoe UI', 'Segoe UI Variable Display', 'Segoe UI', Tahoma, Geneva, Verdana, Arial, sans-serif !important;
+  font-weight: 900 !important;
+  color: #020617 !important;
+  letter-spacing: 0.02em !important;
+  -webkit-font-smoothing: antialiased !important;
+}
+
 

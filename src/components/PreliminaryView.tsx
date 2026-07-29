@@ -35,6 +35,47 @@ export default function PreliminaryView({ result, onSubmitEmail, onTrackEvent }:
     embedRef.current.appendChild(loaderScript);
     document.body.appendChild(attrScript);
 
+    const applyMicrosoftFontToIframe = () => {
+      if (!embedRef.current) return;
+      const iframes = embedRef.current.querySelectorAll('iframe');
+      iframes.forEach((iframe) => {
+        try {
+          const doc = iframe.contentDocument || iframe.contentWindow?.document;
+          if (doc && doc.head) {
+            let style = doc.getElementById('microsoft-font-override');
+            if (!style) {
+              style = doc.createElement('style');
+              style.id = 'microsoft-font-override';
+              doc.head.appendChild(style);
+            }
+            style.textContent = `
+              * {
+                font-family: 'Segoe UI', 'Segoe UI Variable Text', -apple-system, BlinkMacSystemFont, Tahoma, Arial, sans-serif !important;
+              }
+              button, input[type="submit"], [type="button"], .subscribe-button, [class*="btn"], [class*="button"], [class*="submit"] {
+                font-family: 'Segoe UI', 'Segoe UI Variable Display', 'Segoe UI', Tahoma, Arial, sans-serif !important;
+                font-weight: 900 !important;
+                color: #020617 !important;
+                letter-spacing: 0.02em !important;
+                -webkit-font-smoothing: antialiased !important;
+              }
+              input, textarea {
+                font-family: 'Segoe UI', 'Segoe UI Variable Text', -apple-system, BlinkMacSystemFont, Tahoma, Arial, sans-serif !important;
+              }
+            `;
+          }
+        } catch (e) {
+          // Cross-origin fallback handled by outer container CSS
+        }
+      });
+    };
+
+    const intervalId = setInterval(applyMicrosoftFontToIframe, 300);
+    const observer = new MutationObserver(applyMicrosoftFontToIframe);
+    if (embedRef.current) {
+      observer.observe(embedRef.current, { childList: true, subtree: true });
+    }
+
     const handleMessage = (event: MessageEvent) => {
       if (event.data && typeof event.data === 'string' && (event.data.includes('beehiiv') || event.data.includes('subscribe'))) {
         onTrackEvent('beehiiv_subscribed', { data: event.data });
@@ -48,6 +89,8 @@ export default function PreliminaryView({ result, onSubmitEmail, onTrackEvent }:
     window.addEventListener('message', handleMessage);
 
     return () => {
+      clearInterval(intervalId);
+      observer.disconnect();
       window.removeEventListener('message', handleMessage);
       if (attrScript && attrScript.parentNode) {
         attrScript.parentNode.removeChild(attrScript);
