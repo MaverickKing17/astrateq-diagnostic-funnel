@@ -170,51 +170,56 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
 
             {/* Right Column: Hero Visual Mobile Simulator Preview */}
             <div className="lg:col-span-5 flex justify-center relative">
-              <div className="absolute -inset-3 bg-gradient-to-r from-cyan-500/30 via-sky-500/25 to-teal-500/30 rounded-[38px] blur-2xl opacity-75 animate-pulse pointer-events-none" />
+              {/* Vibrant Multi-layer Ambient Backlight Glow */}
+              <div className="absolute -inset-4 bg-gradient-to-tr from-cyan-400/40 via-sky-400/35 to-teal-300/30 rounded-[42px] blur-3xl opacity-90 animate-pulse pointer-events-none" />
+              <div className="absolute -inset-1 bg-gradient-to-r from-cyan-400 via-sky-300 to-teal-400 rounded-[36px] blur-md opacity-70 pointer-events-none" />
               
               <motion.div 
                 animate={{ y: [0, -6, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="relative w-full max-w-sm p-[2px] rounded-[32px] bg-gradient-to-b from-cyan-400 via-sky-500/50 to-indigo-600/40 shadow-[0_30px_80px_rgba(0,0,0,0.45)]"
-                style={{ backgroundColor: '#050B18', borderColor: 'rgba(34,211,238,0.25)' }}
+                className="relative w-full max-w-sm p-[2.5px] rounded-[34px] bg-gradient-to-b from-cyan-300 via-sky-400 to-teal-300 shadow-[0_25px_80px_rgba(34,211,238,0.35)]"
               >
-                <div className="bg-gradient-to-b from-[#0a1835] via-[#071228] to-[#050B18] rounded-[30px] p-5 sm:p-6 backdrop-blur-xl relative overflow-hidden">
+                <div className="bg-gradient-to-b from-[#0e2744] via-[#0a1c33] to-[#061224] rounded-[32px] p-5 sm:p-6 backdrop-blur-2xl relative overflow-hidden border border-cyan-300/40 shadow-2xl">
+                  
+                  {/* Subtle Top Metallic Light Sheen */}
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-cyan-300/60 to-transparent" />
                   
                   {/* Speaker Notch Accent */}
-                  <div className="w-16 h-1.5 rounded-full bg-slate-800 border border-slate-700/50 mx-auto mb-4 shadow-inner" />
+                  <div className="w-16 h-1.5 rounded-full bg-slate-800 border border-slate-700/80 mx-auto mb-4 shadow-inner" />
 
-                  <div className="flex items-center justify-between border-b border-slate-800/80 pb-3 mb-4">
+                  <div className="flex items-center justify-between border-b border-cyan-500/25 pb-3 mb-4">
                     <div className="flex items-center gap-2">
-                      <div className="w-7 h-7 rounded-lg bg-cyan-500/20 border border-cyan-400/40 flex items-center justify-center text-[#22D3EE]">
+                      <div className="w-7 h-7 rounded-lg bg-cyan-400/20 border border-cyan-300/50 flex items-center justify-center text-cyan-300 shadow-[0_0_12px_rgba(34,211,238,0.4)]">
                         <Smartphone className="w-4 h-4" />
                       </div>
-                      <span className="text-[11px] font-mono font-extrabold text-[#22D3EE] uppercase tracking-wider">
+                      <span className="text-[11px] font-mono font-black text-cyan-300 uppercase tracking-wider">
                         INTERACTIVE PROTOTYPE
                       </span>
                     </div>
                     
-                    <span className="text-[10px] bg-cyan-400 text-slate-950 px-2.5 py-1 rounded-full font-mono font-black border border-cyan-200">
+                    <span className="text-[10px] bg-gradient-to-r from-cyan-300 to-sky-300 text-slate-950 px-2.5 py-1 rounded-full font-mono font-black border border-cyan-100 shadow-[0_0_12px_rgba(34,211,238,0.5)]">
                       60s Simulation
                     </span>
                   </div>
 
                   {/* Simulated Mobile Screen View */}
-                  <div className="bg-[#040914] rounded-2xl p-4 border border-cyan-500/30 shadow-inner space-y-3.5 text-left relative">
+                  <div className="bg-[#051122] rounded-2xl p-4 border border-cyan-400/50 shadow-[0_12px_35px_rgba(0,0,0,0.6)] space-y-3.5 text-left relative overflow-hidden">
+                    
                     <div className="flex items-center justify-between text-[11px] font-mono">
-                      <span className="text-cyan-300 font-bold bg-cyan-950/90 px-2 py-0.5 rounded border border-cyan-500/40">
+                      <span className="text-cyan-100 font-black bg-cyan-950/90 px-2.5 py-1 rounded-md border border-cyan-400/60 shadow-[0_0_10px_rgba(34,211,238,0.25)]">
                         Stage 1: Driving Context
                       </span>
-                      <span className="text-emerald-400 font-bold flex items-center gap-1">
+                      <span className="text-emerald-300 font-bold flex items-center gap-1 bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-500/40">
                         <Lock className="w-3 h-3 text-emerald-400" />
                         <span>Private &amp; Local</span>
                       </span>
                     </div>
 
-                    <div className="bg-gradient-to-r from-sky-950/90 to-slate-900 p-3 rounded-xl border-l-4 border-l-cyan-400 border-y border-r border-slate-800 space-y-1">
-                      <span className="text-[10px] uppercase text-cyan-300 font-mono font-extrabold block">
+                    <div className="bg-gradient-to-r from-[#0f3459] to-[#0a223d] p-3.5 rounded-xl border-l-4 border-l-cyan-300 border-y border-r border-cyan-400/30 shadow-md space-y-1">
+                      <span className="text-[10px] uppercase text-cyan-300 font-mono font-black block tracking-wider">
                         Route &amp; Commute Factors
                       </span>
-                      <p className="text-xs font-bold text-white leading-tight">
+                      <p className="text-xs sm:text-sm font-extrabold text-white leading-snug">
                         Primary route type &amp; winter weather exposure?
                       </p>
                     </div>
@@ -222,32 +227,34 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
                     <div className="space-y-2">
                       <div 
                         onClick={onStartDiagnostic}
-                        className="p-2.5 rounded-xl bg-gradient-to-r from-sky-950 to-slate-900 border border-cyan-400 flex items-center justify-between text-xs text-white cursor-pointer shadow-sm"
+                        className="p-3 rounded-xl bg-gradient-to-r from-[#113a63] to-[#0c2847] border-2 border-cyan-300 flex items-center justify-between text-xs text-white cursor-pointer shadow-[0_0_18px_rgba(34,211,238,0.3)] transition-all hover:scale-[1.01]"
                       >
-                        <span className="font-semibold text-cyan-200">Highway Commute · Winter Exposure</span>
-                        <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.9)]" />
+                        <span className="font-extrabold text-cyan-50">Highway Commute · Winter Exposure</span>
+                        <span className="w-3 h-3 rounded-full bg-cyan-300 shadow-[0_0_12px_rgba(34,211,238,1)] border border-white/80" />
                       </div>
                       <div 
                         onClick={onStartDiagnostic}
-                        className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-between text-xs text-slate-300 cursor-pointer"
+                        className="p-3 rounded-xl bg-slate-900/90 hover:bg-slate-800/90 border border-slate-700/80 flex items-center justify-between text-xs text-slate-300 cursor-pointer transition-all"
                       >
-                        <span className="font-medium">Urban Stop-and-Go · City Core</span>
-                        <span className="w-2.5 h-2.5 rounded-full border border-slate-600 bg-slate-800" />
+                        <span className="font-semibold text-slate-300">Urban Stop-and-Go · City Core</span>
+                        <span className="w-3 h-3 rounded-full border border-slate-600 bg-slate-800" />
                       </div>
                     </div>
 
-                    <div className="pt-2 border-t border-slate-800 flex items-center justify-between">
+                    <div className="pt-3 border-t border-slate-800/90 flex items-center justify-between">
                       <div>
-                        <div className="text-[9px] text-cyan-400 uppercase font-mono font-bold">Sample Profile Baseline</div>
-                        <div className="text-lg font-mono font-black text-white">81 <span className="text-xs text-emerald-400 font-normal">/ GOOD</span></div>
+                        <div className="text-[9px] text-cyan-300 uppercase font-mono font-black tracking-wider">Sample Profile Baseline</div>
+                        <div className="text-xl font-mono font-black text-white flex items-baseline gap-1.5">
+                          81 <span className="text-xs text-emerald-400 font-bold">/ GOOD</span>
+                        </div>
                       </div>
                       
                       <button 
                         onClick={onStartDiagnostic}
-                        className="px-3.5 py-2 bg-gradient-to-r from-cyan-400 to-sky-400 hover:from-cyan-300 hover:to-sky-300 text-slate-950 font-black text-xs rounded-xl cursor-pointer flex items-center gap-1 shadow-md border border-cyan-200"
+                        className="px-4 py-2.5 bg-gradient-to-r from-cyan-300 via-sky-300 to-teal-300 hover:from-cyan-200 hover:to-teal-200 text-slate-950 font-black text-xs rounded-xl cursor-pointer flex items-center gap-1.5 shadow-[0_0_22px_rgba(34,211,238,0.6)] border-2 border-cyan-100 hover:scale-105 active:scale-95 transition-all"
                       >
                         <span>Launch Now</span>
-                        <ArrowRight className="w-3.5 h-3.5 text-slate-950 stroke-[3]" />
+                        <ArrowRight className="w-4 h-4 text-slate-950 stroke-[3]" />
                       </button>
                     </div>
 
