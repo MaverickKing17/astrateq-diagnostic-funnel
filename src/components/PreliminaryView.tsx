@@ -148,15 +148,15 @@ export default function PreliminaryView({ result, onSubmitEmail, onTrackEvent }:
               </p>
               
               {/* Embedded Beehiiv Form Container - sitting directly inside dark navy card */}
-              <div className="w-full my-[16px]" id="beehiiv_form_wrapper">
+              <div className="w-full mt-3 mb-[18px]" id="beehiiv_form_wrapper">
                 <div 
                   ref={embedRef} 
-                  className="w-full bg-transparent my-[16px]"
+                  className="w-full bg-transparent mb-[18px]"
                   id="beehiiv_embed_container"
                 />
 
                 {/* Real-time Scarcity Indicator */}
-                <p className="text-[10px] text-slate-400 text-center font-medium my-[16px] leading-normal">
+                <p className="text-[10px] text-slate-400 text-center font-medium mt-[18px] leading-normal">
                   ⚠️ Pre-launch validation: <strong>87 priority slots</strong> left in your postal area.
                 </p>
               </div>
