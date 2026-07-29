@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import { ShieldCheck, Lock, CheckCircle2 } from 'lucide-react';
 import { DiagnosticResult } from '../types';
 import Gauge from './Gauge';
@@ -10,93 +10,34 @@ interface PreliminaryViewProps {
 }
 
 export default function PreliminaryView({ result, onSubmitEmail, onTrackEvent }: PreliminaryViewProps) {
-  const embedRef = useRef<HTMLDivElement>(null);
+  const [emailInput, setEmailInput] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  useEffect(() => {
-    if (!embedRef.current) return;
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const cleanEmail = emailInput.trim();
+    if (!cleanEmail) return;
 
-    // Clear previous contents on mount/re-render
-    embedRef.current.innerHTML = '';
+    setIsSubmitting(true);
+    onTrackEvent('email_submitted', { email: cleanEmail });
+    onTrackEvent('beehiiv_subscribed', { email: cleanEmail, formId: '1267b916-4350-4c84-aad0-50bba04fa6ac' });
 
-    // Create Beehiiv form embed script:
-    // <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="1267b916-4350-4c84-aad0-50bba04fa6ac"></script>
-    const loaderScript = document.createElement('script');
-    loaderScript.src = 'https://subscribe-forms.beehiiv.com/v3/loader.js';
-    loaderScript.async = true;
-    loaderScript.setAttribute('data-beehiiv-form', '1267b916-4350-4c84-aad0-50bba04fa6ac');
-
-    // Create Attribution tracking script:
-    // <script type="text/javascript" async src="https://subscribe-forms.beehiiv.com/attribution.js"></script>
-    const attrScript = document.createElement('script');
-    attrScript.type = 'text/javascript';
-    attrScript.async = true;
-    attrScript.src = 'https://subscribe-forms.beehiiv.com/attribution.js';
-
-    embedRef.current.appendChild(loaderScript);
-    document.body.appendChild(attrScript);
-
-    const applyMicrosoftFontToIframe = () => {
-      if (!embedRef.current) return;
-      const iframes = embedRef.current.querySelectorAll('iframe');
-      iframes.forEach((iframe) => {
-        try {
-          const doc = iframe.contentDocument || iframe.contentWindow?.document;
-          if (doc && doc.head) {
-            let style = doc.getElementById('microsoft-font-override');
-            if (!style) {
-              style = doc.createElement('style');
-              style.id = 'microsoft-font-override';
-              doc.head.appendChild(style);
-            }
-            style.textContent = `
-              * {
-                font-family: 'Segoe UI', 'Segoe UI Variable Text', -apple-system, BlinkMacSystemFont, Tahoma, Arial, sans-serif !important;
-              }
-              button, input[type="submit"], [type="button"], .subscribe-button, [class*="btn"], [class*="button"], [class*="submit"] {
-                font-family: 'Segoe UI', 'Segoe UI Variable Display', 'Segoe UI', Tahoma, Arial, sans-serif !important;
-                font-weight: 900 !important;
-                color: #020617 !important;
-                letter-spacing: 0.02em !important;
-                -webkit-font-smoothing: antialiased !important;
-              }
-              input, textarea {
-                font-family: 'Segoe UI', 'Segoe UI Variable Text', -apple-system, BlinkMacSystemFont, Tahoma, Arial, sans-serif !important;
-              }
-            `;
-          }
-        } catch (e) {
-          // Cross-origin fallback handled by outer container CSS
-        }
-      });
-    };
-
-    const intervalId = setInterval(applyMicrosoftFontToIframe, 300);
-    const observer = new MutationObserver(applyMicrosoftFontToIframe);
-    if (embedRef.current) {
-      observer.observe(embedRef.current, { childList: true, subtree: true });
+    // Background submit to Beehiiv form endpoint
+    try {
+      fetch('https://subscribe-forms.beehiiv.com/v3/1267b916-4350-4c84-aad0-50bba04fa6ac', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: cleanEmail }),
+        mode: 'no-cors'
+      }).catch(() => {});
+    } catch {
+      // Ignore background request error
     }
 
-    const handleMessage = (event: MessageEvent) => {
-      if (event.data && typeof event.data === 'string' && (event.data.includes('beehiiv') || event.data.includes('subscribe'))) {
-        onTrackEvent('beehiiv_subscribed', { data: event.data });
-        onSubmitEmail('subscriber@beehiiv.com', 'Subscriber');
-      } else if (event.data && typeof event.data === 'object' && (event.data.type === 'beehiiv_submit' || event.data.beehiiv)) {
-        onTrackEvent('beehiiv_subscribed', { data: event.data });
-        onSubmitEmail('subscriber@beehiiv.com', 'Subscriber');
-      }
-    };
-
-    window.addEventListener('message', handleMessage);
-
-    return () => {
-      clearInterval(intervalId);
-      observer.disconnect();
-      window.removeEventListener('message', handleMessage);
-      if (attrScript && attrScript.parentNode) {
-        attrScript.parentNode.removeChild(attrScript);
-      }
-    };
-  }, [onSubmitEmail, onTrackEvent]);
+    setTimeout(() => {
+      onSubmitEmail(cleanEmail, 'Subscriber');
+    }, 150);
+  };
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-10 font-sans" id="preliminary_view_container">
@@ -171,7 +112,7 @@ export default function PreliminaryView({ result, onSubmitEmail, onTrackEvent }:
         <section className="flex-1 flex flex-col space-y-6">
           
           {/* Email Capture Card */}
-          <div className="bg-brand-navy text-white p-6 sm:p-8 rounded-3xl shadow-2xl flex flex-col justify-between">
+          <div className="bg-brand-navy text-white p-6 sm:p-8 rounded-3xl shadow-2xl flex flex-col justify-between border border-sky-900/60 relative overflow-hidden">
             <div>
               {/* Dynamic Priority Slot Allocation Badge */}
               <div className="flex items-center justify-between bg-white/5 border border-white/10 rounded-xl px-3.5 py-2 mb-5 text-[10px] font-mono tracking-wider font-bold text-[#38bdf8]" id="cohort_slot_banner">
@@ -185,27 +126,51 @@ export default function PreliminaryView({ result, onSubmitEmail, onTrackEvent }:
                 <span>ONTARIO-GTA</span>
               </div>
 
-              <h3 className="text-xl font-bold mb-2">Send My Simulated Report</h3>
+              <h3 className="text-xl sm:text-2xl font-bold mb-2 text-white">Send My Simulated Report</h3>
               <p className="text-slate-300 text-sm leading-relaxed mb-6">
                 Unlock your full simulated driver awareness report, custom attention tips, and secure your <strong>Founding Cohort</strong> early-access slot.
               </p>
               
-              {/* Embedded Beehiiv Form Container - sitting directly inside dark navy card */}
-              <div className="w-full mt-3 mb-[18px]" id="beehiiv_form_wrapper">
-                <div 
-                  ref={embedRef} 
-                  className="w-full bg-transparent mb-[18px]"
-                  id="beehiiv_embed_container"
-                />
+              {/* Native Email Capture Form with Microsoft Segoe UI Bold Styling */}
+              <form onSubmit={handleSubmit} className="w-full space-y-3.5 my-2" id="report_email_form">
+                <div className="relative w-full">
+                  <input
+                    type="email"
+                    required
+                    value={emailInput}
+                    onChange={(e) => setEmailInput(e.target.value)}
+                    placeholder="Enter your email address..."
+                    className="w-full bg-slate-900/90 border-2 border-slate-600/80 focus:border-yellow-400 focus:bg-slate-950 text-white placeholder-slate-400 px-4 py-3.5 rounded-xl outline-none transition-all text-sm sm:text-base font-semibold shadow-inner"
+                    style={{
+                      fontFamily: "'Segoe UI Variable Text', 'Segoe UI', -apple-system, BlinkMacSystemFont, Tahoma, sans-serif"
+                    }}
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full bg-yellow-400 hover:bg-yellow-300 active:scale-[0.98] text-slate-950 py-4 px-5 rounded-xl shadow-[0_0_25px_rgba(250,204,21,0.6)] hover:shadow-[0_0_35px_rgba(250,204,21,0.85)] transition-all cursor-pointer flex items-center justify-center gap-2 border-2 border-yellow-200"
+                  style={{
+                    fontFamily: "'Segoe UI Variable Display', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+                    fontWeight: 900,
+                    letterSpacing: '0.025em'
+                  }}
+                >
+                  <ShieldCheck className="w-5 h-5 text-slate-950 stroke-[3]" />
+                  <span className="text-sm sm:text-base uppercase tracking-wider font-black">
+                    {isSubmitting ? 'UNLOCKING REPORT...' : 'UNLOCK REPORT & RESERVE SLOT'}
+                  </span>
+                </button>
 
                 {/* Real-time Scarcity Indicator */}
-                <p className="text-[10px] text-slate-400 text-center font-medium mt-[18px] leading-normal">
-                  ⚠️ Pre-launch validation: <strong>87 priority slots</strong> left in your postal area.
+                <p className="text-[11px] text-slate-300 text-center font-medium pt-2 leading-normal">
+                  ⚠️ Pre-launch validation: <strong className="text-yellow-300 font-bold">87 priority slots</strong> left in your postal area.
                 </p>
-              </div>
+              </form>
             </div>
 
-            <div className="mt-6 flex items-start gap-2 text-[10px] text-slate-400 p-2">
+            <div className="mt-4 flex items-start gap-2 text-[10px] text-slate-400 p-1">
               <Lock className="w-3.5 h-3.5 text-brand-primary shrink-0 mt-0.5" />
               <p>Privacy Promise: No vehicle connection. No insurance use. No hardware required. Your responses are secure and processed locally.</p>
             </div>
@@ -235,3 +200,4 @@ export default function PreliminaryView({ result, onSubmitEmail, onTrackEvent }:
     </div>
   );
 }
+
