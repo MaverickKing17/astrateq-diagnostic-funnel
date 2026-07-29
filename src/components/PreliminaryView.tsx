@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
-import { motion } from 'motion/react';
-import { ShieldCheck, Mail, User, Lock, AlertCircle, Sparkles, CheckCircle2 } from 'lucide-react';
+import React, { useEffect, useRef } from 'react';
+import { ShieldCheck, Lock, CheckCircle2 } from 'lucide-react';
 import { DiagnosticResult } from '../types';
 import Gauge from './Gauge';
 
@@ -11,80 +10,37 @@ interface PreliminaryViewProps {
 }
 
 export default function PreliminaryView({ result, onSubmitEmail, onTrackEvent }: PreliminaryViewProps) {
-  const [email, setEmail] = useState('');
-  const [firstName, setFirstName] = useState('');
-  const [error, setError] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const embedRef = useRef<HTMLDivElement>(null);
 
-  // Real API submit via Express backend proxy
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setError('');
+  useEffect(() => {
+    if (!embedRef.current) return;
 
-    if (!email) {
-      setError('Email address is required.');
-      return;
-    }
+    // Clear previous contents on mount/re-render
+    embedRef.current.innerHTML = '';
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      setError('Please enter a valid email address.');
-      return;
-    }
+    // Create Beehiiv form embed script:
+    // <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="1267b916-4350-4c84-aad0-50bba04fa6ac"></script>
+    const loaderScript = document.createElement('script');
+    loaderScript.src = 'https://subscribe-forms.beehiiv.com/v3/loader.js';
+    loaderScript.async = true;
+    loaderScript.setAttribute('data-beehiiv-form', '1267b916-4350-4c84-aad0-50bba04fa6ac');
 
-    setIsSubmitting(true);
-    onTrackEvent('email_submitted_start', { email, firstName });
+    // Create Attribution tracking script:
+    // <script type="text/javascript" async src="https://subscribe-forms.beehiiv.com/attribution.js"></script>
+    const attrScript = document.createElement('script');
+    attrScript.type = 'text/javascript';
+    attrScript.async = true;
+    attrScript.src = 'https://subscribe-forms.beehiiv.com/attribution.js';
 
-    try {
-      const response = await fetch('/api/send-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email,
-          firstName,
-          score: result.score,
-          tierName: result.tierName,
-          riskProfile: result.riskProfile,
-          privacyAlignment: result.privacyAlignment,
-          attentionReadiness: result.attentionReadiness,
-          riskDesc: result.riskDesc,
-          tierDesc: result.tierDesc,
-        }),
-      });
+    embedRef.current.appendChild(loaderScript);
+    document.body.appendChild(attrScript);
 
-      const data = await response.json();
-
-      if (response.ok) {
-        if (data.simulated) {
-          onTrackEvent('email_simulated_success', { message: data.message });
-        } else {
-          onTrackEvent('email_send_success', { message: data.message });
-        }
-        setIsSubmitting(false);
-        onSubmitEmail(email, firstName);
-      } else {
-        // Real API returned error (e.g., wrong API key/domain validation in Resend)
-        console.error('Email dispatch failed:', data.error);
-        setError(`Email Dispatch Notice: ${data.error || "An error occurred with Resend."}. Proceeding to report anyway...`);
-        
-        // After a brief delay, let the user proceed anyway so they aren't stuck due to an API config issue
-        setTimeout(() => {
-          setIsSubmitting(false);
-          onSubmitEmail(email, firstName);
-        }, 3000);
+    return () => {
+      if (attrScript && attrScript.parentNode) {
+        attrScript.parentNode.removeChild(attrScript);
       }
-    } catch (err: any) {
-      console.error('Error sending email:', err);
-      setError(`Connection Notice: Could not connect to verification server. Proceeding to report anyway...`);
-      
-      setTimeout(() => {
-        setIsSubmitting(false);
-        onSubmitEmail(email, firstName);
-      }, 3000);
-    }
-  };
+    };
+  }, []);
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-10 font-sans" id="preliminary_view_container">
@@ -178,75 +134,34 @@ export default function PreliminaryView({ result, onSubmitEmail, onTrackEvent }:
                 Unlock your full simulated driver awareness report, custom attention tips, and secure your <strong>Founding Cohort</strong> early-access slot.
               </p>
               
-              <form onSubmit={handleSubmit} className="space-y-4" id="email_capture_form">
-                <div className="space-y-4">
-                  <div>
-                    <label htmlFor="first_name_input" className="block text-[10px] uppercase tracking-widest font-bold text-slate-450 mb-2">First Name (Optional)</label>
-                    <div className="relative">
-                      <User className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 transition-colors" />
-                      <input 
-                        type="text" 
-                        id="first_name_input"
-                        placeholder="e.g. Liam" 
-                        value={firstName}
-                        onChange={(e) => setFirstName(e.target.value)}
-                        className="w-full bg-white/5 hover:bg-white/8 focus:bg-slate-900 border border-white/15 focus:border-[#38bdf8] focus:ring-4 focus:ring-[#38bdf8]/15 rounded-xl pl-10 pr-4 py-3.5 text-sm focus:outline-none placeholder:text-slate-500 text-white transition-all" 
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <label htmlFor="email_input" className="block text-[10px] uppercase tracking-widest font-bold text-slate-450 mb-2">Email Address *</label>
-                    <div className="relative">
-                      <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 transition-colors" />
-                      <input 
-                        type="email" 
-                        id="email_input"
-                        required
-                        placeholder="your@email.com" 
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        className="w-full bg-white/5 hover:bg-white/8 focus:bg-slate-900 border border-white/15 focus:border-[#38bdf8] focus:ring-4 focus:ring-[#38bdf8]/15 rounded-xl pl-10 pr-4 py-3.5 text-sm focus:outline-none placeholder:text-slate-500 text-white transition-all" 
-                      />
-                    </div>
-                  </div>
+              {/* Embedded Beehiiv Form Container - sitting directly inside dark navy card */}
+              <div className="w-full my-3" id="beehiiv_form_wrapper">
+                <div 
+                  ref={embedRef} 
+                  className="w-full bg-transparent"
+                  id="beehiiv_embed_container"
+                />
 
-                  {error && (
-                    <div className="flex items-center gap-2 text-rose-300 text-xs font-medium bg-rose-950/40 p-3 rounded-lg border border-rose-900/50">
-                      <AlertCircle className="w-4 h-4 shrink-0 text-rose-400" />
-                      <span>{error}</span>
-                    </div>
-                  )}
-
-                  <div className="pt-2">
-                    <button 
-                      type="submit"
-                      disabled={isSubmitting}
-                      id="send_full_results_btn"
-                      className="w-full bg-yellow-400 hover:bg-yellow-300 text-slate-950 font-black py-4 rounded-xl transition-all shadow-[0_0_25px_rgba(250,204,21,0.5)] hover:shadow-[0_0_35px_rgba(250,204,21,0.8)] text-sm uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer border-2 border-yellow-200 active:scale-98"
-                    >
-                      {isSubmitting ? (
-                        <>
-                          <svg className="animate-spin h-4 w-4 text-slate-950 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                          </svg>
-                          <span>Securing My Slot...</span>
-                        </>
-                      ) : (
-                        <>
-                          <ShieldCheck className="w-4.5 h-4.5 text-slate-950 stroke-[2.5]" />
-                          <span>Unlock Report & Reserve Slot</span>
-                        </>
-                      )}
-                    </button>
-                  </div>
-                  
-                  {/* Real-time Scarcity Indicator */}
-                  <p className="text-[10px] text-slate-450 text-center font-medium mt-1 leading-normal">
-                    ⚠️ Pre-launch validation: <strong>87 priority slots</strong> left in your postal area.
-                  </p>
+                <div className="pt-3">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      onTrackEvent('beehiiv_continue_to_report');
+                      onSubmitEmail('subscriber@beehiiv.com', 'Subscriber');
+                    }}
+                    id="continue_to_report_btn"
+                    className="w-full bg-yellow-400 hover:bg-yellow-300 text-slate-950 font-black py-4 rounded-xl transition-all shadow-[0_0_25px_rgba(250,204,21,0.5)] hover:shadow-[0_0_35px_rgba(250,204,21,0.8)] text-sm uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer border-2 border-yellow-200 active:scale-98"
+                  >
+                    <ShieldCheck className="w-4.5 h-4.5 text-slate-950 stroke-[2.5]" />
+                    <span>Continue to Full Simulated Report</span>
+                  </button>
                 </div>
-              </form>
+
+                {/* Real-time Scarcity Indicator */}
+                <p className="text-[10px] text-slate-400 text-center font-medium mt-2 leading-normal">
+                  ⚠️ Pre-launch validation: <strong>87 priority slots</strong> left in your postal area.
+                </p>
+              </div>
             </div>
 
             <div className="mt-6 flex items-start gap-2 text-[10px] text-slate-400 p-2">
