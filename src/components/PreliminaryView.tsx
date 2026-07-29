@@ -35,12 +35,25 @@ export default function PreliminaryView({ result, onSubmitEmail, onTrackEvent }:
     embedRef.current.appendChild(loaderScript);
     document.body.appendChild(attrScript);
 
+    const handleMessage = (event: MessageEvent) => {
+      if (event.data && typeof event.data === 'string' && (event.data.includes('beehiiv') || event.data.includes('subscribe'))) {
+        onTrackEvent('beehiiv_subscribed', { data: event.data });
+        onSubmitEmail('subscriber@beehiiv.com', 'Subscriber');
+      } else if (event.data && typeof event.data === 'object' && (event.data.type === 'beehiiv_submit' || event.data.beehiiv)) {
+        onTrackEvent('beehiiv_subscribed', { data: event.data });
+        onSubmitEmail('subscriber@beehiiv.com', 'Subscriber');
+      }
+    };
+
+    window.addEventListener('message', handleMessage);
+
     return () => {
+      window.removeEventListener('message', handleMessage);
       if (attrScript && attrScript.parentNode) {
         attrScript.parentNode.removeChild(attrScript);
       }
     };
-  }, []);
+  }, [onSubmitEmail, onTrackEvent]);
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-10 font-sans" id="preliminary_view_container">
@@ -135,30 +148,15 @@ export default function PreliminaryView({ result, onSubmitEmail, onTrackEvent }:
               </p>
               
               {/* Embedded Beehiiv Form Container - sitting directly inside dark navy card */}
-              <div className="w-full my-3" id="beehiiv_form_wrapper">
+              <div className="w-full my-[16px]" id="beehiiv_form_wrapper">
                 <div 
                   ref={embedRef} 
-                  className="w-full bg-transparent"
+                  className="w-full bg-transparent my-[16px]"
                   id="beehiiv_embed_container"
                 />
 
-                <div className="pt-3">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      onTrackEvent('beehiiv_continue_to_report');
-                      onSubmitEmail('subscriber@beehiiv.com', 'Subscriber');
-                    }}
-                    id="continue_to_report_btn"
-                    className="w-full bg-yellow-400 hover:bg-yellow-300 text-slate-950 font-black py-4 rounded-xl transition-all shadow-[0_0_25px_rgba(250,204,21,0.5)] hover:shadow-[0_0_35px_rgba(250,204,21,0.8)] text-sm uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer border-2 border-yellow-200 active:scale-98"
-                  >
-                    <ShieldCheck className="w-4.5 h-4.5 text-slate-950 stroke-[2.5]" />
-                    <span>Continue to Full Simulated Report</span>
-                  </button>
-                </div>
-
                 {/* Real-time Scarcity Indicator */}
-                <p className="text-[10px] text-slate-400 text-center font-medium mt-2 leading-normal">
+                <p className="text-[10px] text-slate-400 text-center font-medium my-[16px] leading-normal">
                   ⚠️ Pre-launch validation: <strong>87 priority slots</strong> left in your postal area.
                 </p>
               </div>
