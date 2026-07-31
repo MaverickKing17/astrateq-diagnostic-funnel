@@ -161,51 +161,96 @@ export default function PreliminaryView({ result, onSubmitEmail, onTrackEvent }:
       </div>
 
       {/* 2. Side-by-Side Flex Layout Container */}
-      <div className="flex flex-col lg:flex-row gap-8 items-stretch mb-10">
+      <div className="flex flex-col lg:flex-row gap-8 items-start mb-10">
         
         {/* Left Column: The Diagnostic Card */}
-        <section className="flex-1 lg:flex-[1.4] bg-white rounded-3xl shadow-xl border border-white/50 p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden">
-          <div className="absolute top-0 right-0 p-6 sm:p-8">
-             <span className="px-3 py-1 bg-sky-50 text-sky-700 text-[10px] font-bold rounded-full uppercase tracking-widest border border-sky-100">Real-time Calculation</span>
+        <section className="flex-1 lg:flex-[1.4] bg-white rounded-3xl shadow-xl border border-white/50 p-6 sm:p-8 space-y-6 relative overflow-hidden">
+          <div className="flex items-center justify-between border-b border-slate-100 pb-4">
+            <div>
+              <span className="text-[10px] font-mono font-bold text-sky-600 uppercase tracking-widest block">ON-DEVICE SIMULATION DIAGNOSTIC</span>
+              <h2 className="text-2xl sm:text-3xl font-display font-extrabold leading-tight text-brand-navy mt-0.5">
+                Your Simulated Driver <span className="text-brand-primary">Awareness Score</span>
+              </h2>
+            </div>
+            <span className="px-3 py-1 bg-sky-50 text-sky-700 text-[10px] font-extrabold rounded-full uppercase tracking-widest border border-sky-100 shrink-0">
+              Real-time Calculation
+            </span>
           </div>
 
-          <div>
-            <h2 className="text-2xl sm:text-3xl font-display font-bold leading-tight mb-2 text-brand-navy">
-              Your Simulated Driver <br/><span className="text-brand-primary">Awareness Score</span>
-            </h2>
-            <p className="text-slate-500 text-sm max-w-md">
-              Based on your commuting profile and attention habit inputs.
-            </p>
-            
-            <div className="mt-10 flex flex-col sm:flex-row items-center sm:items-end gap-6">
-              <div className="shrink-0">
-                <Gauge score={result.score} size={200} />
+          <p className="text-slate-500 text-sm">
+            Derived from your commuting frequency, cognitive splitting inputs, and environmental habit profile.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row items-center sm:items-center gap-6 bg-slate-50/70 p-5 rounded-2xl border border-slate-100">
+            <div className="shrink-0">
+              <Gauge score={result.score} size={180} />
+            </div>
+            <div className="text-center sm:text-left space-y-2">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-emerald-50 text-emerald-700 rounded-full border border-emerald-200/60">
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                <span className="font-extrabold uppercase text-[10px] tracking-wider">{result.tierName}</span>
               </div>
-              <div className="pb-4 text-center sm:text-left">
-                <div className="flex items-center justify-center sm:justify-start gap-2 text-brand-primary mb-1">
-                  <CheckCircle2 className="w-4 h-4 text-brand-primary" />
-                  <span className="font-bold uppercase text-[11px] tracking-wider">{result.tierName}</span>
-                </div>
-                <p className="text-lg font-semibold text-brand-navy">{result.riskProfile}</p>
-                <p className="text-sm text-slate-500 max-w-xs mt-2 italic">
-                  "{result.riskDesc}"
-                </p>
+              <p className="text-lg font-extrabold text-brand-navy">{result.riskProfile}</p>
+              <p className="text-xs text-slate-600 max-w-xs italic leading-relaxed">
+                "{result.riskDesc}"
+              </p>
+            </div>
+          </div>
+
+          {/* Key Behavioral Factor Badges */}
+          <div className="space-y-2">
+            <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Behavioral Factor Mapping</p>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+              <div className="p-2.5 bg-slate-50 rounded-xl border border-slate-100 text-center">
+                <span className="text-[10px] text-slate-400 block font-semibold">Attentional Stability</span>
+                <span className="text-xs font-bold text-slate-900">
+                  {result.attentionStability === 'EXCELLENT' ? '92%' : result.attentionStability === 'GOOD' ? '82%' : '65%'}
+                </span>
+              </div>
+              <div className="p-2.5 bg-slate-50 rounded-xl border border-slate-100 text-center">
+                <span className="text-[10px] text-slate-400 block font-semibold">Fatigue Resilience</span>
+                <span className="text-xs font-bold text-slate-900">
+                  {result.fatigueRisk === 'LOW' ? '90%' : result.fatigueRisk === 'MODERATE' ? '76%' : '58%'}
+                </span>
+              </div>
+              <div className="p-2.5 bg-slate-50 rounded-xl border border-slate-100 text-center">
+                <span className="text-[10px] text-slate-400 block font-semibold">Env Adaptation</span>
+                <span className="text-xs font-bold text-slate-900">
+                  {result.environmentalComplexity === 'HIGH' ? '88%' : '78%'}
+                </span>
+              </div>
+              <div className="p-2.5 bg-slate-50 rounded-xl border border-slate-100 text-center">
+                <span className="text-[10px] text-slate-400 block font-semibold">Privacy Index</span>
+                <span className="text-xs font-bold text-emerald-600">100% Local</span>
               </div>
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4 mt-8 border-t border-slate-100 pt-8">
-            <div className="bg-slate-50 p-4 rounded-2xl">
-              <p className="text-[10px] font-bold text-slate-400 uppercase mb-2">Profile Alignment</p>
-              <p className="text-sm font-bold text-slate-900">Privacy First Preference</p>
-              <div className="w-full h-1 bg-slate-200 mt-2 rounded-full overflow-hidden">
+          {/* Regional Commuter Insight Callout */}
+          <div className="p-4 bg-sky-50/80 border border-sky-200/70 rounded-2xl text-xs text-slate-700 leading-relaxed space-y-1">
+            <span className="text-[10px] font-mono font-bold uppercase text-sky-800 tracking-wider block">🔬 CANADIAN ROADWAYS PROFILE ANALYSIS</span>
+            <p className="text-slate-600">
+              Your profile demonstrates strong alignment for high-density 400-series highway commuting without relying on insurance OBD-II hardware tracking.
+            </p>
+          </div>
+
+          {/* Progress Bars */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 border-t border-slate-100 pt-4">
+            <div className="bg-slate-50 p-3.5 rounded-2xl border border-slate-150">
+              <div className="flex justify-between items-center mb-1">
+                <p className="text-[10px] font-bold text-slate-400 uppercase">Profile Alignment</p>
+                <span className="text-[10px] font-extrabold text-sky-700">Privacy First</span>
+              </div>
+              <div className="w-full h-1.5 bg-slate-200 rounded-full overflow-hidden">
                 <div className="h-full bg-brand-primary rounded-full" style={{ width: result.privacyAlignment === 'Excellent' ? '95%' : '80%' }}></div>
               </div>
             </div>
-            <div className="bg-slate-50 p-4 rounded-2xl">
-              <p className="text-[10px] font-bold text-slate-400 uppercase mb-2">Risk Sensitivity</p>
-              <p className="text-sm font-bold text-slate-900">Canadian Road Focus</p>
-              <div className="w-full h-1 bg-slate-200 mt-2 rounded-full overflow-hidden">
+            <div className="bg-slate-50 p-3.5 rounded-2xl border border-slate-150">
+              <div className="flex justify-between items-center mb-1">
+                <p className="text-[10px] font-bold text-slate-400 uppercase">Commute Complexity</p>
+                <span className="text-[10px] font-extrabold text-sky-700">Canadian Focus</span>
+              </div>
+              <div className="w-full h-1.5 bg-slate-200 rounded-full overflow-hidden">
                 <div className="h-full bg-brand-primary rounded-full" style={{ width: result.score >= 86 ? '90%' : result.score >= 72 ? '70%' : '50%' }}></div>
               </div>
             </div>
@@ -213,7 +258,7 @@ export default function PreliminaryView({ result, onSubmitEmail, onTrackEvent }:
         </section>
 
         {/* Right Column: Lead Capture & CTA */}
-        <section className="flex-1 flex flex-col space-y-6">
+        <section className="flex-1 flex flex-col space-y-6 w-full lg:w-auto">
           
           {/* Email Capture Card */}
           <div className="bg-brand-navy text-white p-6 sm:p-8 rounded-3xl shadow-2xl flex flex-col justify-between border border-sky-900/60 relative overflow-hidden">
@@ -230,28 +275,53 @@ export default function PreliminaryView({ result, onSubmitEmail, onTrackEvent }:
                 <span>ONTARIO-GTA</span>
               </div>
 
-              <h3 className="text-xl sm:text-2xl font-bold mb-2 text-white">Send My Simulated Report</h3>
-              <p className="text-slate-300 text-sm leading-relaxed mb-4">
+              <h3 className="text-xl sm:text-2xl font-extrabold mb-2 text-white">Send My Simulated Report</h3>
+              <p className="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
                 Unlock your full simulated driver awareness report, custom attention tips, and secure your <strong>Founding Cohort</strong> early-access slot.
               </p>
               
-              {/* Official Beehiiv Embedded Form Container */}
-              <div className="w-full my-2 overflow-hidden" id="beehiiv_form_wrapper">
+              {/* Direct Instant Email Form Fallback + Beehiiv Embed */}
+              <div className="w-full my-2 space-y-3" id="beehiiv_form_wrapper">
+                <form 
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    const form = e.currentTarget;
+                    const emailInput = form.querySelector('input[type="email"]') as HTMLInputElement;
+                    if (emailInput && emailInput.value) {
+                      onSubmitEmail(emailInput.value, 'Driver');
+                    }
+                  }}
+                  className="flex flex-col sm:flex-row items-stretch gap-2.5"
+                >
+                  <input
+                    type="email"
+                    placeholder="Enter your email address..."
+                    required
+                    className="flex-1 px-4 py-3 bg-white text-slate-900 text-sm rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-orange-400 placeholder:text-slate-400 font-medium"
+                  />
+                  <button
+                    type="submit"
+                    className="px-5 py-3.5 bg-gradient-to-r from-orange-500 via-amber-500 to-orange-500 hover:from-orange-400 hover:to-amber-400 text-slate-950 font-black text-xs sm:text-sm uppercase tracking-wider rounded-xl shadow-[0_0_20px_rgba(249,115,22,0.6)] border border-orange-200 transition-all shrink-0 cursor-pointer flex items-center justify-center gap-1.5"
+                  >
+                    <span>UNLOCK REPORT</span>
+                  </button>
+                </form>
+
                 <div 
                   ref={embedRef} 
-                  className="w-full min-h-[160px] bg-transparent overflow-hidden rounded-xl"
+                  className="w-full min-h-[0px] bg-transparent overflow-hidden rounded-xl"
                   id="beehiiv_embed_container"
                 />
 
                 {/* Real-time Scarcity Indicator */}
-                <p className="text-[11px] text-slate-300 text-center font-medium pt-2 leading-normal">
-                  ⚠️ Pre-launch validation: <strong className="text-yellow-300 font-bold">87 priority slots</strong> left in your postal area.
+                <p className="text-[11px] text-slate-300 text-center font-medium pt-1 leading-normal">
+                  ⚠️ Pre-launch validation: <strong className="text-amber-300 font-bold">87 priority slots</strong> left in your postal area.
                 </p>
               </div>
             </div>
 
-            <div className="mt-4 flex items-start gap-2 text-[10px] text-slate-400 p-1">
-              <Lock className="w-3.5 h-3.5 text-brand-primary shrink-0 mt-0.5" />
+            <div className="mt-4 flex items-start gap-2 text-[10px] text-slate-400 p-1 pt-3 border-t border-slate-800">
+              <Lock className="w-3.5 h-3.5 text-cyan-400 shrink-0 mt-0.5" />
               <p>Privacy Promise: No vehicle connection. No insurance use. No hardware required. Your responses are secure and processed locally.</p>
             </div>
           </div>
