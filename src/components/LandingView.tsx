@@ -401,86 +401,131 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
       </section>
 
       {/* ==========================================
-          SECTION 4: HOW THE SIMULATION WORKS (Upgraded Step Journey)
+          SECTION 4: HOW THE SIMULATION WORKS (Upgraded High-Contrast Step Journey)
          ========================================== */}
-      <section id="how-it-works" className="py-20 px-6 bg-slate-50 border-b border-slate-200">
-        <div className="max-w-5xl mx-auto space-y-12">
+      <section id="how-it-works" className="py-20 px-4 sm:px-6 bg-gradient-to-b from-slate-100 via-sky-50/50 to-slate-100 border-b border-slate-200/80 relative overflow-hidden">
+        
+        {/* Subtle background glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-sky-200/30 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="max-w-6xl mx-auto space-y-12 relative z-10">
           
           <div className="text-center space-y-3 max-w-3xl mx-auto">
-            <span className="text-xs font-mono font-bold tracking-widest text-sky-700 uppercase bg-sky-50 px-3.5 py-1.5 rounded-full border border-sky-100">
+            <span className="inline-flex items-center gap-1.5 text-xs font-mono font-bold tracking-widest text-sky-800 uppercase bg-sky-100/90 px-4 py-1.5 rounded-full border border-sky-300/60 shadow-xs">
+              <Sliders className="w-3.5 h-3.5 text-sky-600" />
               SIMULATION JOURNEY
             </span>
-            <h2 className="font-sans font-extrabold text-3xl sm:text-4xl text-[#071524] tracking-tight">
+            <h2 className="font-sans font-extrabold text-3xl sm:text-4xl lg:text-5xl text-slate-900 tracking-tight">
               How The Simulation Works
             </h2>
-            <p className="text-sm text-slate-600 font-medium">
+            <p className="text-base sm:text-lg text-slate-700 font-semibold max-w-xl mx-auto">
               Four simple research-backed steps to explore your driver awareness profile.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 text-left relative">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left relative">
             
             {/* Step 1 */}
-            <div className="p-6 rounded-2xl bg-white border border-slate-200 space-y-4 shadow-xs hover:border-sky-300 hover:shadow-lg transition-all duration-200">
-              <div className="flex items-center justify-between">
-                <span className="text-2xl font-mono font-black text-[#0284C7]">01</span>
-                <div className="w-9 h-9 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center">
-                  <MapPin className="w-4 h-4" />
+            <div className="p-6 rounded-2xl bg-white border border-slate-300 border-t-4 border-t-sky-500 space-y-4 shadow-md hover:shadow-2xl hover:-translate-y-1 hover:border-sky-400 transition-all duration-300 flex flex-col justify-between relative group">
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-mono font-black text-white bg-gradient-to-r from-sky-600 to-blue-600 px-3 py-1 rounded-lg tracking-wider uppercase shadow-xs">
+                    STEP 01
+                  </span>
+                  <div className="w-11 h-11 rounded-xl bg-sky-50 text-sky-600 border border-sky-200 flex items-center justify-center font-bold shadow-xs group-hover:bg-sky-500 group-hover:text-white transition-colors">
+                    <MapPin className="w-5 h-5" />
+                  </div>
+                </div>
+                <div>
+                  <h3 className="font-sans font-extrabold text-lg text-slate-900 group-hover:text-sky-700 transition-colors">
+                    Context Calibration
+                  </h3>
+                  <p className="text-xs text-slate-700 font-medium leading-relaxed pt-2">
+                    Select your route types (Urban, Highway, Rural), commute length, and weather conditions.
+                  </p>
                 </div>
               </div>
-              <div>
-                <h3 className="font-sans font-extrabold text-base text-[#071524]">Context Calibration</h3>
-                <p className="text-xs text-slate-600 leading-relaxed pt-1">
-                  Select your route types (Urban, Highway, Rural), commute length, and weather conditions.
-                </p>
+              <div className="pt-3 border-t border-slate-100 text-[11px] font-mono font-semibold text-sky-700 flex items-center gap-1">
+                <span>Input Context</span>
+                <ArrowRight className="w-3.5 h-3.5 text-sky-500" />
               </div>
             </div>
 
             {/* Step 2 */}
-            <div className="p-6 rounded-2xl bg-white border border-slate-200 space-y-4 shadow-xs hover:border-sky-300 hover:shadow-lg transition-all duration-200">
-              <div className="flex items-center justify-between">
-                <span className="text-2xl font-mono font-black text-[#0284C7]">02</span>
-                <div className="w-9 h-9 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center">
-                  <Sliders className="w-4 h-4" />
+            <div className="p-6 rounded-2xl bg-white border border-slate-300 border-t-4 border-t-blue-600 space-y-4 shadow-md hover:shadow-2xl hover:-translate-y-1 hover:border-blue-500 transition-all duration-300 flex flex-col justify-between relative group">
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-mono font-black text-white bg-gradient-to-r from-blue-600 to-indigo-600 px-3 py-1 rounded-lg tracking-wider uppercase shadow-xs">
+                    STEP 02
+                  </span>
+                  <div className="w-11 h-11 rounded-xl bg-blue-50 text-blue-600 border border-blue-200 flex items-center justify-center font-bold shadow-xs group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                    <Sliders className="w-5 h-5" />
+                  </div>
+                </div>
+                <div>
+                  <h3 className="font-sans font-extrabold text-lg text-slate-900 group-hover:text-blue-700 transition-colors">
+                    Driver Focus Test
+                  </h3>
+                  <p className="text-xs text-slate-700 font-medium leading-relaxed pt-2">
+                    Respond to cognitive load scenarios, attention switching, and fatigue exposure windows.
+                  </p>
                 </div>
               </div>
-              <div>
-                <h3 className="font-sans font-extrabold text-base text-[#071524]">Driver Focus Test</h3>
-                <p className="text-xs text-slate-600 leading-relaxed pt-1">
-                  Respond to cognitive load scenarios, attention switching, and fatigue exposure windows.
-                </p>
+              <div className="pt-3 border-t border-slate-100 text-[11px] font-mono font-semibold text-blue-700 flex items-center gap-1">
+                <span>Cognitive Input</span>
+                <ArrowRight className="w-3.5 h-3.5 text-blue-500" />
               </div>
             </div>
 
             {/* Step 3 */}
-            <div className="p-6 rounded-2xl bg-white border border-slate-200 space-y-4 shadow-xs hover:border-sky-300 hover:shadow-lg transition-all duration-200">
-              <div className="flex items-center justify-between">
-                <span className="text-2xl font-mono font-black text-[#0284C7]">03</span>
-                <div className="w-9 h-9 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center">
-                  <Cpu className="w-4 h-4" />
+            <div className="p-6 rounded-2xl bg-white border border-slate-300 border-t-4 border-t-indigo-600 space-y-4 shadow-md hover:shadow-2xl hover:-translate-y-1 hover:border-indigo-500 transition-all duration-300 flex flex-col justify-between relative group">
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-mono font-black text-white bg-gradient-to-r from-indigo-600 to-teal-600 px-3 py-1 rounded-lg tracking-wider uppercase shadow-xs">
+                    STEP 03
+                  </span>
+                  <div className="w-11 h-11 rounded-xl bg-indigo-50 text-indigo-600 border border-indigo-200 flex items-center justify-center font-bold shadow-xs group-hover:bg-indigo-600 group-hover:text-white transition-colors">
+                    <Cpu className="w-5 h-5" />
+                  </div>
+                </div>
+                <div>
+                  <h3 className="font-sans font-extrabold text-lg text-slate-900 group-hover:text-indigo-700 transition-colors">
+                    Awareness Profile
+                  </h3>
+                  <p className="text-xs text-slate-700 font-medium leading-relaxed pt-2">
+                    Animate and calculate local, telemetry-free awareness parameters securely on-device.
+                  </p>
                 </div>
               </div>
-              <div>
-                <h3 className="font-sans font-extrabold text-base text-[#071524]">Awareness Profile</h3>
-                <p className="text-xs text-slate-600 leading-relaxed pt-1">
-                  Animate and calculate local, telemetry-free awareness parameters securely.
-                </p>
+              <div className="pt-3 border-t border-slate-100 text-[11px] font-mono font-semibold text-indigo-700 flex items-center gap-1">
+                <span>Local Engine</span>
+                <ArrowRight className="w-3.5 h-3.5 text-indigo-500" />
               </div>
             </div>
 
             {/* Step 4 */}
-            <div className="p-6 rounded-2xl bg-white border border-slate-200 space-y-4 shadow-xs hover:border-sky-300 hover:shadow-lg transition-all duration-200">
-              <div className="flex items-center justify-between">
-                <span className="text-2xl font-mono font-black text-[#0284C7]">04</span>
-                <div className="w-9 h-9 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center">
-                  <FileCheck className="w-4 h-4" />
+            <div className="p-6 rounded-2xl bg-white border border-slate-300 border-t-4 border-t-emerald-600 space-y-4 shadow-md hover:shadow-2xl hover:-translate-y-1 hover:border-emerald-500 transition-all duration-300 flex flex-col justify-between relative group">
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-mono font-black text-white bg-gradient-to-r from-emerald-600 to-teal-600 px-3 py-1 rounded-lg tracking-wider uppercase shadow-xs">
+                    STEP 04
+                  </span>
+                  <div className="w-11 h-11 rounded-xl bg-emerald-50 text-emerald-600 border border-emerald-200 flex items-center justify-center font-bold shadow-xs group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                    <FileCheck className="w-5 h-5" />
+                  </div>
+                </div>
+                <div>
+                  <h3 className="font-sans font-extrabold text-lg text-slate-900 group-hover:text-emerald-700 transition-colors">
+                    Research Insights
+                  </h3>
+                  <p className="text-xs text-slate-700 font-medium leading-relaxed pt-2">
+                    View Apple Health inspired metrics, supportive insights, and cohort alignment.
+                  </p>
                 </div>
               </div>
-              <div>
-                <h3 className="font-sans font-extrabold text-base text-[#071524]">Research Insights</h3>
-                <p className="text-xs text-slate-600 leading-relaxed pt-1">
-                  View Apple Health inspired metrics, supportive insights, and cohort alignment.
-                </p>
+              <div className="pt-3 border-t border-slate-100 text-[11px] font-mono font-semibold text-emerald-700 flex items-center gap-1">
+                <span>Results Locked</span>
+                <Check className="w-3.5 h-3.5 text-emerald-500 stroke-[3]" />
               </div>
             </div>
 
@@ -490,107 +535,175 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
       </section>
 
       {/* ==========================================
-          SECTION 5: PRIVACY ARCHITECTURE
+          SECTION 5: PRIVACY & ON-DEVICE SECURITY GUARANTEE
          ========================================== */}
-      <section id="privacy-architecture" className="py-20 px-6 bg-[#071524] text-white border-b border-slate-800 relative overflow-hidden">
+      <section id="privacy-architecture" className="py-20 px-4 sm:px-6 bg-gradient-to-b from-slate-900 via-[#0a192f] to-slate-950 text-white border-b border-slate-800 relative overflow-hidden">
         
+        {/* Subtle Background Glow Elements */}
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-full max-w-4xl h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-10 right-10 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
+
         <div className="max-w-5xl mx-auto space-y-12 relative z-10">
           
-          <div className="text-center space-y-3 max-w-3xl mx-auto">
-            <span className="inline-flex items-center gap-1.5 text-xs font-mono font-bold tracking-widest text-[#22D3EE] uppercase bg-sky-950/90 px-3.5 py-1.5 rounded-full border border-cyan-400/30">
-              <Lock className="w-3.5 h-3.5 text-[#22D3EE]" />
-              PRIVACY ARCHITECTURE
-            </span>
-            <h2 className="font-sans font-extrabold text-3xl sm:text-4xl text-white tracking-tight">
-              Your Data Stays With You
+          {/* Header & Purpose Callout */}
+          <div className="text-center space-y-4 max-w-3xl mx-auto">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-950/80 border border-cyan-400/40 text-cyan-300 text-xs font-mono font-bold uppercase tracking-wider shadow-md">
+              <Lock className="w-4 h-4 text-cyan-400 shrink-0" />
+              <span>100% ON-DEVICE PRIVACY &amp; SECURITY GUARANTEE</span>
+            </div>
+            
+            <h2 className="font-sans font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-tight">
+              Why Your Assessment Data Is{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-300 to-emerald-300 font-black">
+                100% Private
+              </span>
             </h2>
-            <p className="text-sm sm:text-base text-[#D6E4F0] leading-relaxed font-normal opacity-90">
-              Privacy is not an afterthought or opt-out settings toggle — it is Astrateq Gadgets' founding engineering constraint.
+            
+            {/* Purpose statement clearly answering what this section is about */}
+            <p className="text-base sm:text-lg text-slate-200 font-normal leading-relaxed bg-slate-800/80 border border-slate-700/80 p-5 rounded-2xl shadow-sm text-slate-200">
+              <strong className="text-cyan-300 font-semibold block sm:inline mr-1">Section Purpose:</strong> 
+              This assessment calculates your driver awareness profile strictly inside your web browser. 
+              We never track your GPS location, stream camera video, or store driving logs.
             </p>
           </div>
 
           {/* Privacy Architecture Flow Diagram */}
-          <div 
-            className="p-8 rounded-3xl border space-y-6 shadow-2xl relative"
-            style={{ backgroundColor: '#050C16', borderColor: 'rgba(34,211,238,0.25)' }}
-          >
-            <h3 className="text-center text-xs font-mono font-bold uppercase tracking-wider text-[#22D3EE]">
-              On-Device Data Flow Diagram
-            </h3>
+          <div className="bg-slate-900/90 border border-cyan-500/30 rounded-3xl p-6 sm:p-10 shadow-2xl space-y-8 relative backdrop-blur-md">
+            
+            <div className="text-center space-y-1 border-b border-slate-800 pb-6">
+              <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-cyan-400">
+                ARCHITECTURE FLOW
+              </span>
+              <h3 className="font-sans font-extrabold text-xl sm:text-2xl text-white">
+                How Your Data Is Isolated On Your Device
+              </h3>
+            </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 text-center items-center">
-              <div className="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-2">
-                <Smartphone className="w-6 h-6 text-[#22D3EE] mx-auto" />
-                <div className="font-bold text-sm text-white">Driver Device</div>
-                <div className="text-[11px] text-slate-400">Client-side app container</div>
+            {/* Step-by-Step Flow Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 sm:gap-6 relative">
+              
+              {/* Step 1 */}
+              <div className="p-5 rounded-2xl bg-slate-800/90 border border-slate-700 hover:border-cyan-400 transition-all duration-200 space-y-3 relative group">
+                <div className="w-12 h-12 rounded-xl bg-cyan-500/20 text-cyan-300 flex items-center justify-center font-bold border border-cyan-400/40">
+                  <Smartphone className="w-6 h-6 text-cyan-300" />
+                </div>
+                <div>
+                  <div className="text-xs font-mono font-bold text-cyan-400 uppercase tracking-wider mb-0.5">Step 1</div>
+                  <h4 className="font-extrabold text-base text-white">Driver Device</h4>
+                  <p className="text-xs text-slate-300 leading-normal mt-1 font-medium">
+                    Assessment inputs executed purely in your local browser session.
+                  </p>
+                </div>
               </div>
 
-              <div className="hidden md:block text-[#22D3EE] font-mono text-xl animate-pulse">→</div>
-
-              <div className="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-2">
-                <Cpu className="w-6 h-6 text-cyan-400 mx-auto" />
-                <div className="font-bold text-sm text-white">Local Processing</div>
-                <div className="text-[11px] text-slate-400">Zero cloud server calculation</div>
+              {/* Connector Arrow 1 */}
+              <div className="hidden md:flex items-center justify-center text-cyan-400 absolute top-1/2 left-[23%] -translate-y-1/2 z-20 pointer-events-none">
+                <ArrowRight className="w-6 h-6 text-cyan-400 animate-pulse stroke-[3]" />
               </div>
 
-              <div className="hidden md:block text-[#22D3EE] font-mono text-xl animate-pulse">→</div>
-
-              <div className="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-2">
-                <BarChart3 className="w-6 h-6 text-teal-400 mx-auto" />
-                <div className="font-bold text-sm text-white">Anonymous Insights</div>
-                <div className="text-[11px] text-slate-400">Private profile generated</div>
+              {/* Step 2 */}
+              <div className="p-5 rounded-2xl bg-slate-800/90 border border-slate-700 hover:border-cyan-400 transition-all duration-200 space-y-3 relative group">
+                <div className="w-12 h-12 rounded-xl bg-sky-500/20 text-sky-300 flex items-center justify-center font-bold border border-sky-400/40">
+                  <Cpu className="w-6 h-6 text-sky-300" />
+                </div>
+                <div>
+                  <div className="text-xs font-mono font-bold text-sky-400 uppercase tracking-wider mb-0.5">Step 2</div>
+                  <h4 className="font-extrabold text-base text-white">Local Computation</h4>
+                  <p className="text-xs text-slate-300 leading-normal mt-1 font-medium">
+                    Zero cloud calculations. All algorithms execute on your device CPU.
+                  </p>
+                </div>
               </div>
 
-              <div className="hidden md:block text-[#22D3EE] font-mono text-xl animate-pulse">→</div>
-
-              <div className="p-5 rounded-2xl bg-emerald-950/60 border border-emerald-500/40 space-y-2">
-                <Database className="w-6 h-6 text-emerald-400 mx-auto" />
-                <div className="font-bold text-sm text-emerald-200">Privacy Protected</div>
-                <div className="text-[11px] text-emerald-300/80">Zero location or trip logs</div>
+              {/* Connector Arrow 2 */}
+              <div className="hidden md:flex items-center justify-center text-cyan-400 absolute top-1/2 left-[48%] -translate-y-1/2 z-20 pointer-events-none">
+                <ArrowRight className="w-6 h-6 text-cyan-400 animate-pulse stroke-[3]" />
               </div>
+
+              {/* Step 3 */}
+              <div className="p-5 rounded-2xl bg-slate-800/90 border border-slate-700 hover:border-cyan-400 transition-all duration-200 space-y-3 relative group">
+                <div className="w-12 h-12 rounded-xl bg-teal-500/20 text-teal-300 flex items-center justify-center font-bold border border-teal-400/40">
+                  <BarChart3 className="w-6 h-6 text-teal-300" />
+                </div>
+                <div>
+                  <div className="text-xs font-mono font-bold text-teal-400 uppercase tracking-wider mb-0.5">Step 3</div>
+                  <h4 className="font-extrabold text-base text-white">Private Profile</h4>
+                  <p className="text-xs text-slate-300 leading-normal mt-1 font-medium">
+                    Score &amp; fatigue risk generated instantly without identity tracking.
+                  </p>
+                </div>
+              </div>
+
+              {/* Connector Arrow 3 */}
+              <div className="hidden md:flex items-center justify-center text-emerald-400 absolute top-1/2 left-[73%] -translate-y-1/2 z-20 pointer-events-none">
+                <ArrowRight className="w-6 h-6 text-emerald-400 animate-pulse stroke-[3]" />
+              </div>
+
+              {/* Step 4 */}
+              <div className="p-5 rounded-2xl bg-emerald-950/70 border border-emerald-500/50 hover:border-emerald-400 transition-all duration-200 space-y-3 relative group shadow-lg">
+                <div className="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-300 flex items-center justify-center font-bold border border-emerald-400/40">
+                  <Database className="w-6 h-6 text-emerald-300" />
+                </div>
+                <div>
+                  <div className="text-xs font-mono font-bold text-emerald-400 uppercase tracking-wider mb-0.5">Protected</div>
+                  <h4 className="font-extrabold text-base text-emerald-200">Zero Cloud Logs</h4>
+                  <p className="text-xs text-emerald-100/90 leading-normal mt-1 font-medium">
+                    No GPS location, speed, or route history recorded or sold.
+                  </p>
+                </div>
+              </div>
+
             </div>
           </div>
 
-          {/* 4 Checkmark Principles */}
+          {/* 4 Core Guarantees Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
             
-            <div className="p-6 rounded-2xl bg-[#0a1b2e] border border-cyan-500/20 space-y-2">
-              <div className="flex items-center gap-2 text-emerald-400 font-bold text-sm">
-                <Check className="w-4 h-4 text-emerald-400 stroke-[3]" />
-                <span>No Continuous Tracking</span>
+            <div className="p-6 rounded-2xl bg-slate-800/80 border border-slate-700/80 hover:border-cyan-400/60 transition-all duration-200 space-y-3 shadow-md">
+              <div className="flex items-center gap-2.5 text-emerald-400 font-extrabold text-sm">
+                <div className="w-7 h-7 rounded-lg bg-emerald-500/20 flex items-center justify-center text-emerald-400 shrink-0">
+                  <Check className="w-4 h-4 stroke-[3]" />
+                </div>
+                <span className="text-white">Zero GPS Tracking</span>
               </div>
-              <p className="text-xs text-[#D6E4F0] leading-relaxed opacity-85">
-                Zero GPS route logging, speed telemetry, or location tracking.
+              <p className="text-xs text-slate-300 leading-relaxed font-medium">
+                We never request, store, or monitor your location, driving routes, or destination data.
               </p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-[#0a1b2e] border border-cyan-500/20 space-y-2">
-              <div className="flex items-center gap-2 text-emerald-400 font-bold text-sm">
-                <Check className="w-4 h-4 text-emerald-400 stroke-[3]" />
-                <span>No Cloud Surveillance</span>
+            <div className="p-6 rounded-2xl bg-slate-800/80 border border-slate-700/80 hover:border-cyan-400/60 transition-all duration-200 space-y-3 shadow-md">
+              <div className="flex items-center gap-2.5 text-emerald-400 font-extrabold text-sm">
+                <div className="w-7 h-7 rounded-lg bg-emerald-500/20 flex items-center justify-center text-emerald-400 shrink-0">
+                  <Check className="w-4 h-4 stroke-[3]" />
+                </div>
+                <span className="text-white">Zero Surveillance</span>
               </div>
-              <p className="text-xs text-[#D6E4F0] leading-relaxed opacity-85">
-                No video feeds or continuous sensor streaming to cloud servers.
+              <p className="text-xs text-slate-300 leading-relaxed font-medium">
+                No video feeds, optical cabin scanning, or continuous sensor streaming to external servers.
               </p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-[#0a1b2e] border border-cyan-500/20 space-y-2">
-              <div className="flex items-center gap-2 text-emerald-400 font-bold text-sm">
-                <Check className="w-4 h-4 text-emerald-400 stroke-[3]" />
-                <span>No Vehicle Telemetry</span>
+            <div className="p-6 rounded-2xl bg-slate-800/80 border border-slate-700/80 hover:border-cyan-400/60 transition-all duration-200 space-y-3 shadow-md">
+              <div className="flex items-center gap-2.5 text-emerald-400 font-extrabold text-sm">
+                <div className="w-7 h-7 rounded-lg bg-emerald-500/20 flex items-center justify-center text-emerald-400 shrink-0">
+                  <Check className="w-4 h-4 stroke-[3]" />
+                </div>
+                <span className="text-white">No OBD Hardware</span>
               </div>
-              <p className="text-xs text-[#D6E4F0] leading-relaxed opacity-85">
-                No OBD-II connection or intrusive vehicle hardware required.
+              <p className="text-xs text-slate-300 leading-relaxed font-medium">
+                No OBD-II vehicle dongles or physical car modifications required to run the simulation.
               </p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-[#0a1b2e] border border-cyan-500/20 space-y-2">
-              <div className="flex items-center gap-2 text-emerald-400 font-bold text-sm">
-                <Check className="w-4 h-4 text-emerald-400 stroke-[3]" />
-                <span>Privacy-First Architecture</span>
+            <div className="p-6 rounded-2xl bg-slate-800/80 border border-slate-700/80 hover:border-cyan-400/60 transition-all duration-200 space-y-3 shadow-md">
+              <div className="flex items-center gap-2.5 text-emerald-400 font-extrabold text-sm">
+                <div className="w-7 h-7 rounded-lg bg-emerald-500/20 flex items-center justify-center text-emerald-400 shrink-0">
+                  <Check className="w-4 h-4 stroke-[3]" />
+                </div>
+                <span className="text-white">Never Sold or Shared</span>
               </div>
-              <p className="text-xs text-[#D6E4F0] leading-relaxed opacity-85">
-                Driver-owned feedback that never gets monetized or sold.
+              <p className="text-xs text-slate-300 leading-relaxed font-medium">
+                Your driver awareness profile belongs strictly to you and is never shared with insurers.
               </p>
             </div>
 

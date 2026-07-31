@@ -98,7 +98,7 @@ export default function QuizView({ onComplete, onBackToLanding, onTrackEvent }: 
       case 'evening': return <Sun className="w-5 h-5 text-orange-450" />;
       case 'night': return <Moon className="w-5 h-5 text-indigo-400" />;
 
-      // Q4: Low-light / night conditions
+      // Q4: Low-light / night conditions & Q6 Distraction split
       case 'always': return <Moon className="w-5 h-5 text-indigo-600" />;
       case 'frequently': return <Moon className="w-5 h-5 text-indigo-400" />;
       case 'occasionally': return <Sun className="w-5 h-5 text-amber-400" />;
@@ -113,8 +113,6 @@ export default function QuizView({ onComplete, onBackToLanding, onTrackEvent }: 
       // Q6: Distraction split
       case 'focused': return <Eye className="w-5 h-5 text-emerald-500" />;
       case 'seldom': return <Eye className="w-5 h-5 text-sky-500" />;
-      case 'occasionally': return <AlertTriangle className="w-5 h-5 text-amber-500" />;
-      case 'frequently': return <ShieldAlert className="w-5 h-5 text-rose-500" />;
 
       // Q7: Winter / poor weather
       case 'very_often': return <CloudSnow className="w-5 h-5 text-sky-400" />;
