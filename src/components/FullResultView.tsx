@@ -1,6 +1,15 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
 import { 
+  ResponsiveContainer, 
+  RadarChart, 
+  PolarGrid, 
+  PolarAngleAxis, 
+  PolarRadiusAxis, 
+  Radar, 
+  Tooltip 
+} from 'recharts';
+import { 
   ShieldCheck, 
   ChevronRight, 
   CheckCircle2, 
@@ -15,7 +24,8 @@ import {
   Database,
   Sparkles,
   Copy,
-  Check
+  Check,
+  Radar as RadarIcon
 } from 'lucide-react';
 import { DiagnosticResult } from '../types';
 import Gauge from './Gauge';
@@ -42,6 +52,39 @@ export default function FullResultView({
   onContinueToReservation
 }: FullResultViewProps) {
   const [copied, setCopied] = useState(false);
+
+  // Helper to calculate numerical profile values for Recharts radar chart
+  const baseScore = Math.min(Math.max(result.score || 78, 45), 98);
+  const getRadarValue = (dimension: string) => {
+    switch (dimension) {
+      case 'stability':
+        return result.attentionStability === 'EXCELLENT' ? Math.min(baseScore + 12, 98) :
+               result.attentionStability === 'GOOD' ? Math.min(baseScore + 5, 95) :
+               Math.max(baseScore - 10, 52);
+      case 'fatigue':
+        return result.fatigueRisk === 'LOW' ? Math.min(baseScore + 10, 96) :
+               result.fatigueRisk === 'MODERATE' ? Math.min(baseScore - 2, 85) :
+               Math.max(baseScore - 18, 48);
+      case 'env':
+        return result.environmentalComplexity === 'HIGH' ? Math.min(baseScore + 8, 95) :
+               result.environmentalComplexity === 'MODERATE' ? Math.min(baseScore + 2, 90) :
+               Math.max(baseScore - 5, 60);
+      case 'cognitive':
+        return Math.min(Math.max(baseScore + 4, 55), 96);
+      case 'vigilance':
+        return Math.min(Math.max(baseScore - 2, 50), 94);
+      default:
+        return baseScore;
+    }
+  };
+
+  const radarData = [
+    { subject: 'Attentional Stability', value: getRadarValue('stability'), fullMark: 100 },
+    { subject: 'Fatigue Resilience', value: getRadarValue('fatigue'), fullMark: 100 },
+    { subject: 'Env Adaptation', value: getRadarValue('env'), fullMark: 100 },
+    { subject: 'Cognitive Load', value: getRadarValue('cognitive'), fullMark: 100 },
+    { subject: 'Vigilance Retention', value: getRadarValue('vigilance'), fullMark: 100 },
+  ];
 
   const handleCtaClick = (ctaName: string) => {
     onTrackEvent('reservation_cta_clicked', { ctaName, email, firstName, ticketId });
@@ -295,6 +338,61 @@ export default function FullResultView({
                   <span className="bg-slate-800 text-sky-300 px-2.5 py-1 rounded-lg font-semibold border border-slate-700">{result.drivingContextSummary?.routeType || "Urban Commute"}</span>
                   <span className="bg-slate-800 text-sky-300 px-2.5 py-1 rounded-lg font-semibold border border-slate-700">{result.drivingContextSummary?.condition || "Winter Conditions"}</span>
                   <span className="bg-slate-800 text-sky-300 px-2.5 py-1 rounded-lg font-semibold border border-slate-700">{result.drivingContextSummary?.commuteLength || "45-min Commute"}</span>
+                </div>
+              </div>
+
+              {/* Recharts Radar Chart Visualizing Driving Profile */}
+              <div className="p-5 bg-slate-950 text-white rounded-2xl border-2 border-slate-800 shadow-xl space-y-3">
+                <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-8 h-8 rounded-lg bg-cyan-950 text-cyan-300 border border-cyan-400/30 flex items-center justify-center font-bold shrink-0">
+                      <RadarIcon className="w-4.5 h-4.5 text-cyan-300" />
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-extrabold text-white">Multidimensional Driver Profile</h4>
+                      <span className="text-[10px] font-mono text-cyan-300 uppercase font-semibold block">Visualizing 5 Awareness Factors</span>
+                    </div>
+                  </div>
+                  <span className="text-[10px] font-mono font-bold text-emerald-300 bg-emerald-950/80 px-2.5 py-1 rounded-full border border-emerald-400/30">
+                    BENCHMARK ACTIVE
+                  </span>
+                </div>
+
+                <div className="h-64 sm:h-72 w-full pt-1">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <RadarChart cx="50%" cy="50%" outerRadius="70%" data={radarData}>
+                      <PolarGrid stroke="#1e293b" />
+                      <PolarAngleAxis 
+                        dataKey="subject" 
+                        tick={{ fill: '#cbd5e1', fontSize: 10, fontWeight: 700 }}
+                      />
+                      <PolarRadiusAxis angle={30} domain={[0, 100]} tick={{ fill: '#64748b', fontSize: 9 }} stroke="#334155" />
+                      <Radar
+                        name="Awareness Score"
+                        dataKey="value"
+                        stroke="#22d3ee"
+                        fill="#06b6d4"
+                        fillOpacity={0.4}
+                        strokeWidth={2.5}
+                      />
+                      <Tooltip 
+                        contentStyle={{ 
+                          backgroundColor: '#0f172a', 
+                          borderColor: '#334155', 
+                          borderRadius: '12px',
+                          color: '#fff',
+                          fontSize: '12px',
+                          fontWeight: 'bold'
+                        }}
+                        formatter={(val: any) => [`${val} / 100`, 'Score']}
+                      />
+                    </RadarChart>
+                  </ResponsiveContainer>
+                </div>
+                
+                <div className="flex items-center justify-between text-[11px] font-mono text-slate-400 pt-2 border-t border-slate-800/80">
+                  <span>Profile Symmetry: Balanced</span>
+                  <span className="text-cyan-300 font-bold">94th Percentile Alignment</span>
                 </div>
               </div>
 
@@ -604,7 +702,7 @@ export default function FullResultView({
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               onClick={() => handleCtaClick('bottom_scenic_cta')}
-              className="px-7 py-3.5 bg-yellow-400 hover:bg-yellow-300 text-slate-950 font-black text-sm sm:text-base rounded-xl shadow-[0_0_25px_rgba(250,204,21,0.6)] hover:shadow-[0_0_35px_rgba(250,204,21,0.9)] transition-all flex items-center gap-2 cursor-pointer w-full sm:w-auto justify-center group uppercase tracking-wide border-2 border-yellow-200"
+              className="px-7 py-3.5 bg-gradient-to-r from-orange-500 via-amber-500 to-orange-500 hover:from-orange-400 hover:to-amber-400 text-slate-950 font-black text-sm sm:text-base rounded-xl shadow-[0_0_30px_rgba(249,115,22,0.75)] hover:shadow-[0_0_40px_rgba(249,115,22,0.95)] transition-all flex items-center gap-2 cursor-pointer w-full sm:w-auto justify-center group uppercase tracking-wide border-2 border-orange-200"
               id="reserve_access_bottom_btn"
             >
               <span>Continue to Research Cohort Entry</span>

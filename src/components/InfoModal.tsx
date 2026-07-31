@@ -347,7 +347,7 @@ export default function InfoModal({ isOpen, activeTab, onTabChange, onClose, onS
               </div>
               <button
                 onClick={handleCtaClick}
-                className="w-full sm:w-auto px-5 py-2.5 bg-brand-primary hover:bg-sky-600 text-white font-bold rounded-xl transition-all cursor-pointer text-xs uppercase tracking-wider shadow-sm flex items-center justify-center gap-1.5 order-1 sm:order-2 active:scale-98"
+                className="w-full sm:w-auto px-5 py-2.5 bg-gradient-to-r from-orange-500 via-amber-500 to-orange-500 hover:from-orange-400 hover:to-amber-400 text-slate-950 font-black rounded-xl transition-all cursor-pointer text-xs uppercase tracking-wider shadow-[0_0_15px_rgba(249,115,22,0.5)] flex items-center justify-center gap-1.5 order-1 sm:order-2 active:scale-98"
                 id="info_modal_cta_btn"
               >
                 <span>

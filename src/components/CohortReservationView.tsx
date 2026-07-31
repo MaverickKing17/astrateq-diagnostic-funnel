@@ -301,7 +301,7 @@ export default function CohortReservationView({
                 {/* Reservation Action Button */}
                 <button 
                   type="submit"
-                  className="w-full py-4 bg-yellow-400 hover:bg-yellow-300 text-slate-950 font-black text-base rounded-xl shadow-[0_0_25px_rgba(250,204,21,0.5)] hover:shadow-[0_0_35px_rgba(250,204,21,0.8)] border-2 border-yellow-200 active:scale-98 transition-all flex items-center justify-center gap-2 cursor-pointer uppercase tracking-wider"
+                  className="w-full py-4 bg-gradient-to-r from-orange-500 via-amber-500 to-orange-500 hover:from-orange-400 hover:to-amber-400 text-slate-950 font-black text-base rounded-xl shadow-[0_0_28px_rgba(249,115,22,0.65)] hover:shadow-[0_0_38px_rgba(249,115,22,0.9)] border-2 border-orange-200 active:scale-98 transition-all flex items-center justify-center gap-2 cursor-pointer uppercase tracking-wider"
                   id="confirm_reservation_submit_btn"
                 >
                   <CheckCircle2 className="w-5 h-5 text-slate-950 stroke-[3]" />

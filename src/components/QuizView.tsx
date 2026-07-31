@@ -265,9 +265,9 @@ export default function QuizView({ onComplete, onBackToLanding, onTrackEvent }: 
           <button
             onClick={handleNext}
             disabled={!selectedOptionId}
-            className={`w-full sm:flex-1 py-3.5 px-6 rounded-xl font-extrabold text-sm uppercase tracking-wider transition-all duration-200 flex items-center justify-center gap-2 ${
+            className={`w-full sm:flex-1 py-3.5 px-6 rounded-xl font-black text-sm uppercase tracking-wider transition-all duration-200 flex items-center justify-center gap-2 ${
               selectedOptionId
-                ? 'bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-300 hover:to-yellow-300 text-slate-950 border-2 border-yellow-200 shadow-[0_0_30px_rgba(250,204,21,0.7)] hover:shadow-[0_0_40px_rgba(250,204,21,0.9)] hover:scale-[1.01] active:scale-98 cursor-pointer'
+                ? 'bg-gradient-to-r from-orange-500 via-amber-500 to-orange-500 hover:from-orange-400 hover:to-amber-400 text-slate-950 border-2 border-orange-200 shadow-[0_0_30px_rgba(249,115,22,0.75)] hover:shadow-[0_0_40px_rgba(249,115,22,0.95)] hover:scale-[1.01] active:scale-98 cursor-pointer'
                 : 'bg-slate-800/90 text-slate-300 border-2 border-slate-700/80 cursor-not-allowed font-bold shadow-xs'
             }`}
             id="quiz_next_btn"
