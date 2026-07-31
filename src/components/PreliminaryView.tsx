@@ -66,15 +66,46 @@ export default function PreliminaryView({ result, onSubmitEmail, onTrackEvent }:
                 font-family: 'Segoe UI', 'Segoe UI Variable Text', -apple-system, BlinkMacSystemFont, Tahoma, Arial, sans-serif !important;
                 box-sizing: border-box !important;
               }
+              form, .subscribe-form, [class*="form"] {
+                display: flex !important;
+                flex-direction: row !important;
+                gap: 10px !important;
+                align-items: center !important;
+                width: 100% !important;
+              }
+              input[type="email"], input[type="text"], input {
+                font-family: 'Segoe UI', 'Segoe UI Variable Text', -apple-system, BlinkMacSystemFont, Tahoma, Arial, sans-serif !important;
+                padding: 12px 16px !important;
+                font-size: 14px !important;
+                line-height: 1.5 !important;
+                height: 48px !important;
+                border-radius: 12px !important;
+                border: 1px solid #cbd5e1 !important;
+                background-color: #ffffff !important;
+                color: #0f172a !important;
+                flex: 1 1 auto !important;
+                min-width: 0 !important;
+                box-sizing: border-box !important;
+              }
+              input::placeholder {
+                color: #64748b !important;
+                opacity: 1 !important;
+              }
               button, input[type="submit"], [type="button"], .subscribe-button, [class*="btn"], [class*="button"], [class*="submit"] {
                 font-family: 'Segoe UI', 'Segoe UI Variable Display', 'Segoe UI', Tahoma, Arial, sans-serif !important;
                 font-weight: 900 !important;
                 color: #020617 !important;
                 letter-spacing: 0.02em !important;
                 -webkit-font-smoothing: antialiased !important;
-              }
-              input, textarea {
-                font-family: 'Segoe UI', 'Segoe UI Variable Text', -apple-system, BlinkMacSystemFont, Tahoma, Arial, sans-serif !important;
+                padding: 12px 20px !important;
+                font-size: 13px !important;
+                height: 48px !important;
+                border-radius: 12px !important;
+                white-space: nowrap !important;
+                display: inline-flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                flex-shrink: 0 !important;
               }
             `;
           }
@@ -117,14 +148,14 @@ export default function PreliminaryView({ result, onSubmitEmail, onTrackEvent }:
       
       {/* 1. Header Confirmation */}
       <div className="text-center space-y-3 mb-10">
-        <div className="inline-flex items-center gap-2 px-3 py-1 bg-sky-50 text-sky-700 rounded-full text-xs font-bold border border-sky-100">
-          <CheckCircle2 className="w-3.5 h-3.5 text-sky-600" />
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-sky-950/80 text-cyan-300 rounded-full text-xs font-extrabold border border-cyan-400/30 shadow-xs">
+          <CheckCircle2 className="w-3.5 h-3.5 text-cyan-400" />
           <span>Simulation complete!</span>
         </div>
-        <h1 className="font-display font-bold text-3xl text-slate-900 tracking-tight">
+        <h1 className="font-display font-extrabold text-3xl sm:text-4xl text-white tracking-tight">
           Here's your preliminary result
         </h1>
-        <p className="text-sm text-slate-500 max-w-lg mx-auto">
+        <p className="text-sm sm:text-base text-slate-300 max-w-lg mx-auto font-normal leading-relaxed">
           We have generated your simulated driver awareness score based on your behavioral inputs. Enter your email below to unlock the full report.
         </p>
       </div>
@@ -226,19 +257,19 @@ export default function PreliminaryView({ result, onSubmitEmail, onTrackEvent }:
           </div>
 
           {/* Value Prop Cards (Mini) */}
-          <div className="bg-white/50 border border-slate-200 p-6 rounded-3xl flex flex-col justify-center space-y-4 shadow-sm">
+          <div className="bg-white rounded-3xl shadow-xl border border-white/50 p-6 sm:p-8 flex flex-col justify-center space-y-4">
             <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Why validation matters</p>
             <div className="space-y-4">
               <div className="flex items-center space-x-4">
-                <div className="w-8 h-8 bg-white border border-slate-150 rounded-lg shadow-sm flex items-center justify-center text-brand-primary font-bold">01</div>
+                <div className="w-8 h-8 bg-sky-50 border border-sky-100 rounded-xl shadow-xs flex items-center justify-center text-brand-primary font-bold shrink-0">01</div>
                 <p className="text-xs font-semibold text-slate-700">Prioritize Canadian rollout needs</p>
               </div>
               <div className="flex items-center space-x-4">
-                <div className="w-8 h-8 bg-white border border-slate-150 rounded-lg shadow-sm flex items-center justify-center text-brand-primary font-bold">02</div>
+                <div className="w-8 h-8 bg-sky-50 border border-sky-100 rounded-xl shadow-xs flex items-center justify-center text-brand-primary font-bold shrink-0">02</div>
                 <p className="text-xs font-semibold text-slate-700">Understand Attention Readiness needs</p>
               </div>
               <div className="flex items-center space-x-4">
-                <div className="w-8 h-8 bg-white border border-slate-150 rounded-lg shadow-sm flex items-center justify-center text-brand-primary font-bold">03</div>
+                <div className="w-8 h-8 bg-sky-50 border border-sky-100 rounded-xl shadow-xs flex items-center justify-center text-brand-primary font-bold shrink-0">03</div>
                 <p className="text-xs font-semibold text-slate-700">Validate privacy-first alternatives</p>
               </div>
             </div>
