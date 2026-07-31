@@ -295,10 +295,11 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
 
           {/* Glass Simulator Device Container */}
           <div 
-            className="relative rounded-3xl border border-cyan-500/30 shadow-[0_30px_90px_rgba(3,8,20,0.85)] overflow-hidden p-3 sm:p-8 text-left max-w-3xl mx-auto backdrop-blur-xl"
-            style={{ backgroundColor: '#050B18' }}
+            className="relative rounded-3xl border-2 border-cyan-400/40 shadow-[0_30px_100px_rgba(0,0,0,0.9)] overflow-hidden p-2 sm:p-6 text-left max-w-3xl mx-auto bg-slate-950/90 backdrop-blur-2xl"
           >
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-400 via-sky-400 to-teal-400" />
+            <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-cyan-400 via-sky-400 to-emerald-400" />
+            <div className="absolute -top-32 -left-32 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-32 -right-32 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
             {quizView}
           </div>
 
@@ -308,18 +309,23 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
       {/* ==========================================
           SECTION 3: THE PROBLEM WITH TODAY'S APPROACH
          ========================================== */}
-      <section className="py-20 px-6 bg-white border-b border-slate-100">
-        <div className="max-w-5xl mx-auto space-y-12">
+      <section className="py-20 px-4 sm:px-6 bg-slate-950 text-white border-b border-slate-800 relative overflow-hidden">
+        
+        {/* Subtle Ambient Background Lighting */}
+        <div className="absolute top-1/3 left-10 w-96 h-96 bg-rose-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-10 right-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="max-w-6xl mx-auto space-y-12 relative z-10">
           
-          <div className="text-center space-y-3 max-w-3xl mx-auto">
-            <span className="text-xs font-mono font-bold tracking-widest text-sky-700 uppercase bg-sky-50 px-3.5 py-1.5 rounded-full border border-sky-100">
+          <div className="text-center space-y-4 max-w-3xl mx-auto">
+            <span className="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-sky-300 uppercase bg-sky-950/80 px-4 py-1.5 rounded-full border border-sky-400/30">
               CATEGORY DIFFERENTIATION
             </span>
-            <h2 className="font-sans font-extrabold text-3xl sm:text-4xl text-[#071524] tracking-tight">
+            <h2 className="font-sans font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight">
               The Problem With Today's Driver Monitoring Approach
             </h2>
-            <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
-              Most existing driver monitoring solutions rely on cameras, sensors, continuous data collection, and cloud-connected surveillance. Astrateq Gadgets is exploring whether driver awareness insights can be created using privacy-first principles.
+            <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
+              Most existing driver monitoring solutions rely on invasive cameras, continuous GPS tracking, and cloud surveillance. Astrateq Gadgets provides a 100% on-device, privacy-first alternative.
             </p>
           </div>
 
@@ -327,70 +333,71 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
             
             {/* Column 1: Traditional Monitoring */}
-            <div className="p-8 rounded-3xl bg-[#F8FAFC] border border-slate-200 space-y-6 shadow-xs">
-              <div className="flex items-center gap-3 border-b border-slate-200 pb-4">
-                <div className="w-10 h-10 rounded-xl bg-rose-100 text-rose-700 flex items-center justify-center font-bold">
-                  <EyeOff className="w-5 h-5" />
+            <div className="p-6 sm:p-8 rounded-3xl bg-slate-900/90 border-2 border-rose-500/40 border-t-8 border-t-rose-500 space-y-6 shadow-2xl relative overflow-hidden backdrop-blur-md">
+              <div className="flex items-center gap-3.5 border-b border-slate-800 pb-5">
+                <div className="w-12 h-12 rounded-2xl bg-rose-950/80 text-rose-400 border border-rose-500/40 flex items-center justify-center font-bold shrink-0 shadow-sm">
+                  <EyeOff className="w-6 h-6 text-rose-400" />
                 </div>
                 <div>
-                  <h3 className="font-sans font-extrabold text-xl text-slate-900">Traditional Driver Monitoring</h3>
-                  <span className="text-xs text-rose-600 font-mono font-semibold">Surveillance &amp; Cloud Dependent</span>
+                  <h3 className="font-sans font-extrabold text-xl text-white">Traditional Driver Monitoring</h3>
+                  <span className="inline-block mt-1 text-[11px] text-rose-300 font-mono font-bold uppercase bg-rose-950/90 px-2.5 py-0.5 rounded-md border border-rose-500/30">
+                    Surveillance &amp; Cloud Dependent
+                  </span>
                 </div>
               </div>
 
-              <ul className="space-y-4 text-sm text-slate-600">
-                <li className="flex items-start gap-3">
-                  <X className="w-5 h-5 text-rose-500 shrink-0 mt-0.5" />
-                  <span><strong>Invasive Cameras &amp; Sensors:</strong> Requires cabin cameras or eye-tracking lenses pointing at the driver.</span>
+              <ul className="space-y-4 text-sm text-slate-200">
+                <li className="flex items-start gap-3 bg-slate-950/60 p-3.5 rounded-xl border border-slate-800">
+                  <X className="w-5 h-5 text-rose-400 shrink-0 mt-0.5 stroke-[3]" />
+                  <span><strong className="text-white block mb-0.5">Invasive Cameras &amp; Sensors</strong> Requires cabin cameras or eye-tracking lenses pointing at the driver at all times.</span>
                 </li>
-                <li className="flex items-start gap-3">
-                  <X className="w-5 h-5 text-rose-500 shrink-0 mt-0.5" />
-                  <span><strong>Continuous GPS Tracking:</strong> Records location, trip logs, speed histories, and daily routes continuously.</span>
+                <li className="flex items-start gap-3 bg-slate-950/60 p-3.5 rounded-xl border border-slate-800">
+                  <X className="w-5 h-5 text-rose-400 shrink-0 mt-0.5 stroke-[3]" />
+                  <span><strong className="text-white block mb-0.5">Continuous GPS Tracking</strong> Records precise location, trip logs, speed histories, and daily routes continuously.</span>
                 </li>
-                <li className="flex items-start gap-3">
-                  <X className="w-5 h-5 text-rose-500 shrink-0 mt-0.5" />
-                  <span><strong>Cloud Server Streams:</strong> Streams raw driving telemetry to remote third-party databases.</span>
+                <li className="flex items-start gap-3 bg-slate-950/60 p-3.5 rounded-xl border border-slate-800">
+                  <X className="w-5 h-5 text-rose-400 shrink-0 mt-0.5 stroke-[3]" />
+                  <span><strong className="text-white block mb-0.5">Cloud Server Streams</strong> Streams raw driving telemetry directly to remote, third-party cloud databases.</span>
                 </li>
-                <li className="flex items-start gap-3">
-                  <X className="w-5 h-5 text-rose-500 shrink-0 mt-0.5" />
-                  <span><strong>Third-Party Scoring:</strong> Shares telemetry with insurers or fleet managers for behavioral risk scoring.</span>
+                <li className="flex items-start gap-3 bg-slate-950/60 p-3.5 rounded-xl border border-slate-800">
+                  <X className="w-5 h-5 text-rose-400 shrink-0 mt-0.5 stroke-[3]" />
+                  <span><strong className="text-white block mb-0.5">Third-Party Risk Scoring</strong> Shares driving scores with insurance companies or fleet managers.</span>
                 </li>
               </ul>
             </div>
 
             {/* Column 2: Astrateq Privacy-First Intelligence */}
-            <div 
-              className="p-8 rounded-3xl text-white space-y-6 shadow-[0_15px_40px_rgba(0,0,0,0.25)] relative overflow-hidden"
-              style={{ backgroundColor: '#071524', borderColor: 'rgba(34,211,238,0.25)', borderWidth: '1px' }}
-            >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl pointer-events-none" />
+            <div className="p-6 sm:p-8 rounded-3xl bg-slate-900/90 border-2 border-cyan-400/50 border-t-8 border-t-cyan-400 space-y-6 shadow-2xl relative overflow-hidden backdrop-blur-md">
+              <div className="absolute top-0 right-0 w-40 h-40 bg-cyan-500/10 rounded-full blur-2xl pointer-events-none" />
               
-              <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
-                <div className="w-10 h-10 rounded-xl bg-cyan-500/20 text-[#22D3EE] flex items-center justify-center font-bold border border-cyan-400/30">
-                  <ShieldCheck className="w-5 h-5" />
+              <div className="flex items-center gap-3.5 border-b border-slate-800 pb-5">
+                <div className="w-12 h-12 rounded-2xl bg-cyan-950/80 text-cyan-300 border border-cyan-400/40 flex items-center justify-center font-bold shrink-0 shadow-sm">
+                  <ShieldCheck className="w-6 h-6 text-cyan-300" />
                 </div>
                 <div>
                   <h3 className="font-sans font-extrabold text-xl text-white">Astrateq Privacy-First Intelligence</h3>
-                  <span className="text-xs text-[#22D3EE] font-mono font-bold">Local &amp; Telemetry-Free Research</span>
+                  <span className="inline-block mt-1 text-[11px] text-cyan-300 font-mono font-bold uppercase bg-cyan-950/90 px-2.5 py-0.5 rounded-md border border-cyan-400/30">
+                    100% On-Device &amp; Telemetry-Free
+                  </span>
                 </div>
               </div>
 
-              <ul className="space-y-4 text-sm text-[#D6E4F0]">
-                <li className="flex items-start gap-3">
+              <ul className="space-y-4 text-sm text-slate-200">
+                <li className="flex items-start gap-3 bg-slate-950/60 p-3.5 rounded-xl border border-slate-800">
                   <Check className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5 stroke-[3]" />
-                  <span><strong>No Cabin Cameras:</strong> Focuses on driver context and behavioral cognitive patterns without optical surveillance.</span>
+                  <span><strong className="text-white block mb-0.5">No Cabin Cameras</strong> Evaluates cognitive load and focus habits through simulated interactive prompts without video feeds.</span>
                 </li>
-                <li className="flex items-start gap-3">
+                <li className="flex items-start gap-3 bg-slate-950/60 p-3.5 rounded-xl border border-slate-800">
                   <Check className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5 stroke-[3]" />
-                  <span><strong>Zero GPS Logging:</strong> Operates entirely without route tracking or location monitoring.</span>
+                  <span><strong className="text-white block mb-0.5">Zero GPS Logging</strong> Operates completely independent of location tracking or route logging.</span>
                 </li>
-                <li className="flex items-start gap-3">
+                <li className="flex items-start gap-3 bg-slate-950/60 p-3.5 rounded-xl border border-slate-800">
                   <Check className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5 stroke-[3]" />
-                  <span><strong>100% On-Device Processing:</strong> Calculations remain strictly on your local device.</span>
+                  <span><strong className="text-white block mb-0.5">100% On-Device Computation</strong> Every calculation runs strictly inside your local browser session.</span>
                 </li>
-                <li className="flex items-start gap-3">
+                <li className="flex items-start gap-3 bg-slate-950/60 p-3.5 rounded-xl border border-slate-800">
                   <Check className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5 stroke-[3]" />
-                  <span><strong>Private Driver Ownership:</strong> Designed solely to support the driver — never shared with third parties.</span>
+                  <span><strong className="text-white block mb-0.5">Private Driver Ownership</strong> Your results belong strictly to you and are never monetized or sold.</span>
                 </li>
               </ul>
             </div>
@@ -566,27 +573,24 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
             
             <h2 className="font-sans font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-tight">
               Why Your Assessment Data Is{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-300 to-emerald-300 font-black">
+              <span className="text-cyan-300 font-black">
                 100% Private
               </span>
             </h2>
             
-            {/* Purpose statement clearly answering what this section is about */}
-            <p className="text-base sm:text-lg text-slate-200 font-normal leading-relaxed bg-slate-800/80 border border-slate-700/80 p-5 rounded-2xl shadow-sm text-slate-200">
-              <strong className="text-cyan-300 font-semibold block sm:inline mr-1">Section Purpose:</strong> 
-              This assessment calculates your driver awareness profile strictly inside your web browser. 
-              We never track your GPS location, stream camera video, or store driving logs.
+            <p className="text-base sm:text-lg text-slate-300 font-normal leading-relaxed max-w-2xl mx-auto">
+              This assessment calculates your driver awareness profile strictly inside your web browser — zero GPS location tracking, no camera video feeds, and zero cloud log storage.
             </p>
           </div>
 
           {/* Privacy Architecture Flow Diagram */}
-          <div className="bg-slate-900/90 border border-cyan-500/30 rounded-3xl p-6 sm:p-10 shadow-2xl space-y-8 relative backdrop-blur-md">
+          <div className="bg-slate-900/90 border-2 border-cyan-500/30 rounded-3xl p-6 sm:p-10 shadow-2xl space-y-8 relative backdrop-blur-md">
             
-            <div className="text-center space-y-1 border-b border-slate-800 pb-6">
-              <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-cyan-400">
+            <div className="text-center space-y-2 border-b border-slate-800 pb-6">
+              <span className="inline-block text-[11px] font-mono font-bold uppercase tracking-widest text-cyan-400 bg-cyan-950/60 px-3 py-1 rounded-full border border-cyan-400/30">
                 ARCHITECTURE FLOW
               </span>
-              <h3 className="font-sans font-extrabold text-xl sm:text-2xl text-white">
+              <h3 className="font-sans font-extrabold text-2xl sm:text-3xl text-white">
                 How Your Data Is Isolated On Your Device
               </h3>
             </div>

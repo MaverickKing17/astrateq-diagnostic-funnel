@@ -113,7 +113,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#F0F4F8] font-sans selection:bg-blue-500/20 selection:text-slate-900" id="app_root_layout">
+    <div className="min-h-screen flex flex-col bg-[#071524] font-sans selection:bg-cyan-500/30 selection:text-cyan-100" id="app_root_layout">
       {/* Global Brand Header */}
       <Header onReset={handleReset} onOpenAbout={() => setInfoModalTab('about')} />
 
