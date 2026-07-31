@@ -138,8 +138,11 @@ export default function QuizView({ onComplete, onBackToLanding, onTrackEvent }: 
       {/* 1. Header with progress indicator */}
       <div className="mb-6 space-y-3">
         <div className="flex items-center justify-between text-xs font-mono font-bold uppercase tracking-wider">
-          <span className="text-cyan-300 flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+          <span className="text-cyan-300 font-extrabold flex items-center gap-2">
+            <span className="relative flex h-2.5 w-2.5 items-center justify-center shrink-0">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-300 opacity-90"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-300 shadow-[0_0_10px_#22d3ee]"></span>
+            </span>
             ASTRATEQ GADGETS DRIVER SIMULATION
           </span>
           <span className="text-slate-200 bg-slate-800/90 px-3 py-1 rounded-full border border-slate-700 shadow-xs">

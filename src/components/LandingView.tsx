@@ -110,8 +110,8 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
             <div className="lg:col-span-7 text-left space-y-6">
               
               {/* Research Badge */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-950/90 border border-cyan-400/30 text-[#22D3EE] text-xs font-mono font-bold uppercase tracking-wider shadow-sm">
-                <ShieldCheck className="w-4 h-4 text-[#22D3EE] shrink-0" />
+              <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-gradient-to-r from-cyan-950/90 via-sky-900/95 to-cyan-950/90 border-2 border-cyan-300 text-cyan-300 text-xs font-mono font-black uppercase tracking-wider shadow-[0_0_20px_rgba(34,211,238,0.5)] backdrop-blur-md">
+                <ShieldCheck className="w-4 h-4 text-cyan-300 shrink-0 stroke-[2.5] drop-shadow-[0_0_8px_rgba(34,211,238,0.9)]" />
                 <span>CANADIAN DRIVER RESEARCH INITIATIVE</span>
               </div>
 
@@ -277,11 +277,14 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
       <section className="py-20 px-4 sm:px-6 bg-gradient-to-b from-[#071524] via-[#081a2e] to-[#050C16] text-white border-b border-sky-500/30 relative overflow-hidden" id="readiness-check">
         <div className="max-w-4xl mx-auto space-y-8 text-center relative z-10">
           
-          <div className="space-y-3 max-w-2xl mx-auto">
-            <div className="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-[#22D3EE] uppercase bg-sky-950/90 px-3.5 py-1.5 rounded-full border border-cyan-400/30 shadow-sm">
-              <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
-              <ShieldCheck className="w-4 h-4 text-[#22D3EE]" />
-              <span>INTERACTIVE SIMULATOR PROTOTYPE</span>
+          <div className="space-y-4 max-w-2xl mx-auto">
+            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-gradient-to-r from-cyan-950 via-sky-900 to-cyan-950 border-2 border-cyan-300 text-cyan-200 text-xs sm:text-sm font-mono font-black tracking-widest uppercase shadow-[0_0_28px_rgba(34,211,238,0.7)] backdrop-blur-md">
+              <div className="relative flex h-3 w-3 items-center justify-center shrink-0">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-300 opacity-90"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-300 shadow-[0_0_12px_#22d3ee]"></span>
+              </div>
+              <ShieldCheck className="w-4 h-4 text-cyan-300 shrink-0 stroke-[2.5] drop-shadow-[0_0_8px_rgba(34,211,238,0.9)]" />
+              <span className="drop-shadow-[0_0_8px_rgba(34,211,238,0.6)]">INTERACTIVE SIMULATOR PROTOTYPE</span>
             </div>
             
             <h2 className="font-sans font-extrabold text-2xl sm:text-4xl text-white tracking-tight">
