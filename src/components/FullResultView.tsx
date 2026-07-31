@@ -45,6 +45,7 @@ export default function FullResultView({
 
   const handleCtaClick = (ctaName: string) => {
     onTrackEvent('reservation_cta_clicked', { ctaName, email, firstName, ticketId });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     // Call the internal reservation page transition
     onContinueToReservation();
   };
@@ -94,14 +95,14 @@ export default function FullResultView({
                 <span>Report Complete</span>
               </div>
               
-              <h3 className="text-[10px] font-mono font-bold uppercase text-slate-400 tracking-widest mb-4 mt-2">
+              <h3 className="text-[10px] font-mono font-bold uppercase text-slate-600 tracking-widest mb-4 mt-2">
                 Driver Awareness Score
               </h3>
               <Gauge score={result.score} size={220} />
               
               <div className="w-full mt-4 pt-4 border-t border-slate-100 text-center">
-                <span className="text-[10px] font-mono text-slate-400 block font-semibold uppercase">Awareness Score</span>
-                <p className="text-xs text-slate-500 mt-1 leading-normal">
+                <span className="text-[10px] font-mono text-slate-600 block font-bold uppercase">Awareness Score</span>
+                <p className="text-xs text-slate-700 font-medium mt-1 leading-normal">
                   Your simulated score reflects your driving habits, fatigue exposure, and attention inputs.
                 </p>
               </div>
@@ -191,7 +192,7 @@ export default function FullResultView({
 
             {/* Understanding Tiers Card */}
             <div className="dashboard-card bg-white p-6 rounded-2xl border border-slate-200/70 shadow-[0_8px_30px_rgba(0,0,0,0.02)] space-y-4 hover:shadow-[0_15px_35px_rgba(0,0,0,0.05)] transition-all duration-300">
-              <h4 className="text-xs font-mono font-bold uppercase text-slate-400 tracking-widest">
+              <h4 className="text-xs font-mono font-bold uppercase text-slate-600 tracking-widest">
                 Our Pre-Launch Validation Tiers
               </h4>
               
@@ -202,7 +203,7 @@ export default function FullResultView({
                     <span className="font-bold text-slate-900">Tier 1: High Readiness</span>
                     <span className="text-[9px] font-mono font-bold uppercase bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded shadow-2xs">Early Allocation</span>
                   </div>
-                  <p className="text-slate-500 mt-1 leading-normal">
+                  <p className="text-slate-700 font-medium mt-1 leading-normal">
                     Strong alignment with early hardware and signal priority.
                   </p>
                 </div>
@@ -213,7 +214,7 @@ export default function FullResultView({
                     <span className="font-bold text-slate-900">Tier 2: Moderate Readiness</span>
                     <span className="text-[9px] font-mono font-bold uppercase bg-blue-100 text-brand-primary px-2 py-0.5 rounded shadow-2xs">Priority Cohort</span>
                   </div>
-                  <p className="text-slate-500 mt-1 leading-normal">
+                  <p className="text-slate-700 font-medium mt-1 leading-normal">
                     Fits core commuter requirements; priority evaluation queue.
                   </p>
                 </div>
@@ -222,15 +223,15 @@ export default function FullResultView({
                 <div className={`p-3.5 rounded-xl border transition-all duration-200 ${result.tier === 3 ? 'bg-sky-50/60 border-brand-primary/40 shadow-xs' : 'bg-slate-50/40 border-slate-100/80'}`}>
                   <div className="flex items-center justify-between">
                     <span className="font-bold text-slate-900">Tier 3: Needs Attention</span>
-                    <span className="text-[9px] font-mono font-bold uppercase bg-slate-200 text-slate-600 px-2 py-0.5 rounded shadow-2xs">Standard Queue</span>
+                    <span className="text-[9px] font-mono font-bold uppercase bg-slate-200 text-slate-700 px-2 py-0.5 rounded shadow-2xs">Standard Queue</span>
                   </div>
-                  <p className="text-slate-500 mt-1 leading-normal">
+                  <p className="text-slate-700 font-medium mt-1 leading-normal">
                     Requires manual profile validation or custom setup.
                   </p>
                 </div>
               </div>
               
-              <div className="text-[10px] text-slate-400 italic leading-normal pt-1 border-t border-slate-100">
+              <div className="text-[10px] text-slate-600 font-medium italic leading-normal pt-1 border-t border-slate-100">
                 Note: Simulated awareness scores are pre-launch validation approximations for driver behavior research purposes.
               </div>
             </div>
@@ -244,14 +245,14 @@ export default function FullResultView({
               
               <div className="border-b border-slate-100 pb-4">
                 <h3 className="font-display font-bold text-xl text-slate-900">Your Simulated Awareness Breakdown</h3>
-                <p className="text-xs text-slate-500 mt-1">Generated and locked on {new Date().toLocaleDateString('en-CA')}</p>
+                <p className="text-xs text-slate-600 font-medium mt-1">Generated and locked on {new Date().toLocaleDateString('en-CA')}</p>
               </div>
 
               {/* Apple Health Inspired Metrics Grid */}
               <div className="space-y-4">
                 <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-                  <span className="text-xs font-mono font-bold uppercase text-slate-400 tracking-wider">YOUR DRIVER AWARENESS PROFILE</span>
-                  <span className="text-xs font-mono text-emerald-600 bg-emerald-50 px-2.5 py-0.5 rounded-full font-bold border border-emerald-200">
+                  <span className="text-xs font-mono font-bold uppercase text-slate-600 tracking-wider">YOUR DRIVER AWARENESS PROFILE</span>
+                  <span className="text-xs font-mono text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-full font-bold border border-emerald-200">
                     {result.scoreLabel || "GOOD"}
                   </span>
                 </div>
@@ -259,38 +260,38 @@ export default function FullResultView({
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   {/* Metric 1: Attention Stability */}
                   <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/80 space-y-1 hover:border-sky-300 transition-colors">
-                    <span className="text-[10px] font-mono font-bold uppercase text-slate-400 block">ATTENTION STABILITY</span>
+                    <span className="text-[10px] font-mono font-bold uppercase text-slate-600 block">ATTENTION STABILITY</span>
                     <div className="text-base font-extrabold text-slate-900 flex items-center gap-1.5">
                       <span className="w-2.5 h-2.5 rounded-full bg-sky-500"></span>
                       <span>{result.attentionStability || "GOOD"}</span>
                     </div>
-                    <span className="text-[11px] text-slate-500 block leading-tight pt-1">Consistent focus retention across routes</span>
+                    <span className="text-[11px] text-slate-700 font-semibold block leading-tight pt-1">Consistent focus retention across routes</span>
                   </div>
 
                   {/* Metric 2: Fatigue Risk */}
                   <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/80 space-y-1 hover:border-emerald-300 transition-colors">
-                    <span className="text-[10px] font-mono font-bold uppercase text-slate-400 block">FATIGUE RISK</span>
+                    <span className="text-[10px] font-mono font-bold uppercase text-slate-600 block">FATIGUE RISK</span>
                     <div className="text-base font-extrabold text-slate-900 flex items-center gap-1.5">
                       <span className="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
                       <span>{result.fatigueRisk || "LOW"}</span>
                     </div>
-                    <span className="text-[11px] text-slate-500 block leading-tight pt-1">Circadian alertness & night exposure</span>
+                    <span className="text-[11px] text-slate-700 font-semibold block leading-tight pt-1">Circadian alertness & night exposure</span>
                   </div>
 
                   {/* Metric 3: Environmental Complexity */}
                   <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/80 space-y-1 hover:border-amber-300 transition-colors">
-                    <span className="text-[10px] font-mono font-bold uppercase text-slate-400 block">ENVIRONMENTAL COMPLEXITY</span>
+                    <span className="text-[10px] font-mono font-bold uppercase text-slate-600 block">ENVIRONMENTAL COMPLEXITY</span>
                     <div className="text-base font-extrabold text-slate-900 flex items-center gap-1.5">
                       <span className="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
                       <span>{result.environmentalComplexity || "MODERATE"}</span>
                     </div>
-                    <span className="text-[11px] text-slate-500 block leading-tight pt-1">Traffic, weather & highway demands</span>
+                    <span className="text-[11px] text-slate-700 font-semibold block leading-tight pt-1">Traffic, weather & highway demands</span>
                   </div>
                 </div>
 
                 {/* Driving Context Pills */}
                 <div className="p-3.5 bg-slate-900 text-white rounded-xl flex flex-wrap items-center gap-2 text-xs">
-                  <span className="font-mono text-slate-400 text-[10px] uppercase font-bold pr-2 border-r border-slate-800">DRIVING CONTEXT</span>
+                  <span className="font-mono text-slate-300 text-[10px] uppercase font-bold pr-2 border-r border-slate-800">DRIVING CONTEXT</span>
                   <span className="bg-slate-800 text-sky-300 px-2.5 py-1 rounded-lg font-semibold border border-slate-700">{result.drivingContextSummary?.routeType || "Urban Commute"}</span>
                   <span className="bg-slate-800 text-sky-300 px-2.5 py-1 rounded-lg font-semibold border border-slate-700">{result.drivingContextSummary?.condition || "Winter Conditions"}</span>
                   <span className="bg-slate-800 text-sky-300 px-2.5 py-1 rounded-lg font-semibold border border-slate-700">{result.drivingContextSummary?.commuteLength || "45-min Commute"}</span>
@@ -299,8 +300,8 @@ export default function FullResultView({
 
               {/* Supportive Non-Judgmental Insight */}
               <div className="p-4 bg-sky-50/80 border border-sky-200/80 rounded-2xl space-y-1.5">
-                <span className="text-[10px] font-mono font-bold uppercase text-sky-700 tracking-wider block">SUPPORTIVE ANALYSIS</span>
-                <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">
+                <span className="text-[10px] font-mono font-bold uppercase text-sky-800 tracking-wider block">SUPPORTIVE ANALYSIS</span>
+                <p className="text-xs sm:text-sm text-slate-800 leading-relaxed font-medium">
                   {result.supportiveInsight || "Your driving environment may create additional cognitive demands during peak hours, but your overall attention stability remains well-balanced."}
                 </p>
               </div>
@@ -308,29 +309,29 @@ export default function FullResultView({
               {/* What this means text block & Onboarding Roadmap */}
               <div className="bg-[#f0f7ff] border border-sky-100 p-5 rounded-2xl space-y-3 shadow-xs">
                 <h4 className="text-xs font-mono font-bold uppercase text-brand-primary tracking-wider">Simulated Analysis & Onboarding Pathway</h4>
-                <p className="text-sm text-slate-700 leading-relaxed">
+                <p className="text-sm text-slate-800 font-medium leading-relaxed">
                   Excellent work, <strong>{firstName || "Priority Driver"}</strong>! Based on your simulated score of <strong>{result.score}/100</strong> and your privacy preferences, your profile qualifies as a highly aligned candidate for the Astrateq Gadgets pre-launch cohort.
                 </p>
                 
                 {/* Onboarding Steps Visual Indicator */}
                 <div className="pt-2 border-t border-slate-250/30 space-y-2.5">
-                  <p className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-widest">Cohort Onboarding Status</p>
+                  <p className="text-[10px] font-mono font-bold text-slate-600 uppercase tracking-widest">Cohort Onboarding Status</p>
                   <div className="grid grid-cols-4 gap-1 sm:gap-2">
                     <div className="flex flex-col space-y-1">
                       <div className="h-1.5 rounded-full bg-emerald-500"></div>
-                      <span className="text-[9px] font-bold text-emerald-600 text-center sm:text-left leading-tight">1. Simulated</span>
+                      <span className="text-[9px] font-bold text-emerald-700 text-center sm:text-left leading-tight">1. Simulated</span>
                     </div>
                     <div className="flex flex-col space-y-1">
                       <div className="h-1.5 rounded-full bg-emerald-500"></div>
-                      <span className="text-[9px] font-bold text-emerald-600 text-center sm:text-left leading-tight">2. Verified</span>
+                      <span className="text-[9px] font-bold text-emerald-700 text-center sm:text-left leading-tight">2. Verified</span>
                     </div>
                     <div className="flex flex-col space-y-1">
                       <div className="h-1.5 rounded-full bg-brand-primary animate-pulse"></div>
                       <span className="text-[9px] font-extrabold text-brand-primary text-center sm:text-left leading-tight">3. Reservation</span>
                     </div>
                     <div className="flex flex-col space-y-1">
-                      <div className="h-1.5 rounded-full bg-slate-200"></div>
-                      <span className="text-[9px] font-semibold text-slate-400 text-center sm:text-left leading-tight">4. Allocating</span>
+                      <div className="h-1.5 rounded-full bg-slate-300"></div>
+                      <span className="text-[9px] font-bold text-slate-600 text-center sm:text-left leading-tight">4. Allocating</span>
                     </div>
                   </div>
                 </div>
@@ -347,14 +348,14 @@ export default function FullResultView({
                   {result.score >= 80 ? (
                     <>
                       <div className="flex items-start gap-3">
-                        <div className="w-5 h-5 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">✓</div>
-                        <p className="text-xs sm:text-sm text-slate-600 leading-normal">
+                        <div className="w-5 h-5 rounded-full bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">✓</div>
+                        <p className="text-xs sm:text-sm text-slate-700 font-medium leading-normal">
                           <strong>Active Vigilance Tuning:</strong> Your high readiness score is a great foundation. Keep attention locked by coordinating rest-stops with the 2-hour driving limit on long highway runs.
                         </p>
                       </div>
                       <div className="flex items-start gap-3">
-                        <div className="w-5 h-5 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">✓</div>
-                        <p className="text-xs sm:text-sm text-slate-600 leading-normal">
+                        <div className="w-5 h-5 rounded-full bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">✓</div>
+                        <p className="text-xs sm:text-sm text-slate-700 font-medium leading-normal">
                           <strong>Zero-surveillance Guard:</strong> Ensure your future driver devices continue using offline edge processing to protect your Ontario driving patterns.
                         </p>
                       </div>
@@ -363,13 +364,13 @@ export default function FullResultView({
                     <>
                       <div className="flex items-start gap-3">
                         <div className="w-5 h-5 rounded-full bg-blue-50 text-brand-primary flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">✓</div>
-                        <p className="text-xs sm:text-sm text-slate-600 leading-normal">
+                        <p className="text-xs sm:text-sm text-slate-700 font-medium leading-normal">
                           <strong>Interval Micro-Breaks:</strong> Your commuting density exposes you to moderate fatigue. Integrate brief 3-minute visual breaks away from screens before joining highway traffic.
                         </p>
                       </div>
                       <div className="flex items-start gap-3">
                         <div className="w-5 h-5 rounded-full bg-blue-50 text-brand-primary flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">✓</div>
-                        <p className="text-xs sm:text-sm text-slate-600 leading-normal">
+                        <p className="text-xs sm:text-sm text-slate-700 font-medium leading-normal">
                           <strong>Weather Contrast Settings:</strong> Prioritize high-contrast visor aids to mitigate early-morning glare and poor visibility on Canadian winter roads.
                         </p>
                       </div>
@@ -377,14 +378,14 @@ export default function FullResultView({
                   ) : (
                     <>
                       <div className="flex items-start gap-3">
-                        <div className="w-5 h-5 rounded-full bg-amber-50 text-amber-600 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">!</div>
-                        <p className="text-xs sm:text-sm text-slate-600 leading-normal">
+                        <div className="w-5 h-5 rounded-full bg-amber-50 text-amber-700 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">!</div>
+                        <p className="text-xs sm:text-sm text-slate-700 font-medium leading-normal">
                           <strong>High Fatigue Mitigation:</strong> Your commute frequency indicates heavy exposure. Implement active circadian window planning, avoiding late-night highway segments where possible.
                         </p>
                       </div>
                       <div className="flex items-start gap-3">
-                        <div className="w-5 h-5 rounded-full bg-amber-50 text-amber-600 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">!</div>
-                        <p className="text-xs sm:text-sm text-slate-600 leading-normal">
+                        <div className="w-5 h-5 rounded-full bg-amber-50 text-amber-700 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">!</div>
+                        <p className="text-xs sm:text-sm text-slate-700 font-medium leading-normal">
                           <strong>Active Distraction Blockers:</strong> Leverage offline alert signals to partition high-volume multi-tasking and establish an environment of pure driving readiness.
                         </p>
                       </div>
@@ -405,7 +406,7 @@ export default function FullResultView({
                 <p className="text-sm font-bold text-[#102A43]">
                   Classification: {result.tierName} (Score: {result.score} / 100)
                 </p>
-                <p className="text-sm text-slate-600 leading-relaxed bg-white border border-slate-100 p-4 rounded-xl shadow-xs">
+                <p className="text-sm text-slate-700 font-medium leading-relaxed bg-white border border-slate-100 p-4 rounded-xl shadow-xs">
                   Your simulated awareness profile shows alignment with Astrateq Gadgets’ pre-launch validation priorities. You may continue to the reservation page to register your early-access interest.
                 </p>
               </div>
@@ -419,7 +420,7 @@ export default function FullResultView({
                   <span>Continue to Research Cohort Entry</span>
                   <ArrowRight className="w-5 h-5" />
                 </button>
-                <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 text-[11px] text-slate-500 font-semibold text-center">
+                <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 text-[11px] text-slate-700 font-semibold text-center">
                   <span>No payment required during validation</span>
                   <span className="text-slate-300 hidden sm:inline">•</span>
                   <span>Early-access interest only</span>
@@ -449,7 +450,7 @@ export default function FullResultView({
             <h2 className="font-sans font-extrabold text-3xl sm:text-4xl text-slate-900 tracking-tight">
               Privacy-First By Design
             </h2>
-            <p className="text-sm sm:text-base text-slate-600 max-w-xl mx-auto leading-relaxed">
+            <p className="text-sm sm:text-base text-slate-700 font-medium max-w-xl mx-auto leading-relaxed">
               A readiness check designed without insurer-style tracking, advertising resale, or unnecessary personal data collection.
             </p>
           </div>
@@ -469,10 +470,10 @@ export default function FullResultView({
                 </div>
                 <div className="space-y-1.5">
                   <h4 className="font-sans font-extrabold text-slate-900 text-lg tracking-tight">What we ask for</h4>
-                  <p className="text-xs text-slate-500 font-medium font-mono uppercase tracking-wider">Simulated inputs only</p>
+                  <p className="text-xs text-slate-600 font-bold font-mono uppercase tracking-wider">Simulated inputs only</p>
                 </div>
                 
-                <ul className="text-xs sm:text-sm text-slate-700 space-y-3.5 leading-relaxed">
+                <ul className="text-xs sm:text-sm text-slate-800 font-medium space-y-3.5 leading-relaxed">
                   <li className="flex items-start gap-3">
                     <span className="w-2 h-2 rounded-full bg-sky-500 mt-2 shrink-0 shadow-xs" />
                     <span>Driving context and commute frequency</span>
@@ -487,7 +488,7 @@ export default function FullResultView({
                   </li>
                 </ul>
               </div>
-              <div className="pt-4 border-t border-sky-100/60 mt-4 text-[10px] font-mono text-sky-600/80 font-bold uppercase tracking-wider flex items-center gap-1">
+              <div className="pt-4 border-t border-sky-100/60 mt-4 text-[10px] font-mono text-sky-700 font-bold uppercase tracking-wider flex items-center gap-1">
                 <span className="w-1.5 h-1.5 bg-sky-500 rounded-full animate-pulse" />
                 <span>Zero vehicle links required</span>
               </div>
@@ -506,10 +507,10 @@ export default function FullResultView({
                 </div>
                 <div className="space-y-1.5">
                   <h4 className="font-sans font-extrabold text-slate-900 text-lg tracking-tight">What we do not do</h4>
-                  <p className="text-xs text-slate-500 font-medium font-mono uppercase tracking-wider">No active monitoring</p>
+                  <p className="text-xs text-slate-600 font-bold font-mono uppercase tracking-wider">No active monitoring</p>
                 </div>
                 
-                <ul className="text-xs sm:text-sm text-slate-700 space-y-3.5 leading-relaxed">
+                <ul className="text-xs sm:text-sm text-slate-800 font-medium space-y-3.5 leading-relaxed">
                   <li className="flex items-start gap-3">
                     <span className="w-2 h-2 rounded-full bg-orange-500 mt-2 shrink-0 shadow-xs" />
                     <span>We do not sell driving logs or behavior tracking</span>
@@ -524,7 +525,7 @@ export default function FullResultView({
                   </li>
                 </ul>
               </div>
-              <div className="pt-4 border-t border-orange-100/60 mt-4 text-[10px] font-mono text-orange-600/85 font-bold uppercase tracking-wider flex items-center gap-1">
+              <div className="pt-4 border-t border-orange-100/60 mt-4 text-[10px] font-mono text-orange-700 font-bold uppercase tracking-wider flex items-center gap-1">
                 <span className="w-1.5 h-1.5 bg-orange-500 rounded-full" />
                 <span>100% Localized behavioral model</span>
               </div>
@@ -543,10 +544,10 @@ export default function FullResultView({
                 </div>
                 <div className="space-y-1.5">
                   <h4 className="font-sans font-extrabold text-slate-900 text-lg tracking-tight">Why we ask</h4>
-                  <p className="text-xs text-slate-500 font-medium font-mono uppercase tracking-wider">Canadian road validation</p>
+                  <p className="text-xs text-slate-600 font-bold font-mono uppercase tracking-wider">Canadian road validation</p>
                 </div>
                 
-                <ul className="text-xs sm:text-sm text-slate-700 space-y-3.5 leading-relaxed">
+                <ul className="text-xs sm:text-sm text-slate-800 font-medium space-y-3.5 leading-relaxed">
                   <li className="flex items-start gap-3">
                     <span className="w-2 h-2 rounded-full bg-emerald-500 mt-2 shrink-0 shadow-xs" />
                     <span>To map regional Canadian driver fatigue demands</span>
@@ -561,7 +562,7 @@ export default function FullResultView({
                   </li>
                 </ul>
               </div>
-              <div className="pt-4 border-t border-emerald-100/60 mt-4 text-[10px] font-mono text-emerald-600/85 font-bold uppercase tracking-wider flex items-center gap-1">
+              <div className="pt-4 border-t border-emerald-100/60 mt-4 text-[10px] font-mono text-emerald-700 font-bold uppercase tracking-wider flex items-center gap-1">
                 <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse" />
                 <span>Validating market feasibility</span>
               </div>
