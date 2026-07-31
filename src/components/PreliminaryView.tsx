@@ -148,9 +148,13 @@ export default function PreliminaryView({ result, onSubmitEmail, onTrackEvent }:
       
       {/* 1. Header Confirmation */}
       <div className="text-center space-y-3 mb-10">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-sky-950/80 text-cyan-300 rounded-full text-xs font-extrabold border border-cyan-400/30 shadow-xs">
-          <CheckCircle2 className="w-3.5 h-3.5 text-cyan-400" />
-          <span>Simulation complete!</span>
+        <div className="inline-flex items-center gap-2.5 px-4 py-1.5 bg-slate-900/90 text-yellow-300 rounded-full text-xs font-extrabold border-2 border-yellow-400/80 shadow-[0_0_20px_rgba(250,204,21,0.5)]">
+          <span className="relative flex h-2.5 w-2.5 items-center justify-center">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-90"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-yellow-300 shadow-[0_0_10px_#facc15]"></span>
+          </span>
+          <CheckCircle2 className="w-3.5 h-3.5 text-yellow-300 stroke-[2.5]" />
+          <span>SIMULATION COMPLETE</span>
         </div>
         <h1 className="font-display font-extrabold text-3xl sm:text-4xl text-white tracking-tight">
           Here's your preliminary result
@@ -164,30 +168,30 @@ export default function PreliminaryView({ result, onSubmitEmail, onTrackEvent }:
       <div className="flex flex-col lg:flex-row gap-8 items-start mb-10">
         
         {/* Left Column: The Diagnostic Card */}
-        <section className="flex-1 lg:flex-[1.4] bg-white rounded-3xl shadow-xl border border-white/50 p-6 sm:p-8 space-y-6 relative overflow-hidden">
-          <div className="flex items-center justify-between border-b border-slate-100 pb-4">
+        <section className="flex-1 lg:flex-[1.4] bg-gradient-to-b from-white via-slate-50/90 to-sky-50/40 rounded-3xl shadow-2xl border border-sky-100/90 p-6 sm:p-8 space-y-6 relative overflow-hidden backdrop-blur-xl">
+          <div className="flex items-center justify-between border-b border-slate-200/80 pb-4">
             <div>
-              <span className="text-[10px] font-mono font-bold text-sky-600 uppercase tracking-widest block">ON-DEVICE SIMULATION DIAGNOSTIC</span>
+              <span className="text-[10px] font-mono font-extrabold text-sky-600 uppercase tracking-widest block">ON-DEVICE SIMULATION DIAGNOSTIC</span>
               <h2 className="text-2xl sm:text-3xl font-display font-extrabold leading-tight text-brand-navy mt-0.5">
                 Your Simulated Driver <span className="text-brand-primary">Awareness Score</span>
               </h2>
             </div>
-            <span className="px-3 py-1 bg-sky-50 text-sky-700 text-[10px] font-extrabold rounded-full uppercase tracking-widest border border-sky-100 shrink-0">
+            <span className="px-3 py-1 bg-sky-100/80 text-sky-800 text-[10px] font-extrabold rounded-full uppercase tracking-widest border border-sky-200 shrink-0 shadow-2xs">
               Real-time Calculation
             </span>
           </div>
 
-          <p className="text-slate-500 text-sm">
+          <p className="text-slate-600 text-sm leading-relaxed">
             Derived from your commuting frequency, cognitive splitting inputs, and environmental habit profile.
           </p>
           
-          <div className="flex flex-col sm:flex-row items-center sm:items-center gap-6 bg-slate-50/70 p-5 rounded-2xl border border-slate-100">
-            <div className="shrink-0">
+          <div className="flex flex-col sm:flex-row items-center sm:items-center gap-6 bg-gradient-to-r from-sky-50/90 via-blue-50/50 to-indigo-50/50 p-5 rounded-2xl border border-sky-200/80 shadow-xs">
+            <div className="shrink-0 drop-shadow-md">
               <Gauge score={result.score} size={180} />
             </div>
             <div className="text-center sm:text-left space-y-2">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-emerald-50 text-emerald-700 rounded-full border border-emerald-200/60">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-emerald-100/80 text-emerald-800 rounded-full border border-emerald-300/80 shadow-2xs">
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-700" />
                 <span className="font-extrabold uppercase text-[10px] tracking-wider">{result.tierName}</span>
               </div>
               <p className="text-lg font-extrabold text-brand-navy">{result.riskProfile}</p>
@@ -198,60 +202,60 @@ export default function PreliminaryView({ result, onSubmitEmail, onTrackEvent }:
           </div>
 
           {/* Key Behavioral Factor Badges */}
-          <div className="space-y-2">
+          <div className="space-y-2.5">
             <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Behavioral Factor Mapping</p>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-              <div className="p-2.5 bg-slate-50 rounded-xl border border-slate-100 text-center">
-                <span className="text-[10px] text-slate-400 block font-semibold">Attentional Stability</span>
-                <span className="text-xs font-bold text-slate-900">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+              <div className="p-3 bg-white rounded-2xl border border-slate-200/80 hover:border-sky-300 shadow-2xs transition-all text-center group">
+                <span className="text-[10px] text-slate-400 block font-bold uppercase mb-0.5">Attentional Stability</span>
+                <span className="text-sm font-extrabold text-brand-navy">
                   {result.attentionStability === 'EXCELLENT' ? '92%' : result.attentionStability === 'GOOD' ? '82%' : '65%'}
                 </span>
               </div>
-              <div className="p-2.5 bg-slate-50 rounded-xl border border-slate-100 text-center">
-                <span className="text-[10px] text-slate-400 block font-semibold">Fatigue Resilience</span>
-                <span className="text-xs font-bold text-slate-900">
+              <div className="p-3 bg-white rounded-2xl border border-slate-200/80 hover:border-sky-300 shadow-2xs transition-all text-center group">
+                <span className="text-[10px] text-slate-400 block font-bold uppercase mb-0.5">Fatigue Resilience</span>
+                <span className="text-sm font-extrabold text-brand-navy">
                   {result.fatigueRisk === 'LOW' ? '90%' : result.fatigueRisk === 'MODERATE' ? '76%' : '58%'}
                 </span>
               </div>
-              <div className="p-2.5 bg-slate-50 rounded-xl border border-slate-100 text-center">
-                <span className="text-[10px] text-slate-400 block font-semibold">Env Adaptation</span>
-                <span className="text-xs font-bold text-slate-900">
+              <div className="p-3 bg-white rounded-2xl border border-slate-200/80 hover:border-sky-300 shadow-2xs transition-all text-center group">
+                <span className="text-[10px] text-slate-400 block font-bold uppercase mb-0.5">Env Adaptation</span>
+                <span className="text-sm font-extrabold text-brand-navy">
                   {result.environmentalComplexity === 'HIGH' ? '88%' : '78%'}
                 </span>
               </div>
-              <div className="p-2.5 bg-slate-50 rounded-xl border border-slate-100 text-center">
-                <span className="text-[10px] text-slate-400 block font-semibold">Privacy Index</span>
-                <span className="text-xs font-bold text-emerald-600">100% Local</span>
+              <div className="p-3 bg-white rounded-2xl border border-slate-200/80 hover:border-emerald-300 shadow-2xs transition-all text-center group">
+                <span className="text-[10px] text-slate-400 block font-bold uppercase mb-0.5">Privacy Index</span>
+                <span className="text-sm font-extrabold text-emerald-600">100% Local</span>
               </div>
             </div>
           </div>
 
           {/* Regional Commuter Insight Callout */}
-          <div className="p-4 bg-sky-50/80 border border-sky-200/70 rounded-2xl text-xs text-slate-700 leading-relaxed space-y-1">
-            <span className="text-[10px] font-mono font-bold uppercase text-sky-800 tracking-wider block">🔬 CANADIAN ROADWAYS PROFILE ANALYSIS</span>
-            <p className="text-slate-600">
+          <div className="p-4 bg-gradient-to-r from-sky-50 via-blue-50/70 to-indigo-50/70 border border-sky-200/80 rounded-2xl text-xs text-slate-700 leading-relaxed space-y-1 shadow-xs">
+            <span className="text-[10px] font-mono font-extrabold uppercase text-sky-900 tracking-wider block">🔬 CANADIAN ROADWAYS PROFILE ANALYSIS</span>
+            <p className="text-slate-700 font-medium">
               Your profile demonstrates strong alignment for high-density 400-series highway commuting without relying on insurance OBD-II hardware tracking.
             </p>
           </div>
 
           {/* Progress Bars */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 border-t border-slate-100 pt-4">
-            <div className="bg-slate-50 p-3.5 rounded-2xl border border-slate-150">
-              <div className="flex justify-between items-center mb-1">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 border-t border-slate-200/80 pt-4">
+            <div className="bg-white p-3.5 rounded-2xl border border-slate-200/80 shadow-2xs">
+              <div className="flex justify-between items-center mb-1.5">
                 <p className="text-[10px] font-bold text-slate-400 uppercase">Profile Alignment</p>
                 <span className="text-[10px] font-extrabold text-sky-700">Privacy First</span>
               </div>
-              <div className="w-full h-1.5 bg-slate-200 rounded-full overflow-hidden">
-                <div className="h-full bg-brand-primary rounded-full" style={{ width: result.privacyAlignment === 'Excellent' ? '95%' : '80%' }}></div>
+              <div className="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
+                <div className="h-full bg-gradient-to-r from-sky-500 to-blue-600 rounded-full" style={{ width: result.privacyAlignment === 'Excellent' ? '95%' : '80%' }}></div>
               </div>
             </div>
-            <div className="bg-slate-50 p-3.5 rounded-2xl border border-slate-150">
-              <div className="flex justify-between items-center mb-1">
+            <div className="bg-white p-3.5 rounded-2xl border border-slate-200/80 shadow-2xs">
+              <div className="flex justify-between items-center mb-1.5">
                 <p className="text-[10px] font-bold text-slate-400 uppercase">Commute Complexity</p>
                 <span className="text-[10px] font-extrabold text-sky-700">Canadian Focus</span>
               </div>
-              <div className="w-full h-1.5 bg-slate-200 rounded-full overflow-hidden">
-                <div className="h-full bg-brand-primary rounded-full" style={{ width: result.score >= 86 ? '90%' : result.score >= 72 ? '70%' : '50%' }}></div>
+              <div className="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
+                <div className="h-full bg-gradient-to-r from-sky-500 to-blue-600 rounded-full" style={{ width: result.score >= 86 ? '90%' : result.score >= 72 ? '70%' : '50%' }}></div>
               </div>
             </div>
           </div>
@@ -261,10 +265,10 @@ export default function PreliminaryView({ result, onSubmitEmail, onTrackEvent }:
         <section className="flex-1 flex flex-col space-y-6 w-full lg:w-auto">
           
           {/* Email Capture Card */}
-          <div className="bg-brand-navy text-white p-6 sm:p-8 rounded-3xl shadow-2xl flex flex-col justify-between border border-sky-900/60 relative overflow-hidden">
+          <div className="bg-brand-navy text-white p-6 sm:p-8 rounded-3xl shadow-2xl flex flex-col justify-between border border-sky-900/80 relative overflow-hidden">
             <div>
               {/* Dynamic Priority Slot Allocation Badge */}
-              <div className="flex items-center justify-between bg-white/5 border border-white/10 rounded-xl px-3.5 py-2 mb-5 text-[10px] font-mono tracking-wider font-bold text-[#38bdf8]" id="cohort_slot_banner">
+              <div className="flex items-center justify-between bg-white/10 border border-white/15 rounded-xl px-3.5 py-2 mb-5 text-[10px] font-mono tracking-wider font-bold text-[#38bdf8]" id="cohort_slot_banner">
                 <div className="flex items-center gap-2">
                   <span className="relative flex h-2 w-2">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -280,7 +284,7 @@ export default function PreliminaryView({ result, onSubmitEmail, onTrackEvent }:
                 Unlock your full simulated driver awareness report, custom attention tips, and secure your <strong>Founding Cohort</strong> early-access slot.
               </p>
               
-              {/* Direct Instant Email Form Fallback + Beehiiv Embed */}
+              {/* Single Unified Clean High-Converting Form */}
               <div className="w-full my-2 space-y-3" id="beehiiv_form_wrapper">
                 <form 
                   onSubmit={(e) => {
@@ -291,25 +295,28 @@ export default function PreliminaryView({ result, onSubmitEmail, onTrackEvent }:
                       onSubmitEmail(emailInput.value, 'Driver');
                     }
                   }}
-                  className="flex flex-col sm:flex-row items-stretch gap-2.5"
+                  className="space-y-3"
                 >
-                  <input
-                    type="email"
-                    placeholder="Enter your email address..."
-                    required
-                    className="flex-1 px-4 py-3 bg-white text-slate-900 text-sm rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-orange-400 placeholder:text-slate-400 font-medium"
-                  />
-                  <button
-                    type="submit"
-                    className="px-5 py-3.5 bg-gradient-to-r from-orange-500 via-amber-500 to-orange-500 hover:from-orange-400 hover:to-amber-400 text-slate-950 font-black text-xs sm:text-sm uppercase tracking-wider rounded-xl shadow-[0_0_20px_rgba(249,115,22,0.6)] border border-orange-200 transition-all shrink-0 cursor-pointer flex items-center justify-center gap-1.5"
-                  >
-                    <span>UNLOCK REPORT</span>
-                  </button>
+                  <div className="flex flex-col sm:flex-row items-stretch gap-2.5">
+                    <input
+                      type="email"
+                      placeholder="Enter your email address..."
+                      required
+                      className="flex-1 px-4 py-3.5 bg-white text-slate-900 text-sm rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 font-medium placeholder:text-slate-400 shadow-inner"
+                    />
+                    <button
+                      type="submit"
+                      className="px-5 py-3.5 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-300 hover:to-yellow-300 text-slate-950 font-black text-xs sm:text-sm uppercase tracking-wider rounded-xl shadow-[0_0_20px_rgba(250,204,21,0.6)] border border-yellow-200 transition-all shrink-0 cursor-pointer flex items-center justify-center gap-1.5"
+                    >
+                      <span>UNLOCK REPORT</span>
+                    </button>
+                  </div>
                 </form>
 
+                {/* Keep Beehiiv iframe hidden to prevent duplicate stacked form inputs */}
                 <div 
                   ref={embedRef} 
-                  className="w-full min-h-[0px] bg-transparent overflow-hidden rounded-xl"
+                  className="hidden"
                   id="beehiiv_embed_container"
                 />
 
@@ -326,21 +333,36 @@ export default function PreliminaryView({ result, onSubmitEmail, onTrackEvent }:
             </div>
           </div>
 
-          {/* Value Prop Cards (Mini) */}
-          <div className="bg-white rounded-3xl shadow-xl border border-white/50 p-6 sm:p-8 flex flex-col justify-center space-y-4">
-            <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Why validation matters</p>
-            <div className="space-y-4">
-              <div className="flex items-center space-x-4">
-                <div className="w-8 h-8 bg-sky-50 border border-sky-100 rounded-xl shadow-xs flex items-center justify-center text-brand-primary font-bold shrink-0">01</div>
-                <p className="text-xs font-semibold text-slate-700">Prioritize Canadian rollout needs</p>
+          {/* Visually Appealing Value Prop Card */}
+          <div className="bg-gradient-to-br from-white via-slate-50/90 to-sky-50/60 rounded-3xl shadow-xl border border-sky-100/90 p-6 sm:p-8 space-y-5 relative overflow-hidden">
+            <div className="flex items-center gap-2 border-b border-slate-200/80 pb-3">
+              <ShieldCheck className="w-4 h-4 text-brand-primary stroke-[2.5]" />
+              <span className="text-xs font-black text-slate-800 uppercase tracking-widest">Why Validation Matters</span>
+            </div>
+            
+            <div className="space-y-3.5">
+              <div className="flex items-start space-x-3.5 p-2.5 rounded-2xl hover:bg-white/90 transition-all border border-transparent hover:border-sky-100 group">
+                <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-sky-500 to-blue-600 text-white font-black text-xs flex items-center justify-center shrink-0 shadow-md shadow-sky-500/20">01</div>
+                <div>
+                  <p className="text-xs font-extrabold text-slate-900">Prioritize Canadian Rollout Needs</p>
+                  <p className="text-[11px] text-slate-500 leading-relaxed mt-0.5">Validating 400-series highway commuter conditions & regional driving habits.</p>
+                </div>
               </div>
-              <div className="flex items-center space-x-4">
-                <div className="w-8 h-8 bg-sky-50 border border-sky-100 rounded-xl shadow-xs flex items-center justify-center text-brand-primary font-bold shrink-0">02</div>
-                <p className="text-xs font-semibold text-slate-700">Understand Attention Readiness needs</p>
+
+              <div className="flex items-start space-x-3.5 p-2.5 rounded-2xl hover:bg-white/90 transition-all border border-transparent hover:border-sky-100 group">
+                <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-cyan-500 to-teal-600 text-white font-black text-xs flex items-center justify-center shrink-0 shadow-md shadow-cyan-500/20">02</div>
+                <div>
+                  <p className="text-xs font-extrabold text-slate-900">Understand Attention Readiness</p>
+                  <p className="text-[11px] text-slate-500 leading-relaxed mt-0.5">Mapping sensory overload and fatigue spikes during peak commuting hours.</p>
+                </div>
               </div>
-              <div className="flex items-center space-x-4">
-                <div className="w-8 h-8 bg-sky-50 border border-sky-100 rounded-xl shadow-xs flex items-center justify-center text-brand-primary font-bold shrink-0">03</div>
-                <p className="text-xs font-semibold text-slate-700">Validate privacy-first alternatives</p>
+
+              <div className="flex items-start space-x-3.5 p-2.5 rounded-2xl hover:bg-white/90 transition-all border border-transparent hover:border-sky-100 group">
+                <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 text-white font-black text-xs flex items-center justify-center shrink-0 shadow-md shadow-emerald-500/20">03</div>
+                <div>
+                  <p className="text-xs font-extrabold text-slate-900">Validate Privacy-First Alternatives</p>
+                  <p className="text-[11px] text-slate-500 leading-relaxed mt-0.5">Zero insurance OBD-II data tracking. Processing safety metrics 100% locally.</p>
+                </div>
               </div>
             </div>
           </div>

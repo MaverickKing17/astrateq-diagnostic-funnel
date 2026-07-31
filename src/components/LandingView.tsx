@@ -110,9 +110,26 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
             <div className="lg:col-span-7 text-left space-y-6">
               
               {/* Research Badge */}
-              <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-gradient-to-r from-cyan-950/90 via-sky-900/95 to-cyan-950/90 border-2 border-cyan-300 text-cyan-300 text-xs font-mono font-black uppercase tracking-wider shadow-[0_0_20px_rgba(34,211,238,0.5)] backdrop-blur-md">
-                <ShieldCheck className="w-4 h-4 text-cyan-300 shrink-0 stroke-[2.5] drop-shadow-[0_0_8px_rgba(34,211,238,0.9)]" />
-                <span>CANADIAN DRIVER RESEARCH INITIATIVE</span>
+              <div className="inline-flex items-center gap-2.5 p-1.5 pr-4 rounded-full bg-slate-900/95 border-2 border-yellow-400/80 hover:border-yellow-300 shadow-[0_0_25px_rgba(250,204,21,0.45)] backdrop-blur-xl transition-all duration-300 group cursor-default">
+                {/* Left Vibrant Yellow Beacon Tag Pill */}
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-300 text-slate-950 text-[11px] font-black tracking-wider uppercase shrink-0 shadow-[0_0_16px_rgba(250,204,21,0.8)]">
+                  <span className="relative flex h-2.5 w-2.5 items-center justify-center">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-500 opacity-90"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-slate-950"></span>
+                  </span>
+                  <ShieldCheck className="w-3.5 h-3.5 text-slate-950 stroke-[3]" />
+                  <span>RESEARCH</span>
+                </div>
+
+                {/* Main High-Contrast Label */}
+                <span className="text-xs sm:text-sm font-extrabold text-white tracking-wide drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)]">
+                  Canadian Driver Research Initiative
+                </span>
+
+                {/* Country Flag Tag */}
+                <span className="text-[10px] font-mono font-black text-amber-200 bg-amber-950/80 px-2 py-0.5 rounded-full border border-amber-400/50 hidden sm:inline-block shadow-xs">
+                  🇨🇦 CA
+                </span>
               </div>
 
               {/* Redesigned Headline */}
@@ -278,13 +295,18 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
         <div className="max-w-4xl mx-auto space-y-8 text-center relative z-10">
           
           <div className="space-y-4 max-w-2xl mx-auto">
-            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-gradient-to-r from-cyan-950 via-sky-900 to-cyan-950 border-2 border-cyan-300 text-cyan-200 text-xs sm:text-sm font-mono font-black tracking-widest uppercase shadow-[0_0_28px_rgba(34,211,238,0.7)] backdrop-blur-md">
-              <div className="relative flex h-3 w-3 items-center justify-center shrink-0">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-300 opacity-90"></span>
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-300 shadow-[0_0_12px_#22d3ee]"></span>
+            <div className="inline-flex items-center gap-2.5 p-1.5 pr-4 rounded-full bg-slate-900/95 border-2 border-yellow-400/80 hover:border-yellow-300 shadow-[0_0_25px_rgba(250,204,21,0.45)] backdrop-blur-xl transition-all duration-300 group cursor-default">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-300 text-slate-950 text-[11px] font-black tracking-wider uppercase shrink-0 shadow-[0_0_16px_rgba(250,204,21,0.8)]">
+                <span className="relative flex h-2.5 w-2.5 items-center justify-center">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-500 opacity-90"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-slate-950"></span>
+                </span>
+                <ShieldCheck className="w-3.5 h-3.5 text-slate-950 stroke-[3]" />
+                <span>INTERACTIVE PROTOTYPE</span>
               </div>
-              <ShieldCheck className="w-4 h-4 text-cyan-300 shrink-0 stroke-[2.5] drop-shadow-[0_0_8px_rgba(34,211,238,0.9)]" />
-              <span className="drop-shadow-[0_0_8px_rgba(34,211,238,0.6)]">INTERACTIVE SIMULATOR PROTOTYPE</span>
+              <span className="text-xs sm:text-sm font-extrabold text-white tracking-wide drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)]">
+                Start Driver Awareness Simulation
+              </span>
             </div>
             
             <h2 className="font-sans font-extrabold text-2xl sm:text-4xl text-white tracking-tight">
