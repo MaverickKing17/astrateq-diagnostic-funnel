@@ -297,18 +297,18 @@ export default function PreliminaryView({ result, onSubmitEmail, onTrackEvent }:
                   }}
                   className="space-y-3"
                 >
-                  <div className="flex flex-col sm:flex-row items-stretch gap-2.5">
+                  <div className="flex flex-col gap-3 w-full">
                     <input
                       type="email"
                       placeholder="Enter your email address..."
                       required
-                      className="flex-1 px-4 py-3.5 bg-white text-slate-900 text-sm rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 font-medium placeholder:text-slate-400 shadow-inner"
+                      className="w-full px-4 py-3.5 bg-white text-slate-900 text-sm rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 font-semibold placeholder:text-slate-400 shadow-inner"
                     />
                     <button
                       type="submit"
-                      className="px-5 py-3.5 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-300 hover:to-yellow-300 text-slate-950 font-black text-xs sm:text-sm uppercase tracking-wider rounded-xl shadow-[0_0_20px_rgba(250,204,21,0.6)] border border-yellow-200 transition-all shrink-0 cursor-pointer flex items-center justify-center gap-1.5"
+                      className="w-full py-3.5 px-5 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-300 hover:to-yellow-300 text-slate-950 font-black text-sm uppercase tracking-wider rounded-xl shadow-[0_0_22px_rgba(250,204,21,0.7)] border border-yellow-200 transition-all cursor-pointer flex items-center justify-center gap-2 hover:scale-[1.01] active:scale-[0.99]"
                     >
-                      <span>UNLOCK REPORT</span>
+                      <span>UNLOCK REPORT & RESERVE SLOT</span>
                     </button>
                   </div>
                 </form>
