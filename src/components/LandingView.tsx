@@ -333,7 +333,7 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
       {/* ==========================================
           SECTION 3: EXPLORING DIFFERENT APPROACHES
          ========================================== */}
-      <section className="py-20 px-4 sm:px-6 bg-slate-950 text-white border-b border-slate-800 relative overflow-hidden">
+      <section className="py-20 px-4 sm:px-6 bg-[#071322] text-white border-b border-slate-800/80 relative overflow-hidden">
         
         {/* Subtle Ambient Background Lighting */}
         <div className="absolute top-1/3 left-10 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -408,19 +408,19 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
 
               <ul className="space-y-4 text-sm text-slate-200">
                 <li className="flex items-start gap-3 bg-slate-950/60 p-3.5 rounded-xl border border-slate-800">
-                  <Check className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5 stroke-[3]" />
+                  <ShieldCheck className="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" />
                   <span><strong className="text-white block mb-0.5">No Cabin Cameras</strong> Evaluates cognitive load and focus habits through simulated interactive prompts without video feeds.</span>
                 </li>
                 <li className="flex items-start gap-3 bg-slate-950/60 p-3.5 rounded-xl border border-slate-800">
-                  <Check className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5 stroke-[3]" />
+                  <Lock className="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" />
                   <span><strong className="text-white block mb-0.5">Zero GPS Logging</strong> Operates completely independent of location tracking or route logging.</span>
                 </li>
                 <li className="flex items-start gap-3 bg-slate-950/60 p-3.5 rounded-xl border border-slate-800">
-                  <Check className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5 stroke-[3]" />
+                  <Cpu className="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" />
                   <span><strong className="text-white block mb-0.5">100% On-Device Computation</strong> Every calculation runs strictly inside your local browser session.</span>
                 </li>
                 <li className="flex items-start gap-3 bg-slate-950/60 p-3.5 rounded-xl border border-slate-800">
-                  <UserCheck className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5 stroke-[3]" />
+                  <UserCheck className="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" />
                   <span><strong className="text-white block mb-0.5">Private Driver Ownership</strong> Your results belong strictly to you and are never monetized or sold.</span>
                 </li>
               </ul>
@@ -741,78 +741,105 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
       </section>
 
       {/* ==========================================
-          SECTION 6: WHAT ASTRATEQ GADGETS IS VALIDATING
+          SECTION 6: WHAT ASTRATEQ GADGETS IS VALIDATING (Asymmetric Split Layout)
          ========================================== */}
-      <section className="py-24 px-4 sm:px-6 bg-slate-950 text-white border-b border-slate-800 relative overflow-hidden">
+      <section className="py-24 px-4 sm:px-6 bg-[#040c17] text-white border-b border-slate-800/80 relative overflow-hidden">
         
         {/* Subtle Ambient Glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[500px] h-[300px] bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="max-w-5xl mx-auto space-y-12 relative z-10">
-          
-          <div className="text-center space-y-4 max-w-3xl mx-auto">
-            <span className="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-cyan-300 uppercase bg-cyan-950/90 px-4 py-1.5 rounded-full border border-cyan-400/30">
-              CURRENT VALIDATION PHASE
-            </span>
-            <h2 className="font-sans font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight">
-              What Astrateq Gadgets Is Validating
-            </h2>
-            <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
-              We are carefully researching whether a new category of privacy-first driver awareness technology should exist. Here is our active research stage:
-            </p>
-          </div>
-
-          {/* Research Stage Indicator Box */}
-          <div className="p-6 sm:p-8 rounded-3xl bg-slate-900/90 border-2 border-cyan-400/40 shadow-[0_25px_70px_rgba(0,0,0,0.85)] space-y-6 text-left max-w-3xl mx-auto relative overflow-hidden backdrop-blur-md">
+        <div className="max-w-6xl mx-auto relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             
-            {/* Top accent line */}
-            <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-cyan-400 via-sky-400 to-emerald-400" />
-
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-slate-800 pb-5">
-              <div>
-                <span className="text-[11px] font-mono font-extrabold uppercase text-cyan-300 tracking-wider block">CURRENT VALIDATION PHASE</span>
-                <h3 className="font-sans font-extrabold text-2xl sm:text-3xl text-white">Phase 1: Concept Validation</h3>
-              </div>
-              <span className="inline-flex items-center gap-2 text-xs font-mono font-bold text-emerald-300 bg-emerald-950/90 px-3.5 py-1.5 rounded-full border border-emerald-400/40 shadow-sm">
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                <span>Active Research Phase</span>
+            {/* Left Column: Heading & Context */}
+            <div className="lg:col-span-5 space-y-5 text-left">
+              <span className="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-cyan-300 uppercase bg-cyan-950/90 px-4 py-1.5 rounded-full border border-cyan-400/30">
+                CURRENT VALIDATION PHASE
               </span>
-            </div>
-
-            <div className="space-y-4">
-              <span className="text-xs font-mono font-bold uppercase text-slate-300 block">
-                Research Goal: Understand Canadian driver expectations around privacy-first awareness technology
-              </span>
+              <h2 className="font-sans font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-tight">
+                What Astrateq Gadgets Is Validating
+              </h2>
+              <p className="text-base text-slate-300 leading-relaxed font-normal">
+                We are carefully researching whether a new category of privacy-first driver awareness technology should exist. Phase 1 focuses on concept validation with active Canadian driver input.
+              </p>
               
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 text-sm text-slate-100 font-bold">
-                <div className="flex items-center gap-3 p-4 bg-slate-950/90 rounded-2xl border border-slate-800 hover:border-cyan-400/60 transition-colors shadow-xs">
-                  <Check className="w-5 h-5 text-emerald-400 shrink-0 stroke-[3]" />
-                  <span>Driver awareness patterns</span>
-                </div>
-                <div className="flex items-center gap-3 p-4 bg-slate-950/90 rounded-2xl border border-slate-800 hover:border-cyan-400/60 transition-colors shadow-xs">
-                  <Check className="w-5 h-5 text-emerald-400 shrink-0 stroke-[3]" />
-                  <span>Privacy expectations</span>
-                </div>
-                <div className="flex items-center gap-3 p-4 bg-slate-950/90 rounded-2xl border border-slate-800 hover:border-cyan-400/60 transition-colors shadow-xs">
-                  <Check className="w-5 h-5 text-emerald-400 shrink-0 stroke-[3]" />
-                  <span>Feature priorities</span>
-                </div>
-                <div className="flex items-center gap-3 p-4 bg-slate-950/90 rounded-2xl border border-slate-800 hover:border-cyan-400/60 transition-colors shadow-xs">
-                  <Check className="w-5 h-5 text-emerald-400 shrink-0 stroke-[3]" />
-                  <span>Market interest</span>
-                </div>
+              <div className="pt-2">
+                <span className="inline-flex items-center gap-2 text-xs font-mono font-bold text-emerald-300 bg-emerald-950/90 px-4 py-2 rounded-xl border border-emerald-400/40 shadow-sm">
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                  <span>Active Research Phase (Phase 1)</span>
+                </span>
               </div>
             </div>
-          </div>
 
+            {/* Right Column: 4 Horizontal Research Parameter Cards */}
+            <div className="lg:col-span-7 space-y-3.5 text-left">
+              <span className="text-xs font-mono font-bold uppercase text-slate-400 tracking-wider block mb-1">
+                Research Goal: Measure Canadian driver expectations &amp; priorities
+              </span>
+
+              <div className="p-4 rounded-2xl bg-slate-900/90 border border-slate-800 border-l-4 border-l-cyan-400 hover:border-cyan-400/60 transition-colors flex items-center justify-between gap-4 shadow-sm">
+                <div className="flex items-center gap-3.5">
+                  <div className="w-9 h-9 rounded-xl bg-cyan-950 text-cyan-300 flex items-center justify-center font-bold shrink-0">
+                    <Sliders className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-sm text-white">Driver Awareness Patterns</h4>
+                    <p className="text-xs text-slate-400">Evaluating commute fatigue windows and attentional load profiles.</p>
+                  </div>
+                </div>
+                <Check className="w-5 h-5 text-cyan-400 shrink-0 stroke-[2.5]" />
+              </div>
+
+              <div className="p-4 rounded-2xl bg-slate-900/90 border border-slate-800 border-l-4 border-l-sky-400 hover:border-sky-400/60 transition-colors flex items-center justify-between gap-4 shadow-sm">
+                <div className="flex items-center gap-3.5">
+                  <div className="w-9 h-9 rounded-xl bg-sky-950 text-sky-300 flex items-center justify-center font-bold shrink-0">
+                    <Lock className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-sm text-white">Privacy Expectations</h4>
+                    <p className="text-xs text-slate-400">Verifying demand for 100% on-device, telemetry-free calculations.</p>
+                  </div>
+                </div>
+                <Check className="w-5 h-5 text-sky-400 shrink-0 stroke-[2.5]" />
+              </div>
+
+              <div className="p-4 rounded-2xl bg-slate-900/90 border border-slate-800 border-l-4 border-l-indigo-400 hover:border-indigo-400/60 transition-colors flex items-center justify-between gap-4 shadow-sm">
+                <div className="flex items-center gap-3.5">
+                  <div className="w-9 h-9 rounded-xl bg-indigo-950 text-indigo-300 flex items-center justify-center font-bold shrink-0">
+                    <Cpu className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-sm text-white">Feature Priorities</h4>
+                    <p className="text-xs text-slate-400">Gathering feedback on non-intrusive awareness indicators &amp; cues.</p>
+                  </div>
+                </div>
+                <Check className="w-5 h-5 text-indigo-400 shrink-0 stroke-[2.5]" />
+              </div>
+
+              <div className="p-4 rounded-2xl bg-slate-900/90 border border-slate-800 border-l-4 border-l-emerald-400 hover:border-emerald-400/60 transition-colors flex items-center justify-between gap-4 shadow-sm">
+                <div className="flex items-center gap-3.5">
+                  <div className="w-9 h-9 rounded-xl bg-emerald-950 text-emerald-300 flex items-center justify-center font-bold shrink-0">
+                    <UserCheck className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-sm text-white">Market Interest</h4>
+                    <p className="text-xs text-slate-400">Gauging founding research cohort participation across Canadian provinces.</p>
+                  </div>
+                </div>
+                <Check className="w-5 h-5 text-emerald-400 shrink-0 stroke-[2.5]" />
+              </div>
+
+            </div>
+
+          </div>
         </div>
       </section>
 
       {/* ==========================================
-          SECTION 7: CANADIAN RESEARCH COHORT
+          SECTION 7: CANADIAN RESEARCH COHORT (Horizontal Stat Row & Narrative)
          ========================================== */}
-      <section className="py-24 px-4 sm:px-6 bg-gradient-to-b from-[#081628] via-[#0a1e35] to-[#081628] text-white border-b border-slate-800">
-        <div className="max-w-5xl mx-auto space-y-12">
+      <section className="py-24 px-4 sm:px-6 bg-gradient-to-r from-[#0a1e35] via-[#081729] to-[#0a1e35] text-white border-b border-slate-800">
+        <div className="max-w-6xl mx-auto space-y-12">
           
           <div className="text-center space-y-4 max-w-3xl mx-auto">
             <span className="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-sky-300 uppercase bg-sky-950 px-4 py-1.5 rounded-full border border-sky-400/30">
@@ -826,38 +853,44 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
             </p>
           </div>
 
-          {/* Research Cohort Credibility Box */}
-          <div className="p-6 sm:p-8 rounded-3xl bg-slate-950/90 border-2 border-slate-800 text-left space-y-5 shadow-2xl">
-            <h3 className="font-sans font-bold text-2xl text-white">How Early Participants Shape Development</h3>
-            <p className="text-sm text-slate-300 leading-relaxed">
+          {/* 4 Key Pillars Horizontal Stat Strip */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+            <div className="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-sky-500/40 transition-colors space-y-1.5 shadow-lg">
+              <div className="text-2xl font-black text-cyan-300 font-mono">100%</div>
+              <div className="text-xs font-bold text-white uppercase tracking-wider">On-Device Engine</div>
+              <p className="text-[11px] text-slate-400">Zero cloud logs or location feeds</p>
+            </div>
+            <div className="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-sky-500/40 transition-colors space-y-1.5 shadow-lg">
+              <div className="text-2xl font-black text-sky-300 font-mono">10+</div>
+              <div className="text-xs font-bold text-white uppercase tracking-wider">Provinces Covered</div>
+              <p className="text-[11px] text-slate-400">Calibrated for Canadian weather</p>
+            </div>
+            <div className="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-sky-500/40 transition-colors space-y-1.5 shadow-lg">
+              <div className="text-2xl font-black text-indigo-300 font-mono">0</div>
+              <div className="text-xs font-bold text-white uppercase tracking-wider">Telemetry Tracking</div>
+              <p className="text-[11px] text-slate-400">No insurance score sharing</p>
+            </div>
+            <div className="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-sky-500/40 transition-colors space-y-1.5 shadow-lg">
+              <div className="text-2xl font-black text-emerald-300 font-mono">60s</div>
+              <div className="text-xs font-bold text-white uppercase tracking-wider">Diagnostic Assessment</div>
+              <p className="text-[11px] text-slate-400">Fast, anonymous evaluation</p>
+            </div>
+          </div>
+
+          {/* Narrative Paragraph */}
+          <div className="p-6 sm:p-8 rounded-2xl bg-slate-950/80 border border-slate-800/90 text-center max-w-3xl mx-auto space-y-3">
+            <h3 className="font-sans font-bold text-xl text-white">How Early Participants Shape Development</h3>
+            <p className="text-sm text-slate-300 leading-relaxed font-normal">
               By completing the simulation, research participants help us calibrate driver awareness algorithms for Canadian weather, highway commuters, and urban congestion.
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 pt-2">
-              <div className="p-3.5 bg-slate-900 rounded-xl border border-slate-800 text-xs text-slate-100 font-semibold flex items-center gap-2.5">
-                <Check className="w-4 h-4 text-cyan-400 shrink-0 stroke-[3]" />
-                <span>Driver concerns</span>
-              </div>
-              <div className="p-3.5 bg-slate-900 rounded-xl border border-slate-800 text-xs text-slate-100 font-semibold flex items-center gap-2.5">
-                <Check className="w-4 h-4 text-cyan-400 shrink-0 stroke-[3]" />
-                <span>Privacy expectations</span>
-              </div>
-              <div className="p-3.5 bg-slate-900 rounded-xl border border-slate-800 text-xs text-slate-100 font-semibold flex items-center gap-2.5">
-                <Check className="w-4 h-4 text-cyan-400 shrink-0 stroke-[3]" />
-                <span>Awareness challenges</span>
-              </div>
-              <div className="p-3.5 bg-slate-900 rounded-xl border border-slate-800 text-xs text-slate-100 font-semibold flex items-center gap-2.5">
-                <Check className="w-4 h-4 text-cyan-400 shrink-0 stroke-[3]" />
-                <span>Future technology priorities</span>
-              </div>
-            </div>
           </div>
 
         </div>
       </section>
 
-      {/* Future Hardware Single Statement Note */}
-      <div className="py-10 bg-slate-950 border-t border-b border-slate-800/80 text-center">
-        <p className="text-xs sm:text-sm text-slate-400 font-mono italic max-w-2xl mx-auto px-4">
+      {/* Future Hardware Single Statement Note (Legibility Improved) */}
+      <div className="py-8 bg-slate-900/90 border-t border-b border-slate-800 text-center shadow-inner">
+        <p className="text-sm sm:text-base text-slate-200 font-sans font-medium max-w-2xl mx-auto px-4 leading-relaxed">
           "We may explore optional hardware concepts in the future — nothing is designed or committed today."
         </p>
       </div>
@@ -955,7 +988,7 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
               className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-orange-500 via-amber-500 to-orange-500 hover:from-orange-400 hover:to-amber-400 text-slate-950 font-black text-base rounded-2xl shadow-[0_0_35px_rgba(249,115,22,0.6)] hover:shadow-[0_0_45px_rgba(249,115,22,0.85)] transition-all cursor-pointer border border-amber-200/60 group"
               id="final_start_simulation_cta"
             >
-              <span className="tracking-wide uppercase">START YOUR SIMULATION</span>
+              <span className="tracking-wide uppercase">Start Driver Awareness Simulation</span>
               <ChevronRight className="w-5 h-5 ml-2 text-slate-950 stroke-[3] transition-transform duration-200 group-hover:translate-x-1" />
             </button>
 
@@ -964,7 +997,7 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
               className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-slate-900 hover:bg-orange-500 text-orange-400 hover:text-slate-950 font-extrabold text-base rounded-2xl border-2 border-orange-500 shadow-[0_0_20px_rgba(249,115,22,0.3)] transition-all cursor-pointer"
               id="final_join_cohort_cta"
             >
-              <span>JOIN RESEARCH COHORT</span>
+              <span className="tracking-wide uppercase">Join Research Cohort</span>
             </button>
           </div>
 
@@ -988,7 +1021,7 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
             className="px-4 py-2 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-400 hover:to-amber-400 text-slate-950 font-black text-xs rounded-xl shadow-[0_0_20px_rgba(249,115,22,0.6)] cursor-pointer flex items-center gap-1 shrink-0 border border-amber-200"
             id="mobile_sticky_cta"
           >
-            <span>START SIMULATION</span>
+            <span className="tracking-wide uppercase">Start Driver Awareness Simulation</span>
             <ChevronRight className="w-3.5 h-3.5 text-slate-950 stroke-[3]" />
           </button>
         </div>

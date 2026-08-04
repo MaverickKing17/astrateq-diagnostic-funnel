@@ -277,7 +277,7 @@ export default function QuizView({ onComplete, onBackToLanding, onTrackEvent }: 
           >
             <span>
               {selectedOptionId 
-                ? (isLastQuestion ? "Calculate My Score" : "Continue Simulation") 
+                ? (isLastQuestion ? "See My Driver Awareness Score" : "Continue Simulation") 
                 : "Select an option to continue"}
             </span>
             <ArrowRight className={`w-4 h-4 stroke-[3] ${selectedOptionId ? 'text-slate-950' : 'text-slate-400'}`} />
