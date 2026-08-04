@@ -227,7 +227,7 @@ export default function LegalModal({ isOpen, activeTab, onTabChange, onClose }: 
                       2. Intellectual Property Rights
                     </h4>
                     <p className="text-xs text-slate-300 leading-relaxed">
-                      All brand assets, software algorithms, conceptual hardware designs (including Astrateq Vision Shield™ and Astrateq Aura Dial™), text, graphic displays, and simulation logic are the exclusive intellectual property of Astrateq Gadgets. Unauthorized copying or redistribution is strictly prohibited.
+                      All brand assets, software algorithms, conceptual designs, text, graphic displays, and simulation logic are the exclusive intellectual property of Astrateq Gadgets. Unauthorized copying or redistribution is strictly prohibited.
                     </p>
                   </div>
 

@@ -91,18 +91,18 @@ export default function CohortReservationView({
   const hardwareOptions = [
     { 
       id: 'software', 
-      title: 'Beta Software OTA (Instant Access)', 
-      desc: '100% software-based ocular tracking via phone camera mount.' 
+      title: 'Direct Web & Mobile Portal Access (Standard)', 
+      desc: '100% software-based assessment via web/mobile browser session.' 
     },
     { 
-      id: 'hardware', 
-      title: 'Pre-Launch Hardware Kit', 
-      desc: 'Dedicated Steering Column Tracker & premium HUD display.' 
+      id: 'beta', 
+      title: 'Beta Testing & Algorithmic Updates', 
+      desc: 'Receive early algorithmic updates and driver focus analytics reports.' 
     },
     { 
-      id: 'bundle', 
-      title: 'Premium Founding-Member Bundle', 
-      desc: 'Dedicated hardware HUD + Lifetime Companion Software license.' 
+      id: 'founding', 
+      title: 'Founding Cohort Feedback Circle', 
+      desc: 'Direct participation in research surveys and priority feature feedback.' 
     },
   ];
 
@@ -642,10 +642,10 @@ export default function CohortReservationView({
                 </div>
                 <div className="mt-2.5">
                   <strong className={`text-sm font-bold block ${referralsCount >= 10 ? 'text-white' : 'text-slate-400'}`}>
-                    Physical Steering-Column HUD Kit
+                    Founding Research Cohort Access
                   </strong>
                   <p className="text-xs text-slate-400 mt-1 leading-normal">
-                    Become a Core Beta Hardware partner. We will ship our dedicated HUD display module that mounts over your steering column cluster.
+                    Become a Founding Research Cohort Partner. Gain early access to on-device software updates and driver awareness insights.
                   </p>
                 </div>
               </div>

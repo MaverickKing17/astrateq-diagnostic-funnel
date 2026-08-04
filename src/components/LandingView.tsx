@@ -31,11 +31,12 @@ import {
   Database,
   BarChart3,
   Sliders,
-  FileCheck
+  FileCheck,
+  Video,
+  Globe,
+  UserCheck
 } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
-import visionShieldInCar from '../assets/images/vision_shield_in_car_1782845622070.jpg';
-import auraDialInCar from '../assets/images/aura_dial_in_car_1782845633915.jpg';
+import { motion } from 'motion/react';
 
 interface LandingViewProps {
   onStartDiagnostic: () => void;
@@ -48,8 +49,6 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
   const [activeFaqIdx, setActiveFaqIdx] = useState<number | null>(0);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [showStickyBar, setShowStickyBar] = useState(false);
-  const [activeConceptModal, setActiveConceptModal] = useState<null | 'vision' | 'aura'>(null);
-  const [conceptFeedbackRecorded, setConceptFeedbackRecorded] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -332,66 +331,66 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
       </section>
 
       {/* ==========================================
-          SECTION 3: THE PROBLEM WITH TODAY'S APPROACH
+          SECTION 3: EXPLORING DIFFERENT APPROACHES
          ========================================== */}
       <section className="py-20 px-4 sm:px-6 bg-slate-950 text-white border-b border-slate-800 relative overflow-hidden">
         
         {/* Subtle Ambient Background Lighting */}
-        <div className="absolute top-1/3 left-10 w-96 h-96 bg-rose-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/3 left-10 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-10 right-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-6xl mx-auto space-y-12 relative z-10">
           
           <div className="text-center space-y-4 max-w-3xl mx-auto">
             <span className="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-sky-300 uppercase bg-sky-950/80 px-4 py-1.5 rounded-full border border-sky-400/30">
-              CATEGORY DIFFERENTIATION
+              PHILOSOPHY & ARCHITECTURE
             </span>
             <h2 className="font-sans font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight">
-              The Problem With Today's Driver Monitoring Approach
+              Exploring Different Approaches to Driver Awareness
             </h2>
             <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
-              Most existing driver monitoring solutions rely on invasive cameras, continuous GPS tracking, and cloud surveillance. Astrateq Gadgets provides a 100% on-device, privacy-first alternative.
+              Comparing cloud-connected telemetry systems with 100% on-device, privacy-first intelligence.
             </p>
           </div>
 
-          {/* Visual Comparison: Traditional vs Privacy-First */}
+          {/* Visual Comparison: Cloud & Camera-Based vs On-Device Privacy-First */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
             
-            {/* Column 1: Traditional Monitoring */}
-            <div className="p-6 sm:p-8 rounded-3xl bg-slate-900/90 border-2 border-rose-500/40 border-t-8 border-t-rose-500 space-y-6 shadow-2xl relative overflow-hidden backdrop-blur-md">
+            {/* Column 1: Cloud & Camera-Based Systems */}
+            <div className="p-6 sm:p-8 rounded-3xl bg-slate-900/90 border-2 border-slate-700/80 border-t-8 border-t-sky-500 space-y-6 shadow-2xl relative overflow-hidden backdrop-blur-md">
               <div className="flex items-center gap-3.5 border-b border-slate-800 pb-5">
-                <div className="w-12 h-12 rounded-2xl bg-rose-950/80 text-rose-400 border border-rose-500/40 flex items-center justify-center font-bold shrink-0 shadow-sm">
-                  <EyeOff className="w-6 h-6 text-rose-400" />
+                <div className="w-12 h-12 rounded-2xl bg-sky-950/80 text-sky-300 border border-sky-500/40 flex items-center justify-center font-bold shrink-0 shadow-sm">
+                  <Video className="w-6 h-6 text-sky-300" />
                 </div>
                 <div>
-                  <h3 className="font-sans font-extrabold text-xl text-white">Traditional Driver Monitoring</h3>
-                  <span className="inline-block mt-1 text-[11px] text-rose-300 font-mono font-bold uppercase bg-rose-950/90 px-2.5 py-0.5 rounded-md border border-rose-500/30">
-                    Surveillance &amp; Cloud Dependent
+                  <h3 className="font-sans font-extrabold text-xl text-white">Cloud &amp; Camera-Based Systems</h3>
+                  <span className="inline-block mt-1 text-[11px] text-sky-300 font-mono font-bold uppercase bg-sky-950/90 px-2.5 py-0.5 rounded-md border border-sky-500/30">
+                    Remote Telemetry &amp; Hardware Focus
                   </span>
                 </div>
               </div>
 
               <ul className="space-y-4 text-sm text-slate-200">
                 <li className="flex items-start gap-3 bg-slate-950/60 p-3.5 rounded-xl border border-slate-800">
-                  <X className="w-5 h-5 text-rose-400 shrink-0 mt-0.5 stroke-[3]" />
-                  <span><strong className="text-white block mb-0.5">Invasive Cameras &amp; Sensors</strong> Requires cabin cameras or eye-tracking lenses pointing at the driver at all times.</span>
+                  <Video className="w-5 h-5 text-sky-400 shrink-0 mt-0.5" />
+                  <span><strong className="text-white block mb-0.5">Cabin Cameras &amp; Sensor Feeds</strong> Relies on optical lenses or infrared cabin sensors monitoring the driver space.</span>
                 </li>
                 <li className="flex items-start gap-3 bg-slate-950/60 p-3.5 rounded-xl border border-slate-800">
-                  <X className="w-5 h-5 text-rose-400 shrink-0 mt-0.5 stroke-[3]" />
-                  <span><strong className="text-white block mb-0.5">Continuous GPS Tracking</strong> Records precise location, trip logs, speed histories, and daily routes continuously.</span>
+                  <MapPin className="w-5 h-5 text-sky-400 shrink-0 mt-0.5" />
+                  <span><strong className="text-white block mb-0.5">Active Telemetry &amp; GPS</strong> Logs location data, trip routes, and vehicle speed histories for cloud processing.</span>
                 </li>
                 <li className="flex items-start gap-3 bg-slate-950/60 p-3.5 rounded-xl border border-slate-800">
-                  <X className="w-5 h-5 text-rose-400 shrink-0 mt-0.5 stroke-[3]" />
-                  <span><strong className="text-white block mb-0.5">Cloud Server Streams</strong> Streams raw driving telemetry directly to remote, third-party cloud databases.</span>
+                  <Globe className="w-5 h-5 text-sky-400 shrink-0 mt-0.5" />
+                  <span><strong className="text-white block mb-0.5">Remote Server Streams</strong> Transmits telemetry streams to central third-party servers.</span>
                 </li>
                 <li className="flex items-start gap-3 bg-slate-950/60 p-3.5 rounded-xl border border-slate-800">
-                  <X className="w-5 h-5 text-rose-400 shrink-0 mt-0.5 stroke-[3]" />
-                  <span><strong className="text-white block mb-0.5">Third-Party Risk Scoring</strong> Shares driving scores with insurance companies or fleet managers.</span>
+                  <Database className="w-5 h-5 text-sky-400 shrink-0 mt-0.5" />
+                  <span><strong className="text-white block mb-0.5">External Risk Scoring</strong> Connects score outputs directly into external fleet or insurance databases.</span>
                 </li>
               </ul>
             </div>
 
-            {/* Column 2: Astrateq Privacy-First Intelligence */}
+            {/* Column 2: On-Device & Privacy-First Intelligence */}
             <div className="p-6 sm:p-8 rounded-3xl bg-slate-900/90 border-2 border-cyan-400/50 border-t-8 border-t-cyan-400 space-y-6 shadow-2xl relative overflow-hidden backdrop-blur-md">
               <div className="absolute top-0 right-0 w-40 h-40 bg-cyan-500/10 rounded-full blur-2xl pointer-events-none" />
               
@@ -400,7 +399,7 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
                   <ShieldCheck className="w-6 h-6 text-cyan-300" />
                 </div>
                 <div>
-                  <h3 className="font-sans font-extrabold text-xl text-white">Astrateq Privacy-First Intelligence</h3>
+                  <h3 className="font-sans font-extrabold text-xl text-white">On-Device &amp; Privacy-First Intelligence</h3>
                   <span className="inline-block mt-1 text-[11px] text-cyan-300 font-mono font-bold uppercase bg-cyan-950/90 px-2.5 py-0.5 rounded-md border border-cyan-400/30">
                     100% On-Device &amp; Telemetry-Free
                   </span>
@@ -421,7 +420,7 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
                   <span><strong className="text-white block mb-0.5">100% On-Device Computation</strong> Every calculation runs strictly inside your local browser session.</span>
                 </li>
                 <li className="flex items-start gap-3 bg-slate-950/60 p-3.5 rounded-xl border border-slate-800">
-                  <Check className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5 stroke-[3]" />
+                  <UserCheck className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5 stroke-[3]" />
                   <span><strong className="text-white block mb-0.5">Private Driver Ownership</strong> Your results belong strictly to you and are never monetized or sold.</span>
                 </li>
               </ul>
@@ -744,7 +743,7 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
       {/* ==========================================
           SECTION 6: WHAT ASTRATEQ GADGETS IS VALIDATING
          ========================================== */}
-      <section className="py-20 px-4 sm:px-6 bg-slate-950 text-white border-b border-slate-800 relative overflow-hidden">
+      <section className="py-24 px-4 sm:px-6 bg-slate-950 text-white border-b border-slate-800 relative overflow-hidden">
         
         {/* Subtle Ambient Glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -810,9 +809,9 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
       </section>
 
       {/* ==========================================
-          SECTION 7: CANADIAN RESEARCH COHORT & ECOSYSTEM
+          SECTION 7: CANADIAN RESEARCH COHORT
          ========================================== */}
-      <section className="py-20 px-4 sm:px-6 bg-slate-900 text-white border-b border-slate-800">
+      <section className="py-24 px-4 sm:px-6 bg-gradient-to-b from-[#081628] via-[#0a1e35] to-[#081628] text-white border-b border-slate-800">
         <div className="max-w-5xl mx-auto space-y-12">
           
           <div className="text-center space-y-4 max-w-3xl mx-auto">
@@ -853,74 +852,15 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
             </div>
           </div>
 
-          {/* Future Ecosystem Roadmap */}
-          <div 
-            className="p-8 sm:p-10 rounded-3xl text-white border-2 border-sky-500/30 text-left space-y-8 bg-[#071524] shadow-2xl"
-          >
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
-              <div>
-                <span className="text-[10px] font-mono text-cyan-300 uppercase font-bold tracking-widest block">ROADMAP PIPELINE</span>
-                <h3 className="font-sans font-extrabold text-2xl text-white">Future Astrateq Gadgets Ecosystem</h3>
-              </div>
-              <span className="text-xs font-mono text-sky-300 bg-sky-950 px-3 py-1 rounded-full border border-sky-500/30">
-                100% Offline Principles
-              </span>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {/* Phase 1 */}
-              <div className="p-6 rounded-2xl bg-slate-900/90 border border-emerald-500/40 space-y-2">
-                <div className="text-[10px] font-mono font-bold text-emerald-400 uppercase">Phase 1 (Active)</div>
-                <div className="font-bold text-base text-white">Software Validation</div>
-                <p className="text-xs text-[#D6E4F0] leading-relaxed opacity-85">
-                  Testing simulated driver awareness models, privacy priorities, and commuter feedback across Canadian provinces.
-                </p>
-              </div>
-
-              {/* Phase 2 */}
-              <div className="p-6 rounded-2xl bg-slate-900/90 border border-cyan-500/30 space-y-2">
-                <div className="text-[10px] font-mono font-bold text-cyan-300 uppercase">Phase 2 (In Research)</div>
-                <div className="font-bold text-base text-white">Privacy-First Vehicle Intelligence</div>
-                <p className="text-xs text-[#D6E4F0] leading-relaxed opacity-85">
-                  Developing on-device, local intelligence software providing non-intrusive focus cues for long drives.
-                </p>
-              </div>
-
-              {/* Phase 3 */}
-              <div className="p-6 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-2">
-                <div className="text-[10px] font-mono font-bold text-amber-400 uppercase">Phase 3 (Future Concepts)</div>
-                <div className="font-bold text-base text-white">Optional Hardware Integrations</div>
-                <p className="text-xs text-[#D6E4F0] leading-relaxed opacity-85">
-                  Exploring hardware accessories like Vision Shield™ HUD and Aura Dial™ ambient console pulses.
-                </p>
-              </div>
-            </div>
-
-            {/* Hardware Accessory Preview Cards */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 pt-4 border-t border-slate-800">
-              <div className="p-5 rounded-2xl bg-slate-900/80 border border-slate-800 flex items-center gap-4 hover:border-cyan-500/40 transition-colors">
-                <img src={visionShieldInCar} alt="Vision Shield" className="w-20 h-20 rounded-xl object-cover shrink-0" referrerPolicy="no-referrer" />
-                <div className="space-y-1">
-                  <div className="font-bold text-sm text-white">Astrateq Vision Shield™ Concept</div>
-                  <p className="text-xs text-slate-400 leading-snug">Visor-mounted optical HUD projecting peripheral focus cues without screen glance down.</p>
-                  <button onClick={() => setActiveConceptModal('vision')} className="text-xs text-cyan-300 font-bold hover:underline cursor-pointer">Explore Concept Spec →</button>
-                </div>
-              </div>
-
-              <div className="p-5 rounded-2xl bg-slate-900/80 border border-slate-800 flex items-center gap-4 hover:border-amber-500/40 transition-colors">
-                <img src={auraDialInCar} alt="Aura Dial" className="w-20 h-20 rounded-xl object-cover shrink-0" referrerPolicy="no-referrer" />
-                <div className="space-y-1">
-                  <div className="font-bold text-sm text-white">Astrateq Aura Dial™ Concept</div>
-                  <p className="text-xs text-slate-400 leading-snug">Tactile console accessory emitting circadian-calibrated ambient light pulses during night commute dips.</p>
-                  <button onClick={() => setActiveConceptModal('aura')} className="text-xs text-amber-400 font-bold hover:underline cursor-pointer">Explore Concept Spec →</button>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
         </div>
       </section>
+
+      {/* Future Hardware Single Statement Note */}
+      <div className="py-10 bg-slate-950 border-t border-b border-slate-800/80 text-center">
+        <p className="text-xs sm:text-sm text-slate-400 font-mono italic max-w-2xl mx-auto px-4">
+          "We may explore optional hardware concepts in the future — nothing is designed or committed today."
+        </p>
+      </div>
 
       {/* ==========================================
           SECTION 8: FREQUENTLY ASKED QUESTIONS
@@ -1067,95 +1007,6 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
           <ArrowUp className="w-5 h-5 text-slate-950 stroke-[2.5]" />
         </motion.button>
       )}
-
-      {/* Concept Specification Research Modal */}
-      <AnimatePresence>
-        {activeConceptModal && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 10 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 10 }}
-              className="relative w-full max-w-2xl bg-[#0a1428] text-white rounded-3xl border border-cyan-500/40 shadow-2xl overflow-hidden p-6 sm:p-8 space-y-6 text-left max-h-[90vh] overflow-y-auto"
-            >
-              <button
-                onClick={() => setActiveConceptModal(null)}
-                className="absolute top-5 right-5 p-2 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors cursor-pointer"
-                aria-label="Close modal"
-              >
-                <X className="w-5 h-5" />
-              </button>
-
-              <div className="relative w-full h-56 rounded-2xl overflow-hidden border border-slate-700 shadow-lg">
-                <img
-                  src={activeConceptModal === 'vision' ? visionShieldInCar : auraDialInCar}
-                  alt={activeConceptModal === 'vision' ? "Astrateq Vision Shield" : "Astrateq Aura Dial"}
-                  className="w-full h-full object-cover"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0a1428] via-transparent to-black/30" />
-                <div className="absolute bottom-4 left-4 bg-slate-950/85 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-white/10 text-xs font-mono font-bold text-[#22D3EE]">
-                  {activeConceptModal === 'vision' ? 'Visor-Mounted HUD Specification' : 'Console Ambient Light Dial Specification'}
-                </div>
-              </div>
-
-              <div className="space-y-3">
-                <span className="text-[10px] font-mono uppercase text-[#22D3EE] font-bold tracking-wider">
-                  CANADIAN RESEARCH CONCEPT BRIEF
-                </span>
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
-                  {activeConceptModal === 'vision' ? 'Astrateq Vision Shield™' : 'Astrateq Aura Dial™'}
-                </h3>
-                <p className="text-sm text-[#D6E4F0] leading-relaxed font-normal opacity-90">
-                  {activeConceptModal === 'vision' 
-                    ? 'A conceptual visor-mounted optical HUD engineered to project subtle, non-distracting awareness indicators directly into the driver peripheral line of sight without requiring screen glance down.'
-                    : 'A conceptual tactile console accessory engineered to emit soft, circadian-calibrated light pulses during late-evening highway commutes to preserve alertness without glare or eye strain.'}
-                </p>
-              </div>
-
-              <div className="p-4 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-2.5 text-xs">
-                <span className="font-mono font-bold text-[#22D3EE] uppercase tracking-wider block">
-                  Core Engineering Principles
-                </span>
-                <ul className="space-y-2 text-[#D6E4F0]">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                    <span><strong>100% Offline Edge Chipset:</strong> Operates entirely offline with zero cloud server communication.</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                    <span><strong>Privacy Protection:</strong> Zero video recording, zero GPS tracking, zero insurance telematics logs.</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                    <span><strong>Canadian Climate Tested:</strong> Calibrated for winter glare, heavy snowfall contrast, and night highway conditions.</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="pt-2 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <div className="text-xs text-slate-400">
-                  Would you be interested in testing this physical prototype in future research phases?
-                </div>
-                {conceptFeedbackRecorded ? (
-                  <div className="px-4 py-2 bg-emerald-950 text-emerald-300 rounded-xl border border-emerald-500/30 text-xs font-bold flex items-center gap-1.5 shrink-0">
-                    <Check className="w-4 h-4 text-emerald-400" />
-                    <span>Interest Noted — Thank You!</span>
-                  </div>
-                ) : (
-                  <button
-                    onClick={() => setConceptFeedbackRecorded(true)}
-                    className="px-4 py-2 bg-gradient-to-r from-cyan-400 to-sky-400 hover:from-cyan-300 hover:to-sky-300 text-slate-950 font-bold rounded-xl text-xs transition-all shrink-0 cursor-pointer shadow-md"
-                  >
-                    Yes, I'd test this prototype
-                  </button>
-                )}
-              </div>
-
-            </motion.div>
-          </div>
-        )}
-      </AnimatePresence>
 
     </div>
   );
