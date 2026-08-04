@@ -342,8 +342,9 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
         <div className="max-w-6xl mx-auto space-y-12 relative z-10">
           
           <div className="text-center space-y-4 max-w-3xl mx-auto">
-            <span className="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-sky-300 uppercase bg-sky-950/80 px-4 py-1.5 rounded-full border border-sky-400/30">
-              PHILOSOPHY & ARCHITECTURE
+            <span className="inline-flex items-center gap-2 px-4.5 py-2 rounded-full bg-[#092542] border-2 border-cyan-400 text-cyan-200 font-mono font-black text-xs tracking-wider uppercase shadow-[0_0_20px_rgba(34,211,238,0.35)]">
+              <Sparkles className="w-4 h-4 text-cyan-300 stroke-[2.5]" />
+              PHILOSOPHY &amp; ARCHITECTURE
             </span>
             <h2 className="font-sans font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight">
               Exploring Different Approaches to Driver Awareness
@@ -442,8 +443,8 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
         <div className="max-w-6xl mx-auto space-y-12 relative z-10">
           
           <div className="text-center space-y-3 max-w-3xl mx-auto">
-            <span className="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-cyan-300 uppercase bg-cyan-950/90 px-4 py-1.5 rounded-full border border-cyan-400/30 shadow-xs">
-              <Sliders className="w-3.5 h-3.5 text-cyan-400" />
+            <span className="inline-flex items-center gap-2.5 px-4.5 py-2 rounded-full bg-[#092542] border-2 border-cyan-400 text-cyan-200 font-mono font-black text-xs tracking-wider uppercase shadow-[0_0_20px_rgba(34,211,238,0.35)]">
+              <Sliders className="w-4 h-4 text-cyan-300 stroke-[2.5]" />
               SIMULATION JOURNEY
             </span>
             <h2 className="font-sans font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight">
@@ -578,8 +579,8 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
           
           {/* Header & Purpose Callout */}
           <div className="text-center space-y-4 max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-950/80 border border-cyan-400/40 text-cyan-300 text-xs font-mono font-bold uppercase tracking-wider shadow-md">
-              <Lock className="w-4 h-4 text-cyan-400 shrink-0" />
+            <div className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-[#092542] border-2 border-cyan-400 text-cyan-200 text-xs font-mono font-black uppercase tracking-wider shadow-[0_0_22px_rgba(34,211,238,0.35)]">
+              <Lock className="w-4 h-4 text-cyan-300 shrink-0 stroke-[2.5]" />
               <span>100% ON-DEVICE PRIVACY &amp; SECURITY GUARANTEE</span>
             </div>
             
@@ -598,8 +599,9 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
           {/* Privacy Architecture Flow Diagram */}
           <div className="bg-slate-900/90 border-2 border-cyan-500/30 rounded-3xl p-6 sm:p-10 shadow-2xl space-y-8 relative backdrop-blur-md">
             
-            <div className="text-center space-y-2 border-b border-slate-800 pb-6">
-              <span className="inline-block text-[11px] font-mono font-bold uppercase tracking-widest text-cyan-400 bg-cyan-950/60 px-3 py-1 rounded-full border border-cyan-400/30">
+            <div className="text-center space-y-2 border-b border-slate-700/80 pb-6">
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#092542] border-2 border-cyan-400 text-cyan-200 font-mono font-black text-xs tracking-wider uppercase shadow-[0_0_20px_rgba(34,211,238,0.35)]">
+                <Cpu className="w-4 h-4 text-cyan-300 stroke-[2.5]" />
                 ARCHITECTURE FLOW
               </span>
               <h3 className="font-sans font-extrabold text-2xl sm:text-3xl text-white">
@@ -753,8 +755,11 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
             
             {/* Left Column: Heading & Context */}
             <div className="lg:col-span-5 space-y-6 text-left">
-              <span className="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-cyan-200 uppercase bg-cyan-950/90 px-4 py-2 rounded-full border border-cyan-400/60 shadow-[0_0_20px_rgba(34,211,238,0.2)]">
-                <span className="w-2 h-2 rounded-full bg-cyan-400"></span>
+              <span className="inline-flex items-center gap-2.5 px-4.5 py-2 rounded-full bg-[#092542] border-2 border-cyan-400 text-cyan-200 font-mono font-black text-xs tracking-wider uppercase shadow-[0_0_22px_rgba(34,211,238,0.35)]">
+                <span className="relative flex h-2.5 w-2.5 shrink-0">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-85"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-300 shadow-[0_0_8px_#22d3ee]"></span>
+                </span>
                 CURRENT VALIDATION PHASE
               </span>
               
@@ -850,7 +855,8 @@ export default function LandingView({ onStartDiagnostic, heroImage, commuteImage
         <div className="max-w-6xl mx-auto space-y-12">
           
           <div className="text-center space-y-4 max-w-3xl mx-auto">
-            <span className="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-sky-200 uppercase bg-sky-950 px-4 py-2 rounded-full border border-sky-400/50 shadow-[0_0_15px_rgba(56,189,248,0.2)]">
+            <span className="inline-flex items-center gap-2.5 px-4.5 py-2 rounded-full bg-[#092542] border-2 border-sky-400 text-sky-200 font-mono font-black text-xs tracking-wider uppercase shadow-[0_0_20px_rgba(56,189,248,0.35)]">
+              <Users className="w-4 h-4 text-sky-300 stroke-[2.5]" />
               CANADIAN DRIVER RESEARCH COHORT
             </span>
             <h2 className="font-sans font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight">
